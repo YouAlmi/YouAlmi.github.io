@@ -29,7 +29,7 @@
         
         #code-input {
             width: 100%;
-            height: 220px;
+            height: 450px;
             background-color: #2d2d2d;
             color: #00ff00;
             border: 1px solid #444;
@@ -75,34 +75,42 @@
 <body>
 
     <div class="pythoncode">
-        <h3>🧠 Machine Mind Sandbox</h3>
-        <p style="color: #ccc; font-size: 0.8rem;">Edit the code and click RUN:</p>
+        <h3>🧠 Machine Mind</h3>
+        <p style="color: #ccc; font-size: 0.8rem;">Run this PYTHON code by clicking RUN CODE:</p>
         
         <textarea id="code-input">
-PRICE = 15
-UNITS = 10
-TOTAL = PRICE * UNITS
+# LESSON 1
 
-print(f"The TOTAL shopping bill is: {TOTAL}")
+INPUT  = 0.60
+TARGET = 3.00   
+          
+WEIGHT = 0.00
+          
+PRODUCT = INPUT * WEIGHT       
+OUTPUT  = PRODUCT
+ERROR   = TARGET - OUTPUT
+          
+WEIGHT_UPDATE = ERROR
+WEIGHT = WEIGHT + WEIGHT_UPDATE         
+
+print(f"WEIGHT: {WEIGHT}")
         </textarea>
         
         <button onclick="runPython()">RUN CODE</button>
         
-        <div id="output-window">Initializing...</div>
+        <div id="output-window">Ready for math!</div>
     </div>
 
     <script>
-        // Function to capture "print" output from Skulpt
         function outf(text) {
             var mypre = document.getElementById("output-window");
             mypre.innerHTML = mypre.innerHTML + text;
         }
 
-        // The core execution function
         function runPython() {
             var code = document.getElementById("code-input").value;
             var mypre = document.getElementById("output-window");
-            mypre.innerHTML = ''; // Clear previous output
+            mypre.innerHTML = ''; 
             
             Sk.pre = "output-window";
             Sk.configure({output:outf});
@@ -117,11 +125,8 @@ print(f"The TOTAL shopping bill is: {TOTAL}")
                 mypre.innerHTML = err.toString();
             });
         }
-
-        // AUTO-RUN when the page finishes loading
-        window.onload = function() {
-            runPython();
-        };
+        
+        // window.onload is removed so it stays silent until clicked!
     </script>
 
 </body>
