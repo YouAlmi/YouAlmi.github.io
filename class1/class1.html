@@ -23,18 +23,18 @@
       --black:      #111111;
       --red:        #c0392b;
       --red-lt:     #fdecea;
-      --orange:      #e8610a;
+      --orange:     #e8610a;
       --orange-lt:  #fff3eb;
-      --gray:        #555555;
+      --gray:       #555555;
       --gray-lt:    #f2f2f2;
-      --border:      #dddddd;
-      --blue:        #1a6fab;
+      --border:     #dddddd;
+      --blue:       #1a6fab;
       --blue-lt:    #e8f3fc;
       --green:      #2d8a4e;
       --green-lt:   #eaf7ee;
-      --bg:          #f7f5f0;
+      --bg:         #f7f5f0;
       --white:      #ffffff;
-      --yellow:      #ffd166;
+      --yellow:     #ffd166;
     }
 
     /* ── RESET ── */
@@ -54,12 +54,10 @@
       padding-bottom: 80px;
     }
 
-    /* ── UTILITY ── */
-    p { margin-bottom: 12px; }
+    p      { margin-bottom: 12px; }
     strong { font-weight: 900; }
-    em { font-style: italic; }
+    em     { font-style: italic; }
 
-    /* ── HEADER ── */
     header {
       background: var(--black);
       color: var(--white);
@@ -144,9 +142,7 @@
       margin-bottom: 10px;
     }
 
-    .formula {
-      color: var(--yellow);
-    }
+    .formula { color: var(--yellow); }
 
     .callout {
       border-radius: 8px;
@@ -158,7 +154,7 @@
 
     .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
     .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
-    .callout-info { background: var(--blue-lt); border-left: 4px solid var(--blue); }
+    .callout-info    { background: var(--blue-lt); border-left: 4px solid var(--blue); }
     .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
 
     .callout-title {
@@ -170,8 +166,8 @@
 
     .callout-neutral .callout-title { color: var(--gray); }
     .callout-success .callout-title { color: var(--green); }
-    .callout-info .callout-title { color: var(--blue); }
-    .callout-warning strong { color: var(--orange); font-weight: 900; }
+    .callout-info    .callout-title { color: var(--blue); }
+    .callout-warning strong          { color: var(--orange); font-weight: 900; }
 
     .result-banner {
       background: var(--black);
@@ -215,11 +211,7 @@
       margin: 4px 0;
     }
 
-    .diagram {
-      text-align: center;
-      margin: 14px 0;
-    }
-
+    .diagram { text-align: center; margin: 14px 0; }
     .diagram img {
       max-width: 100%;
       height: auto;
@@ -229,12 +221,7 @@
       border: 1.5px solid var(--border);
     }
 
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 10px 0;
-    }
-
+    .data-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
     .data-table th {
       background: var(--black);
       color: var(--white);
@@ -244,14 +231,10 @@
       padding: 8px 14px;
       text-align: left;
     }
-
-    .data-table td {
-      padding: 8px 14px;
-      border-bottom: 1px solid var(--border);
-      font-weight: 700;
-    }
-
+    .data-table td { padding: 8px 14px; border-bottom: 1px solid var(--border); font-weight: 700; }
     .data-table tr:last-child td { border-bottom: none; }
+
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 30px 0; }
 
     .teaser {
       background: var(--black);
@@ -263,12 +246,7 @@
       font-weight: 700;
     }
 
-    .teaser-next {
-      color: var(--yellow);
-      font-weight: 900;
-      font-size: 22px;
-      margin: 8px 0;
-    }
+    .teaser-next { color: var(--yellow); font-weight: 900; font-size: 22px; margin: 8px 0; }
 
     .footer {
       display: flex;
@@ -281,28 +259,13 @@
       margin-top: 60px;
     }
 
-    .footer-logo {
-      width: 128px;
-      height: auto;
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
-    }
-
+    .footer-logo { width: 128px; height: auto; opacity: 0.8; transition: opacity 0.3s ease; }
     .footer-logo:hover { opacity: 1; }
-
-    .footer-copyright {
-      color: var(--gray);
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
+    .footer-copyright { color: var(--gray); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; }
 
     @media (max-width: 480px) {
-      .card-body { padding: 14px 16px; }
-      .callout { padding: 14px 16px; }
-      .formula-block { padding: 16px 18px; }
-      .header-title { font-size: 22px; }
+      .card-body      { padding: 14px 16px; }
+      .header-title   { font-size: 22px;    }
     }
   </style>
 </head>
@@ -316,6 +279,7 @@
   </header>
 
   <div class="page">
+
     <div class="section-label">Introduction</div>
     <div class="card">
       <div class="card-body">
@@ -363,7 +327,10 @@
           SAMPLE 1 means when INPUT is <strong>0.60</strong>, the OUTPUT must be <strong>3.00</strong>.<br/>
           SAMPLE 2 means when INPUT is <strong>1.00</strong>, the OUTPUT must be <strong>5.00</strong>.
         </p>
-        <p>When training, at every lesson, we will <strong>update</strong> the PARAMETER (WEIGHT) to improve the mind.</p>
+        <p>
+          When training, at every lesson, we will <strong>update</strong> the PARAMETER (WEIGHT)
+          to improve the mind.
+        </p>
       </div>
     </div>
 
@@ -379,9 +346,10 @@
         <p>Since we have just one PARAMETER, which is WEIGHT, we obtain:</p>
         <div class="formula-block">
           <div class="formula-block-label">Simple Update Rule for WEIGHT</div>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_UPDATE</span><br/>
-          <span class="formula">WEIGHT_UPDATE = ERROR</span>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+          <span class="formula">WEIGHT_update = ERROR</span>
         </div>
+        <p>Don't worry — it's really simple. Just follow the calculations below.</p>
       </div>
     </div>
 
@@ -393,14 +361,14 @@
         <div class="callout callout-neutral">WEIGHT = <strong>0.00</strong></div>
         <p>SAMPLE 1:</p>
         <div class="callout callout-neutral">
-          INPUT &nbsp;&nbsp;&nbsp;= <strong>0.60</strong><br/>
+          INPUT   = <strong>0.60</strong><br/>
           TARGET = <strong>3.00</strong>
         </div>
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = 0.60 × 0.00 = <strong>0.00</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>0.00</strong><br/>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 3.00 − 0.00 = <strong>3.00</strong>
+          OUTPUT  = PRODUCT = <strong>0.00</strong><br/>
+          ERROR   = TARGET − OUTPUT = 3.00 − 0.00 = <strong>3.00</strong>
         </div>
         <div class="diagram">
           <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before update" />
@@ -409,19 +377,25 @@
           <div class="callout-title">Backward Pass — Backpropagation</div>
           <div class="formula-block">
             <div class="formula-block-label">Simple Update Rule for WEIGHT</div>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_UPDATE</span><br/>
-            <span class="formula">WEIGHT_UPDATE = ERROR</span>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+            <span class="formula">WEIGHT_update = ERROR</span>
           </div>
           WEIGHT = <strong>0.00</strong><br/>
           ERROR = <strong>3.00</strong><br/>
-          WEIGHT_UPDATE = ERROR = <strong>3.00</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_UPDATE = 0.00 + 3.00 = <strong>3.00</strong>
+          WEIGHT_update = ERROR = <strong>3.00</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 0.00 + 3.00 = <strong>3.00</strong><br/><br/>
+          Since the ERROR was <strong>3.00</strong>, we adjusted the WEIGHT by exactly <strong>3.00</strong>. So the WEIGHT becomes <strong>3.00</strong>.
         </div>
         <div class="result-banner">WEIGHT = 3.00</div>
         <div class="callout callout-warning">
-          <strong>What just happened?</strong>
-          <p>We have just improved the mind. Now, if the mind receives the same INPUT of 0.60, the OUTPUT becomes 1.80 — which is closer to the TARGET 3.00 than the previous OUTPUT 0.00 was.</p>
+          <strong>What just happened?</strong><br/>
+          <p>We have just improved the mind.</p>
+          <p>Now, if the mind receives the same INPUT of <strong>0.60</strong>, the OUTPUT becomes <strong>1.80</strong> — which is closer to the TARGET <strong>3.00</strong> than the previous OUTPUT <strong>0.00</strong> was.</p>
+          <p>The ERROR becomes smaller:</p>
           <span class="error-chip">ERROR = 1.20</span>
+        </div>
+        <div class="diagram">
+          <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after update" />
         </div>
         <p style="color:var(--gray);">Lesson 1 finishes here.</p>
       </div>
@@ -433,26 +407,45 @@
         <div class="callout callout-neutral">WEIGHT = <strong>3.00</strong></div>
         <p>SAMPLE 2:</p>
         <div class="callout callout-neutral">
-          INPUT &nbsp;&nbsp;&nbsp;= <strong>1.00</strong><br/>
+          INPUT   = <strong>1.00</strong><br/>
           TARGET = <strong>5.00</strong>
         </div>
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = 1.00 × 3.00 = <strong>3.00</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>3.00</strong><br/>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 5.00 − 3.00 = <strong>2.00</strong>
+          OUTPUT  = PRODUCT = <strong>3.00</strong><br/>
+          ERROR   = TARGET − OUTPUT = 5.00 − 3.00 = <strong>2.00</strong>
+        </div>
+        <div class="diagram">
+          <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before update" />
         </div>
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
+          <div class="formula-block">
+            <div class="formula-block-label">Simple Update Rule for WEIGHT</div>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+            <span class="formula">WEIGHT_update = ERROR</span>
+          </div>
           WEIGHT = <strong>3.00</strong><br/>
           ERROR = <strong>2.00</strong><br/>
-          WEIGHT_UPDATE = ERROR = <strong>2.00</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_UPDATE = 3.00 + 2.00 = <strong>5.00</strong>
+          WEIGHT_update = ERROR = <strong>2.00</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 3.00 + 2.00 = <strong>5.00</strong><br/><br/>
+          Since the ERROR was <strong>2.00</strong>, we adjusted the WEIGHT by exactly <strong>2.00</strong>. So the WEIGHT becomes <strong>5.00</strong>.
         </div>
         <div class="result-banner">WEIGHT = 5.00</div>
+        <div class="callout callout-warning">
+          <strong>What just happened?</strong><br/>
+          <p>We have just improved the mind.</p>
+          <p>Now, if the mind receives the same INPUT of <strong>1.00</strong>, the OUTPUT becomes <strong>5.00</strong> — which is closer to the TARGET <strong>5.00</strong> than the previous OUTPUT <strong>3.00</strong> was.</p>
+        </div>
         <div class="success-callout">
-          <p>Wait — it's not just closer. It's exact!<br/>OUTPUT is now 5.00 — exactly the same as TARGET.</p>
-          <span class="error-chip" style="background:#d4edda; color:#155724;">ERROR = 0.00</span>
+          <p>Wait — it's not just closer. It's exact!<br/>
+            OUTPUT is now 5.00 — exactly the same as TARGET.</p>
+          <p>The ERROR becomes zero:</p>
+          <span class="error-chip" style="background:#d4edda; color:#155724;">&nbsp;&nbsp;ERROR = 0.00</span>
+        </div>
+        <div class="diagram">
+          <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after update" />
         </div>
         <p style="color:var(--gray);">Lesson 2 finishes here.</p>
       </div>
@@ -466,20 +459,24 @@
         <div class="callout callout-neutral">WEIGHT = <strong>5.00</strong></div>
         <p>VALIDATION SAMPLE:</p>
         <div class="callout callout-neutral">
-          INPUT &nbsp;&nbsp;&nbsp;= <strong>10.00</strong><br/>
+          INPUT   = <strong>10.00</strong><br/>
           TARGET = <strong>50.00</strong>
         </div>
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = 10.00 × 5.00 = <strong>50.00</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>50.00</strong><br/>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 50.00 − 50.00 = <strong>0.00</strong>
+          OUTPUT  = PRODUCT = <strong>50.00</strong><br/>
+          ERROR   = TARGET − OUTPUT = 50.00 − 50.00 = <strong>0.00</strong>
+        </div>
+        <div class="diagram">
+          <img src="graph_validation.png" alt="Neuron diagram — Validation" />
         </div>
         <div class="callout callout-warning">
           <p>Since ERROR = <strong>0.00</strong>, the mind works perfectly!</p>
           <p>The mind has learned the rule: <strong>multiply any number by 5.00</strong>.</p>
           <p>Now, the mind is able to solve problems it has never seen before.</p>
         </div>
+        <p style="color:var(--gray);">So, our job here is done.</p>
       </div>
     </div>
 
@@ -492,14 +489,13 @@
 
     <div class="teaser">
       <div class="teaser-next">Up Next: Class 2</div>
-      <p>Real‑world datasets often contain negative numbers.<br/>To handle this, we introduce the <strong style="color:var(--yellow);">INFLUENCE</strong> into the <strong style="color:var(--yellow);">UPDATE RULE</strong>.</p>
+      <p>Real‑world datasets often contain negative numbers.<br/>To handle this, we introduce the <strong style="color:var(--yellow);">INFLUENCE</strong> into the <strong style="color:var(--yellow);">UPDATE RULE</strong>.
+      </p>
     </div>
 
     <footer class="footer">
       <img src="../logo.jpg" alt="Machine Intelligence School Logo" class="footer-logo" />
-      <div class="footer-copyright">
-        © 2026 Machine Intelligence School
-      </div>
+      <div class="footer-copyright">© 2026 Machine Intelligence School</div>
     </footer>
   </div>
 </body>
