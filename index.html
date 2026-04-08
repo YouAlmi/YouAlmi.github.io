@@ -10,6 +10,17 @@
 <body>
 
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+
+<!DOCTYPE html>
 <!--
   FILE: index.html — How Machines Learn and Think — Course Landing Page
   © 2026 Machine Intelligence School
@@ -200,9 +211,19 @@
     .prose-list li         { margin-bottom: 8px; font-weight: 700; }
 
     /* ── IMAGE BLOCK ── */
-    .img-block     { text-align: center; margin: 20px 0; }
-    .img-block img { max-width: 100%; height: auto; border-radius: 8px; display: inline-block; }
+/* ── IMAGE BLOCK WITH HORIZONTAL SCROLL ── */
+.img-block {
+  overflow-x: auto;       /* enables horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  margin: 20px 0;
+}
 
+.img-block img {
+  display: block;        /* ensures proper spacing inside scrollable container */
+  border-radius: 8px;
+  height: auto;
+  /* Remove max-width to allow natural width */
+}
     /* ── TABLE SCROLL WRAPPER ──
        Prevents wide tables from breaking the layout on narrow screens.
        Apply to any table that might overflow on mobile.
@@ -395,9 +416,9 @@
     <div class="card">
       <div class="card-body">
 
-        <div class="img-block">
-          <img src="MIS.png" alt="MIS" style="max-width:381px;" />
-        </div>
+       <div class="img-block">
+  <img src="MIS.png" alt="MIS" />
+</div>
 
         <p>Our Machine Intelligence School takes a <strong>first&#8209;principles approach</strong> — focused on building a deeper intuition. No jargon — just clear insights into how modern AI actually works.</p>
 
@@ -842,6 +863,10 @@
 </body>
 </html>
 
+
+
+</body>
+</html>
 
 
 </body>
