@@ -211,20 +211,18 @@
     .prose-list li         { margin-bottom: 8px; font-weight: 700; }
 
     /* ── IMAGE BLOCK ── */
-/* ── IMAGE BLOCK WITH HORIZONTAL SCROLL ── */
-.img-block {
-  overflow-x: auto;               /* horizontal scroll */
-  -webkit-overflow-scrolling: touch; 
-  margin: 20px 0;
-  display: flex;                  /* use flexbox to center content */
-  justify-content: center;        /* centers content horizontally */
-}
+    /* ── IMAGE BLOCK WITH HORIZONTAL SCROLL ── */
+    .img-block {
+      text-align: center;  /* keeps image centered */
+      margin: 20px 0;
+    }
 
-.img-block img {
-  flex-shrink: 0;                 /* prevent image from shrinking */
-  border-radius: 8px;
-  height: auto;
-}
+    .img-block img {
+      max-width: 100%;     /* ensures image never overflows viewport */
+      height: auto;        /* preserves aspect ratio */
+      border-radius: 8px;
+      display: inline-block;
+    }
     /* ── TABLE SCROLL WRAPPER ──
        Prevents wide tables from breaking the layout on narrow screens.
        Apply to any table that might overflow on mobile.
@@ -418,8 +416,8 @@
       <div class="card-body">
 
        <div class="img-block">
-  <img src="MIS.png" alt="MIS" />
-</div>
+         <img src="MIS.png" alt="MIS" />
+       </div>
 
         <p>Our Machine Intelligence School takes a <strong>first&#8209;principles approach</strong> — focused on building a deeper intuition. No jargon — just clear insights into how modern AI actually works.</p>
 
@@ -486,7 +484,7 @@
         <p>We don&rsquo;t just build AI — since it learns on its own, it&rsquo;s more like we are <strong>GROWING</strong> each <strong>AI MODEL</strong>.</p>
 
         <div class="img-block">
-          <img src="wlogo.jpg" alt="wlogo" style="max-width:369px;" />
+          <img src="wlogo.jpg" alt="wlogo"/>
         </div>
 
         <p>How is this possible? In this course, you&rsquo;ll discover the answer.</p>
@@ -503,7 +501,7 @@
         <p>Every mind is, in essence, a <strong>NEURAL NETWORK</strong>.</p>
 
         <div class="img-block">
-          <img src="nn.png" alt="nn" style="max-width:150px;" />
+          <img src="nn.png" alt="nn" />
         </div>
 
         <p>It&rsquo;s called "<strong>NEURAL</strong>" because it&rsquo;s made up of <strong>NEURONS</strong>.</p>
@@ -614,7 +612,7 @@
         <p>An <strong>OUTPUT</strong> from one <strong>NEURON</strong> can become an <strong>INPUT</strong> for another <strong>NEURON</strong> that comes next — connecting the whole team together!</p>
 
         <div class="img-block">
-          <img src="nn.png" alt="nn" style="max-width:150px;" />
+          <img src="nn.png" alt="nn" />
         </div>
 
         <p><strong>Scale: Billions of NEURONS</strong></p>
