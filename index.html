@@ -1,21 +1,53 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
+<!--
+  ================================================================
+  FILE: index.html
+  TITLE: How Machines Learn and Think — Course Landing Page
+  SCHOOL: Machine Intelligence School
+  © 2026 Machine Intelligence School
+  ================================================================
+  PURPOSE:
+    This is the main course landing page. It introduces the course,
+    explains who it is for, walks through the sample class content
+    (Neurons, the Shopping Bill analogy, and the first machine mind),
+    and presents pricing information.
 
-<style id="webmakerstyle">
-
-</style>
-</head>
-<body>
-<!DOCTYPE html>
+  STRUCTURE:
+    1. <head>  — meta tags, Google Fonts, all CSS (variables → components → utilities → responsive)
+    2. <header> — dark top bar with course title
+    3. <div class="page"> — centred column (max-width 760 px) that holds every section
+       • Intro cards
+       • "In More Detail" section
+       • Sample Class: About Minds
+       • Building Blocks of Every Mind
+       • The Math Every Neuron Does (Shopping Bill analogy)
+       • Our Very First Machine Mind
+       • Pricing / CTA
+    4. <footer> — logo + copyright
+  ================================================================
+-->
 <html lang="en">
 
+<!-- ============================================================
+     HEAD — METADATA, FONTS, CSS
+     ============================================================ -->
 <head>
+
+  <!-- Character encoding: always UTF-8 for broad language support -->
   <meta charset="UTF-8" />
+
+  <!-- Responsive viewport: makes the page scale correctly on phones and tablets -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Browser tab / bookmark title -->
   <title>How Machines Learn and Think</title>
 
+  <!--
+    Google Fonts — Nunito
+    Weights loaded: 400 (regular), 700 (bold), 900 (extra-bold / black)
+    We use Nunito throughout for its friendly, highly legible character,
+    which suits an educational audience aged 10+.
+  -->
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap"
     rel="stylesheet"
@@ -23,395 +55,579 @@
 
   <style>
 
-    /* ── CSS VARIABLES ── */
+    /* ============================================================
+       CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+       ============================================================
+       All colours, spacing sizes, and semantic values are defined
+       here so that every component below just references a variable.
+       To change the colour scheme, edit only this block.
+    */
     :root {
-      --black:      #111111;
-      --red:        #c0392b;
-      --red-lt:     #fdecea;
-      --orange:     #e8610a;
-      --orange-lt:  #fff3eb;
-      --gray:       #555555;
-      --gray-lt:    #f2f2f2;
-      --border:     #dddddd;
-      --blue:       #1a6fab;
-      --blue-lt:    #e8f3fc;
-      --green:      #2d8a4e;
-      --green-lt:   #eaf7ee;
-      --bg:          #f7f5f0;
-      --white:      #ffffff;
-      --yellow:     #ffd166;
+      /* Core neutrals */
+      --black:      #111111;   /* primary dark — headers, labels, dark cards */
+      --gray:       #555555;   /* secondary text, borders, muted content */
+      --gray-lt:    #f2f2f2;   /* light-gray callout / table background */
+      --border:     #dddddd;   /* card borders, table lines, dividers */
+      --bg:         #f7f5f0;   /* warm off-white page background */
+      --white:      #ffffff;   /* card surfaces, inverted text on dark */
+
+      /* Accent colours — each used for a semantic purpose */
+      --yellow:     #ffd166;   /* highlight / formula text on dark backgrounds */
+      --green:      #2d8a4e;   /* success, forward-pass callout, section eyebrow */
+      --green-lt:   #eaf7ee;   /* light green callout background */
+      --blue:       #1a6fab;   /* info / backward-pass callout accent */
+      --blue-lt:    #e8f3fc;   /* light blue callout background */
+      --orange:     #e8610a;   /* warning callout accent */
+      --orange-lt:  #fff3eb;   /* light orange callout background */
+      --red:        #c0392b;   /* error / negative value chips */
+      --red-lt:     #fdecea;   /* light red chip background */
     }
 
-    /* ── RESET ── */
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================
+       A minimal reset: box-sizing set globally, margins/padding
+       zeroed, then sensible base typography applied to every element.
+    */
     * {
-      box-sizing: border-box;
-      margin: 0;
+      box-sizing: border-box; /* padding/border are included in element width */
+      margin:  0;
       padding: 0;
       font-family: 'Nunito', sans-serif;
-      font-size: 17px;
-      line-height: 1.75;
+      font-size:   17px;       /* comfortable reading size for all ages */
+      line-height: 1.75;       /* generous line spacing improves readability */
     }
 
-    /* ── BODY ── */
+
+    /* ============================================================
+       BODY
+    */
     body {
-      background: var(--bg);
-      color: var(--black);
-      padding-bottom: 80px;
+      background: var(--bg);    /* warm off-white avoids harsh pure-white glare */
+      color:      var(--black); /* default text colour */
+      padding-bottom: 80px;     /* extra space below footer on short screens */
     }
 
-    p      { margin-bottom: 12px; }
-    strong { font-weight: 900; }
-    em     { font-style: italic; }
+    /* Inline text utilities */
+    p      { margin-bottom: 12px; } /* breathing room between paragraphs */
+    strong { font-weight: 900;    } /* extra-bold for key terms and numbers */
+    em     { font-style: italic;  } /* italics for emphasis */
 
-    /* ──────────────────────────────────────────
-        HEADER
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       HEADER
+       ============================================================
+       Full-width dark bar at the very top of the page.
+       Contains: eyebrow label, main title, subtitle, audience tag.
+    */
     header {
-      background: var(--black);
-      color: var(--yellow);
-      padding: 40px 24px 36px;
-      text-align: center;
+      background:  var(--black);
+      color:       var(--yellow); /* warm yellow on dark = strong contrast + warmth */
+      padding:     40px 24px 36px;
+      text-align:  center;
     }
 
+    /* Small uppercase label above the title — acts as a "category" label */
     .header-eyebrow {
-      color: var(--green);
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      font-size: 15px;
+      color:           var(--green);
+      font-weight:     900;
+      letter-spacing:  0.14em;
+      text-transform:  uppercase;
+      margin-bottom:   10px;
+      font-size:       15px;
     }
 
+    /* Primary H1-equivalent: the course name in large bold text */
     .header-title {
-      font-weight: 900;
-      font-size: 30px;
-      line-height: 1.2;
+      font-weight:  900;
+      font-size:    30px;
+      line-height:  1.2;
       margin-bottom: 8px;
     }
 
+    /* Subtitle — a short descriptive phrase below the main title */
     .header-subtitle {
-      color: #aaaaaa;
+      color:       #aaaaaa; /* muted to create visual hierarchy below the title */
       font-weight: 700;
       margin-bottom: 6px;
     }
 
+    /* Audience indicator — tells the visitor who the course is aimed at */
     .header-audience {
-      color: var(--white);
+      color:       var(--white);
       font-weight: 700;
     }
 
-    /* ──────────────────────────────────────────
-        PAGE WRAPPER
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       PAGE WRAPPER
+       ============================================================
+       A centred column that limits content width for comfortable
+       reading on wide screens, while still allowing full-bleed
+       sections (header, footer) to span the viewport.
+    */
     .page {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 20px;
+      max-width: 760px;  /* optimal reading width for body copy */
+      margin:    0 auto; /* centred horizontally */
+      padding:   0 20px; /* side padding prevents content from touching the screen edge */
     }
 
-    /* ──────────────────────────────────────────
-        SECTION LABEL (black pill)
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       SECTION LABEL
+       ============================================================
+       A small dark pill / badge that titles each content section.
+       Placed immediately above the card(s) it introduces.
+       Example: "🧠 About Minds", "The Building Blocks Of Every Mind"
+    */
     .section-label {
-      display: inline-block;
-      background: var(--black);
-      color: var(--white);
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 7px 18px;
-      border-radius: 4px;
-      margin: 36px 0 18px;
+      display:         inline-block;
+      background:      var(--black);
+      color:           var(--white);
+      font-weight:     900;
+      letter-spacing:  0.1em;
+      text-transform:  uppercase;
+      padding:         7px 18px;
+      border-radius:   4px;
+      margin:          36px 0 18px; /* top margin creates space between sections */
     }
 
-    /* ──────────────────────────────────────────
-        CARD
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       CARD
+       ============================================================
+       The primary content container. White rounded box with a
+       subtle border, used to group related paragraphs, tables,
+       and callouts.
+
+       Variants:
+         .card                   — plain card, body only
+         .card + .card-header    — card with a dark title bar on top
+         .card + .card-body      — card content area
+    */
     .card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
+      background:    var(--white);
+      border:        1.5px solid var(--border);
       border-radius: 10px;
-      margin: 16px 0;
-      overflow: hidden;
+      margin:        16px 0;
+      overflow:      hidden; /* ensures card-header corners match the card's border-radius */
     }
 
+    /* Dark header bar inside a card — used for lesson headings (e.g. "LESSON 1") */
     .card-header {
-      background: var(--black);
-      color: var(--white);
-      font-weight: 900;
+      background:     var(--black);
+      color:          var(--white);
+      font-weight:    900;
       letter-spacing: 0.06em;
-      padding: 11px 20px;
+      padding:        11px 20px;
     }
 
+    /* The main content area inside a card */
     .card-body {
       padding: 20px 24px;
     }
 
-    /* ──────────────────────────────────────────
-        CALLOUT BOXES
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       CALLOUT BOXES
+       ============================================================
+       Colour-coded boxes used to highlight specific kinds of
+       information:
+
+         .callout-neutral  — grey   — general info, current values, data
+         .callout-success  — green  — Forward Pass calculations
+         .callout-info     — blue   — Backward Pass / Backpropagation
+         .callout-warning  — orange — "What just happened?" explanations
+
+       Each callout can optionally include a .callout-title (label
+       inside the box, coloured to match the callout type).
+    */
     .callout {
       border-radius: 8px;
-      padding: 16px 20px;
-      margin: 14px 0;
-      font-weight: 700;
-      line-height: 1.85;
+      padding:       16px 20px;
+      margin:        14px 0;
+      font-weight:   700;
+      line-height:   1.85;
     }
 
-    .callout-neutral { background: var(--gray-lt);   border-left: 4px solid var(--gray);   }
-    .callout-success { background: var(--green-lt);  border-left: 4px solid var(--green);  }
-    .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
+    /* Neutral / informational — grey left border */
+    .callout-neutral {
+      background:  var(--gray-lt);
+      border-left: 4px solid var(--gray);
+    }
 
-    /* ──────────────────────────────────────────
-        FORMULA BLOCK
-    ────────────────────────────────────────── */
-    .formula-block {
-      background: var(--black);
-      color: var(--white);
+    /* Success / forward pass — green left border */
+    .callout-success {
+      background:  var(--green-lt);
+      border-left: 4px solid var(--green);
+    }
+
+    /* Warning / explanation — orange full border (no directional border) */
+    .callout-warning {
+      background:    var(--orange-lt);
+      border:        1px solid var(--orange);
       border-radius: 8px;
-      padding: 20px 24px;
-      margin: 16px 0;
-      font-weight: 700;
-      line-height: 2;
-      border-left: 5px solid var(--green);
     }
 
-    .formula { color: var(--yellow); }
+    /* Shared title style inside any callout — coloured per variant below */
+    .callout-title {
+      font-weight:    900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom:  10px;
+    }
 
-    /* ──────────────────────────────────────────
-        INNER HEADING
-    ────────────────────────────────────────── */
+    /* Per-variant title colours */
+    .callout-neutral .callout-title { color: var(--gray);   }
+    .callout-success .callout-title { color: var(--green);  }
+
+
+    /* ============================================================
+       FORMULA BLOCK
+       ============================================================
+       A dark panel used to display key mathematical formulas.
+       Green left border signals "this is the important rule".
+       Formulas inside are rendered in yellow (.formula) for
+       maximum contrast and readability.
+    */
+    .formula-block {
+      background:    var(--black);
+      color:         var(--white);
+      border-radius: 8px;
+      padding:       20px 24px;
+      margin:        16px 0;
+      font-weight:   700;
+      line-height:   2;
+      border-left:   5px solid var(--green); /* green accent signals an important formula */
+    }
+
+    /* Yellow text inside a formula block — used for the actual formula expressions */
+    .formula {
+      color: var(--yellow);
+    }
+
+
+    /* ============================================================
+       INNER HEADING
+       ============================================================
+       A bold sub-heading used inside a card body to break content
+       into sub-sections (e.g. "🧠 What You Learn", "💪 Why This Approach Is Different").
+    */
     .inner-heading {
-      font-weight: 900;
-      font-size: 19px;
-      margin: 24px 0 10px;
+      font-weight:   900;
+      font-size:     19px;
+      margin:        24px 0 10px;
     }
 
+    /* Remove the top margin when an inner-heading is the very first element in its container */
     .inner-heading:first-child { margin-top: 0; }
 
-    /* ──────────────────────────────────────────
-        PROSE LIST
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       PROSE LIST
+       ============================================================
+       A standard <ul> styled for body-copy usage inside cards.
+       Indented, with comfortable spacing between items.
+    */
     .prose-list {
-      margin: 10px 0 14px 24px;
+      margin: 10px 0 14px 24px; /* left indent aligns with the card body padding */
     }
 
     .prose-list li {
       margin-bottom: 8px;
-      font-weight: 700;
+      font-weight:   700;
     }
 
-    /* ──────────────────────────────────────────
-        IMAGE BLOCK
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       IMAGE BLOCK
+       ============================================================
+       A centred wrapper for inline images (diagrams, illustrations).
+       Ensures images never overflow their container and are
+       consistently centred.
+    */
     .img-block {
       text-align: center;
-      margin: 20px 0;
+      margin:     20px 0;
     }
 
     .img-block img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      display: inline-block;
+      max-width:     100%;    /* responsive — never wider than the container */
+      height:        auto;    /* preserve aspect ratio */
+      border-radius: 8px;     /* consistent rounded corners matching other components */
+      display:       inline-block;
     }
 
-    /* ──────────────────────────────────────────
-        DOCUMENT TABLES
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       DOCUMENT TABLES (.doc-table)
+       ============================================================
+       Used for the neuron signal tables and shopping-bill / neuron
+       comparison tables. Has several row-type modifiers:
+
+         .table-title-row  — full-width dark title spanning all columns
+         .col-header       — grey column header row
+         .total-row        — dark row with yellow text for totals/outputs
+         .sum-row          — grey row for sub-totals
+         .label-cell       — borderless right-hand label cell
+    */
     .doc-table {
       border-collapse: collapse;
-      margin: 14px auto;
-      font-weight: 700;
+      margin:          14px auto; /* centred within its parent */
+      font-weight:     700;
     }
 
     .doc-table td {
-      border: 1px solid #aaaaaa;
-      padding: 8px 14px;
-      text-align: center;
-      vertical-align: middle;
+      border:          1px solid #aaaaaa;
+      padding:         8px 14px;
+      text-align:      center;
+      vertical-align:  middle;
     }
 
+    /* Borderless right-hand cell used as a row label (e.g. "INPUTS", "WEIGHTS") */
     .doc-table .label-cell {
-      border: none;
-      text-align: left;
-      color: var(--gray);
+      border:      none;
+      text-align:  left;
+      color:       var(--gray);
       font-weight: 700;
       padding-left: 12px;
     }
 
+    /* Dark title row spanning the full table width */
     .doc-table .table-title-row td {
-      background: var(--black);
-      color: var(--white);
-      font-weight: 900;
+      background:     var(--black);
+      color:          var(--white);
+      font-weight:    900;
       letter-spacing: 0.08em;
     }
 
+    /* Grey column-header row (e.g. ITEM / UNITS / PRICE / AMOUNT) */
     .doc-table .col-header td {
-      background: var(--gray-lt);
-      font-weight: 900;
+      background:     var(--gray-lt);
+      font-weight:    900;
       text-transform: uppercase;
-      font-size: 15px;
+      font-size:      15px;
     }
 
+    /* Dark TOTAL row with yellow text — highest visual weight in the table */
     .doc-table .total-row td {
-      background: var(--black);
-      color: var(--yellow);
+      background:  var(--black);
+      color:       var(--yellow);
       font-weight: 900;
     }
 
+    /* Grey SUM row — slightly less prominent than the TOTAL row */
     .doc-table .sum-row td {
-      background: var(--gray-lt);
+      background:  var(--gray-lt);
       font-weight: 900;
     }
 
-    /* Mapping table */
+
+    /* ============================================================
+       MAPPING TABLE (.mapping-table)
+       ============================================================
+       Used for the "Shopping Bill → Neuron" terminology mapping.
+       Simpler than .doc-table — just a header row + data rows.
+    */
     .mapping-table {
       border-collapse: collapse;
-      margin: 14px auto;
+      margin:          14px auto;
     }
 
     .mapping-table td {
-      border: 1px solid var(--border);
-      padding: 8px 16px;
+      border:      1px solid var(--border);
+      padding:     8px 16px;
       font-weight: 700;
     }
 
+    /* Dark header row for the mapping table */
     .mapping-table tr:first-child td {
-      background: var(--black);
-      color: var(--white);
-      font-weight: 900;
+      background:     var(--black);
+      color:          var(--white);
+      font-weight:    900;
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
 
-    /* Green pricing table */
-    .price-pill {
-      display: inline-block;
-      background: #93c47d;
-      color: #000;
-      font-weight: 900;
-      font-size: 17px;
-      padding: 12px 28px;
-      border-radius: 6px;
-      border: 4px solid #6aa84f;
-      letter-spacing: 0.02em;
-    }
 
-    /* ──────────────────────────────────────────
-        NEURON EMOJI
-    ────────────────────────────────────────── */
+    /* ============================================================
+       NEURON EMOJI DISPLAY
+       ============================================================
+       Large emoji used as a friendly visual representation of a
+       neuron in the "Building Blocks" section.
+    */
     .neuron-emoji {
-      font-size: 60px;
+      font-size:  60px;
       text-align: center;
-      margin: 10px 0 4px;
+      margin:     10px 0 4px;
       line-height: 1.1;
     }
 
+    /* Label printed below the neuron emoji */
     .neuron-label {
-      text-align: center;
-      font-weight: 900;
+      text-align:     center;
+      font-weight:    900;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom:  14px;
     }
 
-    /* ──────────────────────────────────────────
-        PRICING BLOCK
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       PRICING BLOCK
+       ============================================================
+       Dark card used in the "Join the Course" CTA section.
+       Displays course name, edition, and total price.
+    */
     .pricing-block {
-      background: var(--black);
-      color: var(--white);
+      background:    var(--black);
+      color:         var(--white);
       border-radius: 10px;
-      padding: 32px 28px;
-      text-align: center;
-      margin: 20px 0;
+      padding:       32px 28px;
+      text-align:    center;
+      margin:        20px 0;
     }
 
+    /* Large yellow course title inside the pricing block */
     .pricing-title {
-      font-weight: 900;
-      font-size: 22px;
-      color: var(--yellow);
+      font-weight:    900;
+      font-size:      22px;
+      color:          var(--yellow);
       letter-spacing: 0.1em;
-      line-height: 1.35;
-      margin-bottom: 14px;
+      line-height:    1.35;
+      margin-bottom:  14px;
     }
 
+    /* Subtitle lines inside the pricing block (edition, series name) */
     .pricing-sub {
-      color: #cccccc;
-      font-weight: 700;
+      color:        #cccccc; /* lighter than white to reduce visual clutter */
+      font-weight:  700;
       margin-bottom: 4px;
     }
 
+    /* Price display — yellow, large, bold */
     .pricing-price {
       font-weight: 900;
-      color: var(--yellow);
-      font-size: 20px;
-      margin-top: 10px;
+      color:       var(--yellow);
+      font-size:   20px;
+      margin-top:  10px;
     }
 
-    /* ──────────────────────────────────────────
-        DIVIDER
-    ────────────────────────────────────────── */
+    /* Green pill button used for individual pricing CTAs */
+    .price-pill {
+      display:        inline-block;
+      background:     #93c47d;   /* medium green — distinct from dark green accents */
+      color:          #000;
+      font-weight:    900;
+      font-size:      17px;
+      padding:        12px 28px;
+      border-radius:  6px;
+      border:         4px solid #6aa84f;
+      letter-spacing: 0.02em;
+    }
+
+
+    /* ============================================================
+       DIVIDER
+       ============================================================
+       A dashed horizontal rule used to separate content within
+       a card (e.g. between sub-sections of a long card).
+    */
     .divider {
-      border: none;
+      border:     none;
       border-top: 2px dashed var(--border);
-      margin: 24px 0;
+      margin:     24px 0;
     }
 
-    /* ──────────────────────────────────────────
-        FOOTER
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       FOOTER
+       ============================================================
+       Centred column layout at the bottom of the page.
+       Contains the school logo image and the copyright line.
+    */
     .footer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display:         flex;
+      flex-direction:  column;
+      align-items:     center;
       justify-content: center;
-      padding: 60px 20px 40px;
-      gap: 16px;
-      border-top: 1px solid var(--border);
-      margin-top: 60px;
+      padding:         60px 20px 40px;
+      gap:             16px;
+      border-top:      1px solid var(--border);
+      margin-top:      60px;
     }
 
+    /* School logo — slightly faded until hovered */
     .footer-logo {
-      width: 128px;
-      height: auto;
-      opacity: 0.8;
+      width:      128px;
+      height:     auto;
+      opacity:    0.8;
       transition: opacity 0.3s ease;
     }
 
-    .footer-logo:hover { opacity: 1; }
+    .footer-logo:hover { opacity: 1; } /* full opacity on hover */
 
+    /* Small copyright text */
     .footer-copyright {
-      color: var(--gray);
-      font-weight: 700;
-      font-size: 14px;
+      color:          var(--gray);
+      font-weight:    700;
+      font-size:      14px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
-    /* ──────────────────────────────────────────
-        RESPONSIVE
-    ────────────────────────────────────────── */
+
+    /* ============================================================
+       RESPONSIVE — SMALL SCREENS (≤ 480 px)
+       ============================================================
+       Reduces padding and font sizes slightly so the page remains
+       comfortable on narrow mobile screens.
+    */
     @media (max-width: 480px) {
-      .card-body    { padding: 14px 16px; }
-      .header-title { font-size: 22px; }
+      .card-body    { padding:   14px 16px; }
+      .header-title { font-size: 22px;      }
     }
 
   </style>
 </head>
 
+
+<!-- ============================================================
+     BODY — ALL VISIBLE CONTENT
+     ============================================================ -->
 <body>
 
+
+  <!-- ══════════════════════════════════════════
+       HEADER
+       Full-width dark bar at the very top of the page.
+       Contains the course eyebrow, title, subtitle, and audience.
+  ══════════════════════════════════════════ -->
   <header>
+    <!-- Eyebrow: small label above the main title, coloured green -->
     <div class="header-eyebrow">✨ Mind&#8209;Extending Course</div>
+
+    <!-- Main course title — largest text on the page -->
     <div class="header-title">HOW MACHINES LEARN AND THINK</div>
+
+    <!-- Descriptive subtitle — explains what the course covers -->
     <div class="header-subtitle">The Surprisingly Simple Math Behind Modern AI</div>
+
+    <!-- Target audience — sets expectations for new visitors -->
     <div class="header-audience">For kids (10+) and adults</div>
   </header>
 
+
+  <!-- ══════════════════════════════════════════
+       PAGE WRAPPER — centred content column
+  ══════════════════════════════════════════ -->
   <div class="page">
 
+
+    <!-- ── INTRO CARD 1 ──
+         Quick overview: what the course is and what prior knowledge is needed.
+    -->
     <div class="card" style="margin-top:32px;">
       <div class="card-body">
         <p>This course is the <strong>shortest</strong>, <strong>quickest</strong>, and <strong>easiest</strong> way to understand how modern AI systems — known as <strong>Transformers</strong> (including ChatGPT, Claude, Gemini, and Grok) — actually work under the hood.</p>
@@ -421,6 +637,9 @@
       </div>
     </div>
 
+    <!-- ── INTRO CARD 2 ──
+         Bold promise: the depth of understanding this course delivers.
+    -->
     <div class="card">
       <div class="card-body">
         <p>By the end of this course, you&rsquo;ll gain a deeper intuition for AI than even most people who specialize in AI.</p>
@@ -428,19 +647,26 @@
     </div>
 
 
+    <!-- ══════════════════════════════════════════
+         SECTION: IN MORE DETAIL
+         Explains the school's approach, curriculum, and audience.
+    ══════════════════════════════════════════ -->
     <div class="section-label">In More Detail</div>
 
     <div class="card">
       <div class="card-body">
 
+        <!-- Hero image for the course / school -->
         <div class="img-block">
           <img src="image1.png" alt="" style="max-width:381px;" />
         </div>
 
+        <!-- Mission statement -->
         <p>Our Machine Intelligence School takes a <strong>first&#8209;principles approach</strong> — focused on building a deeper intuition. No jargon — just clear insights into how modern AI actually works.</p>
 
         <hr class="divider" />
 
+        <!-- What you learn -->
         <div class="inner-heading">🧠 What You Learn</div>
         <p>You&rsquo;ll uncover the core mechanisms behind modern AI, including:</p>
         <ul class="prose-list">
@@ -450,11 +676,13 @@
 
         <hr class="divider" />
 
+        <!-- Who it's for -->
         <div class="inner-heading">🧑‍🤝‍🧑 Who This Is For</div>
         <p>Our course is carefully designed to be accessible and valuable to a remarkably wide audience — from curious kids as young as 10 to adults exploring a career change, as well as both professionals and university students who specialise in AI and seek deeper conceptual clarity.</p>
 
         <hr class="divider" />
 
+        <!-- Why this approach is different -->
         <div class="inner-heading">💪 Why This Approach Is Different</div>
         <p>Even world-class educational resources — including Stanford, Harvard, and MIT courses; leading textbooks; and creators like 3Blue1Brown — assume learners already have some background in both math and coding.</p>
         <p>This assumption effectively <strong>excludes most people</strong>. For true beginners, such material inevitably feels either overwhelmingly technical or frustratingly vague.</p>
@@ -474,8 +702,13 @@
     </div>
 
 
+    <!-- ══════════════════════════════════════════
+         SECTION: THE SAMPLE CLASS
+         This is the start of the free sample lesson content.
+    ══════════════════════════════════════════ -->
     <center><div class="section-label">🚀 The Sample Class</div></center>
 
+    <!-- Welcome card — cheerful opener for the sample lesson -->
     <div class="card">
       <div class="card-body">
         <p>Hey explorers! 🎉 &nbsp;</p>
@@ -485,19 +718,27 @@
     </div>
 
 
+    <!-- ══════════════════════════════════════════
+         SECTION: ABOUT MINDS
+         Introduces biological vs machine minds, and the role of math.
+    ══════════════════════════════════════════ -->
     <div class="section-label">🧠 About Minds</div>
 
     <div class="card">
       <div class="card-body">
+        <!-- Two types of minds -->
         <p>There are two kinds of minds: biological minds and machine minds.</p>
         <ul class="prose-list">
           <li><strong>Biological minds</strong> — like the brains of humans and animals.</li>
           <li><strong>Machine minds</strong> — like modern AI systems such as ChatGPT, Claude, Gemini, and Grok.</li>
         </ul>
+
+        <!-- Key insight: learning = math -->
         <p>The main job of every mind — whether biological or machine — is to learn and think.</p>
         <p>And here&rsquo;s something surprising: at their core, learning and thinking are actually processes of doing <strong>MATH</strong>. Yes, really! And it&rsquo;s <strong>SIMPLE MATH</strong>!</p>
         <p>We don&rsquo;t just build AI — since it learns on its own, it&rsquo;s more like we are <strong>GROWING</strong> each <strong>AI MODEL</strong>.</p>
 
+        <!-- School watermark / branding image -->
         <div class="img-block">
           <img src="wlogo.jpg" alt="" style="max-width:369px;" />
         </div>
@@ -507,19 +748,26 @@
     </div>
 
 
+    <!-- ══════════════════════════════════════════
+         SECTION: THE BUILDING BLOCKS OF EVERY MIND
+         Explains NEURAL NETWORKS, NEURONS, and SIGNALS.
+    ══════════════════════════════════════════ -->
     <div class="section-label">The Building Blocks Of Every Mind</div>
 
     <div class="card">
       <div class="card-body">
 
+        <!-- Neural network definition -->
         <p>Every mind is, in essence, a <strong>NEURAL NETWORK</strong>.</p>
 
+        <!-- Neural network diagram image -->
         <div class="img-block">
           <img src="nn.png" alt="" style="max-width:150px;" />
         </div>
 
         <p>It&rsquo;s called "<strong>NEURAL</strong>" because it&rsquo;s made up of <strong>NEURONS</strong>.</p>
 
+        <!-- Neuron visual: large emoji + label -->
         <div class="neuron-emoji">😎</div>
         <div class="neuron-label">NEURON</div>
 
@@ -527,19 +775,24 @@
         <p>But what does every <strong>NEURON</strong> actually do?</p>
         <p>Every NEURON takes in &ldquo;input&rdquo; SIGNALS and then sends out one &ldquo;output&rdquo; SIGNAL.</p>
 
+        <!-- Neuron input/output diagram: simple table layout -->
         <table class="doc-table">
           <tr>
+            <!-- Two input signals, colour-coded blue and green -->
             <td style="color:var(--blue);">INPUT_SIGNAL</td>
             <td style="color:var(--green);">INPUT_SIGNAL</td>
           </tr>
           <tr>
+            <!-- Downward arrows showing signal flow into the neuron -->
             <td style="font-size:22px; font-weight:900; border:none;">↓</td>
             <td style="font-size:22px; font-weight:900; border:none;">↓</td>
           </tr>
           <tr>
+            <!-- The neuron itself, represented by the emoji -->
             <td colspan="2" style="font-size:52px; padding:10px; border-left:none; border-right:none;">😎</td>
           </tr>
           <tr>
+            <!-- Downward arrow showing the output signal leaving the neuron -->
             <td colspan="2" style="font-size:22px; font-weight:900; border:none;">↓</td>
           </tr>
           <tr>
@@ -547,10 +800,13 @@
           </tr>
         </table>
 
+        <!-- Definition of SIGNAL -->
         <p>What is a SIGNAL?</p>
         <p>Generally, a <strong>SIGNAL</strong> is just anything — like an electric impulse — that can be measured or calculated and then represented as a <strong>number</strong>. For example: 0.53 or 0.61.</p>
         <p>At this point, we don&rsquo;t need to worry about exactly how SIGNALS are measured or calculated. We just need to remember that:</p>
         <p><strong>Every SIGNAL is something that can be represented as a number.</strong></p>
+
+        <!-- More detailed description of neuron behaviour -->
         <p>In more detail, every NEURON:</p>
         <ul class="prose-list">
           <li>Takes in <strong>input SIGNALS</strong> (say, 0.53 and 0.61)</li>
@@ -558,6 +814,7 @@
           <li>Then sends out this <strong>output SIGNAL</strong></li>
         </ul>
 
+        <!-- Neuron table with concrete INPUT_SIGNAL values and the resulting OUTPUT_SIGNAL -->
         <table class="doc-table">
           <tr>
             <td><strong>0.53</strong></td>
@@ -583,12 +840,14 @@
           </tr>
         </table>
 
+        <!-- Introduce the shorthand: INPUTS and OUTPUT -->
         <p>For brevity:</p>
         <ul class="prose-list">
           <li>The &ldquo;input&rdquo; <strong>SIGNALS</strong> are called <strong>INPUTS</strong>.</li>
           <li>The &ldquo;output&rdquo; <strong>SIGNAL</strong> is called <strong>OUTPUT</strong>.</li>
         </ul>
 
+        <!-- Same neuron table, now using abbreviated terminology -->
         <table class="doc-table">
           <tr>
             <td><strong>0.53</strong></td>
@@ -614,17 +873,18 @@
           </tr>
         </table>
 
+        <!-- Key insight: neurons connect to form networks -->
         <p><strong>The Key Insight</strong></p>
         <p>The term "<strong>NEURAL NETWORK</strong>" means <strong>NEURONS</strong> Connect!</p>
         <p>Here&rsquo;s the most amazing thing:</p>
         <p>An <strong>OUTPUT</strong> from one <strong>NEURON</strong> can become an <strong>INPUT</strong> for another <strong>NEURON</strong> that comes next — connecting the whole team together!</p>
 
-
+        <!-- Neural network diagram repeated to reinforce the connection concept -->
         <div class="img-block">
           <img src="nn.png" alt="" style="max-width:150px;" />
         </div>
-        
-        
+
+        <!-- Scale: billions of neurons -->
         <p><strong>Scale: Billions of NEURONS</strong></p>
         <p>There may be up to billions of NEURONS in a single neural network — whether in a human brain or in a large AI model such as a Transformer.</p>
 
@@ -632,17 +892,25 @@
     </div>
 
 
+    <!-- ══════════════════════════════════════════
+         SECTION: THE MATH EVERY NEURON DOES
+         The Shopping Bill analogy introduces INPUTS, WEIGHTS,
+         PRODUCTS, SUM, BIAS, and OUTPUT via familiar grocery math.
+    ══════════════════════════════════════════ -->
     <div class="section-label">The Math Every Neuron Does</div>
 
     <div class="card">
       <div class="card-body">
 
+        <!-- Setup: neurons do simple math, like a shopping bill -->
         <p>When a mind thinks, every NEURON really does very simple math.</p>
         <p>At its core, every NEURON works just like a shopping bill.</p>
 
+        <!-- ── ANALOGY: THE SHOPPING BILL ── -->
         <p><strong>Analogy: The Shopping Bill</strong></p>
         <p>Imagine buying donuts and cupcakes:</p>
 
+        <!-- Shopping bill table — ITEM / UNITS / PRICE / AMOUNT -->
         <table class="doc-table" style="width:100%; max-width:480px;">
           <tr class="table-title-row">
             <td colspan="4">shopping bill</td>
@@ -665,8 +933,7 @@
             <td>3.00</td>
             <td>6.00</td>
           </tr>
-          <tr>
-          </tr>
+          <tr></tr>
           <tr>
             <td style="text-align:left; font-weight:900;">SUM</td>
             <td colspan="2"></td>
@@ -684,6 +951,7 @@
           </tr>
         </table>
 
+        <!-- Step-by-step arithmetic for the shopping bill -->
         <p>The math is simple:</p>
         <div class="callout callout-neutral">
           TOTAL = 4.00 &times; 2.00 + 2.00 &times; 3.00 + (-0.50)<br/>
@@ -694,27 +962,17 @@
 
         <p>This math can also be represented this way:</p>
 
+        <!-- Compact shopping bill data table: UNITS / PRICES / AMOUNTS / SUM / DISCOUNT / TOTAL -->
         <table class="doc-table">
-          <tr>
-            <td>4.00</td><td>2.00</td><td class="label-cell">UNITS</td>
-          </tr>
-          <tr>
-            <td>2.00</td><td>3.00</td><td class="label-cell">PRICES</td>
-          </tr>
-          <tr>
-            <td>8.00</td><td>6.00</td><td class="label-cell">AMOUNTS</td>
-          </tr>
-          <tr>
-            <td colspan="2">14.00</td><td class="label-cell">SUM</td>
-          </tr>
-          <tr>
-            <td colspan="2">-0.50</td><td class="label-cell">DISCOUNT</td>
-          </tr>
-          <tr class="sum-row">
-            <td colspan="2">13.50</td><td class="label-cell">TOTAL</td>
-          </tr>
+          <tr><td>4.00</td><td>2.00</td><td class="label-cell">UNITS</td></tr>
+          <tr><td>2.00</td><td>3.00</td><td class="label-cell">PRICES</td></tr>
+          <tr><td>8.00</td><td>6.00</td><td class="label-cell">AMOUNTS</td></tr>
+          <tr><td colspan="2">14.00</td><td class="label-cell">SUM</td></tr>
+          <tr><td colspan="2">-0.50</td><td class="label-cell">DISCOUNT</td></tr>
+          <tr class="sum-row"><td colspan="2">13.50</td><td class="label-cell">TOTAL</td></tr>
         </table>
 
+        <!-- Shopping bill as a formula -->
         <p>At its core, the shopping bill is just a <strong>formula</strong>:</p>
         <div class="formula-block">
           <span class="formula">TOTAL = UNITS1 &times; PRICE1 + UNITS2 &times; PRICE2 + DISCOUNT</span>
@@ -726,29 +984,21 @@
           TOTAL = 13.50
         </div>
 
+        <!-- ── SAME MATH, NEURON NAMES ── -->
+        <!-- The key reveal: neuron math is identical to shopping bill math, just with new names -->
         <p>In terms of a NEURON, the same math can be represented this way:</p>
 
+        <!-- Shopping bill → Neuron mapping table (first pass: concrete numbers) -->
         <table class="doc-table">
-          <tr>
-            <td>4.00</td><td>2.00</td><td class="label-cell">INPUTS</td>
-          </tr>
-          <tr>
-            <td>2.00</td><td>3.00</td><td class="label-cell">WEIGHTS</td>
-          </tr>
-          <tr>
-            <td>8.00</td><td>6.00</td><td class="label-cell">PRODUCTS</td>
-          </tr>
-          <tr>
-            <td colspan="2">14.00</td><td class="label-cell">SUM</td>
-          </tr>
-          <tr>
-            <td colspan="2">-0.50</td><td class="label-cell">BIAS</td>
-          </tr>
-          <tr class="sum-row">
-            <td colspan="2">13.50</td><td class="label-cell">OUTPUT</td>
-          </tr>
+          <tr><td>4.00</td><td>2.00</td><td class="label-cell">INPUTS</td></tr>
+          <tr><td>2.00</td><td>3.00</td><td class="label-cell">WEIGHTS</td></tr>
+          <tr><td>8.00</td><td>6.00</td><td class="label-cell">PRODUCTS</td></tr>
+          <tr><td colspan="2">14.00</td><td class="label-cell">SUM</td></tr>
+          <tr><td colspan="2">-0.50</td><td class="label-cell">BIAS</td></tr>
+          <tr class="sum-row"><td colspan="2">13.50</td><td class="label-cell">OUTPUT</td></tr>
         </table>
 
+        <!-- Neuron formula — the same structure as the shopping bill formula -->
         <p>At its core, every NEURON is also just a <strong>formula</strong>:</p>
         <div class="formula-block">
           <span class="formula">OUTPUT = INPUT1 &times; WEIGHT1 + INPUT2 &times; WEIGHT2 + BIAS</span>
@@ -760,28 +1010,20 @@
           OUTPUT = 13.50
         </div>
 
+        <!-- Emphasise: only the names changed, not the math -->
         <p>Ultra simple. No math changed. Only names changed.</p>
+
+        <!-- ── SHOW THAT INPUTS CHANGING CHANGES THE OUTPUT ── -->
         <p>Importantly, if UNITS change, the shopping bill changes its TOTAL:</p>
 
+        <!-- Shopping bill with different UNITS (3 donuts, 5 cupcakes instead of 4 and 2) -->
         <table class="doc-table">
-          <tr>
-            <td>3.00</td><td>5.00</td><td class="label-cell">UNITS</td>
-          </tr>
-          <tr>
-            <td>2.00</td><td>3.00</td><td class="label-cell">PRICES</td>
-          </tr>
-          <tr>
-            <td>6.00</td><td>15.00</td><td class="label-cell">AMOUNTS</td>
-          </tr>
-          <tr>
-            <td colspan="2">21.00</td><td class="label-cell">SUM</td>
-          </tr>
-          <tr>
-            <td colspan="2">-0.50</td><td class="label-cell">DISCOUNT</td>
-          </tr>
-          <tr class="sum-row">
-            <td colspan="2">20.50</td><td class="label-cell">TOTAL</td>
-          </tr>
+          <tr><td>3.00</td><td>5.00</td><td class="label-cell">UNITS</td></tr>
+          <tr><td>2.00</td><td>3.00</td><td class="label-cell">PRICES</td></tr>
+          <tr><td>6.00</td><td>15.00</td><td class="label-cell">AMOUNTS</td></tr>
+          <tr><td colspan="2">21.00</td><td class="label-cell">SUM</td></tr>
+          <tr><td colspan="2">-0.50</td><td class="label-cell">DISCOUNT</td></tr>
+          <tr class="sum-row"><td colspan="2">20.50</td><td class="label-cell">TOTAL</td></tr>
         </table>
 
         <div class="formula-block">
@@ -794,27 +1036,17 @@
           TOTAL = 20.50
         </div>
 
+        <!-- Same idea, now with INPUTS instead of UNITS -->
         <p>Similarly, if INPUTS change, the NEURON changes its OUTPUT:</p>
 
+        <!-- Neuron with changed INPUTS (3.00 and 5.00) -->
         <table class="doc-table">
-          <tr>
-            <td>3.00</td><td>5.00</td><td class="label-cell">INPUTS</td>
-          </tr>
-          <tr>
-            <td>2.00</td><td>3.00</td><td class="label-cell">WEIGHTS</td>
-          </tr>
-          <tr>
-            <td>6.00</td><td>15.00</td><td class="label-cell">PRODUCTS</td>
-          </tr>
-          <tr>
-            <td colspan="2">21.00</td><td class="label-cell">SUM</td>
-          </tr>
-          <tr>
-            <td colspan="2">-0.50</td><td class="label-cell">BIAS</td>
-          </tr>
-          <tr class="sum-row">
-            <td colspan="2">20.50</td><td class="label-cell">OUTPUT</td>
-          </tr>
+          <tr><td>3.00</td><td>5.00</td><td class="label-cell">INPUTS</td></tr>
+          <tr><td>2.00</td><td>3.00</td><td class="label-cell">WEIGHTS</td></tr>
+          <tr><td>6.00</td><td>15.00</td><td class="label-cell">PRODUCTS</td></tr>
+          <tr><td colspan="2">21.00</td><td class="label-cell">SUM</td></tr>
+          <tr><td colspan="2">-0.50</td><td class="label-cell">BIAS</td></tr>
+          <tr class="sum-row"><td colspan="2">20.50</td><td class="label-cell">OUTPUT</td></tr>
         </table>
 
         <div class="formula-block">
@@ -827,47 +1059,26 @@
           OUTPUT = 20.50
         </div>
 
+        <!-- Reinforce: no math changed -->
         <p>Again, no math changed. Only names changed.</p>
         <p>The mapping:</p>
 
+        <!-- Visual mapping table: Shopping Bill terminology → Neuron terminology -->
         <table class="mapping-table">
           <tr>
             <td>Shopping Bill</td>
             <td>&rarr;</td>
             <td>NEURON</td>
           </tr>
-          <tr>
-            <td>UNITS</td>
-            <td>&rarr;</td>
-            <td>INPUTS</td>
-          </tr>
-          <tr>
-            <td>PRICES</td>
-            <td>&rarr;</td>
-            <td>WEIGHTS</td>
-          </tr>
-          <tr>
-            <td>AMOUNTS</td>
-            <td>&rarr;</td>
-            <td>PRODUCTS</td>
-          </tr>
-          <tr>
-            <td>SUM</td>
-            <td>&rarr;</td>
-            <td>SUM</td>
-          </tr>
-          <tr>
-            <td>DISCOUNT</td>
-            <td>&rarr;</td>
-            <td>BIAS</td>
-          </tr>
-          <tr>
-            <td>TOTAL</td>
-            <td>&rarr;</td>
-            <td>OUTPUT</td>
-          </tr>
+          <tr><td>UNITS</td><td>&rarr;</td><td>INPUTS</td></tr>
+          <tr><td>PRICES</td><td>&rarr;</td><td>WEIGHTS</td></tr>
+          <tr><td>AMOUNTS</td><td>&rarr;</td><td>PRODUCTS</td></tr>
+          <tr><td>SUM</td><td>&rarr;</td><td>SUM</td></tr>
+          <tr><td>DISCOUNT</td><td>&rarr;</td><td>BIAS</td></tr>
+          <tr><td>TOTAL</td><td>&rarr;</td><td>OUTPUT</td></tr>
         </table>
 
+        <!-- Definition of PARAMETERS (WEIGHTS + BIAS) -->
         <p>The <strong>WEIGHTS</strong> and <strong>BIAS</strong> are called <strong>PARAMETERS</strong>.</p>
         <p>If you understand this, you already understand a lot of AI.</p>
 
@@ -875,6 +1086,10 @@
     </div>
 
 
+    <!-- ══════════════════════════════════════════
+         SECTION: OUR VERY FIRST MACHINE MIND
+         Teases the simplest possible AI: one neuron, one weight.
+    ══════════════════════════════════════════ -->
     <div class="section-label">🌺 Our Very First Machine Mind</div>
 
     <div class="card">
@@ -889,50 +1104,64 @@
     </div>
 
 
+    <!-- ══════════════════════════════════════════
+         SECTION: PRICING / CALL TO ACTION
+         Displays course price and entry options.
+    ══════════════════════════════════════════ -->
     <div class="section-label">Join the Course today!</div>
 
+    <!-- Dark pricing card with course name and price summary -->
     <div class="pricing-block">
-      <div class="pricing-title">
-        HOW<br/>MACHINES<br/>LEARN AND<br/>THINK
-      </div>
+      <div class="pricing-title">HOW<br/>MACHINES<br/>LEARN AND<br/>THINK</div>
       <div class="pricing-sub">Zero To Hero</div>
       <div class="pricing-sub"><em>TRANSFORMERS</em></div>
       <div class="pricing-price">$44 total</div>
-      <div style="color:#cccccc; font-weight:700; margin-top:4px;">11 Classes: <strong style="color:var(--yellow);">$4</strong> each</div>
+      <!-- Per-class price breakdown -->
+      <div style="color:#cccccc; font-weight:700; margin-top:4px;">
+        11 Classes: <strong style="color:var(--yellow);">$4</strong> each
+      </div>
     </div>
 
+    <!-- CTA text and green pill buttons -->
     <p style="text-align:center; font-weight:700; margin:16px 0 8px;">Join the</p>
 
+    <!-- Entry point: Class 1 only, $4 -->
     <div style="text-align:center; margin-bottom:10px;">
       <span class="price-pill">Class&nbsp;1 for $4</span>
     </div>
 
     <p style="text-align:center; font-weight:700; margin:8px 0;">then the rest of the</p>
 
+    <!-- Full course follow-on price -->
     <div style="text-align:center; margin-bottom:28px;">
       <span class="price-pill">Course for $40</span>
     </div>
 
+    <!-- Decorative course image -->
     <div class="img-block">
       <img src="images/image3.png" alt="" style="max-width:369px;" />
     </div>
 
 
+    <!-- ══════════════════════════════════════════
+         FOOTER
+         School logo + copyright line.
+    ══════════════════════════════════════════ -->
     <footer class="footer">
+      <!-- School logo — links back to home by default (no href here) -->
       <img
         src="logo.jpg"
         alt="Machine Intelligence School Logo"
         class="footer-logo"
       />
+      <!-- Copyright notice -->
       <div class="footer-copyright">
         &copy; 2026 Machine Intelligence School
       </div>
     </footer>
 
   </div>
-  </body>
-</html>
-
+  <!-- /page -->
 
 </body>
 </html>
