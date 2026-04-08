@@ -218,10 +218,17 @@
     }
 
     .img-block img {
-      max-width: 100%;     /* ensures image never overflows viewport */
-      height: auto;        /* preserves aspect ratio */
+      max-width: 100%;  /* shrink on small screens */
+      height: auto;     /* keep aspect ratio */
       border-radius: 8px;
       display: inline-block;
+    }
+
+    /* Apply max-width only on larger screens */
+    @media (min-width: 768px) {  /* typical breakpoint for tablets/desktops */
+      .img-block img {
+        max-width: 600px;        /* cap width on larger screens */
+      }
     }
     /* ── TABLE SCROLL WRAPPER ──
        Prevents wide tables from breaking the layout on narrow screens.
