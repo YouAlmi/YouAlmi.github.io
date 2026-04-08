@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+
+<!DOCTYPE html>
 <!--
   ================================================================
   FILE: index.html
@@ -658,7 +669,7 @@
 
         <!-- Hero image for the course / school -->
         <div class="img-block">
-          <img src="image1.png" alt="" style="max-width:381px;" />
+          <img src="MIS.png" alt="MIS" style="max-width:381px;" />
         </div>
 
         <!-- Mission statement -->
@@ -762,7 +773,7 @@
 
         <!-- Neural network diagram image -->
         <div class="img-block">
-          <img src="nn.png" alt="" style="max-width:150px;" />
+          <img src="nn.png" alt="nn" style="max-width:150px;" />
         </div>
 
         <p>It&rsquo;s called "<strong>NEURAL</strong>" because it&rsquo;s made up of <strong>NEURONS</strong>.</p>
@@ -771,16 +782,17 @@
         <div class="neuron-emoji">😎</div>
         <div class="neuron-label">NEURON</div>
 
+       <p>It&rsquo;s called "<strong>NETWORK</strong>" because the <strong>NEURONS</strong> connect to each other. </p>
         <p>We can think of each <strong>NEURON</strong> as a tiny yet cool creation.</p>
-        <p>But what does every <strong>NEURON</strong> actually do?</p>
-        <p>Every NEURON takes in &ldquo;input&rdquo; SIGNALS and then sends out one &ldquo;output&rdquo; SIGNAL.</p>
+        <p>But what does every NEURON actually do?</p>
+        <p>Every NEURON takes in <strong>input SIGNALS</strong> and then sends out one <strong>output SIGNAL</strong>:</p>
 
         <!-- Neuron input/output diagram: simple table layout -->
         <table class="doc-table">
           <tr>
             <!-- Two input signals, colour-coded blue and green -->
-            <td style="color:var(--blue);">INPUT_SIGNAL</td>
-            <td style="color:var(--green);">INPUT_SIGNAL</td>
+            <td style="color:var(--blue);"><strong>input SIGNAL</strong></td>
+            <td style="color:var(--green);"><strong>input SIGNAL</strong></td>
           </tr>
           <tr>
             <!-- Downward arrows showing signal flow into the neuron -->
@@ -796,7 +808,7 @@
             <td colspan="2" style="font-size:22px; font-weight:900; border:none;">↓</td>
           </tr>
           <tr>
-            <td colspan="2">OUTPUT_SIGNAL</td>
+            <td colspan="2"><strong>output SIGNAL</strong></td>
           </tr>
         </table>
 
@@ -819,7 +831,7 @@
           <tr>
             <td><strong>0.53</strong></td>
             <td><strong>0.61</strong></td>
-            <td class="label-cell">INPUT_SIGNALS</td>
+            <td class="label-cell"><strong>input SIGNALS</strong></td>
           </tr>
           <tr>
             <td style="font-size:22px; font-weight:900; border:none;">↓</td>
@@ -836,7 +848,7 @@
           </tr>
           <tr>
             <td colspan="2" style="font-weight:900; font-size:19px;">0.12</td>
-            <td class="label-cell">OUTPUT_SIGNAL</td>
+            <td class="label-cell"><strong>output SIGNAL</strong></td>
           </tr>
         </table>
 
@@ -852,7 +864,7 @@
           <tr>
             <td><strong>0.53</strong></td>
             <td><strong>0.61</strong></td>
-            <td class="label-cell">INPUTS</td>
+            <td class="label-cell"><strong>INPUTS</strong></td>
           </tr>
           <tr>
             <td style="font-size:22px; font-weight:900; border:none;">↓</td>
@@ -869,19 +881,18 @@
           </tr>
           <tr>
             <td colspan="2" style="font-weight:900; font-size:19px;">0.12</td>
-            <td class="label-cell">OUTPUT</td>
+            <td class="label-cell"><strong>OUTPUT</strong></td>
           </tr>
         </table>
 
         <!-- Key insight: neurons connect to form networks -->
         <p><strong>The Key Insight</strong></p>
-        <p>The term "<strong>NEURAL NETWORK</strong>" means <strong>NEURONS</strong> Connect!</p>
-        <p>Here&rsquo;s the most amazing thing:</p>
+      
         <p>An <strong>OUTPUT</strong> from one <strong>NEURON</strong> can become an <strong>INPUT</strong> for another <strong>NEURON</strong> that comes next — connecting the whole team together!</p>
 
         <!-- Neural network diagram repeated to reinforce the connection concept -->
         <div class="img-block">
-          <img src="nn.png" alt="" style="max-width:150px;" />
+          <img src="nn.png" alt="nn" style="max-width:150px;" />
         </div>
 
         <!-- Scale: billions of neurons -->
@@ -897,29 +908,26 @@
          The Shopping Bill analogy introduces INPUTS, WEIGHTS,
          PRODUCTS, SUM, BIAS, and OUTPUT via familiar grocery math.
     ══════════════════════════════════════════ -->
-    <div class="section-label">The Math Every Neuron Does</div>
+<div class="section-label">The Math Every Neuron Does</div>
 
     <div class="card">
       <div class="card-body">
 
-        <!-- Setup: neurons do simple math, like a shopping bill -->
         <p>When a mind thinks, every NEURON really does very simple math.</p>
         <p>At its core, every NEURON works just like a shopping bill.</p>
 
-        <!-- ── ANALOGY: THE SHOPPING BILL ── -->
         <p><strong>Analogy: The Shopping Bill</strong></p>
         <p>Imagine buying donuts and cupcakes:</p>
 
-        <!-- Shopping bill table — ITEM / UNITS / PRICE / AMOUNT -->
         <table class="doc-table" style="width:100%; max-width:480px;">
           <tr class="table-title-row">
-            <td colspan="4">shopping bill</td>
+            <td colspan="4"><strong>shopping bill</strong></td>
           </tr>
           <tr class="col-header">
             <td style="text-align:left;"></td>
-            <td>UNITS</td>
-            <td>PRICE PER UNIT</td>
-            <td>AMOUNT</td>
+            <td><strong>UNITS</strong></td>
+            <td><strong>PRICE PER UNIT</strong></td>
+            <td><strong>AMOUNT</strong></td>
           </tr>
           <tr>
             <td style="text-align:left;font-weight:20;">donut</td>
@@ -935,23 +943,22 @@
           </tr>
           <tr></tr>
           <tr>
-            <td style="text-align:left; font-weight:900;">SUM</td>
+            <td style="text-align:left; font-weight:900;"><strong>SUM</strong></td>
             <td colspan="2"></td>
             <td>14.00</td>
           </tr>
           <tr>
-            <td style="text-align:left; font-weight:900;">DISCOUNT</td>
+            <td style="text-align:left; font-weight:900;"><strong>DISCOUNT</strong></td>
             <td colspan="2"></td>
             <td>-0.50</td>
           </tr>
           <tr class="total-row">
-            <td style="text-align:left;">TOTAL</td>
+            <td style="text-align:left;"><strong>TOTAL</strong></td>
             <td colspan="2"></td>
             <td>13.50</td>
           </tr>
         </table>
 
-        <!-- Step-by-step arithmetic for the shopping bill -->
         <p>The math is simple:</p>
         <div class="callout callout-neutral">
           TOTAL = 4.00 &times; 2.00 + 2.00 &times; 3.00 + (-0.50)<br/>
@@ -962,17 +969,15 @@
 
         <p>This math can also be represented this way:</p>
 
-        <!-- Compact shopping bill data table: UNITS / PRICES / AMOUNTS / SUM / DISCOUNT / TOTAL -->
         <table class="doc-table">
-          <tr><td>4.00</td><td>2.00</td><td class="label-cell">UNITS</td></tr>
-          <tr><td>2.00</td><td>3.00</td><td class="label-cell">PRICES</td></tr>
-          <tr><td>8.00</td><td>6.00</td><td class="label-cell">AMOUNTS</td></tr>
-          <tr><td colspan="2">14.00</td><td class="label-cell">SUM</td></tr>
-          <tr><td colspan="2">-0.50</td><td class="label-cell">DISCOUNT</td></tr>
-          <tr class="sum-row"><td colspan="2">13.50</td><td class="label-cell">TOTAL</td></tr>
+          <tr><td>4.00</td><td>2.00</td><td class="label-cell"><strong>UNITS</strong></td></tr>
+          <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>PRICES</strong></td></tr>
+          <tr><td>8.00</td><td>6.00</td><td class="label-cell"><strong>AMOUNTS</strong></td></tr>
+          <tr><td colspan="2">14.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
+          <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>DISCOUNT</strong></td></tr>
+          <tr class="sum-row"><td colspan="2">13.50</td><td class="label-cell"><strong>TOTAL</strong></td></tr>
         </table>
 
-        <!-- Shopping bill as a formula -->
         <p>At its core, the shopping bill is just a <strong>formula</strong>:</p>
         <div class="formula-block">
           <span class="formula">TOTAL = UNITS1 &times; PRICE1 + UNITS2 &times; PRICE2 + DISCOUNT</span>
@@ -984,21 +989,17 @@
           TOTAL = 13.50
         </div>
 
-        <!-- ── SAME MATH, NEURON NAMES ── -->
-        <!-- The key reveal: neuron math is identical to shopping bill math, just with new names -->
         <p>In terms of a NEURON, the same math can be represented this way:</p>
 
-        <!-- Shopping bill → Neuron mapping table (first pass: concrete numbers) -->
         <table class="doc-table">
-          <tr><td>4.00</td><td>2.00</td><td class="label-cell">INPUTS</td></tr>
-          <tr><td>2.00</td><td>3.00</td><td class="label-cell">WEIGHTS</td></tr>
-          <tr><td>8.00</td><td>6.00</td><td class="label-cell">PRODUCTS</td></tr>
-          <tr><td colspan="2">14.00</td><td class="label-cell">SUM</td></tr>
-          <tr><td colspan="2">-0.50</td><td class="label-cell">BIAS</td></tr>
-          <tr class="sum-row"><td colspan="2">13.50</td><td class="label-cell">OUTPUT</td></tr>
+          <tr><td>4.00</td><td>2.00</td><td class="label-cell"><strong>INPUTS</strong></td></tr>
+          <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>WEIGHTS</strong></td></tr>
+          <tr><td>8.00</td><td>6.00</td><td class="label-cell"><strong>PRODUCTS</strong></td></tr>
+          <tr><td colspan="2">14.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
+          <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>BIAS</strong></td></tr>
+          <tr class="sum-row"><td colspan="2">13.50</td><td class="label-cell"><strong>OUTPUT</strong></td></tr>
         </table>
 
-        <!-- Neuron formula — the same structure as the shopping bill formula -->
         <p>At its core, every NEURON is also just a <strong>formula</strong>:</p>
         <div class="formula-block">
           <span class="formula">OUTPUT = INPUT1 &times; WEIGHT1 + INPUT2 &times; WEIGHT2 + BIAS</span>
@@ -1010,20 +1011,17 @@
           OUTPUT = 13.50
         </div>
 
-        <!-- Emphasise: only the names changed, not the math -->
         <p>Ultra simple. No math changed. Only names changed.</p>
 
-        <!-- ── SHOW THAT INPUTS CHANGING CHANGES THE OUTPUT ── -->
         <p>Importantly, if UNITS change, the shopping bill changes its TOTAL:</p>
 
-        <!-- Shopping bill with different UNITS (3 donuts, 5 cupcakes instead of 4 and 2) -->
         <table class="doc-table">
-          <tr><td>3.00</td><td>5.00</td><td class="label-cell">UNITS</td></tr>
-          <tr><td>2.00</td><td>3.00</td><td class="label-cell">PRICES</td></tr>
-          <tr><td>6.00</td><td>15.00</td><td class="label-cell">AMOUNTS</td></tr>
-          <tr><td colspan="2">21.00</td><td class="label-cell">SUM</td></tr>
-          <tr><td colspan="2">-0.50</td><td class="label-cell">DISCOUNT</td></tr>
-          <tr class="sum-row"><td colspan="2">20.50</td><td class="label-cell">TOTAL</td></tr>
+          <tr><td>3.00</td><td>5.00</td><td class="label-cell"><strong>UNITS</strong></td></tr>
+          <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>PRICES</strong></td></tr>
+          <tr><td>6.00</td><td>15.00</td><td class="label-cell"><strong>AMOUNTS</strong></td></tr>
+          <tr><td colspan="2">21.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
+          <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>DISCOUNT</strong></td></tr>
+          <tr class="sum-row"><td colspan="2">20.50</td><td class="label-cell"><strong>TOTAL</strong></td></tr>
         </table>
 
         <div class="formula-block">
@@ -1036,17 +1034,15 @@
           TOTAL = 20.50
         </div>
 
-        <!-- Same idea, now with INPUTS instead of UNITS -->
         <p>Similarly, if INPUTS change, the NEURON changes its OUTPUT:</p>
 
-        <!-- Neuron with changed INPUTS (3.00 and 5.00) -->
         <table class="doc-table">
-          <tr><td>3.00</td><td>5.00</td><td class="label-cell">INPUTS</td></tr>
-          <tr><td>2.00</td><td>3.00</td><td class="label-cell">WEIGHTS</td></tr>
-          <tr><td>6.00</td><td>15.00</td><td class="label-cell">PRODUCTS</td></tr>
-          <tr><td colspan="2">21.00</td><td class="label-cell">SUM</td></tr>
-          <tr><td colspan="2">-0.50</td><td class="label-cell">BIAS</td></tr>
-          <tr class="sum-row"><td colspan="2">20.50</td><td class="label-cell">OUTPUT</td></tr>
+          <tr><td>3.00</td><td>5.00</td><td class="label-cell"><strong>INPUTS</strong></td></tr>
+          <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>WEIGHTS</strong></td></tr>
+          <tr><td>6.00</td><td>15.00</td><td class="label-cell"><strong>PRODUCTS</strong></td></tr>
+          <tr><td colspan="2">21.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
+          <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>BIAS</strong></td></tr>
+          <tr class="sum-row"><td colspan="2">20.50</td><td class="label-cell"><strong>OUTPUT</strong></td></tr>
         </table>
 
         <div class="formula-block">
@@ -1059,26 +1055,23 @@
           OUTPUT = 20.50
         </div>
 
-        <!-- Reinforce: no math changed -->
         <p>Again, no math changed. Only names changed.</p>
         <p>The mapping:</p>
 
-        <!-- Visual mapping table: Shopping Bill terminology → Neuron terminology -->
         <table class="mapping-table">
           <tr>
-            <td>Shopping Bill</td>
+            <td><strong>Shopping Bill</strong></td>
             <td>&rarr;</td>
-            <td>NEURON</td>
+            <td><strong>NEURON</strong></td>
           </tr>
-          <tr><td>UNITS</td><td>&rarr;</td><td>INPUTS</td></tr>
-          <tr><td>PRICES</td><td>&rarr;</td><td>WEIGHTS</td></tr>
-          <tr><td>AMOUNTS</td><td>&rarr;</td><td>PRODUCTS</td></tr>
-          <tr><td>SUM</td><td>&rarr;</td><td>SUM</td></tr>
-          <tr><td>DISCOUNT</td><td>&rarr;</td><td>BIAS</td></tr>
-          <tr><td>TOTAL</td><td>&rarr;</td><td>OUTPUT</td></tr>
+          <tr><td><strong>UNITS</strong></td><td>&rarr;</td><td><strong>INPUTS</strong></td></tr>
+          <tr><td><strong>PRICES</strong></td><td>&rarr;</td><td><strong>WEIGHTS</strong></td></tr>
+          <tr><td><strong>AMOUNTS</strong></td><td>&rarr;</td><td><strong>PRODUCTS</strong></td></tr>
+          <tr><td><strong>SUM</strong></td><td>&rarr;</td><td><strong>SUM</strong></td></tr>
+          <tr><td><strong>DISCOUNT</strong></td><td>&rarr;</td><td><strong>BIAS</strong></td></tr>
+          <tr><td><strong>TOTAL</strong></td><td>&rarr;</td><td><strong>OUTPUT</strong></td></tr>
         </table>
 
-        <!-- Definition of PARAMETERS (WEIGHTS + BIAS) -->
         <p>The <strong>WEIGHTS</strong> and <strong>BIAS</strong> are called <strong>PARAMETERS</strong>.</p>
         <p>If you understand this, you already understand a lot of AI.</p>
 
@@ -1162,6 +1155,11 @@
 
   </div>
   <!-- /page -->
+
+</body>
+</html>
+
+
 
 </body>
 </html>
