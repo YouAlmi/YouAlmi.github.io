@@ -213,16 +213,17 @@
     /* ── IMAGE BLOCK ── */
 /* ── IMAGE BLOCK WITH HORIZONTAL SCROLL ── */
 .img-block {
-  overflow-x: auto;       /* enables horizontal scrolling */
-  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  overflow-x: auto;               /* horizontal scroll */
+  -webkit-overflow-scrolling: touch; 
   margin: 20px 0;
+  display: flex;                  /* use flexbox to center content */
+  justify-content: center;        /* centers content horizontally */
 }
 
 .img-block img {
-  display: block;        /* ensures proper spacing inside scrollable container */
+  flex-shrink: 0;                 /* prevent image from shrinking */
   border-radius: 8px;
   height: auto;
-  /* Remove max-width to allow natural width */
 }
     /* ── TABLE SCROLL WRAPPER ──
        Prevents wide tables from breaking the layout on narrow screens.
