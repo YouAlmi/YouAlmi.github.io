@@ -218,18 +218,35 @@
     }
 
     .img-block img {
-      max-width: 100%;  /* shrink on small screens */
-      height: auto;     /* keep aspect ratio */
+      max-width: 100%;  /* shrink to fit viewport on smartphones */
+      height: auto;     /* preserve aspect ratio */
       border-radius: 8px;
       display: inline-block;
     }
 
+    /* Apply width caps only on larger screens (non-smartphones) */
+    @media (min-width: 768px) {  /* tablets and desktops */
+    .img-block img {
+        max-width: 150px;        /* cap width for most images */
+      }
+
+    .img-block img.img-mis {
+        max-width: 350px;        /* cap width for the MIS image */
+      }
+    }
+
     /* Apply max-width only on larger screens */
     @media (min-width: 768px) {  /* typical breakpoint for tablets/desktops */
-      .img-block img {
+    .img-block img {
         max-width: 150px;        /* cap width on larger screens */
       }
     }
+    
+        /* Specific max-width for this image only */
+    .img-block img.img-mis {
+      max-width: 350px;   /* cap width for this image */
+    }
+    
     /* ── TABLE SCROLL WRAPPER ──
        Prevents wide tables from breaking the layout on narrow screens.
        Apply to any table that might overflow on mobile.
@@ -423,7 +440,7 @@
       <div class="card-body">
 
        <div class="img-block">
-         <img src="MIS.png" alt="MIS" />
+         <img src="MIS.png" alt="MIS" class="img-mis" />
        </div>
 
         <p>Our Machine Intelligence School takes a <strong>first&#8209;principles approach</strong> — focused on building a deeper intuition. No jargon — just clear insights into how modern AI actually works.</p>
