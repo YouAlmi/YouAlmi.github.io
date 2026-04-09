@@ -8,49 +8,135 @@
 </style>
 </head>
 <body>
+
 <!DOCTYPE html>
+<!--
+  FILE: class1.html — Class 1: The Multiplier by Five
+  © 2026 Machine Intelligence School
+
+  Teaches the simplest ML scenario: a one-neuron, one-weight mind that
+  learns to multiply any number by 5.00 using the SIMPLE UPDATE RULE
+  (WEIGHT_update = ERROR).
+
+  SECTIONS:
+    header → Introduction → The Mind We Want to Build → Dataset →
+    The Update Rule → Training (Lesson 1, Lesson 2) →
+    Completion Banner → Validation → Note → Teaser → footer
+-->
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8" />
+  
+  
+  
+  <title>GROW THE MIND 🧠 - Two Blocks</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Class 1 — The Multiplier by Five</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── CSS VARIABLES ── */
+
+    /* ── DESIGN TOKENS ── */
     :root {
       --black:      #111111;
-      --red:        #c0392b;
-      --red-lt:     #fdecea;
-      --orange:     #e8610a;
-      --orange-lt:  #fff3eb;
       --gray:       #555555;
       --gray-lt:    #f2f2f2;
       --border:     #dddddd;
-      --blue:       #1a6fab;
-      --blue-lt:    #e8f3fc;
-      --green:      #2d8a4e;
-      --green-lt:   #eaf7ee;
       --bg:         #f7f5f0;
       --white:      #ffffff;
       --yellow:     #ffd166;
+      --green:      #2d8a4e;
+      --green-lt:   #eaf7ee;
+      --green-lt-lt:#00ff00;
+      --blue:       #1a6fab;
+      --blue-lt:    #e8f3fc;
+      --orange:     #e8610a;
+      --orange-lt:  #fff3eb;
+      --red:        #c0392b;
+      --red-lt:     #fdecea;
+    }
+    
+    
+    
+    
+    
+  
+    .pythoncode {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 600px;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 20px auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
-    /* ── RESET ── */
+    #code-input1, #code-input2 {
+      width: 100%;
+      height: 750px;
+      background-color: #2d2d2d;
+      color: var(--green-lt-lt);
+      border: 1px solid #444;
+      padding: 15px;
+      font-size: 1rem;
+      border-radius: 5px;
+      box-sizing: border-box;
+      outline: none;
+      resize: vertical;
+    }
+
+    #output-window1, #output-window2 {
+      background-color: #000;
+      color: #fff;
+      padding: 15px;
+      min-height: 50px;
+      margin-top: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      border-left: 4px solid #00ff00;
+      font-size: 0.95rem;
+    }
+
+    button {
+      margin-top: 10px;
+      background-color: #00ff00;
+      color: #000;
+      border: none;
+      padding: 10px 25px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { 
+      background-color: #00cc00; 
+    }
+    h3 { margin-top: 0; }    
+
+    
+    
+
+    /* ── RESET & BASE ── */
     * {
       box-sizing: border-box;
-      margin: 0;
+      margin:  0;
       padding: 0;
       font-family: 'Nunito', sans-serif;
-      font-size: 17px;
+      font-size:   17px;
       line-height: 1.75;
     }
 
-    /* ── BODY ── */
     body {
-      background: var(--bg);
-      color: var(--black);
+      background:     var(--bg);
+      color:          var(--black);
       padding-bottom: 80px;
     }
 
@@ -58,217 +144,276 @@
     strong { font-weight: 900; }
     em     { font-style: italic; }
 
+    /* ── HEADER ── */
     header {
       background: var(--black);
-      color: var(--white);
-      padding: 32px 24px;
+      color:      var(--white);
+      padding:    32px 24px;
       text-align: center;
     }
 
+    /* Parent course name above the class number */
     .header-tag {
-      color: var(--green);
-      font-weight: 900;
+      color:          var(--green-lt-lt);
+      font-weight:    900;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom:  8px;
     }
 
     .header-title {
-      font-weight: 900;
-      font-size: 28px;
-      line-height: 1.2;
+      font-weight:   900;
+      font-size:     28px;
+      line-height:   1.2;
       margin-bottom: 6px;
     }
 
-    .header-subtitle {
-      color: #aaaaaa;
-      font-weight: 700;
-    }
+    .header-subtitle { color: #aaaaaa; font-weight: 700; }
 
+    /* ── PAGE WRAPPER ── */
     .page {
       max-width: 760px;
-      margin: 0 auto;
-      padding: 0 20px;
+      margin:    0 auto;
+      padding:   0 20px;
     }
 
+    /* ── SECTION LABEL ── */
     .section-label {
-      display: inline-block;
-      background: var(--black);
-      color: var(--white);
-      font-weight: 900;
+      display:        inline-block;
+      background:     var(--black);
+      color:          var(--white);
+      font-weight:    900;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 7px 18px;
-      border-radius: 4px;
-      margin: 36px 0 18px;
+      padding:        7px 18px;
+      border-radius:  4px;
+      margin:         36px 0 18px;
     }
 
+    /* ── CARD ── */
     .card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
+      background:    var(--white);
+      border:        1.5px solid var(--border);
       border-radius: 10px;
-      margin: 16px 0;
-      overflow: hidden;
+      margin:        16px 0;
+      overflow:      hidden;
     }
 
+    /* Dark title bar, used for "LESSON 1", "LESSON 2" */
     .card-header {
-      background: var(--black);
-      color: var(--white);
-      font-weight: 900;
+      background:     var(--black);
+      color:          var(--white);
+      font-weight:    900;
       letter-spacing: 0.06em;
-      padding: 11px 20px;
+      padding:        11px 20px;
     }
 
-    .card-body {
-      padding: 20px 24px;
-    }
+    .card-body { padding: 20px 24px; }
 
+    /* ── FORMULA BLOCK ──
+       .formula-block-label → green sub-label above the formula lines
+       .formula             → yellow expression text
+    */
     .formula-block {
-      background: var(--black);
-      color: var(--white);
+      background:    var(--black);
+      color:         var(--white);
       border-radius: 8px;
-      padding: 20px 24px;
-      margin: 16px 0;
-      font-weight: 700;
-      line-height: 2;
-      border-left: 5px solid var(--green);
+      padding:       20px 24px;
+      margin:        16px 0;
+      font-weight:   700;
+      line-height:   2;
+      border-left:   5px solid var(--green);
     }
 
     .formula-block-label {
-      color: var(--green);
-      font-weight: 900;
+      color:          var(--green);
+      font-weight:    900;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom:  10px;
     }
 
     .formula { color: var(--yellow); }
 
+    /* ── CALLOUT BOXES ──
+       neutral  → grey  → current values (WEIGHT, INPUT, TARGET)
+       success  → green → Forward Pass calculations
+       info     → blue  → Backward Pass / Backpropagation
+       warning  → orange → "What just happened?" explanations
+    */
     .callout {
       border-radius: 8px;
-      padding: 16px 20px;
-      margin: 14px 0;
-      font-weight: 700;
-      line-height: 1.85;
+      padding:       16px 20px;
+      margin:        14px 0;
+      font-weight:   700;
+      line-height:   1.85;
     }
 
-    .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
-    .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
-    .callout-info    { background: var(--blue-lt); border-left: 4px solid var(--blue); }
+    .callout-neutral { background: var(--gray-lt);   border-left: 4px solid var(--gray);   }
+    .callout-success { background: var(--green-lt);  border-left: 4px solid var(--green);  }
+    .callout-info    { background: var(--blue-lt);   border-left: 4px solid var(--blue);   }
     .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
 
     .callout-title {
-      font-weight: 900;
+      font-weight:    900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom:  10px;
     }
 
-    .callout-neutral .callout-title { color: var(--gray); }
-    .callout-success .callout-title { color: var(--green); }
-    .callout-info    .callout-title { color: var(--blue); }
-    .callout-warning strong          { color: var(--orange); font-weight: 900; }
+    .callout-neutral .callout-title { color: var(--gray);   }
+    .callout-success .callout-title { color: var(--green);  }
+    .callout-info    .callout-title { color: var(--blue);   }
+    .callout-warning strong         { color: var(--orange); font-weight: 900; }
 
+    /* ── RESULT BANNER ──
+       Shown after each backward pass to display the updated WEIGHT value.
+    */
     .result-banner {
-      background: var(--black);
-      color: var(--yellow);
-      font-weight: 900;
-      text-align: center;
-      padding: 14px 20px;
-      border-radius: 8px;
-      margin: 14px 0;
+      background:     var(--black);
+      color:          var(--yellow);
+      font-weight:    900;
+      text-align:     center;
+      padding:        14px 20px;
+      border-radius:  8px;
+      margin:         14px 0;
       letter-spacing: 0.06em;
     }
 
+    /* ── COMPLETION BANNER ── */
     .completion-banner {
-      background: var(--black);
-      color: var(--yellow);
-      font-weight: 900;
-      text-align: center;
+      background:     var(--black);
+      color:          var(--yellow);
+      font-weight:    900;
+      text-align:     center;
       letter-spacing: 0.2em;
-      padding: 18px;
-      border-radius: 10px;
-      margin: 28px 0;
+      padding:        18px;
+      border-radius:  10px;
+      margin:         28px 0;
     }
 
+    /* ── SUCCESS CALLOUT ──
+       Green box for the exact-match moment: OUTPUT equals TARGET, ERROR = 0.00.
+    */
     .success-callout {
-      background: var(--green-lt);
-      border: 2px solid var(--green);
+      background:    var(--green-lt);
+      border:        2px solid var(--green);
       border-radius: 8px;
-      padding: 14px 20px;
-      margin: 12px 0;
-      font-weight: 800;
-      color: var(--green);
+      padding:       14px 20px;
+      margin:        12px 0;
+      font-weight:   800;
+      color:         var(--green);
     }
 
+    /* ── ERROR CHIP ──
+       Inline badge for ERROR values. Red by default; override inline for green (0.00).
+    */
     .error-chip {
-      display: inline-block;
-      background: var(--red-lt);
-      color: var(--red);
-      font-weight: 800;
-      padding: 4px 12px;
+      display:       inline-block;
+      background:    var(--red-lt);
+      color:         var(--red);
+      font-weight:   800;
+      padding:       4px 12px;
       border-radius: 20px;
-      margin: 4px 0;
+      margin:        4px 0;
     }
 
+    /* ── DIAGRAM ── */
     .diagram { text-align: center; margin: 14px 0; }
+
     .diagram img {
-      max-width: 100%;
-      height: auto;
+      max-width:     100%;
+      height:        auto;
       border-radius: 8px;
-      display: block;
-      margin: 0 auto;
-      border: 1.5px solid var(--border);
+      display:       block;
+      margin:        0 auto;
+      border:        1.5px solid var(--border);
     }
 
-    .data-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+    /* ── TABLE SCROLL WRAPPER ──
+       Allows tables wider than the viewport to scroll horizontally on mobile
+       instead of breaking the layout or shrinking to unreadable sizes.
+    */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 10px 0;
+    }
+
+    /* ── DATA TABLE (.data-table) ── */
+    .data-table { width: 100%; border-collapse: collapse; }
+
     .data-table th {
-      background: var(--black);
-      color: var(--white);
-      font-weight: 900;
+      background:     var(--black);
+      color:          var(--white);
+      font-weight:    900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 8px 14px;
-      text-align: left;
+      padding:        8px 14px;
+      text-align:     left;
     }
-    .data-table td { padding: 8px 14px; border-bottom: 1px solid var(--border); font-weight: 700; }
+
+    .data-table td {
+      padding:       8px 14px;
+      border-bottom: 1px solid var(--border);
+      font-weight:   700;
+    }
+
     .data-table tr:last-child td { border-bottom: none; }
 
+    /* ── DIVIDER ── */
     .divider { border: none; border-top: 2px dashed var(--border); margin: 30px 0; }
 
+    /* ── TEASER BLOCK ── */
     .teaser {
-      background: var(--black);
-      color: var(--white);
+      background:    var(--black);
+      color:         var(--white);
       border-radius: 10px;
-      padding: 28px;
-      text-align: center;
-      margin: 36px 0 0;
-      font-weight: 700;
+      padding:       28px;
+      text-align:    center;
+      margin:        36px 0 0;
+      font-weight:   700;
     }
 
-    .teaser-next { color: var(--yellow); font-weight: 900; font-size: 22px; margin: 8px 0; }
+    .teaser-next {
+      color:       var(--yellow);
+      font-weight: 900;
+      font-size:   22px;
+      margin:      8px 0;
+    }
 
+    /* ── FOOTER ── */
     .footer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display:         flex;
+      flex-direction:  column;
+      align-items:     center;
       justify-content: center;
-      padding: 60px 20px 40px;
-      gap: 16px;
-      border-top: 1px solid var(--border);
-      margin-top: 60px;
+      padding:         60px 20px 40px;
+      gap:             16px;
+      border-top:      1px solid var(--border);
+      margin-top:      60px;
     }
 
-    .footer-logo { width: 128px; height: auto; opacity: 0.8; transition: opacity 0.3s ease; }
+    .footer-logo       { width: 128px; height: auto; opacity: 0.8; transition: opacity 0.3s ease; }
     .footer-logo:hover { opacity: 1; }
-    .footer-copyright { color: var(--gray); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; }
 
-    @media (max-width: 480px) {
-      .card-body      { padding: 14px 16px; }
-      .header-title   { font-size: 22px;    }
+    .footer-copyright {
+      color:          var(--gray);
+      font-weight:    700;
+      font-size:      14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .card-body    { padding:   14px 16px; }
+      .header-title { font-size: 22px;      }
+    }
+
   </style>
 </head>
+
 
 <body>
 
@@ -278,8 +423,10 @@
     <div class="header-subtitle">The Multiplier by Five</div>
   </header>
 
+
   <div class="page">
 
+    <!-- INTRODUCTION -->
     <div class="section-label">Introduction</div>
     <div class="card">
       <div class="card-body">
@@ -287,220 +434,445 @@
       </div>
     </div>
 
-    <div class="section-label">The Mind We Want to Build</div>
+
+    <!-- THE MIND WE WANT TO BUILD -->
+    <div class="section-label">The Mind We Want to Grow</div>
     <div class="card">
       <div class="card-body">
-        <p>We want to create a machine mind that can multiply any number by <strong>5.00</strong>.</p>
-        <p>This mind will consist of a single PARAMETER: <strong>WEIGHT</strong>.</p>
-        <p>Suppose we don't know what value this WEIGHT should have, so we initially set it to <strong>zero</strong>:</p>
+        <p>We want to grow a mind that can multiply any number by <strong>5.00</strong>.</p>
+        <p>This mind will have a single PARAMETER: <strong>WEIGHT</strong>.</p>
+        <p>We don’t know what this WEIGHT should be yet, so let’s start by setting it to <strong>zero</strong>:</p>
         <div class="callout callout-neutral">WEIGHT = <strong>0.00</strong></div>
         <p>At first, the mind will generate nonsense.</p>
       </div>
     </div>
 
+
+    <!-- DATASET -->
     <div class="section-label">Dataset</div>
     <div class="card">
       <div class="card-body">
         <p>We have the following training dataset:</p>
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>INPUT</th>
-              <th>TARGET</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>SAMPLE 1</td>
-              <td>0.60</td>
-              <td>3.00</td>
-            </tr>
-            <tr>
-              <td>SAMPLE 2</td>
-              <td>1.00</td>
-              <td>5.00</td>
-            </tr>
-          </tbody>
-        </table>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>INPUT</th>
+                <th>TARGET</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SAMPLE 1</td>
+                <td>0.60</td>
+                <td>3.00</td>
+              </tr>
+              <tr>
+                <td>SAMPLE 2</td>
+                <td>1.00</td>
+                <td>5.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <p>
           SAMPLE 1 means when INPUT is <strong>0.60</strong>, the OUTPUT must be <strong>3.00</strong>.<br/>
           SAMPLE 2 means when INPUT is <strong>1.00</strong>, the OUTPUT must be <strong>5.00</strong>.
         </p>
         <p>
-          When training, at every lesson, we will <strong>update</strong> the PARAMETER (WEIGHT)
-          to improve the mind.
+          When training, at every lesson, the mind will <strong>update</strong> the PARAMETER to improve itself.
         </p>
       </div>
     </div>
 
+
+    <!-- THE UPDATE RULE -->
     <div class="section-label">The Update Rule</div>
     <div class="card">
       <div class="card-body">
-        <p>We will <strong>update</strong> the PARAMETER using this update rule:</p>
+        <p>The mind will <strong>update</strong> the PARAMETER using this update rule:</p>
+
         <div class="formula-block">
           <div class="formula-block-label">Simple Update Rule</div>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
           <span class="formula">PARAMETER_update = ERROR</span>
         </div>
-        <p>Since we have just one PARAMETER, which is WEIGHT, we obtain:</p>
+
+        <p>Since the mind has just one PARAMETER, which is WEIGHT, it obtains:</p>
+
         <div class="formula-block">
           <div class="formula-block-label">Simple Update Rule for WEIGHT</div>
           <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
           <span class="formula">WEIGHT_update = ERROR</span>
         </div>
+
         <p>Don't worry — it's really simple. Just follow the calculations below.</p>
       </div>
     </div>
 
+
+    <!-- TRAINING -->
     <div class="section-label">Training</div>
 
+
+    <!-- LESSON 1 — SAMPLE 1: INPUT 0.60, TARGET 3.00 → WEIGHT goes from 0.00 to 3.00 -->
     <div class="card">
       <div class="card-header">LESSON 1</div>
       <div class="card-body">
+
         <div class="callout callout-neutral">WEIGHT = <strong>0.00</strong></div>
+
         <p>SAMPLE 1:</p>
         <div class="callout callout-neutral">
           INPUT   = <strong>0.60</strong><br/>
           TARGET = <strong>3.00</strong>
         </div>
+
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = 0.60 × 0.00 = <strong>0.00</strong><br/>
           OUTPUT  = PRODUCT = <strong>0.00</strong><br/>
           ERROR   = TARGET − OUTPUT = 3.00 − 0.00 = <strong>3.00</strong>
         </div>
+
         <div class="diagram">
           <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before update" />
         </div>
+
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
+
           <div class="formula-block">
             <div class="formula-block-label">Simple Update Rule for WEIGHT</div>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
             <span class="formula">WEIGHT_update = ERROR</span>
           </div>
+
           WEIGHT = <strong>0.00</strong><br/>
           ERROR = <strong>3.00</strong><br/>
           WEIGHT_update = ERROR = <strong>3.00</strong><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.00 + 3.00 = <strong>3.00</strong><br/><br/>
           Since the ERROR was <strong>3.00</strong>, we adjusted the WEIGHT by exactly <strong>3.00</strong>. So the WEIGHT becomes <strong>3.00</strong>.
         </div>
+
         <div class="result-banner">WEIGHT = 3.00</div>
+
         <div class="callout callout-warning">
           <strong>What just happened?</strong><br/>
-          <p>We have just improved the mind.</p>
-          <p>Now, if the mind receives the same INPUT of <strong>0.60</strong>, the OUTPUT becomes <strong>1.80</strong> — which is closer to the TARGET <strong>3.00</strong> than the previous OUTPUT <strong>0.00</strong> was.</p>
+          <p>The mind has just improved itself.</p>
+          <p>Now, if it receives the same INPUT of <strong>0.60</strong>, the OUTPUT becomes <strong>1.80</strong> — which is closer to the TARGET <strong>3.00</strong> than the previous OUTPUT <strong>0.00</strong> was.</p>
           <p>The ERROR becomes smaller:</p>
           <span class="error-chip">ERROR = 1.20</span>
         </div>
+
         <div class="diagram">
           <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after update" />
         </div>
+
         <p style="color:var(--gray);">Lesson 1 finishes here.</p>
       </div>
     </div>
 
+
+    <!-- LESSON 2 — SAMPLE 2: INPUT 1.00, TARGET 5.00 → WEIGHT goes from 3.00 to 5.00 (exact!) -->
     <div class="card">
       <div class="card-header">LESSON 2</div>
       <div class="card-body">
+
         <div class="callout callout-neutral">WEIGHT = <strong>3.00</strong></div>
+
         <p>SAMPLE 2:</p>
         <div class="callout callout-neutral">
           INPUT   = <strong>1.00</strong><br/>
           TARGET = <strong>5.00</strong>
         </div>
+
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = 1.00 × 3.00 = <strong>3.00</strong><br/>
           OUTPUT  = PRODUCT = <strong>3.00</strong><br/>
           ERROR   = TARGET − OUTPUT = 5.00 − 3.00 = <strong>2.00</strong>
         </div>
+
         <div class="diagram">
           <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before update" />
         </div>
+
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
+
           <div class="formula-block">
             <div class="formula-block-label">Simple Update Rule for WEIGHT</div>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
             <span class="formula">WEIGHT_update = ERROR</span>
           </div>
+
           WEIGHT = <strong>3.00</strong><br/>
           ERROR = <strong>2.00</strong><br/>
           WEIGHT_update = ERROR = <strong>2.00</strong><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 3.00 + 2.00 = <strong>5.00</strong><br/><br/>
           Since the ERROR was <strong>2.00</strong>, we adjusted the WEIGHT by exactly <strong>2.00</strong>. So the WEIGHT becomes <strong>5.00</strong>.
         </div>
+
         <div class="result-banner">WEIGHT = 5.00</div>
+
         <div class="callout callout-warning">
           <strong>What just happened?</strong><br/>
-          <p>We have just improved the mind.</p>
-          <p>Now, if the mind receives the same INPUT of <strong>1.00</strong>, the OUTPUT becomes <strong>5.00</strong> — which is closer to the TARGET <strong>5.00</strong> than the previous OUTPUT <strong>3.00</strong> was.</p>
+          <p>The mind just improved itself. Again!</p>
+          <p>Now, if it receives the same INPUT of <strong>1.00</strong>, the OUTPUT becomes <strong>5.00</strong> — which is closer to the TARGET <strong>5.00</strong> than the previous OUTPUT <strong>3.00</strong> was.</p>
         </div>
+
+        <!-- OUTPUT now exactly equals TARGET -->
         <div class="success-callout">
           <p>Wait — it's not just closer. It's exact!<br/>
             OUTPUT is now 5.00 — exactly the same as TARGET.</p>
           <p>The ERROR becomes zero:</p>
           <span class="error-chip" style="background:#d4edda; color:#155724;">&nbsp;&nbsp;ERROR = 0.00</span>
         </div>
+
         <div class="diagram">
           <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after update" />
         </div>
+
         <p style="color:var(--gray);">Lesson 2 finishes here.</p>
       </div>
     </div>
 
+
     <div class="completion-banner">✓ &nbsp; DONE &nbsp; ✓</div>
 
-    <div class="section-label">Validation</div>
+
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- VALIDATION — test on unseen INPUT 10.00 → expected OUTPUT 50.00 -->
+    <div class="section-label">Testing</div>
     <div class="card">
       <div class="card-body">
         
+        <p>To test the mind, we give it <strong>INPUT</strong> it has never seen before.</p>
+
         <div class="callout callout-neutral">WEIGHT = <strong>5.00</strong></div>
-        <p><p>We give the mind an INPUT of <strong>10.00</strong>, a number it has never seen before.</p></p>
+
+      
         <div class="callout callout-neutral">
           INPUT   = <strong>10.00</strong><br/>
           TARGET = <strong>50.00</strong>
         </div>
+
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = 10.00 × 5.00 = <strong>50.00</strong><br/>
           OUTPUT  = PRODUCT = <strong>50.00</strong><br/>
           ERROR   = TARGET − OUTPUT = 50.00 − 50.00 = <strong>0.00</strong>
         </div>
+
         <div class="diagram">
           <img src="graph_validation.png" alt="Neuron diagram — Validation" />
         </div>
+        
+        
+        
+  
+    
+    
+
         <div class="callout callout-warning">
-          <p>Since ERROR = <strong>0.00</strong>, the mind works perfectly!</p>
-          <p>The mind has learned the rule: <strong>multiply any number by 5.00</strong>.</p>
-          <p>Now, the mind is able to solve problems it has never seen before.</p>
+          <p>The mind — since ERROR = <strong>0.00</strong> — works perfectly!</p>
+          <p>It has learned the rule: <strong>multiply any number by 5.00</strong>.</p>
+          <p>This mind — <strong>Multiplier By Five</strong> — is able to solve problems it has never seen before.</p>
         </div>
-        <p style="color:var(--gray);">So, our job here is done.</p>
+
+  
       </div>
     </div>
 
+    
+    
+    
+    
+    
+   <!-- AUTOMATION -->
+    <div class="section-label">CODE</div>
+    <div class="card">
+      <div class="card-body">
+        
+        
+            
+ <!-- ==================== GROWING ==================== -->
+<div class="pythoncode">
+    <h3>GROW THE MIND 🧠</h3>
+    <p style="color: #ccc; font-size: 1.0rem;">Just click <strong>RUN CODE</strong></p>
+        
+    <textarea id="code-input1" style="height: 750px;">
+INPUT  = 0.60
+TARGET = 3.00
+      
+WEIGHT = 0.00
+      
+PRODUCT = INPUT * WEIGHT
+OUTPUT  = PRODUCT
+ERROR   = TARGET - OUTPUT
+      
+WEIGHT_UPDATE = ERROR
+WEIGHT = WEIGHT + WEIGHT_UPDATE
+
+INPUT  = 1.00
+TARGET = 5.00
+      
+PRODUCT = INPUT * WEIGHT
+OUTPUT  = PRODUCT
+ERROR   = TARGET - OUTPUT
+      
+WEIGHT_UPDATE = ERROR
+WEIGHT = WEIGHT + WEIGHT_UPDATE
+
+print(f"We’ve grown the mind: WEIGHT = {WEIGHT}")
+    </textarea>
+        
+  <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
+        
+    <div id="output-window1">Ready for math!</div>
+</div>
+        
+
+        
+        
+  <!-- ==================== VALIDATION ==================== -->
+<div class="pythoncode">
+    <h3>TEST THE MIND 🧠</h3>
+    <p style="color: #ccc; font-size: 1.0rem;">Just click <strong>RUN CODE</strong>/p>
+        
+    <textarea id="code-input2" style="height: 360px;">
+WEIGHT = 5.00
+      
+INPUT  = 10.00
+TARGET = 50.00
+
+PRODUCT = INPUT * WEIGHT
+OUTPUT  = PRODUCT
+ERROR   = TARGET - OUTPUT
+
+print(f"We’ve tested the mind: ERROR = {ERROR}")
+    </textarea>
+        
+  <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
+        
+    <div id="output-window2">Ready for math!</div>
+</div>
+        
+      </div>
+    </div>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- NOTE -->
     <div class="section-label">Note</div>
     <div class="card">
       <div class="card-body">
-        <p>A mind can learn from its own errors, a process made possible by the UPDATE RULE. For this task, the SIMPLE UPDATE RULE was sufficient.</p>
+        <p>Machine minds can learn from their own errors. This is possible thanks to the UPDATE RULE. For this specific task, the SIMPLE UPDATE RULE was sufficient.</p>
       </div>
     </div>
 
+
+    <!-- TEASER -->
     <div class="teaser">
       <div class="teaser-next">Up Next: Class 2</div>
-      <p>Real‑world datasets often contain negative numbers.<br/>To handle this, we introduce the <strong style="color:var(--yellow);">INFLUENCE</strong> into the <strong style="color:var(--yellow);">UPDATE RULE</strong>.
+      <p>Real&#8209;world datasets often contain negative numbers.<br/>To handle them, we add something called <strong style="color:var(--yellow);">INFLUENCE</strong> into the <strong style="color:var(--yellow);">UPDATE RULE</strong>.
       </p>
     </div>
 
+
+    <!-- FOOTER -->
     <footer class="footer">
       <img src="../logo.jpg" alt="Machine Intelligence School Logo" class="footer-logo" />
       <div class="footer-copyright">© 2026 Machine Intelligence School</div>
     </footer>
+
   </div>
+  <!-- /page -->
+  
+  
+
+  
+  
+  
+  
+  
+  
+<script>
+    function outf(text, outputId) {
+        var mypre = document.getElementById(outputId);
+        mypre.innerHTML = mypre.innerHTML + text;
+    }
+
+    function runPython(block) {
+        const codeId = block === 1 ? "code-input1" : "code-input2";
+        const outputId = block === 1 ? "output-window1" : "output-window2";
+        
+        var code = document.getElementById(codeId).value;
+        var mypre = document.getElementById(outputId);
+        mypre.innerHTML = ''; 
+        
+        Sk.pre = outputId;
+        Sk.configure({output: (text) => outf(text, outputId)});
+        
+        var myPromise = Sk.misceval.asyncToPromise(function() {
+            return Sk.importMainWithBody("<stdin>", false, code, true);
+        });
+        
+        myPromise.then(function(mod) {
+            console.log('Success!');
+        }, function(err) {
+            mypre.innerHTML = err.toString();
+        });
+    }
+</script>
+
 </body>
 </html>
+
 
 
 </body>
