@@ -1,1 +1,930 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
 
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class 3 — SMALL</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+
+    /* ── DESIGN TOKENS (light mode) ── */
+    :root {
+      --black:      #111111;
+      --gray:       #555555;
+      --gray-lt:    #f2f2f2;
+      --border:     #dddddd;
+      --bg:         #f7f5f0;
+      --white:      #ffffff;
+      --yellow:     #ffd166;
+      --green:      #2d8a4e;
+      --green-lt:   #eaf7ee;
+      --green-lt-lt:#00ff00;
+      --blue:       #1a6fab;
+      --blue-lt:    #e8f3fc;
+      --orange:     #e8610a;
+      --orange-lt:  #fff3eb;
+      --red:        #c0392b;
+      --red-lt:     #fdecea;
+    }
+
+    /* ── DARK MODE TOKENS ── */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --black:     #f0ede8;
+        --gray:      #aaaaaa;
+        --gray-lt:   #2a2a2a;
+        --border:    #3a3a3a;
+        --bg:        #1a1a1a;
+        --white:     #242424;
+        --green-lt:  #0e2718;
+        --blue-lt:   #0b1e2e;
+        --orange-lt: #2a1500;
+        --red-lt:    #2a0a08;
+        --red:       #e06c6c;
+      }
+    }
+
+    /* ── RESET & BASE ── */
+    * {
+      box-sizing: border-box;
+      margin:  0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+      font-size:   17px;
+      line-height: 1.75;
+    }
+
+    body {
+      background:     var(--bg);
+      color:          var(--black);
+      padding-bottom: 80px;
+    }
+
+    p      { margin-bottom: 12px; }
+    strong { font-weight: 900; }
+    em     { font-style: italic; }
+
+    /* ── HEADER ── */
+    header {
+      background: #111111;
+      color:      #ffffff;
+      padding:    32px 24px;
+      text-align: center;
+    }
+
+    .header-tag {
+      color:          var(--green);
+      font-weight:    900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom:  8px;
+    }
+
+    .header-title {
+      font-weight:   900;
+      font-size:     28px;
+      line-height:   1.2;
+      margin-bottom: 6px;
+      color:         #ffffff;
+    }
+
+    .header-subtitle {
+      color:       #aaaaaa;
+      font-weight: 700;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: 760px;
+      margin:    0 auto;
+      padding:   0 20px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      display:        inline-block;
+      background:     #111111;
+      color:          #ffffff;
+      font-weight:    900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding:        7px 18px;
+      border-radius:  4px;
+      margin:         36px 0 18px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background:    var(--white);
+      border:        1.5px solid var(--border);
+      border-radius: 10px;
+      margin:        16px 0;
+      overflow:      hidden;
+    }
+
+    .card-header {
+      background:     #111111;
+      color:          #ffffff;
+      font-weight:    900;
+      letter-spacing: 0.06em;
+      padding:        11px 20px;
+    }
+
+    .card-body { padding: 20px 24px; }
+
+    /* ── FORMULA BLOCK ── */
+    .formula-block {
+      background:    #111111;
+      color:         #ffffff;
+      border-radius: 8px;
+      padding:       20px 24px;
+      margin:        16px 0;
+      font-weight:   700;
+      line-height:   2;
+      border-left:   5px solid var(--green);
+    }
+
+    .formula-block-label {
+      color:          var(--green);
+      font-weight:    900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom:  10px;
+    }
+
+    .formula { color: var(--yellow); }
+
+    /* ── CALLOUT BOXES ── */
+    .callout {
+      border-radius: 8px;
+      padding:       16px 20px;
+      margin:        14px 0;
+      font-weight:   700;
+      line-height:   1.85;
+    }
+
+    .callout-neutral { background: var(--gray-lt);   border-left: 4px solid var(--gray);   }
+    .callout-success { background: var(--green-lt);  border-left: 4px solid var(--green);  }
+    .callout-info    { background: var(--blue-lt);   border-left: 4px solid var(--blue);   }
+    .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
+
+    .callout-title {
+      font-weight:    900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom:  10px;
+    }
+
+    .callout-neutral .callout-title { color: var(--gray);   }
+    .callout-success .callout-title { color: var(--green);  }
+    .callout-info    .callout-title { color: var(--blue);   }
+    .callout-warning strong         { color: var(--orange); font-weight: 900; }
+
+    /* ── INFLUENCE PANEL ── */
+    .influence-panel {
+      background:    var(--white);
+      border-left:   4px solid var(--blue);
+      border-radius: 6px;
+      padding:       12px 16px;
+      margin:        12px 0 16px;
+      color:         var(--black);
+      font-weight:   700;
+      line-height:   1.85;
+    }
+
+    .influence-panel-label {
+      color:          var(--blue);
+      font-weight:    900;
+      letter-spacing: 0.08em;
+ 
+      margin-bottom:  6px;
+    }
+
+    /* ── TAKEAWAY BOX ── */
+    .takeaway {
+      background:    var(--gray-lt);
+      border:        2px solid var(--black);
+      border-radius: 8px;
+      padding:       14px 20px;
+      margin:        14px 0;
+      font-weight:   900;
+    }
+
+    .takeaway-label {
+      color:          var(--gray);
+      font-weight:    900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom:  8px;
+    }
+
+    /* ── RESULT BANNER ── */
+    .result-banner {
+      background:     #111111;
+      color:          var(--yellow);
+      font-weight:    900;
+      text-align:     center;
+      padding:        14px 20px;
+      border-radius:  8px;
+      margin:         14px 0;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── COMPLETION BANNER ── */
+    .completion-banner {
+      background:     #111111;
+      color:          var(--yellow);
+      font-weight:    900;
+      text-align:     center;
+      letter-spacing: 0.2em;
+      padding:        18px;
+      border-radius:  10px;
+      margin:         28px 0;
+    }
+
+    /* ── SUCCESS CALLOUT ── */
+    .success-callout {
+      background:    var(--green-lt);
+      border:        2px solid var(--green);
+      border-radius: 8px;
+      padding:       14px 20px;
+      margin:        12px 0;
+      font-weight:   800;
+      color:         var(--green);
+    }
+
+    /* ── ERROR CHIP ── */
+    .error-chip {
+      display:       inline-block;
+      background:    var(--red-lt);
+      color:         var(--red);
+      font-weight:   800;
+      padding:       4px 12px;
+      border-radius: 20px;
+      margin:        4px 0;
+    }
+
+    /* ── DIAGRAM ── */
+    .diagram { text-align: center; margin: 14px 0; }
+
+    .diagram img {
+      max-width:     100%;
+      height:        auto;
+      border-radius: 8px;
+      display:       block;
+      margin:        0 auto;
+      border:        1.5px solid var(--border);
+    }
+
+    /* ── DATA TABLE ── */
+    .data-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+
+    .data-table th {
+      background:     #111111;
+      color:          #ffffff;
+      font-weight:    900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding:        8px 14px;
+      text-align:     left;
+    }
+
+    .data-table td {
+      padding:       8px 14px;
+      border-bottom: 1px solid var(--border);
+      font-weight:   700;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* ── TABLE SCROLL WRAPPER ── */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 10px 0;
+    }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 30px 0; }
+
+    /* ── STEP HEADING ── */
+    .step-heading {
+      display:     flex;
+      align-items: center;
+      gap:         12px;
+      font-weight: 900;
+      margin:      28px 0 12px;
+    }
+
+    .step-badge {
+      background:      var(--green);
+      color:           #ffffff;
+      width:           32px;
+      height:          32px;
+      border-radius:   50%;
+      display:         flex;
+      align-items:     center;
+      justify-content: center;
+      font-weight:     900;
+      flex-shrink:     0;
+    }
+
+    /* ── PYTHON CODE BLOCK ── */
+    .pythoncode {
+      background-color: #1e1e1e;
+      color:            #ffffff;
+      padding:          20px;
+      border-radius:    12px;
+      font-family:      'Courier New', Courier, monospace;
+      margin:           20px 0;
+      box-shadow:       0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .pythoncode h3 {
+      margin-top: 0;
+      color:      #ffffff;
+    }
+
+    #code-input1, #code-input2 {
+      width:        100%;
+      height:       750px;
+      font-weight:  bold;
+      border:       1px solid #444;
+      padding:      15px;
+      font-size:    1rem;
+      border-radius: 5px;
+      box-sizing:   border-box;
+      outline:      none;
+      resize:       vertical;
+      background:   #1e1e1e;
+      color:        #ffffff;
+      font-family:  'Courier New', Courier, monospace;
+    }
+
+     #code-input1 { height: 900px; }
+     #code-input2 { height: 400px; }
+    
+    #output-window1, #output-window2 {
+      background-color: #000000;
+      color:            #ffffff;
+      font-weight:      bold;
+      padding:          15px;
+      min-height:       50px;
+      margin-top:       10px;
+      border-radius:    5px;
+      white-space:      pre-wrap;
+      border-left:      4px solid #00ff00;
+      font-size:        0.95rem;
+      font-family:      'Courier New', Courier, monospace;
+    }
+
+    .pythoncode button {
+      margin-top:       10px;
+      background-color: #00ff00;
+      color:            #000000;
+      border:           none;
+      padding:          10px 25px;
+      font-weight:      bold;
+      border-radius:    5px;
+      cursor:           pointer;
+      transition:       background 0.2s;
+      font-family:      'Nunito', sans-serif;
+    }
+
+    .pythoncode button:hover { background-color: #00cc00; }
+
+    /* ── TEASER BLOCK ── */
+    .teaser {
+      background:    #111111;
+      color:         #ffffff;
+      border-radius: 10px;
+      padding:       28px;
+      text-align:    center;
+      margin:        36px 0 0;
+      font-weight:   700;
+    }
+
+    .teaser-next {
+      color:       var(--yellow);
+      font-weight: 900;
+      font-size:   22px;
+      margin:      8px 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      display:         flex;
+      flex-direction:  column;
+      align-items:     center;
+      justify-content: center;
+      padding:         60px 20px 40px;
+      gap:             16px;
+      border-top:      1px solid var(--border);
+      margin-top:      60px;
+    }
+
+    .footer-logo       { width: 128px; height: auto; opacity: 0.8; transition: opacity 0.3s ease; }
+    .footer-logo:hover { opacity: 1; }
+
+    .footer-copyright {
+      color:          var(--gray);
+      font-weight:    700;
+      font-size:      14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .card-body       { padding:   14px 16px; }
+      .callout         { padding:   14px 16px; }
+      .formula-block   { padding:   16px 18px; }
+      .influence-panel { padding:   10px 14px; }
+      .header-title    { font-size: 22px;      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <header>
+    <div class="header-tag">How Machines Learn and Think</div>
+    <div class="header-title">Class 3</div>
+    <div class="header-subtitle">SMALL</div>
+  </header>
+
+
+  <div class="page">
+    
+    
+       <!-- INTRODUCTION -->
+    <div class="section-label">Introduction</div>
+
+    <div class="card">
+      <div class="card-body">
+        <p><strong>SMALL</strong> is a small number, such as <strong>0.0100</strong> or <strong>0.0010</strong>.</p>
+        <p>For example, let's set it to <strong>0.010</strong>:</p>
+        <div class="callout callout-neutral">SMALL = <strong>0.0100</strong></div>
+
+      </div>
+    </div>
+
+
+    <!-- THE MIND WE WANT TO BUILD -->
+    <div class="section-label">The Mind We Want to Grow</div>
+    <div class="card">
+      <div class="card-body">
+        <p>We want to grow a mind that can multiply any number by <strong>5.00</strong>.</p>
+        <p>This mind will have a single PARAMETER: <strong>WEIGHT</strong>.</p>
+        <p>Suppose we don't yet know what this WEIGHT should be, so let's start by setting it to <strong>zero</strong>:</p>
+        <div class="callout callout-neutral">WEIGHT = <strong>0.0000</strong></div>
+        <p>At first, the mind will generate nonsense.</p>
+      </div>
+    </div>
+
+
+    <!-- DATASET -->
+    <div class="section-label">Dataset</div>
+    <div class="card">
+      <div class="card-body">
+        <p>We have the following training dataset:</p>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>INPUT</th>
+                <th>TARGET</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SAMPLE 1</td>
+                <td>&nbsp;&nbsp;0.6000</td>
+                <td>&nbsp;&nbsp;3.0000</td>
+              </tr>
+              <tr>
+                <td>SAMPLE 2</td>
+                <td>-10.0000</td>
+                <td>-50.0000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          SAMPLE 1 means when INPUT is <strong>0.6000</strong>, the OUTPUT must be <strong>3.0000</strong>.<br/>
+          SAMPLE 2 means when INPUT is <strong>-10.0000</strong>, the OUTPUT must be <strong>-50.0000</strong>.
+        </p>
+        <p>
+          When training, at every lesson, the mind will <strong>update</strong> the PARAMETER to improve itself.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- THE REFINED UPDATE RULE -->
+    <div class="section-label">The Update Rule</div>
+
+    <div class="card">
+      <div class="card-body">
+
+       <p>The mind will <strong>update</strong> the PARAMETER using this update rule:</p>
+
+        <div class="formula-block">
+          <div class="formula-block-label">Universal Update Rule</div>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
+          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × SMALL</span>
+        </div>
+
+        <p>Since we have just one PARAMETER, which is WEIGHT, we obtain:</p>
+
+        <div class="formula-block">
+          <div class="formula-block-label">Universal Update Rule for WEIGHT</div>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+        </div>
+
+        <p>Don't worry — it's really simple. Just follow the calculations below.</p>
+
+      </div>
+    </div>
+
+
+    <!-- TRAINING -->
+    <div class="section-label">Training</div>
+
+
+    <!-- LESSON 1 -->
+    <div class="card">
+      <div class="card-header">LESSON 1</div>
+      <div class="card-body">
+
+        <div class="callout callout-neutral">WEIGHT = <strong>0.0000</strong><br/>
+          SMALL = <strong>0.0100</strong></div>
+
+        <p>SAMPLE 1:</p>
+        <div class="callout callout-neutral">
+          INPUT &nbsp;= <strong>0.6000</strong><br/>
+          TARGET = <strong>3.0000</strong>
+        </div>
+
+        <div class="callout callout-success">
+          <div class="callout-title">Forward Pass</div>
+          PRODUCT = INPUT × WEIGHT = 0.6000 × 0.0000 = <strong>0.0000</strong><br/>
+          OUTPUT &nbsp;= PRODUCT = <strong>0.0000</strong><br/>
+          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 3.0000 − 0.0000 = <strong>3.0000</strong>
+        </div>
+
+        <div class="diagram">
+          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before update" />
+        </div>
+
+        <div class="callout callout-info">
+          <div class="callout-title">Backward Pass — Backpropagation</div>
+
+          <div class="formula-block">
+            <div class="formula-block-label">Universal Update Rule for WEIGHT</div>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+          </div>
+
+          WEIGHT = <strong>0.0000</strong><br/>
+          ERROR  = <strong>3.0000</strong><br/>
+
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
+            Our formula is: &nbsp;<strong>OUTPUT = INPUT × WEIGHT</strong><br/>
+            The number in front of WEIGHT is INPUT.<br/>
+            Therefore: &nbsp;<strong>WEIGHT_OUTPUT_influence = INPUT</strong>
+          </div>
+
+          WEIGHT_OUTPUT_influence = INPUT = <strong>0.6000</strong><br/>
+          SMALL  = <strong>0.0100</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 3.0000 × 0.6000 × 0.0100= <strong>0.0180</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 0.0000 + 0.0180 = <strong>0.0180</strong><br/>
+
+        </div>
+
+        <div class="result-banner">WEIGHT = 0.0180</div>
+
+        <div class="callout callout-warning">
+          <strong>What just happened?</strong>
+          <p>The mind has just improved itself.</p>
+          <p>Now, if it receives the same INPUT of <strong>0.6000</strong>,
+          the OUTPUT becomes <strong>0.0108</strong> — which is closer to the
+          TARGET <strong>3.0000</strong> than the previous OUTPUT <strong>0.0000</strong> was.</p>
+          <p>The ERROR becomes smaller:</p>
+          <span class="error-chip">ERROR = 2.9892</span>
+        </div>
+
+        <div class="diagram">
+          <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after update" />
+        </div>
+
+        <p style="color:var(--gray);">Lesson 1 ends here.</p>
+
+      </div>
+    </div>
+
+
+ 
+    <!-- LESSON 2 -->
+    <div class="card">
+      <div class="card-header">LESSON 2</div>
+      <div class="card-body">
+
+        <div class="callout callout-neutral">WEIGHT = <strong>0.0180</strong><br/>
+          SMALL = <strong>0.0100</strong></div>
+
+        <p>SAMPLE 2:</p>
+        <div class="callout callout-neutral">
+          INPUT &nbsp;= <strong>-10.0000</strong><br/>
+          TARGET = <strong>-50.0000</strong>
+        </div>
+
+        <div class="callout callout-success">
+          <div class="callout-title">Forward Pass</div>
+          PRODUCT = INPUT × WEIGHT = -10.0000 × 0.0180 = <strong>-0.1800</strong><br/>
+          OUTPUT &nbsp;= PRODUCT = <strong>-0.1800</strong><br/>
+          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 50.0000 − (−0.1800) = <strong>-49.8200</strong>
+        </div>
+
+        <div class="diagram">
+          <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before update" />
+        </div>
+
+        <div class="callout callout-info">
+          <div class="callout-title">Backward Pass — Backpropagation</div>
+
+          <div class="formula-block">
+            <div class="formula-block-label">Universal Update Rule for WEIGHT</div>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+          </div>
+
+          WEIGHT = <strong>0.0180</strong><br/>
+          ERROR  = <strong>−49.8200</strong><br/>
+
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
+            Our formula is: &nbsp;<strong>OUTPUT = INPUT × WEIGHT</strong><br/>
+            The number in front of WEIGHT is INPUT.<br/>
+            Therefore: &nbsp;<strong>WEIGHT_OUTPUT_influence = INPUT</strong>
+          </div>
+
+          WEIGHT_OUTPUT_influence = INPUT = <strong>−10.0000</strong><br/>
+          SMALL  = <strong>0.0100</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = −49.8200 × (−10.0000) × 0.0100 = <strong>4.9820</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 0.0180 + 4.9820 = <strong>5.0000</strong><br/>
+        </div>
+
+        <div class="result-banner">WEIGHT = 5.0000</div>
+
+        <div class="callout callout-warning">
+          <strong>What just happened?</strong>
+          <p>The mind has just improved itself.</p>
+          <p>Now, if it receives the same INPUT of <strong>−10.0000</strong>,
+          the OUTPUT becomes <strong>−50.0000</strong> — which is closer to the
+          TARGET <strong>−50.0000</strong> than the previous OUTPUT <strong>-0.1800</strong> was.</p>
+        </div>
+
+        <div class="success-callout">
+          <p>Wait — it's not just closer. It's exact!<br/>
+          OUTPUT is now −50.0000 — exactly the same as TARGET.</p>
+          <p>The ERROR becomes zero:</p>
+          <span class="error-chip" style="background:#d4edda; color:#155724;">&nbsp;&nbsp;ERROR = 0.0000</span>
+        </div>
+
+        <div class="diagram">
+          <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after update" />
+        </div>
+
+        <p style="color:var(--gray);">Lesson 2 ends here.</p>
+
+      </div>
+    </div>
+
+
+    <div class="completion-banner">✓ &nbsp; DONE &nbsp; ✓</div>
+
+
+
+    <!-- TESTING -->
+    <div class="section-label">Testing</div>
+    <div class="card">
+      <div class="card-body">
+
+        <p>To test the mind, we give it <strong>INPUT</strong> it has never seen before.</p>
+
+        <div class="callout callout-neutral">WEIGHT = <strong>5.0000</strong></div>
+
+        <div class="callout callout-neutral">
+          INPUT &nbsp;= <strong>10.0000</strong><br/>
+          TARGET = <strong>50.0000</strong>
+        </div>
+
+        <div class="callout callout-success">
+          <div class="callout-title">Forward Pass</div>
+          PRODUCT = INPUT × WEIGHT = 10.0000 × 5.0000 = <strong>50.0000</strong><br/>
+          OUTPUT &nbsp;= PRODUCT = <strong>50.0000</strong><br/>
+          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 50.0000 − 50.0000 = <strong>0.0000</strong>
+        </div>
+
+        <div class="diagram">
+          <img src="graph_validation.png" alt="Neuron diagram — Validation" />
+        </div>
+
+ 
+        <div class="callout callout-warning">
+          <p>This mind — since <strong>ERROR = 0.0000</strong> — works perfectly!</p>
+          <p>It has learned the rule: <strong>multiply any number by 5.0000</strong>.</p>
+          <p>The <strong>Multiplier By Five</strong> can solve problems it has never encountered before.</p>
+        </div>
+
+      </div>
+    </div>
+    
+    
+    <!-- CODE -->
+    <div class="section-label">Code</div>
+
+    <div class="card">
+      <div class="card-body">
+
+        <!-- GROW THE MIND -->
+        <div class="pythoncode">
+          <h3>GROW THE MIND 🧠</h3>
+          <p style="color: #cccccc; font-size: 1.0rem;">Just click <strong>RUN CODE</strong></p>
+
+          <textarea id="code-input1">
+WEIGHT = 0.0000
+SMALL  = 0.0100
+            
+INPUT  = 0.6000
+TARGET = 3.0000
+
+PRODUCT = INPUT * WEIGHT
+OUTPUT  = PRODUCT
+ERROR   = TARGET - OUTPUT
+
+WEIGHT_OUTPUT_influence = INPUT
+WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * SMALL
+WEIGHT = WEIGHT + WEIGHT_update
+
+INPUT  = -10.0000
+TARGET = -50.0000
+
+PRODUCT = INPUT * WEIGHT
+OUTPUT  = PRODUCT
+ERROR   = TARGET - OUTPUT
+
+WEIGHT_OUTPUT_influence = INPUT
+WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * SMALL
+WEIGHT = WEIGHT + WEIGHT_update
+
+print(f"We've grown the mind: WEIGHT = {WEIGHT}")
+          </textarea>
+
+          <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
+
+          <div id="output-window1">Ready for math!</div>
+        </div>
+
+
+        <!-- TEST THE MIND -->
+        <div class="pythoncode">
+          <h3>TEST THE MIND 🧠</h3>
+          <p style="color: #cccccc; font-size: 1.0rem;">Just click <strong>RUN CODE</strong></p>
+
+          <textarea id="code-input2">
+WEIGHT = 5.0000
+
+INPUT  = 10.0000
+TARGET = 50.0000
+
+PRODUCT = INPUT * WEIGHT
+OUTPUT  = PRODUCT
+ERROR   = TARGET - OUTPUT
+
+print(f"We've tested the mind: ERROR = {ERROR}")
+          </textarea>
+
+          <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
+
+          <div id="output-window2">Ready for math!</div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- NOTE -->
+    <div class="section-label">Note</div>
+    <div class="card">
+      <div class="card-body">
+        <p>Machine minds can learn from their own errors. This is always possible thanks to the <strong>Universal Update Rule</strong>:
+          
+          <div class="formula-block">
+          <div class="formula-block-label">Universal Update Rule</div>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
+          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × SMALL</span>
+        </div>
+          
+   
+      </div>
+    </div>
+
+
+     <!-- TEASER -->
+    <div class="teaser">
+      <div class="teaser-next">Up Next: Class 4</div>
+      <p>We'll add <strong style="color:var(--yellow);">BIAS</strong> to <strong style="color:var(--yellow);">WEIGHT</strong>.<br/> 
+      This new mind will be more powerful.</p>
+    </div>
+ 
+   
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <img src="../logo.jpg" alt="Machine Intelligence School Logo" class="footer-logo" />
+      <div class="footer-copyright">© 2026 Machine Intelligence School</div>
+    </footer>
+
+  </div>
+  <!-- /page -->
+
+
+  <script>
+    function outf(text, outputId) {
+      var mypre = document.getElementById(outputId);
+      mypre.innerHTML = mypre.innerHTML + text;
+    }
+
+    function runPython(block) {
+      const codeId    = block === 1 ? "code-input1"    : "code-input2";
+      const outputId  = block === 1 ? "output-window1" : "output-window2";
+
+      var code   = document.getElementById(codeId).value;
+      var mypre  = document.getElementById(outputId);
+      mypre.innerHTML = '';
+
+      Sk.pre = outputId;
+      Sk.configure({ output: (text) => outf(text, outputId) });
+
+      var myPromise = Sk.misceval.asyncToPromise(function () {
+        return Sk.importMainWithBody("<stdin>", false, code, true);
+      });
+
+      myPromise.then(
+        function (mod) { console.log('Success!'); },
+        function (err)  { mypre.innerHTML = err.toString(); }
+      );
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+</body>
+</html>
+
+
+</body>
+</html>
