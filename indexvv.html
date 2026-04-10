@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<!--
+  FILE: index.html — How Machines Learn and Think — Course Landing Page
+  © 2026 Machine Intelligence School
+
+  SECTIONS:
+    header → intro cards → In More Detail → Sample Class →
+    About Minds → Building Blocks → Math Every Neuron Does →
+    Our Very First Machine Mind → Pricing / CTA → footer
+-->
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Machines Learn and Think</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+
+    /* ── DESIGN TOKENS (light mode) ── */
+    :root {
+      --black:      #111111;
+      --gray:       #555555;
+      --gray-lt:    #f2f2f2;
+      --border:     #dddddd;
+      --bg:         #f7f5f0;
+      --white:      #ffffff;
+      --yellow:     #ffd166;
+      --green:      #2d8a4e;
+      --green-lt-lt:#00ff00;
+      --green-lt:   #eaf7ee;
+      --blue:       #1a6fab;
+      --blue-lt:    #e8f3fc;
+      --orange:     #e8610a;
+      --orange-lt:  #fff3eb;
+      --red:        #c0392b;
+      --red-lt:     #fdecea;
+    }
+
+    /* ── DARK MODE TOKENS ── */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --black:     #f0ede8;
+        --gray:      #aaaaaa;
+        --gray-lt:   #2a2a2a;
+        --border:    #3a3a3a;
+        --bg:        #1a1a1a;
+        --white:     #242424;
+        --green-lt:  #0e2718;
+        --blue-lt:   #0b1e2e;
+        --orange-lt: #2a1500;
+        --red-lt:    #2a0a08;
+        --red:       #e06c6c;
+      }
+    }
+
+    /* ── RESET & BASE ── */
+    * {
+      box-sizing: border-box;
+      margin:  0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+      font-size:   17px;
+      line-height: 1.75;
+    }
+
+    body {
+      background:     var(--bg);
+      color:          var(--black);
+      padding-bottom: 80px;
+    }
+
+    p      { margin-bottom: 12px; }
+    strong { font-weight: 900; }
+    em     { font-style: italic; }
+
+    /* ── HEADER ── */
+    header {
+      background: #111111;
+      color:      var(--yellow);
+      padding:    40px 24px 36px;
+      text-align: center;
+    }
+
+    .header-eyebrow {
+      color:          var(--green);
+      font-weight:    900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom:  10px;
+      font-size:      15px;
+    }
+
+    .header-title {
+      font-weight:   900;
+      font-size:     30px;
+      line-height:   1.2;
+      margin-bottom: 8px;
+      color:         var(--yellow);
+    }
+
+    .header-subtitle {
+      color:         #aaaaaa;
+      font-weight:   700;
+      margin-bottom: 6px;
+    }
+
+    .header-audience {
+      color:       #ffffff;
+      font-weight: 700;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: 760px;
+      margin:    0 auto;
+      padding:   0 20px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      display:        inline-block;
+      background:     #111111;
+      color:          #ffffff;
+      font-weight:    900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding:        7px 18px;
+      border-radius:  4px;
+      margin:         36px 0 18px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background:    var(--white);
+      border:        1.5px solid var(--border);
+      border-radius: 10px;
+      margin:        16px 0;
+      overflow:      hidden;
+    }
+
+    .card-header {
+      background:     #111111;
+      color:          #ffffff;
+      font-weight:    900;
+      letter-spacing: 0.06em;
+      padding:        11px 20px;
+    }
+
+    .card-body { padding: 20px 24px; }
+
+    /* ── CALLOUT BOXES ── */
+    .callout {
+      border-radius: 8px;
+      padding:       16px 20px;
+      margin:        14px 0;
+      font-weight:   700;
+      line-height:   1.85;
+    }
+
+    .callout-neutral { background: var(--gray-lt);   border-left: 4px solid var(--gray);   }
+    .callout-success { background: var(--green-lt);  border-left: 4px solid var(--green);  }
+    .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
+
+    .callout-title {
+      font-weight:    900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom:  10px;
+    }
+
+    .callout-neutral .callout-title { color: var(--gray);  }
+    .callout-success .callout-title { color: var(--green); }
+
+    /* ── FORMULA BLOCK ── */
+    .formula-block {
+      background:    #111111;
+      color:         #ffffff;
+      border-radius: 8px;
+      padding:       20px 24px;
+      margin:        16px 0;
+      font-weight:   700;
+      line-height:   2;
+      border-left:   5px solid var(--green);
+    }
+
+    .formula { color: var(--yellow); }
+
+    /* ── INNER HEADING ── */
+    .inner-heading {
+      font-weight:  900;
+      font-size:    19px;
+      margin:       24px 0 10px;
+    }
+
+    .inner-heading:first-child { margin-top: 0; }
+
+    /* ── PROSE LIST ── */
+    .prose-list            { margin: 10px 0 14px 24px; }
+    .prose-list li         { margin-bottom: 8px; font-weight: 700; }
+
+    /* ── IMAGE BLOCK ── */
+    .img-block {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .img-block img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    @media (min-width: 768px) {
+      .img-block img {
+        max-width: 150px;
+      }
+    }
+
+    /* ── TABLE SCROLL WRAPPER ── */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 14px 0;
+    }
+
+    /* ── DOCUMENT TABLE ── */
+    .doc-table {
+      border-collapse: collapse;
+      margin:          0 auto;
+      font-weight:     700;
+    }
+
+    .doc-table td {
+      border:         1px solid #aaaaaa;
+      padding:        8px 14px;
+      text-align:     center;
+      vertical-align: middle;
+    }
+
+    .doc-table .label-cell {
+      border:       none;
+      text-align:   left;
+      color:        var(--black);
+      font-weight:  700;
+      padding-left: 12px;
+      white-space:  nowrap;
+    }
+
+    .doc-table .table-title-row td {
+      background:     #111111;
+      color:          #ffffff;
+      font-weight:    900;
+      letter-spacing: 0.08em;
+    }
+
+    .doc-table .col-header td {
+      background:     var(--gray-lt);
+      font-weight:    900;
+      text-transform: uppercase;
+      font-size:      15px;
+    }
+
+    .doc-table .total-row td {
+      background:  #111111;
+      color:       var(--yellow);
+      font-weight: 900;
+    }
+
+    .doc-table .sum-row td {
+      background:  var(--gray-lt);
+      font-weight: 900;
+    }
+
+    /* ── MAPPING TABLE ── */
+    .mapping-table               { border-collapse: collapse; margin: 0 auto; }
+    .mapping-table td            { border: 1px solid var(--border); padding: 8px 16px; font-weight: 700; }
+    .mapping-table tr:first-child td {
+      background:     #111111;
+      color:          #ffffff;
+      font-weight:    900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── NEURON EMOJI ── */
+    .neuron-emoji  { font-size: 60px; text-align: center; margin: 10px 0 4px; line-height: 1.1; }
+    .neuron-label  {
+      text-align:     center;
+      font-weight:    900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom:  14px;
+    }
+
+    /* ── PRICING BLOCK ── */
+    .pricing-block {
+      background:    #111111;
+      color:         #ffffff;
+      border-radius: 10px;
+      padding:       32px 28px;
+      text-align:    center;
+      margin:        20px 0;
+    }
+
+    .pricing-title {
+      font-weight:    900;
+      font-size:      22px;
+      color:          var(--yellow);
+      letter-spacing: 0.1em;
+      line-height:    1.35;
+      margin-bottom:  14px;
+    }
+
+    .pricing-sub   { color: #cccccc; font-weight: 700; margin-bottom: 4px; }
+
+    .pricing-price { font-weight: 900; color: var(--yellow); font-size: 20px; margin-top: 10px; }
+
+    .price-pill {
+      display:        inline-block;
+      background:     green;
+      color:          white;
+      font-weight:    900;
+      font-size:      17px;
+      padding:        12px 28px;
+      border-radius:  6px;
+      border:         4px solid #93c47d;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
+
+    /* ── FOOTER ── */
+    .footer {
+      display:         flex;
+      flex-direction:  column;
+      align-items:     center;
+      justify-content: center;
+      padding:         60px 20px 40px;
+      gap:             16px;
+      border-top:      1px solid var(--border);
+      margin-top:      60px;
+    }
+
+    .footer-logo       { width: 128px; height: auto; opacity: 0.8; transition: opacity 0.3s ease; }
+    .footer-logo:hover { opacity: 1; }
+
+    .footer-copyright {
+      color:          var(--gray);
+      font-weight:    700;
+      font-size:      14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .card-body    { padding:   14px 16px; }
+      .header-title { font-size: 22px;      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <header>
+    <div class="header-eyebrow">✨ Mind&#8209;Extending Course</div>
+    <div class="header-title">HOW MACHINES LEARN AND THINK</div>
+    <div class="header-subtitle">The Surprisingly Simple Math Behind Modern AI</div>
+    <div class="header-audience">For kids (10+) and adults</div>
+  </header>
+
+
+  <div class="page">
+
+    <div class="card" style="margin-top:32px;">
+      <div class="card-body">
+        <p>This course is the <strong>shortest</strong>, <strong>quickest</strong>, and <strong>easiest</strong> way to understand how modern AI systems — known as <strong>Transformers</strong> (including ChatGPT, Claude, Gemini, and Grok) — actually work under the hood.</p>
+        <p>You&rsquo;ll discover how they think and, most importantly, how they learn.</p>
+        <p>Use this knowledge for fun, curiosity, or to build a top&#8209;tier career in today&rsquo;s AI-driven world.</p>
+        <p>No prior math or coding is required. If you know that <strong>5 &divide; 4 = 1.25</strong> and <strong>2 &minus; 3 = &minus;1</strong>, you&rsquo;re ready.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <p>By the end of this course, you&rsquo;ll gain a deeper intuition for AI than even most people who specialize in AI.</p>
+      </div>
+    </div>
+
+
+    <!-- IN MORE DETAIL -->
+    <div class="section-label">In More Detail</div>
+
+    <div class="card">
+      <div class="card-body">
+
+        <div class="img-block">
+          <img src="MIS.png" alt="MIS"/>
+        </div>
+
+        <p>Our Machine Intelligence School takes a <strong>first&#8209;principles approach</strong> — focused on building a deeper intuition. No jargon — just clear insights into how modern AI actually works.</p>
+
+        <hr class="divider" />
+
+        <div class="inner-heading">🧠 What You Learn</div>
+        <p>You&rsquo;ll uncover the core mechanisms behind modern AI, including:</p>
+        <ul class="prose-list">
+          <li><strong>BACKPROPAGATION:</strong> How all AI models learn from their own errors.</li>
+          <li><strong>ATTENTION:</strong> How the most advanced AI models — known as Transformers (including ChatGPT, Claude, Gemini, and Grok) — actually think.</li>
+        </ul>
+
+        <hr class="divider" />
+
+        <div class="inner-heading">🧑‍🤝‍🧑 Who This Is For</div>
+        <p>Our course is carefully designed to be accessible and valuable to a remarkably wide audience — from curious kids as young as 10 to adults exploring a career change, as well as both professionals and university students who specialise in AI and seek deeper conceptual clarity.</p>
+
+        <hr class="divider" />
+
+        <div class="inner-heading">💪 Why This Approach Is Different</div>
+        <p>Even world-class educational resources — including Stanford, Harvard, and MIT courses; leading textbooks; and creators like 3Blue1Brown — assume learners already have some background in both math and coding.</p>
+        <p>This assumption effectively <strong>excludes most people</strong>. For true beginners, such material inevitably feels either overwhelmingly technical or frustratingly vague.</p>
+        <p>Our approach is fundamentally different. The material is neither vague nor overly technical — just deep and clear.</p>
+        <p>We use our unique:</p>
+        <ul class="prose-list">
+          <li>&ldquo;Essence&#8209;first&rdquo; explanations;</li>
+          <li>Self&#8209;explanatory terminology;</li>
+          <li>Intuitive analogies;</li>
+          <li>Vivid illustrations;</li>
+          <li>Hands&#8209;on activities.</li>
+        </ul>
+        <p>With this approach, everything becomes crystal clear.</p>
+        <p>Try <strong>the Sample Class</strong> to see how this works.</p>
+
+      </div>
+    </div>
+
+
+    <!-- THE SAMPLE CLASS -->
+    <div class="section-label">🚀 The Sample Class</div>
+
+    <div class="card">
+      <div class="card-body">
+        <p>Hey explorers! 🎉 &nbsp;</p>
+        <p>Today we&rsquo;re diving into something amazing: the real secret of how machines learn and think. &nbsp;</p>
+        <p>Ready? Let&rsquo;s begin.</p>
+      </div>
+    </div>
+
+
+    <!-- ABOUT MINDS -->
+    <div class="section-label">🧠 About Minds</div>
+
+    <div class="card">
+      <div class="card-body">
+        <p>Nowadays, there are two kinds of minds: <strong>biological</strong> and <strong>machine</strong>.</p>
+        <ul class="prose-list">
+          <li><strong>Biological minds</strong> — like the brains of humans and animals.</li>
+          <li><strong>Machine minds</strong> — like modern AI systems such as ChatGPT, Claude, Gemini, and Grok.</li>
+        </ul>
+
+        <p>The main job of every mind — whether biological or machine — is to learn and think.</p>
+        <p>And here&rsquo;s something surprising: at their core, learning and thinking are actually processes of doing <strong>MATH</strong>. Yes, really! And it&rsquo;s <strong>SIMPLE MATH</strong>!</p>
+        <p>We don't just build machine minds — they learn on their own, so it's more like we are <strong>GROWING</strong> them.</p>
+
+        <div class="img-block">
+          <img src="wlogo.jpg" alt="wlogo"/>
+        </div>
+
+        <p>How is this possible? In this course, you&rsquo;ll discover the answer.</p>
+      </div>
+    </div>
+
+
+    <!-- BUILDING BLOCKS OF EVERY MIND -->
+    <div class="section-label">The Building Blocks Of Every Mind</div>
+
+    <div class="card">
+      <div class="card-body">
+
+        <p>Every mind is, in essence, a <strong>NEURAL NETWORK</strong>.</p>
+
+        <div class="img-block">
+          <img src="nn.png" alt="nn" />
+        </div>
+
+        <p>It&rsquo;s called "<strong>NEURAL</strong>" because it&rsquo;s made up of <strong>NEURONS</strong>.</p>
+
+        <div class="neuron-emoji">😎</div>
+        <div class="neuron-label">NEURON</div>
+
+        <p>And it&rsquo;s called "<strong>NETWORK</strong>" because the <strong>NEURONS</strong> connect to each other.</p>
+        <p>We can think of each <strong>NEURON</strong> as a tiny yet cool creation.</p>
+        <p>But what does every NEURON actually do?</p>
+        <p>Every NEURON takes in <strong>input SIGNALS</strong> and then sends out one <strong>output SIGNAL</strong>.</p>
+
+        <p>For example, a NEURON might take in two <strong>input SIGNALS</strong> and then send out one <strong>output SIGNAL</strong>:</p>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr>
+              <td style="color:var(--blue);"><strong>input SIGNAL</strong></td>
+              <td style="color:var(--green);"><strong>input SIGNAL</strong></td>
+            </tr>
+            <tr>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:60px; padding:10px; border-left:none; border-right:none;">😎</td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:22px; font-weight:900; border:none;">↓</td>
+            </tr>
+            <tr>
+              <td colspan="2"><strong>output SIGNAL</strong></td>
+            </tr>
+          </table>
+        </div>
+
+        <p>What is a SIGNAL?</p>
+        <p>Generally, a <strong>SIGNAL</strong> is anything — like an electric impulse — that can be measured or calculated and then represented as a <strong>number</strong>. For example: 0.53 or 0.61.</p>
+        <p>At this point, we don&rsquo;t need to worry about how SIGNALS are measured or calculated. We just need to remember that:</p>
+        <p><strong>Every SIGNAL is something that can be represented as a number.</strong></p>
+
+        <p>In more detail, every NEURON:</p>
+        <ul class="prose-list">
+          <li>Takes in <strong>input SIGNALS</strong> (say, 0.53 and 0.61)</li>
+          <li>Does simple math on them to calculate its <strong>output SIGNAL</strong> (say, 0.12)</li>
+          <li>Then sends out this <strong>output SIGNAL</strong></li>
+        </ul>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr>
+              <td><strong>0.53</strong></td>
+              <td><strong>0.61</strong></td>
+              <td class="label-cell"><strong>input SIGNALS</strong></td>
+            </tr>
+            <tr>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:60px; padding:10px;">😎</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-weight:900; font-size:19px;">0.12</td>
+              <td class="label-cell"><strong>output SIGNAL</strong></td>
+            </tr>
+          </table>
+        </div>
+
+        <p>For brevity:</p>
+        <ul class="prose-list">
+          <li>The <strong>input SIGNALS</strong> are called <strong>INPUTS</strong>.</li>
+          <li>The <strong>output SIGNAL</strong> is called <strong>OUTPUT</strong>.</li>
+        </ul>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr>
+              <td><strong>0.53</strong></td>
+              <td><strong>0.61</strong></td>
+              <td class="label-cell"><strong>INPUTS</strong></td>
+            </tr>
+            <tr>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:60px; padding:10px;">😎</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-weight:900; font-size:19px;">0.12</td>
+              <td class="label-cell"><strong>OUTPUT</strong></td>
+            </tr>
+          </table>
+        </div>
+
+        <p><strong>The Key Insight</strong></p>
+        <p>An <strong>OUTPUT</strong> from one <strong>NEURON</strong> can become an <strong>INPUT</strong> for another <strong>NEURON</strong> that comes next — connecting the whole team together!</p>
+
+        <div class="img-block">
+          <img src="nn.png" alt="nn" />
+        </div>
+
+        <p><strong>Scale: Billions of NEURONS</strong></p>
+        <p>There may be up to billions of NEURONS in a single neural network — whether in a human brain or in a large AI model such as a Transformer.</p>
+
+      </div>
+    </div>
+
+
+    <!-- THE MATH EVERY NEURON DOES -->
+    <div class="section-label">The Math Every Neuron Does</div>
+
+    <div class="card">
+      <div class="card-body">
+
+        <p>When a mind thinks, every NEURON really does very simple math.</p>
+        <p>At its core, every NEURON works just like a shopping bill.</p>
+
+        <p><strong>Analogy: The Shopping Bill</strong></p>
+        <p>Imagine buying donuts and cupcakes:</p>
+
+        <div class="table-wrap">
+          <table class="doc-table" style="width:100%; max-width:480px;">
+            <tr class="table-title-row">
+             <td style="font-weight: 100;" colspan="4">shopping bill</td>
+            </tr>
+            <tr class="col-header">
+              <td style="text-align:left;"></td>
+              <td><strong>UNITS</strong></td>
+              <td><strong>PRICE PER UNIT</strong></td>
+              <td><strong>AMOUNT</strong></td>
+            </tr>
+            <tr>
+              <td style="text-align:left; font-weight: 100;">donut</td>
+              <td>4</td>
+              <td>2.00</td>
+              <td>8.00</td>
+            </tr>
+            <tr>
+              <td style="text-align:left; font-weight: 100;">cupcake</td>
+              <td>2</td>
+              <td>3.00</td>
+              <td>6.00</td>
+            </tr>
+            <tr>
+              <td style="text-align:left; font-weight:900;"><strong>SUM</strong></td>
+              <td colspan="2"></td>
+              <td>14.00</td>
+            </tr>
+            <tr>
+              <td style="text-align:left; font-weight:900;"><strong>DISCOUNT</strong></td>
+              <td colspan="2"></td>
+              <td>-0.50</td>
+            </tr>
+            <tr class="total-row">
+              <td style="text-align:left;"><strong>TOTAL</strong></td>
+              <td colspan="2"></td>
+              <td>13.50</td>
+            </tr>
+          </table>
+        </div>
+
+        <p>The math is simple:</p>
+        <div class="callout callout-neutral">
+          TOTAL = 4.00 &times; 2.00 + 2.00 &times; 3.00 + (-0.50)<br/>
+          TOTAL = 8.00 + 6.00 - 0.50<br/>
+          TOTAL = 14.00 - 0.50<br/>
+          TOTAL = 13.50
+        </div>
+
+        <p>This math can also be represented this way:</p>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr><td>4.00</td><td>2.00</td><td class="label-cell"><strong>UNITS</strong></td></tr>
+            <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>PRICES</strong></td></tr>
+            <tr><td>8.00</td><td>6.00</td><td class="label-cell"><strong>AMOUNTS</strong></td></tr>
+            <tr><td colspan="2">14.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
+            <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>DISCOUNT</strong></td></tr>
+            <tr class="sum-row"><td colspan="2">13.50</td><td class="label-cell"><strong>TOTAL</strong></td></tr>
+          </table>
+        </div>
+
+        <p>At its core, the shopping bill is just a <strong>formula</strong>:</p>
+        <div class="formula-block">
+          <span class="formula">TOTAL = UNITS1 &times; PRICE1 + UNITS2 &times; PRICE2 + DISCOUNT</span>
+        </div>
+        <div class="callout callout-neutral">
+          TOTAL = 4.00 &times; 2.00 + 2.00 &times; 3.00 + (-0.50)<br/>
+          TOTAL = 8.00 + 6.00 - 0.50<br/>
+          TOTAL = 14.00 - 0.50<br/>
+          TOTAL = 13.50
+        </div>
+
+        <p>In terms of a NEURON, the same math can be represented this way:</p>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr><td>4.00</td><td>2.00</td><td class="label-cell"><strong>INPUTS</strong></td></tr>
+            <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>WEIGHTS</strong></td></tr>
+            <tr><td>8.00</td><td>6.00</td><td class="label-cell"><strong>PRODUCTS</strong></td></tr>
+            <tr><td colspan="2">14.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
+            <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>BIAS</strong></td></tr>
+            <tr class="sum-row"><td colspan="2">13.50</td><td class="label-cell"><strong>OUTPUT</strong></td></tr>
+          </table>
+        </div>
+
+        <p>At its core, every NEURON is also just a <strong>formula</strong>:</p>
+        <div class="formula-block">
+          <span class="formula">OUTPUT = INPUT1 &times; WEIGHT1 + INPUT2 &times; WEIGHT2 + BIAS</span>
+        </div>
+        <div class="callout callout-neutral">
+          OUTPUT = 4.00 &times; 2.00 + 2.00 &times; 3.00 + (-0.50)<br/>
+          OUTPUT = 8.00 + 6.00 - 0.50<br/>
+          OUTPUT = 14.00 - 0.50<br/>
+          OUTPUT = 13.50
+        </div>
+
+        <p>Ultra simple. No math changed. Only names changed.</p>
+
+        <p>Importantly, if UNITS change, the shopping bill changes its TOTAL:</p>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr><td>3.00</td><td>5.00</td><td class="label-cell"><strong>UNITS</strong></td></tr>
+            <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>PRICES</strong></td></tr>
+            <tr><td>6.00</td><td>15.00</td><td class="label-cell"><strong>AMOUNTS</strong></td></tr>
+            <tr><td colspan="2">21.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
+            <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>DISCOUNT</strong></td></tr>
+            <tr class="sum-row"><td colspan="2">20.50</td><td class="label-cell"><strong>TOTAL</strong></td></tr>
+          </table>
+        </div>
+
+        <div class="formula-block">
+          <span class="formula">TOTAL = UNITS1 &times; PRICE1 + UNITS2 &times; PRICE2 + DISCOUNT</span>
+        </div>
+        <div class="callout callout-neutral">
+          TOTAL = 3.00 &times; 2.00 + 5.00 &times; 3.00 + (-0.50)<br/>
+          TOTAL = 6.00 + 15.00 - 0.50<br/>
+          TOTAL = 21.00 - 0.50<br/>
+          TOTAL = 20.50
+        </div>
+
+        <p>Similarly, if INPUTS change, the NEURON changes its OUTPUT:</p>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr><td>3.00</td><td>5.00</td><td class="label-cell"><strong>INPUTS</strong></td></tr>
+            <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>WEIGHTS</strong></td></tr>
+            <tr><td>6.00</td><td>15.00</td><td class="label-cell"><strong>PRODUCTS</strong></td></tr>
+            <tr><td colspan="2">21.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
+            <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>BIAS</strong></td></tr>
+            <tr class="sum-row"><td colspan="2">20.50</td><td class="label-cell"><strong>OUTPUT</strong></td></tr>
+          </table>
+        </div>
+
+        <div class="formula-block">
+          <span class="formula">OUTPUT = INPUT1 &times; WEIGHT1 + INPUT2 &times; WEIGHT2 + BIAS</span>
+        </div>
+        <div class="callout callout-neutral">
+          OUTPUT = 3.00 &times; 2.00 + 5.00 &times; 3.00 + (-0.50)<br/>
+          OUTPUT = 6.00 + 15.00 - 0.50<br/>
+          OUTPUT = 21.00 - 0.50<br/>
+          OUTPUT = 20.50
+        </div>
+
+        <p>Again, the math changed. Only names changed.</p>
+        <p>The mapping:</p>
+
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <tr>
+              <td><strong>SHOPPING BILL</strong></td>
+              <td>&rarr;</td>
+              <td><strong>NEURON</strong></td>
+            </tr>
+            <tr><td><strong>UNITS</strong></td><td>&rarr;</td><td><strong>INPUTS</strong></td></tr>
+            <tr><td><strong>PRICES</strong></td><td>&rarr;</td><td><strong>WEIGHTS</strong></td></tr>
+            <tr><td><strong>AMOUNTS</strong></td><td>&rarr;</td><td><strong>PRODUCTS</strong></td></tr>
+            <tr><td><strong>SUM</strong></td><td>&rarr;</td><td><strong>SUM</strong></td></tr>
+            <tr><td><strong>DISCOUNT</strong></td><td>&rarr;</td><td><strong>BIAS</strong></td></tr>
+            <tr><td><strong>TOTAL</strong></td><td>&rarr;</td><td><strong>OUTPUT</strong></td></tr>
+          </table>
+        </div>
+
+        <p>The <strong>WEIGHTS</strong> and <strong>BIAS</strong> are called <strong>PARAMETERS</strong>.</p>
+        <p>If you understand this, you already understand a lot of AI.</p>
+
+      </div>
+    </div>
+
+
+    <!-- OUR VERY FIRST MACHINE MIND -->
+    <div class="section-label">🌺 Our Very First Machine Mind</div>
+
+    <div class="card">
+      <div class="card-body">
+        <p>To quickly understand the essence of how machines learn and think, let&rsquo;s start by growing the simplest possible mind: a one-neuron mind. A single NEURON. That&rsquo;s it.</p>
+        <p>Moreover, this NEURON will only have one PARAMETER: one WEIGHT — no other WEIGHTS and no BIAS. A single WEIGHT. That&rsquo;s it.</p>
+        <p>This tiniest-ever mind will first learn from its own errors. Then, after learning, it will be able to think — solving problems it has never seen before.</p>
+        <p>Indeed, this is the essence of every genuine mind: solving problems it has never seen before.</p>
+        <p>The tiniest-ever mind is the perfect starting point.</p>
+        <p>Let&rsquo;s see how it works.</p>
+      </div>
+    </div>
+
+
+    <!-- PRICING / CTA -->
+    <div class="section-label">Join the Course today!</div>
+
+    <div class="pricing-block">
+      <div class="pricing-title">HOW<br/>MACHINES<br/>LEARN AND<br/>THINK</div>
+      <div class="pricing-sub">Zero To Hero</div>
+      <div class="pricing-sub"><strong>TRANSFORMERS</strong></div>
+      <div class="pricing-price">$29 total</div>
+      <div style="color:#cccccc; font-weight:700; margin-top:4px;">
+        15 Classes: <strong style="color:var(--yellow);">$2</strong> each
+      </div>
+    </div>
+
+    <p style="text-align:center; font-weight:700; margin:16px 0 8px;">Join</p>
+
+    <div style="text-align:center; margin-bottom:10px;">
+      <span class="price-pill">Class&nbsp;1 for <strong style="color:var(--yellow);">$2</strong></span>
+    </div>
+
+    <p style="text-align:center; font-weight:700; margin:8px 0;">then the rest of the</p>
+
+    <div style="text-align:center; margin-bottom:28px;">
+      <span class="price-pill">Course for <strong style="color:var(--yellow);">$27</strong></span>
+    </div>
+
+    <div class="img-block">
+      <img src="images/image3.png" alt="" style="max-width:369px;" />
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <img src="logo.jpg" alt="Machine Intelligence School Logo" class="footer-logo" />
+      <div class="footer-copyright">&copy; 2026 Machine Intelligence School</div>
+    </footer>
+
+  </div>
+  <!-- /page -->
+
+</body>
+</html>
