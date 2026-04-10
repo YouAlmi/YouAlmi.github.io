@@ -8,16 +8,9 @@
 </style>
 </head>
 <body>
-<!DOCTYPE html>
-<!--
-  FILE: index.html — How Machines Learn and Think — Course Landing Page
-  © 2026 Machine Intelligence School
 
-  SECTIONS:
-    header → intro cards → In More Detail → Sample Class →
-    About Minds → Building Blocks → Math Every Neuron Does →
-    Our Very First Machine Mind → Pricing / CTA → footer
--->
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
 
@@ -29,7 +22,7 @@
 
   <style>
 
-    /* ── DESIGN TOKENS ── */
+    /* ── DESIGN TOKENS (light mode) ── */
     :root {
       --black:      #111111;
       --gray:       #555555;
@@ -47,6 +40,23 @@
       --orange-lt:  #fff3eb;
       --red:        #c0392b;
       --red-lt:     #fdecea;
+    }
+
+    /* ── DARK MODE TOKENS ── */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --black:     #f0ede8;
+        --gray:      #aaaaaa;
+        --gray-lt:   #2a2a2a;
+        --border:    #3a3a3a;
+        --bg:        #1a1a1a;
+        --white:     #242424;
+        --green-lt:  #0e2718;
+        --blue-lt:   #0b1e2e;
+        --orange-lt: #2a1500;
+        --red-lt:    #2a0a08;
+        --red:       #e06c6c;
+      }
     }
 
     /* ── RESET & BASE ── */
@@ -71,7 +81,7 @@
 
     /* ── HEADER ── */
     header {
-      background: var(--black);
+      background: #111111;
       color:      var(--yellow);
       padding:    40px 24px 36px;
       text-align: center;
@@ -91,6 +101,7 @@
       font-size:     30px;
       line-height:   1.2;
       margin-bottom: 8px;
+      color:         var(--yellow);
     }
 
     .header-subtitle {
@@ -100,7 +111,7 @@
     }
 
     .header-audience {
-      color:       var(--white);
+      color:       #ffffff;
       font-weight: 700;
     }
 
@@ -114,8 +125,8 @@
     /* ── SECTION LABEL ── */
     .section-label {
       display:        inline-block;
-      background:     var(--black);
-      color:          var(--white);
+      background:     #111111;
+      color:          #ffffff;
       font-weight:    900;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -133,10 +144,9 @@
       overflow:      hidden;
     }
 
-    /* Dark title bar at the top of a card */
     .card-header {
-      background:     var(--black);
-      color:          var(--white);
+      background:     #111111;
+      color:          #ffffff;
       font-weight:    900;
       letter-spacing: 0.06em;
       padding:        11px 20px;
@@ -144,12 +154,7 @@
 
     .card-body { padding: 20px 24px; }
 
-    /* ── CALLOUT BOXES ──
-       neutral  → grey  → data snapshots
-       success  → green → Forward Pass
-       info     → blue  → Backward Pass
-       warning  → orange → "What just happened?"
-    */
+    /* ── CALLOUT BOXES ── */
     .callout {
       border-radius: 8px;
       padding:       16px 20px;
@@ -174,8 +179,8 @@
 
     /* ── FORMULA BLOCK ── */
     .formula-block {
-      background:    var(--black);
-      color:         var(--white);
+      background:    #111111;
+      color:         #ffffff;
       border-radius: 8px;
       padding:       20px 24px;
       margin:        16px 0;
@@ -200,46 +205,32 @@
     .prose-list li         { margin-bottom: 8px; font-weight: 700; }
 
     /* ── IMAGE BLOCK ── */
-    /* ── IMAGE BLOCK WITH HORIZONTAL SCROLL ── */
     .img-block {
-      text-align: center;  /* keeps image centered */
+      text-align: center;
       margin: 20px 0;
     }
 
     .img-block img {
-      max-width: 100%;  /* shrink on small screens */
-      height: auto;     /* keep aspect ratio */
+      max-width: 100%;
+      height: auto;
       border-radius: 8px;
       display: inline-block;
     }
 
-    /* Apply max-width only on larger screens */
-    @media (min-width: 768px) {  /* typical breakpoint for tablets/desktops */
+    @media (min-width: 768px) {
       .img-block img {
-        max-width: 150px;        /* cap width on larger screens */
+        max-width: 150px;
       }
     }
-    
 
-    /* ── TABLE SCROLL WRAPPER ──
-       Prevents wide tables from breaking the layout on narrow screens.
-       Apply to any table that might overflow on mobile.
-    */
+    /* ── TABLE SCROLL WRAPPER ── */
     .table-wrap {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       margin: 14px 0;
     }
 
-    /* ── DOCUMENT TABLE (.doc-table) ──
-       Neuron signal tables and shopping-bill / neuron comparison tables.
-       Row modifiers:
-         .table-title-row → full-width dark header spanning all columns
-         .col-header      → grey column header row
-         .total-row       → dark row with yellow text
-         .sum-row         → grey sub-total row
-         .label-cell      → borderless right-hand label cell
-    */
+    /* ── DOCUMENT TABLE ── */
     .doc-table {
       border-collapse: collapse;
       margin:          0 auto;
@@ -254,17 +245,17 @@
     }
 
     .doc-table .label-cell {
-      border:      none;
-      text-align:  left;
-      color:       var(--black);
-      font-weight: 700;
+      border:       none;
+      text-align:   left;
+      color:        var(--black);
+      font-weight:  700;
       padding-left: 12px;
-      white-space: nowrap;
+      white-space:  nowrap;
     }
 
     .doc-table .table-title-row td {
-      background:     var(--black);
-      color:          var(--white);
+      background:     #111111;
+      color:          #ffffff;
       font-weight:    900;
       letter-spacing: 0.08em;
     }
@@ -277,7 +268,7 @@
     }
 
     .doc-table .total-row td {
-      background:  var(--black);
+      background:  #111111;
       color:       var(--yellow);
       font-weight: 900;
     }
@@ -291,8 +282,8 @@
     .mapping-table               { border-collapse: collapse; margin: 0 auto; }
     .mapping-table td            { border: 1px solid var(--border); padding: 8px 16px; font-weight: 700; }
     .mapping-table tr:first-child td {
-      background:     var(--black);
-      color:          var(--white);
+      background:     #111111;
+      color:          #ffffff;
       font-weight:    900;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -310,8 +301,8 @@
 
     /* ── PRICING BLOCK ── */
     .pricing-block {
-      background:    var(--black);
-      color:         var(--white);
+      background:    #111111;
+      color:         #ffffff;
       border-radius: 10px;
       padding:       32px 28px;
       text-align:    center;
@@ -413,9 +404,9 @@
     <div class="card">
       <div class="card-body">
 
-       <div class="img-block">
-         <img src="MIS.png" alt="MIS"/>
-       </div>
+        <div class="img-block">
+          <img src="MIS.png" alt="MIS"/>
+        </div>
 
         <p>Our Machine Intelligence School takes a <strong>first&#8209;principles approach</strong> — focused on building a deeper intuition. No jargon — just clear insights into how modern AI actually works.</p>
 
@@ -455,7 +446,7 @@
 
 
     <!-- THE SAMPLE CLASS -->
-    <center><div class="section-label">🚀 The Sample Class</div></center>
+    <div class="section-label">🚀 The Sample Class</div>
 
     <div class="card">
       <div class="card-body">
@@ -479,7 +470,7 @@
 
         <p>The main job of every mind — whether biological or machine — is to learn and think.</p>
         <p>And here&rsquo;s something surprising: at their core, learning and thinking are actually processes of doing <strong>MATH</strong>. Yes, really! And it&rsquo;s <strong>SIMPLE MATH</strong>!</p>
-       <p>We don’t just build machine minds — they learn on their own, so it’s more like we are <strong>GROWING</strong> them.</p>
+        <p>We don't just build machine minds — they learn on their own, so it's more like we are <strong>GROWING</strong> them.</p>
 
         <div class="img-block">
           <img src="wlogo.jpg" alt="wlogo"/>
@@ -507,11 +498,11 @@
         <div class="neuron-emoji">😎</div>
         <div class="neuron-label">NEURON</div>
 
-        <p>And it&rsquo;s called "<strong>NETWORK</strong>" because the <strong>NEURONS</strong> connect to each other. </p>
+        <p>And it&rsquo;s called "<strong>NETWORK</strong>" because the <strong>NEURONS</strong> connect to each other.</p>
         <p>We can think of each <strong>NEURON</strong> as a tiny yet cool creation.</p>
-        <p>But what does every NEURON actually do?</p>
-        <p>Every NEURON takes in <strong>input SIGNALS</strong> and then sends out one <strong>output SIGNAL</strong>.</p>
-        
+        <p>But what does every NEURON do?</p>
+        <p>Actually, every NEURON takes in <strong>input SIGNALS</strong> and then sends out one <strong>output SIGNAL</strong>.</p>
+
         <p>For example, a NEURON might take in two <strong>input SIGNALS</strong> and then send out one <strong>output SIGNAL</strong>:</p>
 
         <div class="table-wrap">
@@ -537,14 +528,14 @@
         </div>
 
         <p>What is a SIGNAL?</p>
-        <p>Generally, a <strong>SIGNAL</strong> is anything — like an electric impulse — that can be measured or calculated and then represented as a <strong>number</strong>. For example: 0.53 or 0.61.</p>
+        <p>Generally, a <strong>SIGNAL</strong> is just anything — like an electric impulse — that can be measured or calculated and then represented as a <strong>number</strong>. For example: <strong>0.53</strong> or <strong>0.61</strong>.</p>
         <p>At this point, we don&rsquo;t need to worry about how SIGNALS are measured or calculated. We just need to remember that:</p>
         <p><strong>Every SIGNAL is something that can be represented as a number.</strong></p>
 
         <p>In more detail, every NEURON:</p>
         <ul class="prose-list">
-          <li>Takes in <strong>input SIGNALS</strong> (say, 0.53 and 0.61)</li>
-          <li>Does simple math on them to calculate its <strong>output SIGNAL</strong> (say, 0.12)</li>
+          <li>Takes in <strong>input SIGNALS</strong> (say, <strong>0.53</strong> and <strong>0.61</strong>)</li>
+          <li>Does simple math on them to calculate its <strong>output SIGNAL</strong> (say, <strong>0.12</strong>)</li>
           <li>Then sends out this <strong>output SIGNAL</strong></li>
         </ul>
 
@@ -789,7 +780,7 @@
               <td>&rarr;</td>
               <td><strong>NEURON</strong></td>
             </tr>
-            <tr><td ><strong>UNITS</strong></td><td>&rarr;</td><td><strong>INPUTS</strong></td></tr>
+            <tr><td><strong>UNITS</strong></td><td>&rarr;</td><td><strong>INPUTS</strong></td></tr>
             <tr><td><strong>PRICES</strong></td><td>&rarr;</td><td><strong>WEIGHTS</strong></td></tr>
             <tr><td><strong>AMOUNTS</strong></td><td>&rarr;</td><td><strong>PRODUCTS</strong></td></tr>
             <tr><td><strong>SUM</strong></td><td>&rarr;</td><td><strong>SUM</strong></td></tr>
@@ -861,7 +852,6 @@
 
 </body>
 </html>
-
 
 
 
