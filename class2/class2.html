@@ -10,6 +10,17 @@
 <body>
 
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -670,8 +681,8 @@
 
         <div class="formula-block">
           <div class="formula-block-label">Refined Update Rule for WEIGHT</div>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_UPDATE</span><br/>
-          <span class="formula">WEIGHT_UPDATE = ERROR × WEIGHT_OUTPUT_influence</span>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence</span>
         </div>
 
         <p>Don't worry — it's really simple. Just follow the calculations below.</p>
@@ -713,8 +724,8 @@
 
           <div class="formula-block">
             <div class="formula-block-label">Refined Update Rule for WEIGHT</div>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_UPDATE</span><br/>
-            <span class="formula">WEIGHT_UPDATE = ERROR × WEIGHT_OUTPUT_influence</span>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence</span>
           </div>
 
           WEIGHT = <strong>0.00</strong><br/>
@@ -728,8 +739,8 @@
           </div>
 
           WEIGHT_OUTPUT_influence = INPUT = <strong>0.60</strong><br/>
-          WEIGHT_UPDATE = ERROR × WEIGHT_OUTPUT_influence = 3.00 × 0.60 = <strong>1.80</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_UPDATE = 0.00 + 1.80 = <strong>1.80</strong><br/><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence = 3.00 × 0.60 = <strong>1.80</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 0.00 + 1.80 = <strong>1.80</strong><br/><br/>
 
           Since the ERROR was <strong>3.00</strong> and the WEIGHT_OUTPUT_influence was <strong>0.60</strong>,
           we adjusted the WEIGHT by <strong>1.80</strong> (3.00 × 0.60). So the WEIGHT becomes <strong>1.80</strong>.
@@ -787,8 +798,8 @@
 
           <div class="formula-block">
             <div class="formula-block-label">Refined Update Rule for WEIGHT</div>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_UPDATE</span><br/>
-            <span class="formula">WEIGHT_UPDATE = ERROR × WEIGHT_OUTPUT_influence</span>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence</span>
           </div>
 
           WEIGHT = <strong>1.80</strong><br/>
@@ -802,8 +813,8 @@
           </div>
 
           WEIGHT_OUTPUT_influence = INPUT = <strong>−1.00</strong><br/>
-          WEIGHT_UPDATE = ERROR × WEIGHT_OUTPUT_influence = −3.20 × (−1.00) = <strong>3.20</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_UPDATE = 1.80 + 3.20 = <strong>5.00</strong><br/><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence = −3.20 × (−1.00) = <strong>3.20</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 1.80 + 3.20 = <strong>5.00</strong><br/><br/>
 
           Since the ERROR was <strong>−3.20</strong> and the WEIGHT_OUTPUT_influence was <strong>−1.00</strong>,
           we adjusted the WEIGHT by <strong>3.20</strong> (−3.20 × −1.00). So the WEIGHT becomes <strong>5.00</strong>.
@@ -898,8 +909,8 @@ OUTPUT  = PRODUCT
 ERROR   = TARGET - OUTPUT
 
 WEIGHT_OUTPUT_influence = INPUT
-WEIGHT_UPDATE = ERROR * WEIGHT_OUTPUT_influence
-WEIGHT = WEIGHT + WEIGHT_UPDATE
+WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence
+WEIGHT = WEIGHT + WEIGHT_update
 
 INPUT  = -1.00
 TARGET = -5.00
@@ -909,8 +920,8 @@ OUTPUT  = PRODUCT
 ERROR   = TARGET - OUTPUT
 
 WEIGHT_OUTPUT_influence = INPUT
-WEIGHT_UPDATE = ERROR * WEIGHT_OUTPUT_influence
-WEIGHT = WEIGHT + WEIGHT_UPDATE
+WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence
+WEIGHT = WEIGHT + WEIGHT_update
 
 print(f"We've grown the mind: WEIGHT = {WEIGHT}")
           </textarea>
@@ -1006,6 +1017,10 @@ print(f"We've tested the mind: ERROR = {ERROR}")
 </body>
 </html>
 
+
+
+</body>
+</html>
 
 
 </body>
