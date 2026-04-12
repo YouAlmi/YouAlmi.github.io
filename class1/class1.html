@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-
-<style id="webmakerstyle">
-
-</style>
-</head>
-<body>
-<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -18,399 +8,18 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulkt-stdlib.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
 
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
 
   <style>
-
-    /* ── DESIGN TOKENS (light mode) ── */
-    :root {
-      --black:      #111111;
-      --gray:       #555555;
-      --gray-lt:    #f2f2f2;
-      --border:     #dddddd;
-      --bg:         #f7f5f0;
-      --white:      #ffffff;
-      --yellow:     #ffd166;
-      --green:      #2d8a4e;
-      --green-lt:   #eaf7ee;
-      --green-lt-lt:#00ff00;
-      --blue:       #1a6fab;
-      --blue-lt:    #e8f3fc;
-      --orange:     #e8610a;
-      --orange-lt:  #fff3eb;
-      --red:        #c0392b;
-      --red-lt:     #fdecea;
-    }
-
-    /* ── DARK MODE TOKENS ── */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --black:     #f0ede8;
-        --gray:      #aaaaaa;
-        --gray-lt:   #2a2a2a;
-        --border:    #3a3a3a;
-        --bg:        #1a1a1a;
-        --white:     #242424;
-        --green-lt:  #0e2718;
-        --blue-lt:   #0b1e2e;
-        --orange-lt: #2a1500;
-        --red-lt:    #2a0a08;
-        --red:       #e06c6c;
-      }
-    }
-
-    /* ── RESET & BASE ── */
-    * {
-      box-sizing: border-box;
-      margin:  0;
-      padding: 0;
-      font-family: 'Nunito', sans-serif;
-      font-size:   17px;
-      line-height: 1.75;
-    }
-
-    body {
-      background:     var(--bg);
-      color:          var(--black);
-      padding-bottom: 80px;
-    }
-
-    p      { margin-bottom: 12px; }
-    strong { font-weight: 900; }
-    em     { font-style: italic; }
-
-    /* ── HEADER ── */
-    header {
-      background: #111111;
-      color:      #ffffff;
-      padding:    32px 24px;
-      text-align: center;
-    }
-
-    .header-tag {
-      color:          var(--green);
-      font-weight:    900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom:  8px;
-    }
-
-    .header-title {
-      font-weight:   900;
-      font-size:     28px;
-      line-height:   1.2;
-      margin-bottom: 6px;
-      color:         #ffffff;
-    }
-
-    .header-subtitle {
-      color:          var(--yellow);
-      font-weight: 700;
-      text-transform: uppercase;
-      font-weight:    900;
-    }    
-    /* ── PAGE WRAPPER ── */
-    .page {
-      max-width: 760px;
-      margin:    0 auto;
-      padding:   0 20px;
-    }
-
-    /* ── SECTION LABEL ── */
-    .section-label {
-      display:        inline-block;
-      background:     #111111;
-      color:          #ffffff;
-      font-weight:    900;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding:        7px 18px;
-      border-radius:  4px;
-      margin:         36px 0 18px;
-    }
-
-    /* ── CARD ── */
-    .card {
-      background:    var(--white);
-      border:        1.5px solid var(--border);
-      border-radius: 10px;
-      margin:        16px 0;
-      overflow:      hidden;
-    }
-
-    .card-header {
-      background:     #111111;
-      color:          #ffffff;
-      font-weight:    900;
-      letter-spacing: 0.06em;
-      padding:        11px 20px;
-    }
-
-    .card-body { padding: 20px 24px; }
-
-    /* ── FORMULA BLOCK ── */
-    .formula-block {
-      background:    #111111;
-      color:         #ffffff;
-      border-radius: 8px;
-      padding:       20px 24px;
-      margin:        16px 0;
-      font-weight:   700;
-      line-height:   2;
-      border-left:   5px solid var(--green);
-    }
-
-    .formula-block-label {
-      color:          var(--green);
-      font-weight:    900;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom:  10px;
-    }
-
-    .formula { color: var(--yellow); }
-
-    /* ── CALLOUT BOXES ── */
-    .callout {
-      border-radius: 8px;
-      padding:       16px 20px;
-      margin:        14px 0;
-      font-weight:   700;
-      line-height:   1.85;
-    }
-
-    .callout-neutral { background: var(--gray-lt);   border-left: 4px solid var(--gray);   }
-    .callout-success { background: var(--green-lt);  border-left: 4px solid var(--green);  }
-    .callout-info    { background: var(--blue-lt);   border-left: 4px solid var(--blue);   }
-    .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
-
-    .callout-title {
-      font-weight:    900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom:  10px;
-    }
-
-    .callout-neutral .callout-title { color: var(--gray);   }
-    .callout-success .callout-title { color: var(--green);  }
-    .callout-info    .callout-title { color: var(--blue);   }
-    .callout-warning strong         { color: var(--orange); font-weight: 900; }
-
-    /* ── RESULT BANNER ── */
-    .result-banner {
-      background:     #111111;
-      color:          var(--yellow);
-      font-weight:    900;
-      text-align:     center;
-      padding:        14px 20px;
-      border-radius:  8px;
-      margin:         14px 0;
-      letter-spacing: 0.06em;
-    }
-
-    /* ── COMPLETION BANNER ── */
-    .completion-banner {
-      background:     #111111;
-      color:          var(--yellow);
-      font-weight:    900;
-      text-align:     center;
-      letter-spacing: 0.2em;
-      padding:        18px;
-      border-radius:  10px;
-      margin:         28px 0;
-    }
-
-    /* ── SUCCESS CALLOUT ── */
-    .success-callout {
-      background:    var(--green-lt);
-      border:        2px solid var(--green);
-      border-radius: 8px;
-      padding:       14px 20px;
-      margin:        12px 0;
-      font-weight:   800;
-      color:         var(--green);
-    }
-
-    /* ── ERROR CHIP ── */
-    .error-chip {
-      display:       inline-block;
-      background:    var(--red-lt);
-      color:         var(--red);
-      font-weight:   800;
-      padding:       4px 12px;
-      border-radius: 20px;
-      margin:        4px 0;
-    }
-
-    /* ── DIAGRAM ── */
-    .diagram { text-align: center; margin: 14px 0; }
-
-    .diagram img {
-      max-width:     100%;
-      height:        auto;
-      border-radius: 8px;
-      display:       block;
-      margin:        0 auto;
-      border:        1.5px solid var(--border);
-    }
-
-    /* ── TABLE SCROLL WRAPPER ── */
-    .table-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      margin: 10px 0;
-    }
-
-    /* ── DATA TABLE ── */
-    .data-table { width: 100%; border-collapse: collapse; }
-
-    .data-table th {
-      background:     #111111;
-      color:          #ffffff;
-      font-weight:    900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding:        8px 14px;
-      text-align:     left;
-    }
-
-    .data-table td {
-      padding:       8px 14px;
-      border-bottom: 1px solid var(--border);
-      font-weight:   700;
-    }
-
-    .data-table tr:last-child td { border-bottom: none; }
-
-    /* ── DIVIDER ── */
-    .divider { border: none; border-top: 2px dashed var(--border); margin: 30px 0; }
-    
-    
-    
-    
-    
-
-    /* ── PYTHON CODE BLOCK ── */
-    .pythoncode {
-      background-color: #1e1e1e;
-      color:            #ffffff;
-      padding:          20px;
-      border-radius:    12px;
-      font-family:      'Courier New', Courier, monospace;
-      margin:           20px 0;
-      box-shadow:       0 4px 15px rgba(0,0,0,0.3);
-    }
-
-    .pythoncode h3 {
-      margin-top: 0;
-      color:      #ffffff;
-    }
-
-    #code-input1, #code-input2 {
-      width:        100%;
-      font-weight:  bold;
-      border:       1px solid #444;
-      padding:      15px;
-      font-size:    1rem;
-      border-radius: 5px;
-      box-sizing:   border-box;
-      outline:      none;
-      resize:       vertical;
-      background:   #1e1e1e;
-      color:        #ffffff;
-      font-family:  'Courier New', Courier, monospace;
-    }
-
-    #code-input1 { height: 750px; }
-    #code-input2 { height: 400px; }
-
-    #output-window1, #output-window2 {
-      background-color: #000000;
-      color:            #ffffff;
-      font-weight:      bold;
-      padding:          15px;
-      min-height:       50px;
-      margin-top:       10px;
-      border-radius:    5px;
-      white-space:      pre-wrap;
-      border-left:      4px solid #00ff00;
-      font-size:        0.95rem;
-      font-family:      'Courier New', Courier, monospace;
-    }
-
-    .pythoncode button {
-      margin-top:       10px;
-      background-color: #00ff00;
-      color:            #000000;
-      border:           none;
-      padding:          10px 25px;
-      font-weight:      bold;
-      border-radius:    5px;
-      cursor:           pointer;
-      transition:       background 0.2s;
-      font-family:      'Nunito', sans-serif;
-    }
-
-    .pythoncode button:hover { background-color: #00cc00; }
-    
-    button {
-      cursor: pointer; /* Show the hand immediately */
-      transition: background 0.2s;
-    }
-    
-
-    
-
-    /* ── TEASER BLOCK ── */
-    .teaser {
-      background:    #111111;
-      color:         #ffffff;
-      border-radius: 10px;
-      padding:       28px;
-      text-align:    center;
-      margin:        36px 0 0;
-      font-weight:   700;
-    }
-
-    .teaser-next {
-      color:       var(--yellow);
-      font-weight: 900;
-      font-size:   22px;
-      margin:      8px 0;
-    }
-
-    /* ── FOOTER ── */
-    .footer {
-      display:         flex;
-      flex-direction:  column;
-      align-items:     center;
-      justify-content: center;
-      padding:         60px 20px 40px;
-      gap:             16px;
-      border-top:      1px solid var(--border);
-      margin-top:      60px;
-    }
-
-    .footer-logo       { width: 128px; height: auto; opacity: 0.8; transition: opacity 0.3s ease; }
-    .footer-logo:hover { opacity: 1; }
-
-    .footer-copyright {
-      color:          var(--gray);
-      font-weight:    700;
-      font-size:      14px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 480px) {
-      .card-body    { padding:   14px 16px; }
-      .header-title { font-size: 22px;      }
-    }
-
+    /* ── class1.html-specific textarea heights ── */
+    #code-input1  { height: 750px; }
+    #code-input2  { height: 390px; }
   </style>
+
 </head>
 
 
@@ -419,7 +28,7 @@
   <header>
     <div class="header-tag">How Machines Learn and Think</div>
     <div class="header-title">Class 1</div>
-    <div class="header-subtitle">Multiplier by Five</div>
+    <div class="header-subtitle class-subtitle">Multiplier by Five</div>
   </header>
 
 
@@ -464,12 +73,12 @@
             </thead>
             <tbody>
               <tr>
-                <td>SAMPLE 1</td>
+                <td>EXAMPLE 1</td>
                 <td>0.60</td>
                 <td>3.00</td>
               </tr>
               <tr>
-                <td>SAMPLE 2</td>
+                <td>EXAMPLE 2</td>
                 <td>1.00</td>
                 <td>5.00</td>
               </tr>
@@ -478,8 +87,8 @@
         </div>
 
         <p>
-          SAMPLE 1 means when INPUT is <strong>0.60</strong>, the OUTPUT must be <strong>3.00</strong>.<br/>
-          SAMPLE 2 means when INPUT is <strong>1.00</strong>, the OUTPUT must be <strong>5.00</strong>.
+          EXAMPLE 1 means when INPUT is <strong>0.60</strong>, the OUTPUT must be <strong>3.00</strong>.<br/>
+          EXAMPLE 2 means when INPUT is <strong>1.00</strong>, the OUTPUT must be <strong>5.00</strong>.
         </p>
         <p>
           When training, at every lesson, the mind will <strong>update</strong> the PARAMETER to improve itself.
@@ -524,7 +133,7 @@
 
         <div class="callout callout-neutral">WEIGHT = <strong>0.00</strong></div>
 
-        <p>SAMPLE 1:</p>
+        <p>EXAMPLE 1:</p>
         <div class="callout callout-neutral">
           INPUT &nbsp;= <strong>0.60</strong><br/>
           TARGET = <strong>3.00</strong>
@@ -583,7 +192,7 @@
 
         <div class="callout callout-neutral">WEIGHT = <strong>3.00</strong></div>
 
-        <p>SAMPLE 2:</p>
+        <p>EXAMPLE 2:</p>
         <div class="callout callout-neutral">
           INPUT &nbsp;= <strong>1.00</strong><br/>
           TARGET = <strong>5.00</strong>
@@ -648,9 +257,10 @@
     <div class="card">
       <div class="card-body">
 
-        <p>To test the mind, we give it <strong>INPUT</strong> it has never seen before.</p>
+        <p>To test the mind, we give it a problem — an <strong>INPUT</strong> — it has never encountered before.</p>
 
         <div class="callout callout-neutral">WEIGHT = <strong>5.00</strong></div>
+        <p>EXAMPLE FOR TESTING :</p>
 
         <div class="callout callout-neutral">
           INPUT &nbsp;= <strong>10.00</strong><br/>
@@ -682,7 +292,7 @@
     <div class="section-label">Code</div>
     <div class="card">
       <div class="card-body">
-        <p>This code is for reference only; there’s no need to study or memorize it.</p>
+        <p>This code simply makes all our calculations instantly.</p>
 
         <!-- GROW THE MIND -->
         <div class="pythoncode">
@@ -690,10 +300,10 @@
           <p style="color: #cccccc; font-size: 1.0rem;">Just click <strong>RUN CODE</strong></p>
 
           <textarea id="code-input1">
+WEIGHT = 0.00
+            
 INPUT  = 0.60
 TARGET = 3.00
-
-WEIGHT = 0.00
 
 PRODUCT = INPUT * WEIGHT
 OUTPUT  = PRODUCT
@@ -712,7 +322,7 @@ ERROR   = TARGET - OUTPUT
 WEIGHT_update = ERROR
 WEIGHT = WEIGHT + WEIGHT_update
 
-print(f"We've grown the mind: WEIGHT = {WEIGHT}")
+print(f"We've grown the mind: WEIGHT = {WEIGHT:.2f}")
           </textarea>
 
           <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
@@ -736,16 +346,17 @@ PRODUCT = INPUT * WEIGHT
 OUTPUT  = PRODUCT
 ERROR   = TARGET - OUTPUT
 
-print(f"We've tested the mind: ERROR = {ERROR}")
+print(f"We've tested the mind: ERROR = {ERROR:.2f}")
           </textarea>
 
           <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
 
           <div id="output-window2">Ready for math!</div>
         </div>
-    <p>This was plain Python code.</p>
-<p>Starting in <strong>Class 10</strong>, we’ll switch to <strong>PyTorch</strong>: a <strong>simpler</strong>, <strong>shorter</strong>, <strong>and more powerful</strong> thing.</p>
-<p>On <strong>Hugging Face</strong>, the most popular platform for <strong>Transformers</strong>, most code is written with <strong>PyTorch</strong>.</p>
+
+        <p>Great? This was just plain Python code.</p>
+        <p>Starting in <strong>Class 4</strong> — we'll switch to <strong>PyTorch</strong> — an <strong>easier</strong> and <strong>more powerful</strong> way to write code.</p>
+        <p>On <strong>Hugging Face</strong>, the most popular platform for <strong>Transformers</strong>, most code is written with <strong>PyTorch</strong>.</p>
       </div>
     </div>
 
@@ -804,13 +415,6 @@ print(f"We've tested the mind: ERROR = {ERROR}")
       );
     }
   </script>
-
-</body>
-</html>
-
-
-
-
 
 </body>
 </html>
