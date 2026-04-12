@@ -45,7 +45,7 @@
     }
 
     /* ── DARK MODE TOKENS ── */
-    @media (prefers-color-scheme: light) {
+    @media (prefers-color-scheme: dark) {
       :root {
         --black:     #f0ede8;
         --gray:      #aaaaaa;
@@ -106,8 +106,10 @@
     }
 
     .header-subtitle {
-      color:       #aaaaaa;
+      color:          var(--yellow);
       font-weight: 700;
+      text-transform: uppercase;
+      font-weight:    900;
     }    
     /* ── PAGE WRAPPER ── */
     .page {
@@ -284,6 +286,11 @@
 
     /* ── DIVIDER ── */
     .divider { border: none; border-top: 2px dashed var(--border); margin: 30px 0; }
+    
+    
+    
+    
+    
 
     /* ── PYTHON CODE BLOCK ── */
     .pythoncode {
@@ -347,6 +354,14 @@
     }
 
     .pythoncode button:hover { background-color: #00cc00; }
+    
+    button {
+      cursor: pointer; /* Show the hand immediately */
+      transition: background 0.2s;
+    }
+    
+
+    
 
     /* ── TEASER BLOCK ── */
     .teaser {
@@ -667,6 +682,7 @@
     <div class="section-label">Code</div>
     <div class="card">
       <div class="card-body">
+        <p>This code is for reference only; there’s no need to study or memorize it.</p>
 
         <!-- GROW THE MIND -->
         <div class="pythoncode">
@@ -727,7 +743,9 @@ print(f"We've tested the mind: ERROR = {ERROR}")
 
           <div id="output-window2">Ready for math!</div>
         </div>
-
+    <p>This was plain Python code.</p>
+<p>Starting in <strong>Class 10</strong>, we’ll switch to <strong>PyTorch</strong>: a <strong>simpler</strong>, <strong>shorter</strong>, <strong>and more powerful</strong> thing.</p>
+<p>On <strong>Hugging Face</strong>, the most popular platform for <strong>Transformers</strong>, most code is written with <strong>PyTorch</strong>.</p>
       </div>
     </div>
 
@@ -736,7 +754,7 @@ print(f"We've tested the mind: ERROR = {ERROR}")
     <div class="section-label">Note</div>
     <div class="card">
       <div class="card-body">
-        <p>Machine minds can learn from their own errors. This is possible thanks to the UPDATE RULE. For this specific task, the SIMPLE UPDATE RULE was sufficient.</p>
+        <p>Machines can learn from their own errors. This is possible thanks to <strong>the UPDATE RULE</strong>. For this specific task, the SIMPLE UPDATE RULE was sufficient.</p>
       </div>
     </div>
 
@@ -744,7 +762,7 @@ print(f"We've tested the mind: ERROR = {ERROR}")
     <!-- TEASER -->
     <div class="teaser">
       <div class="teaser-next">Up Next: Class 2</div>
-      <p>Real&#8209;world datasets often contain negative numbers.<br/>To handle them, we add something called <strong style="color:var(--yellow);">INFLUENCE</strong> into the <strong style="color:var(--yellow);">UPDATE RULE</strong>.
+      <p>Real&#8209;world datasets often contain negative numbers.<br/>To handle them, we add the <strong style="color:var(--yellow);">INFLUENCE</strong> into the <strong style="color:var(--yellow);">UPDATE RULE</strong>.
       </p>
     </div>
 
