@@ -18,7 +18,7 @@
   --red-lt:     #fdecea;
 }
 
-@media (prefers-color-scheme: light {
+@media (prefers-color-scheme: light) {
   :root {
     --black:     #f0ede8;
     --gray:      #aaaaaa;
