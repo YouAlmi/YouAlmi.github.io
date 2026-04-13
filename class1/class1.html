@@ -149,9 +149,13 @@
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div>
+          <div class="callout-title">Forward Pass — Inference<</div>
           PRODUCT = INPUT × WEIGHT = 0.60 × 0.00 = <strong>0.00</strong><br/>
           OUTPUT &nbsp;= PRODUCT = <strong>0.00</strong><br/>
+        </div>
+        
+        <div class="callout callout-success">
+          <div class="callout-title">Error<</div>
           ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 3.00 − 0.00 = <strong>3.00</strong>
         </div>
 
@@ -208,9 +212,13 @@
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div>
+          <div class="callout-title">Forward Pass — Inference</div>
           PRODUCT = INPUT × WEIGHT = 1.00 × 3.00 = <strong>3.00</strong><br/>
           OUTPUT &nbsp;= PRODUCT = <strong>3.00</strong><br/>
+        </div>
+
+        <div class="callout callout-success">
+          <div class="callout-title">Error</div>
           ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 5.00 − 3.00 = <strong>2.00</strong>
         </div>
 
@@ -309,29 +317,34 @@
           <p style="color: #cccccc; font-size: 1.0rem;">Just click <strong>RUN CODE</strong></p>
 
           <textarea id="code-input1">
-WEIGHT = 0.00
-            
-INPUT  = 0.60
-TARGET = 3.00
+# INITIAL PARAMETER
+WEIGHT = 0.0
 
-PRODUCT = INPUT * WEIGHT
-OUTPUT  = PRODUCT
-ERROR   = TARGET - OUTPUT
+# DATASET
+INPUTS = [0.60, 1.00]
+TARGETS = [3.00, 5.00]
+EXAMPLES = len(TARGETS) # length of TARGETS is 2
 
-WEIGHT_update = ERROR
-WEIGHT = WEIGHT + WEIGHT_update
+LESSON = 0
+for EXAMPLE in range(EXAMPLES):
+    LESSON = LESSON + 1
 
-INPUT  = 1.00
-TARGET = 5.00
+    INPUT = INPUTS[EXAMPLE]
+    TARGET = TARGETS[EXAMPLE]
 
-PRODUCT = INPUT * WEIGHT
-OUTPUT  = PRODUCT
-ERROR   = TARGET - OUTPUT
+    # FORWARD PASS --- INFERENCE
+    OUTPUT = INPUT * WEIGHT
+    
+    # ERROR
+    ERROR = TARGET - OUTPUT
 
-WEIGHT_update = ERROR
-WEIGHT = WEIGHT + WEIGHT_update
+    # BACKWARD PASS --- BACKPROPAGATION
+    WEIGHT_update = ERROR
+    WEIGHT = WEIGHT + WEIGHT_update
+    
+    print(f"LESSON {LESSON}: WEIGHT = {WEIGHT:.2f}")
 
-print(f"We've grown the mind: WEIGHT = {WEIGHT:.2f}")
+print(f"\nWe've grown the mind: WEIGHT = {WEIGHT:.2f}")   
           </textarea>
 
           <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
