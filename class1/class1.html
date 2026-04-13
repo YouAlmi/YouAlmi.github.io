@@ -193,7 +193,7 @@
           <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after update" />
         </div>
 
-        <p style="color:var(--gray);">Lesson 1 finishes here.</p>
+        <p style="color:var(--gray);"><br/>Lesson 1 finishes here.</p>
       </div>
     </div>
 
@@ -261,7 +261,7 @@
           <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after update" />
         </div>
 
-        <p style="color:var(--gray);">Lesson 2 finishes here.</p>
+        <p style="color:var(--gray);"><br/>Lesson 2 finishes here.</p>
       </div>
     </div>
 
@@ -321,8 +321,8 @@
 WEIGHT = 0.0
 
 # DATASET
-INPUTS = [0.60, 1.00]
-TARGETS = [3.00, 5.00]
+INPUTS   = [0.60, 1.00]
+TARGETS  = [3.00, 5.00]
 EXAMPLES = len(TARGETS) # length of TARGETS is 2
 
 LESSON = 0
@@ -359,13 +359,18 @@ print(f"\nWe've grown the mind: WEIGHT = {WEIGHT:.2f}")
           <p style="color: #cccccc; font-size: 1.0rem;">Just click <strong>RUN CODE</strong></p>
 
           <textarea id="code-input2">
+# THE MIND
 WEIGHT = 5.00
 
+# EXAMPLE FOR TESTING
 INPUT  = 10.00
 TARGET = 50.00
 
+# FORWARD PASS --- INFERENCE
 PRODUCT = INPUT * WEIGHT
 OUTPUT  = PRODUCT
+
+# ERROR
 ERROR   = TARGET - OUTPUT
 
 print(f"We've tested the mind: ERROR = {ERROR:.2f}")
