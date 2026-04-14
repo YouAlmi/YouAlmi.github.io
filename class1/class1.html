@@ -494,19 +494,19 @@ print(f"We've tested the mind: ERROR = {ERROR:.2f}")
 
   <script>
     function moveCopyBtn(event, btnId) {
-      const btn = document.getElementById(btnId);
+      const btn  = document.getElementById(btnId);
       const wrap = btn.parentElement;
-      const rect = wrap.getBoundingClientRect();
-      // Position the button so its centre tracks the cursor, clamped inside the textarea
-      const bw = btn.offsetWidth  || 36;
-      const bh = btn.offsetHeight || 36;
-      let x = event.clientX - rect.left - bw / 2;
-      let y = event.clientY - rect.top  - bh / 2;
-      x = Math.max(0, Math.min(x, rect.width  - bw));
+      const rect = wrap.getBoundingClientRect(); // recalculated live every call
+      const bw   = 36;
+      const bh   = 36;
+      // Y: cursor position relative to the wrapper's current top in the viewport
+      let y = event.clientY - rect.top - bh / 2;
       y = Math.max(0, Math.min(y, rect.height - bh));
-      btn.style.left    = x + 'px';
-      btn.style.top     = y + 'px';
-      btn.style.opacity = '1';
+      // X: pinned to the right edge
+      const x = rect.width - bw - 10;
+      btn.style.left          = x + 'px';
+      btn.style.top           = y + 'px';
+      btn.style.opacity       = '1';
       btn.style.pointerEvents = 'auto';
     }
 
