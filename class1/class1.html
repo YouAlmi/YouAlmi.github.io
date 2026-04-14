@@ -346,9 +346,11 @@ for EXAMPLE in range(EXAMPLES):
 
 
     # FORWARD PASS --- INFERENCE
-    OUTPUT = INPUT * WEIGHT
+    PRODUCT = INPUT * WEIGHT
+    OUTPUT = PRODUCT
     print("FORWARD PASS --- INFERENCE:")
-    print(f"OUTPUT = INPUT * WEIGHT = {INPUT} * {WEIGHT} = {OUTPUT}\n")
+    print(f"PRODUCT = INPUT * WEIGHT = {INPUT} * {WEIGHT} = {PRODUCT}")
+    print(f"OUTPUT = PRODUCT = {OUTPUT}\n")
     
     # ERROR
     ERROR = TARGET - OUTPUT
@@ -384,17 +386,28 @@ print(f"WEIGHT = {WEIGHT}\n")
           <textarea id="code-input2">
 # THE MIND
 WEIGHT = 5.0
+print(f"THE MIND:")
+print(f"WEIGHT = {WEIGHT}\n")
 
 # EXAMPLE FOR TESTING
 INPUT  = 10.0
 TARGET = 50.0
+print(f"EXAMPLE FOR TESTING:")
+print(f"INPUT  = {INPUT}")
+print(f"TARGET = {TARGET}\n")
 
 # FORWARD PASS --- INFERENCE
 PRODUCT = INPUT * WEIGHT
-OUTPUT  = PRODUCT
+OUTPUT  = PRODUCTPRODUCT = INPUT * WEIGHT
+OUTPUT = PRODUCT
+print("FORWARD PASS --- INFERENCE:")
+print(f"PRODUCT = INPUT * WEIGHT = {INPUT} * {WEIGHT} = {PRODUCT}")
+print(f"OUTPUT = PRODUCT = {OUTPUT}\n")
 
 # ERROR
 ERROR = TARGET - OUTPUT
+print("ERROR:")
+print(f"ERROR = TARGET - OUTPUT = {TARGET} - {OUTPUT} = {ERROR}\n")
 
 print(f"We've tested the mind: ERROR = {ERROR:.2f}")
           </textarea>
