@@ -92,11 +92,15 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .pythoncode button { margin-top: 10px; background-color: #00ff00; color: #000000; border: none; padding: 10px 25px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.2s; }
 
 /* ── COPY BUTTON ── */
-.pythoncode { position: relative; }
+
+/* Wrapper that controls hover state for above/below buttons */
+.pythoncode-wrap {
+  position: relative;
+  margin: 20px 0;
+}
+
+/* Shared base for all three copy_btn variants */
 .copy_btn {
-  position: absolute;
-  top: 14px;
-  right: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,10 +118,6 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   transition: opacity 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 .copy_btn svg { width: 18px; height: 18px; }
-.pythoncode:hover .copy_btn {
-  opacity: 1;
-  pointer-events: auto;
-}
 .copy_btn:hover {
   background: #3a3a3a !important;
   color: #ffffff !important;
@@ -126,6 +126,36 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   background: #1a3a1a !important;
   color: var(--green-lt-lt) !important;
   border-color: #2d8a4e !important;
+  opacity: 1 !important;
+}
+
+/* BUTTON 1 — above the block */
+.copy_btn--above {
+  margin-bottom: 6px !important;
+}
+
+/* BUTTON 2 — below the block */
+.copy_btn--below {
+  margin-top: 6px !important;
+}
+
+/* Show above + below on wrapper hover */
+.pythoncode-wrap:hover .copy_btn--above,
+.pythoncode-wrap:hover .copy_btn--below {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* BUTTON 3 — floating inside .pythoncode, right edge, over textarea */
+.pythoncode { position: relative; }
+.copy_btn--float {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+.pythoncode:hover .copy_btn--float {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ── TYPOGRAPHY & BLOCKS ── */
