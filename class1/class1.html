@@ -308,20 +308,17 @@
         <p>This code just does all the math instantly.</p>
 
         <!-- GROW THE MIND -->
-        <div class="pythoncode-wrap">
-          <!-- BUTTON 1: above the block -->
-          <button class="copy_btn copy_btn--above" onclick="copyCode('code-input1', this)" title="Copy code">
+        <div class="pythoncode">
+          <h3>GROW THE MIND 🧠</h3>
+          <p style="color: #cccccc; font-size: 1.5rem;">Just click <strong>RUN CODE</strong></p>
+
+          <!-- BUTTON 1: below the "Just click RUN CODE" line, above the textarea -->
+          <button class="copy_btn copy_btn--above-textarea" onclick="copyCode('code-input1', this)" title="Copy code">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
 
-          <div class="pythoncode">
-            <!-- BUTTON 3: floating over textarea on hover -->
-            <button class="copy_btn copy_btn--float" onclick="copyCode('code-input1', this)" title="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-            <h3>GROW THE MIND 🧠</h3>
-            <p style="color: #cccccc; font-size: 1.5rem;">Just click <strong>RUN CODE</strong></p>
-
+          <!-- textarea wrapper so BUTTON 3 can float inside it -->
+          <div class="textarea-wrap">
             <textarea id="code-input1">
 # INITIAL PARAMETER
 WEIGHT = 0.0
@@ -381,34 +378,35 @@ print(f"We've grown the mind.")
 print("FINAL PARAMETER:")
 print(f"WEIGHT = {WEIGHT}\n")   
             </textarea>
-
-            <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
-
-            <div id="output-window1">Ready for math!</div>
+            <!-- BUTTON 3: floats at right edge of textarea, visible on textarea-wrap hover -->
+            <button class="copy_btn copy_btn--float" onclick="copyCode('code-input1', this)" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
           </div>
 
-          <!-- BUTTON 2: below the block -->
-          <button class="copy_btn copy_btn--below" onclick="copyCode('code-input1', this)" title="Copy code">
+          <!-- BUTTON 2: below the textarea, above the RUN CODE button -->
+          <button class="copy_btn copy_btn--below-textarea" onclick="copyCode('code-input1', this)" title="Copy code">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
+
+          <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
+
+          <div id="output-window1">Ready for math!</div>
         </div>
 
 
         <!-- TEST THE MIND -->
-        <div class="pythoncode-wrap">
-          <!-- BUTTON 1: above the block -->
-          <button class="copy_btn copy_btn--above" onclick="copyCode('code-input2', this)" title="Copy code">
+        <div class="pythoncode">
+          <h3>TEST THE MIND 🧠</h3>
+          <p style="color: #cccccc; font-size: 1.5rem;">Just click <strong>RUN CODE</strong></p>
+
+          <!-- BUTTON 1: below the "Just click RUN CODE" line, above the textarea -->
+          <button class="copy_btn copy_btn--above-textarea" onclick="copyCode('code-input2', this)" title="Copy code">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
 
-          <div class="pythoncode">
-            <!-- BUTTON 3: floating over textarea on hover -->
-            <button class="copy_btn copy_btn--float" onclick="copyCode('code-input2', this)" title="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-            <h3>TEST THE MIND 🧠</h3>
-            <p style="color: #cccccc; font-size: 1.5rem;">Just click <strong>RUN CODE</strong></p>
-
+          <!-- textarea wrapper so BUTTON 3 can float inside it -->
+          <div class="textarea-wrap">
             <textarea id="code-input2">
 # THE MIND
 WEIGHT = 5.0
@@ -437,16 +435,20 @@ print(f"ERROR = TARGET - OUTPUT = {TARGET} - {OUTPUT} = {ERROR}\n")
 
 print(f"We've tested the mind: ERROR = {ERROR:.2f}")
             </textarea>
-
-            <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
-
-            <div id="output-window2">Ready for math!</div>
+            <!-- BUTTON 3: floats at right edge of textarea, visible on textarea-wrap hover -->
+            <button class="copy_btn copy_btn--float" onclick="copyCode('code-input2', this)" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
           </div>
 
-          <!-- BUTTON 2: below the block -->
-          <button class="copy_btn copy_btn--below" onclick="copyCode('code-input2', this)" title="Copy code">
+          <!-- BUTTON 2: below the textarea, above the RUN CODE button -->
+          <button class="copy_btn copy_btn--below-textarea" onclick="copyCode('code-input2', this)" title="Copy code">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
+
+          <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
+
+          <div id="output-window2">Ready for math!</div>
         </div>
 
         <p>Here, we just used simple Python code.</p>
@@ -488,9 +490,8 @@ print(f"We've tested the mind: ERROR = {ERROR:.2f}")
     function copyCode(id, btn) {
       const text = document.getElementById(id).value;
       navigator.clipboard.writeText(text).then(() => {
-        // Find the wrapper and flash all three copy buttons together
-        const wrap = btn.closest('.pythoncode-wrap');
-        const allBtns = wrap ? wrap.querySelectorAll('.copy_btn') : [btn];
+        const block = btn.closest('.pythoncode');
+        const allBtns = block ? block.querySelectorAll('.copy_btn') : [btn];
         allBtns.forEach(b => {
           b.classList.add('copy_btn--copied');
           b.title = 'Copied!';
