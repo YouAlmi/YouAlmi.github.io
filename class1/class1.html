@@ -16,7 +16,7 @@
 
   <style>
     /* ── class1.html-specific textarea heights ── */
-    #code-input1  { height: 930px; }
+    #code-input1  { height: 1500px; }
     #code-input2  { height: 510px; }
   </style>
 
@@ -83,21 +83,21 @@
             <tbody>
               <tr>
                 <td>EXAMPLE 1</td>
-                <td>0.60</td>
-                <td>3.00</td>
+                <td>0.6</td>
+                <td>3.0</td>
               </tr>
               <tr>
                 <td>EXAMPLE 2</td>
-                <td>1.00</td>
-                <td>5.00</td>
+                <td>1.0</td>
+                <td>5.0</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <p>
-          EXAMPLE 1 means when INPUT is <strong>0.60</strong>, the OUTPUT must be <strong>3.00</strong>.<br/>
-          EXAMPLE 2 means when INPUT is <strong>1.00</strong>, the OUTPUT must be <strong>5.00</strong>.
+          EXAMPLE 1 means when INPUT is <strong>0.6</strong>, the OUTPUT must be <strong>3.0</strong>.<br/>
+          EXAMPLE 2 means when INPUT is <strong>1.0</strong>, the OUTPUT must be <strong>5.0</strong>.
         </p>
         <p>
           When training, at every lesson, the mind will <strong>update</strong> the PARAMETER to improve itself.
@@ -144,19 +144,19 @@
 
         <p>EXAMPLE 1:</p>
         <div class="callout callout-neutral">
-          INPUT &nbsp;= <strong>0.60</strong><br/>
-          TARGET = <strong>3.00</strong>
+          INPUT &nbsp;= <strong>0.6</strong><br/>
+          TARGET = <strong>3.0</strong>
         </div>
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass — Inference</div>
-          PRODUCT = INPUT × WEIGHT = 0.60 × 0.00 = <strong>0.00</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>0.00</strong><br/>
+          PRODUCT = INPUT × WEIGHT = 0.6 × 0.0 = <strong>0.0</strong><br/>
+          OUTPUT &nbsp;= PRODUCT = <strong>0.0</strong><br/>
         </div>
         
         <div class="callout callout-success">
           <div class="callout-title">Error</div>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 3.00 − 0.00 = <strong>3.00</strong>
+          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 3.0 − 0.0 = <strong>3.0</strong>
         </div>
 
         <div class="diagram">
@@ -172,19 +172,19 @@
             <span class="formula">WEIGHT_update = ERROR</span>
           </div>
 
-          WEIGHT = <strong>0.00</strong><br/>
-          ERROR = <strong>3.00</strong><br/>
-          WEIGHT_update = ERROR = <strong>3.00</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.00 + 3.00 = <strong>3.00</strong><br/><br/>
-          Since the ERROR was <strong>3.00</strong>, we adjusted the WEIGHT by exactly <strong>3.00</strong>. So the WEIGHT becomes <strong>3.00</strong>.
+          WEIGHT = <strong>0.0</strong><br/>
+          ERROR = <strong>3.0</strong><br/>
+          WEIGHT_update = ERROR = <strong>3.0</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 3.0 = <strong>3.0</strong><br/><br/>
+          Since the ERROR was <strong>3.00</strong>, we adjusted the WEIGHT by exactly <strong>3.0</strong>. So the WEIGHT becomes <strong>3.0</strong>.
         </div>
 
-        <div class="result-banner">WEIGHT = 3.00</div>
+        <div class="result-banner">WEIGHT = 3.0</div>
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong><br/>
           <p>The mind has just improved itself.</p>
-          <p>Now, if it receives the same INPUT of <strong>0.60</strong>, the OUTPUT becomes <strong>1.80</strong> — which is closer to the TARGET <strong>3.00</strong> than the previous OUTPUT <strong>0.00</strong> was.</p>
+          <p>Now, if it receives the same INPUT of <strong>0.60</strong>, the OUTPUT becomes <strong>1.8</strong> — which is closer to the TARGET <strong>3.0</strong> than the previous OUTPUT <strong>0.0</strong> was.</p>
           <p>The ERROR becomes smaller:</p>
           <span class="error-chip">ERROR = 1.20</span>
         </div>
@@ -207,19 +207,19 @@
 
         <p>EXAMPLE 2:</p>
         <div class="callout callout-neutral">
-          INPUT &nbsp;= <strong>1.00</strong><br/>
-          TARGET = <strong>5.00</strong>
+          INPUT &nbsp;= <strong>1.0</strong><br/>
+          TARGET = <strong>5.0</strong>
         </div>
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass — Inference</div>
-          PRODUCT = INPUT × WEIGHT = 1.00 × 3.00 = <strong>3.00</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>3.00</strong><br/>
+          PRODUCT = INPUT × WEIGHT = 1.0 × 3.0 = <strong>3.0</strong><br/>
+          OUTPUT &nbsp;= PRODUCT = <strong>3.0</strong><br/>
         </div>
 
         <div class="callout callout-success">
           <div class="callout-title">Error</div>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 5.00 − 3.00 = <strong>2.00</strong>
+          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 5.0 − 3.0 = <strong>2.0</strong>
         </div>
 
         <div class="diagram">
@@ -238,8 +238,8 @@
           WEIGHT = <strong>3.00</strong><br/>
           ERROR = <strong>2.00</strong><br/>
           WEIGHT_update = ERROR = <strong>2.00</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 3.00 + 2.00 = <strong>5.00</strong><br/><br/>
-          Since the ERROR was <strong>2.00</strong>, we adjusted the WEIGHT by exactly <strong>2.00</strong>. So the WEIGHT becomes <strong>5.00</strong>.
+          WEIGHT = WEIGHT + WEIGHT_update = 3.0 + 2.0 = <strong>5.0</strong><br/><br/>
+          Since the ERROR was <strong>2.00</strong>, we adjusted the WEIGHT by exactly <strong>2.0</strong>. So the WEIGHT becomes <strong>5.0</strong>.
         </div>
 
         <div class="result-banner">WEIGHT = 5.00</div>
@@ -247,14 +247,14 @@
         <div class="callout callout-warning">
           <strong>What just happened?</strong><br/>
           <p>The mind just improved itself. Again!</p>
-          <p>Now, if it receives the same INPUT of <strong>1.00</strong>, the OUTPUT becomes <strong>5.00</strong> — which is closer to the TARGET <strong>5.00</strong> than the previous OUTPUT <strong>3.00</strong> was.</p>
+          <p>Now, if it receives the same INPUT of <strong>1.00</strong>, the OUTPUT becomes <strong>5.0</strong> — which is closer to the TARGET <strong>5.0</strong> than the previous OUTPUT <strong>3.0</strong> was.</p>
         </div>
 
         <div class="success-callout">
           <p>Wait — it's not just closer. It's exact!<br/>
-            OUTPUT is now 5.00 — exactly the same as TARGET.</p>
+            OUTPUT is now 5.0 — exactly the same as TARGET.</p>
           <p>The ERROR becomes zero:</p>
-          <span class="error-chip" style="background:#d4edda; color:#155724;">&nbsp;&nbsp;ERROR = 0.00</span>
+          <span class="error-chip" style="background:#d4edda; color:#155724;">&nbsp;&nbsp;ERROR = 0.0</span>
         </div>
 
         <div class="diagram">
@@ -274,21 +274,21 @@
     <div class="card">
       <div class="card-body">
 
-        <p>To test the mind, we give it a problem — an <strong>INPUT</strong> — it has never encountered before.</p>
+        <p>To test the mind, we give it a problem — an <strong>EXAMPLE</strong> — it has never encountered before.</p>
 
-        <div class="callout callout-neutral">WEIGHT = <strong>5.00</strong></div>
+        <div class="callout callout-neutral">WEIGHT = <strong>5.0</strong></div>
         <p>EXAMPLE FOR TESTING :</p>
 
         <div class="callout callout-neutral">
-          INPUT &nbsp;= <strong>10.00</strong><br/>
-          TARGET = <strong>50.00</strong>
+          INPUT &nbsp;= <strong>10.0</strong><br/>
+          TARGET = <strong>50.0</strong>
         </div>
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 10.00 × 5.00 = <strong>50.00</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>50.00</strong><br/>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 50.00 − 50.00 = <strong>0.00</strong>
+          PRODUCT = INPUT × WEIGHT = 10.0 × 5.0 = <strong>50.00</strong><br/>
+          OUTPUT &nbsp;= PRODUCT = <strong>50.0</strong><br/>
+          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 50.0 − 50.0 = <strong>0.0</strong>
         </div>
 
         <div class="diagram">
@@ -296,8 +296,8 @@
         </div>
 
         <div class="callout callout-warning">
-          <p>This mind — since <strong>ERROR = 0.00</strong> — works perfectly!</p>
-          <p>It has learned the rule: <strong>multiply any number by 5.00</strong>.</p>
+          <p>This mind — since <strong>ERROR = 0.0</strong> — works perfectly!</p>
+          <p>It has learned the rule: <strong>multiply any number by 5.0</strong>.</p>
           <p>The <strong>Multiplier By Five</strong> can solve problems it has never encountered before.</p>
         </div>
 
@@ -326,26 +326,52 @@ TARGETS  = [3.00, 5.00]
 EXAMPLES = len(TARGETS) # length of TARGETS is 2
 
 LESSON = 0
+# INITIAL PARAMETER
+WEIGHT = 0.0
+print("INITIAL PARAMETER:")
+print(f"WEIGHT = {WEIGHT}\n")
+
+# DATASET
+INPUTS = [0.6, 1.0]
+TARGETS = [3.0, 5.0]
+EXAMPLES = 2
+
+LESSON = 0
 for EXAMPLE in range(EXAMPLES):
     LESSON = LESSON + 1
+    print(f"LESSON {LESSON}\n")
+    print(f"WEIGHT = {WEIGHT}\n")
 
-    # EXAMPLE
-    INPUT  = INPUTS[EXAMPLE]
+    INPUT = INPUTS[EXAMPLE]
     TARGET = TARGETS[EXAMPLE]
+    print(f"EXAMPLE {EXAMPLE+1}:")
+    print(f"INPUT  = {INPUT}")
+    print(f"TARGET = {TARGET}\n")
+
 
     # FORWARD PASS --- INFERENCE
     OUTPUT = INPUT * WEIGHT
+    print("FORWARD PASS --- INFERENCE:")
+    print(f"OUTPUT = INPUT * WEIGHT = {INPUT} * {WEIGHT} = {OUTPUT}\n")
     
     # ERROR
     ERROR = TARGET - OUTPUT
+    print("ERROR:")
+    print(f"ERROR = TARGET - OUTPUT = {TARGET} - {OUTPUT} = {ERROR}\n")
 
     # BACKWARD PASS --- BACKPROPAGATION
     WEIGHT_update = ERROR
     WEIGHT = WEIGHT + WEIGHT_update
+    print("BACKWARD PASS --- BACKPROPAGATION:")
+    print(f"WEIGHT_update = ERROR = {ERROR}")
+    print(f"WEIGHT = WEIGHT + WEIGHT_update = {WEIGHT}\n")
     
-    print(f"LESSON {LESSON}: WEIGHT = {WEIGHT:.2f}")
+    print(f"WEIGHT = {WEIGHT}\n")
+    print(f"LESSON {LESSON} finishes here.\n\n")
 
-print(f"\nWe've grown the mind: WEIGHT = {WEIGHT:.2f}")   
+print(f"We've grown the mind.\n")
+print("FINAL PARAMETER:")
+print(f"WEIGHT = {WEIGHT}\n")   
           </textarea>
 
           <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
