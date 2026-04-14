@@ -93,13 +93,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 
 /* ── COPY BUTTON ── */
 
-/* Wrapper that controls hover state for above/below buttons */
-.pythoncode-wrap {
-  position: relative;
-  margin: 20px 0;
-}
-
-/* Shared base for all three copy_btn variants */
+/* Shared base */
 .copy_btn {
   display: flex;
   align-items: center;
@@ -110,7 +104,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   margin: 0 !important;
   background: #2a2a2a !important;
   color: #aaaaaa !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #555 !important;
   border-radius: 6px !important;
   cursor: pointer;
   opacity: 0;
@@ -129,31 +123,35 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   opacity: 1 !important;
 }
 
-/* BUTTON 1 — above the block */
-.copy_btn--above {
-  margin-bottom: 6px !important;
+/* BUTTON 1 — below "Just click RUN CODE", above the textarea */
+/* BUTTON 2 — below the textarea, above the RUN CODE button  */
+/* Both are block-level, shown on .pythoncode hover           */
+.copy_btn--above-textarea {
+  margin-bottom: 8px !important;
 }
-
-/* BUTTON 2 — below the block */
-.copy_btn--below {
-  margin-top: 6px !important;
+.copy_btn--below-textarea {
+  margin-top: 8px !important;
 }
-
-/* Show above + below on wrapper hover */
-.pythoncode-wrap:hover .copy_btn--above,
-.pythoncode-wrap:hover .copy_btn--below {
+.pythoncode:hover .copy_btn--above-textarea,
+.pythoncode:hover .copy_btn--below-textarea {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* BUTTON 3 — floating inside .pythoncode, right edge, over textarea */
-.pythoncode { position: relative; }
+/* BUTTON 3 — floats inside textarea-wrap at the right edge  */
+.textarea-wrap {
+  position: relative;
+}
+.textarea-wrap textarea {
+  display: block;
+  width: 100%;
+}
 .copy_btn--float {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 10px;
+  right: 10px;
 }
-.pythoncode:hover .copy_btn--float {
+.textarea-wrap:hover .copy_btn--float {
   opacity: 1;
   pointer-events: auto;
 }
