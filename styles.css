@@ -91,6 +91,43 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .pythoncode div[id^="output-window"] { background-color: #000000; color: #ffffff; font-weight: bold; padding: 15px; margin-top: 10px; border-radius: 5px; white-space: pre-wrap; border-left: 4px solid #00ff00; font-size: 0.95rem; font-family: 'Courier New', monospace; }
 .pythoncode button { margin-top: 10px; background-color: #00ff00; color: #000000; border: none; padding: 10px 25px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.2s; }
 
+/* ── COPY BUTTON ── */
+.pythoncode { position: relative; }
+.copy_btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #2a2a2a !important;
+  color: #aaaaaa !important;
+  border: 1px solid #444 !important;
+  border-radius: 6px !important;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+.copy_btn svg { width: 18px; height: 18px; }
+.pythoncode:hover .copy_btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+.copy_btn:hover {
+  background: #3a3a3a !important;
+  color: #ffffff !important;
+}
+.copy_btn--copied {
+  background: #1a3a1a !important;
+  color: var(--green-lt-lt) !important;
+  border-color: #2d8a4e !important;
+}
+
 /* ── TYPOGRAPHY & BLOCKS ── */
 .inner-heading { font-weight: 900; font-size: 19px; margin: 24px 0 10px; }
 .prose-list { margin: 10px 0 14px 24px; }
