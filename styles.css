@@ -150,7 +150,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   left: 10px;
   opacity: 0;
   pointer-events: none;
-  /* no transition on position so it tracks instantly */
+  /* no transition on left/top — must track cursor instantly */
   transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
 }
 
