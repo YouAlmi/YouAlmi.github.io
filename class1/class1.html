@@ -11,6 +11,11 @@
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulkt-stdlib.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
 
+  <!-- Skulpt (required for running Python in browser) -->
+  <script src="https://skulpt.org/js/skulpt.min.js"></script>
+  <script src="https://skulpt.org/js/skulpt-stdlib.js"></script>
+
+
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 
@@ -309,6 +314,8 @@
 
         <!-- GROW THE MIND -->
         <div class="pythoncode">
+                  <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
+        <button class="copy-btn" onclick="copyCode(1)">Copy Code</button>
           <h3>GROW THE MIND 🧠</h3>
           <p style="color: #cccccc; font-size: 1.5rem;">Just click <strong>RUN CODE</strong></p>
 
@@ -317,8 +324,8 @@
 WEIGHT = 0.0
 
 # DATASET
-INPUTS   = [0.6, 1.0]
-TARGETS  = [3.0, 5.0]
+INPUTS   = [0.60, 1.00]
+TARGETS  = [3.00, 5.00]
 EXAMPLES = len(TARGETS) # length of TARGETS is 2
 
 LESSON = 0
@@ -369,7 +376,7 @@ for EXAMPLE in range(EXAMPLES):
 
 print(f"We've grown the mind.")
 print("FINAL PARAMETER:")
-print(f"WEIGHT = {WEIGHT}\n")
+print(f"WEIGHT = {WEIGHT}\n")   
           </textarea>
 
           <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
@@ -453,6 +460,13 @@ print(f"We've tested the mind: ERROR = {ERROR:.2f}")
 
 
   <script>
+    // Required for Skulpt
+    function builtinRead(x) {
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+        throw "File not found: '" + x + "'";
+      return Sk.builtinFiles["files"][x];
+    }
+
     function outf(text, outputId) {
       var mypre = document.getElementById(outputId);
       mypre.innerHTML = mypre.innerHTML + text;
@@ -467,7 +481,10 @@ print(f"We've tested the mind: ERROR = {ERROR:.2f}")
       mypre.innerHTML = '';
 
       Sk.pre = outputId;
-      Sk.configure({ output: (text) => outf(text, outputId) });
+      Sk.configure({ 
+        output: (text) => outf(text, outputId),
+        read: builtinRead 
+      });
 
       var myPromise = Sk.misceval.asyncToPromise(function () {
         return Sk.importMainWithBody("<stdin>", false, code, true);
@@ -475,28 +492,24 @@ print(f"We've tested the mind: ERROR = {ERROR:.2f}")
 
       myPromise.then(
         function (mod) { console.log('Success!'); },
-        function (err)  { mypre.innerHTML = err.toString(); }
+        function (err)  { mypre.innerHTML = "<span style='color:red;'>" + err.toString() + "</span>"; }
       );
     }
-  </script>
 
-  <script>
-    function copyCode() {
-      const textarea = document.getElementById('code-input1');
-      const button = document.querySelector('.copy-btn');
-      
-      // Select and copy the text
-      textarea.select();
+    // === COPY BUTTON FUNCTION (using class copy-btn) ===
+    function copyCode(block) {
+      const codeId = block === 1 ? "code-input1" : "code-input2";
+      const textarea = document.getElementById(codeId);
+      const btn = textarea.parentElement.querySelector('.copy-btn');
+
       navigator.clipboard.writeText(textarea.value).then(() => {
-        // Show feedback
-        const originalText = button.textContent;
-        button.textContent = 'Copied!';
-        button.classList.add('copied');
-        
-        // Reset button after 2 seconds
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+
         setTimeout(() => {
-          button.textContent = originalText;
-          button.classList.remove('copied');
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
         }, 2000);
       });
     }

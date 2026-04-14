@@ -92,6 +92,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .pythoncode button { margin-top: 10px; background-color: #00ff00; color: #000000; border: none; padding: 10px 25px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.2s; }
 
 
+
 .copy-btn {
       position: absolute;
       top: 10px;
