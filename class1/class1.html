@@ -480,5 +480,27 @@ print(f"We've tested the mind: ERROR = {ERROR:.2f}")
     }
   </script>
 
+  <script>
+    function copyCode() {
+      const textarea = document.getElementById('code-input1');
+      const button = document.querySelector('.copy-btn');
+      
+      // Select and copy the text
+      textarea.select();
+      navigator.clipboard.writeText(textarea.value).then(() => {
+        // Show feedback
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
 </body>
 </html>
