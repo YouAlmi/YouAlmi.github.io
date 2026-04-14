@@ -87,7 +87,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 /* ── CODE & INTERACTIVE ── */
 .pythoncode { background-color: #1e1e1e; color: #ffffff; padding: 20px; border-radius: 12px; font-family: 'Courier New', monospace; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 .pythoncode h3 { margin-top: 0; color: #ffffff; }
-.pythoncode textarea { width: 100%; font-weight: bold; border: 1px solid #444; padding: 15px; font-size: 1rem; border-radius: 5px; outline: none; resize: vertical; background: #1e1e1e; color: #ffffff; font-family: 'Courier New', monospace; line-height: 0.8;}
+.pythoncode textarea { width: 100%; font-weight: bold; border: 1px solid #444; padding: 10px; font-size: 1rem; border-radius: 5px; outline: none; resize: vertical; background: #1e1e1e; color: #ffffff; font-family: 'Courier New', monospace; line-height: 0.8;}
 .pythoncode div[id^="output-window"] { background-color: #000000; color: #ffffff; font-weight: bold; padding: 15px; margin-top: 10px; border-radius: 5px; white-space: pre-wrap; border-left: 4px solid #00ff00; font-size: 0.95rem; font-family: 'Courier New', monospace; }
 .pythoncode button { margin-top: 10px; background-color: #00ff00; color: #000000; border: none; padding: 10px 25px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.2s; }
 
