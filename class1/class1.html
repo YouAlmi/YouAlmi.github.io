@@ -47,7 +47,7 @@
     <div class="section-label">The Mind We Want to Grow</div>
     <div class="card">
       <div class="card-body">
-        <p>We want to grow a mind that can multiply any number by <strong>5.00</strong>.</p>
+        <p>We want to grow a mind that can multiply any number by <strong>5.0</strong>.</p>
         <p>This mind will have a single PARAMETER: <strong>WEIGHT</strong>.</p>
       </div>
     </div>
@@ -59,7 +59,7 @@
     <div class="card">
       <div class="card-body">
         <p>Suppose we don't yet know what the WEIGHT should be, so let's start by setting it to <strong>zero</strong>:</p>
-        <div class="callout callout-neutral">WEIGHT = <strong>0.00</strong></div>
+        <div class="callout callout-neutral">WEIGHT = <strong>0.0</strong></div>
         <p>At first, the mind will generate nonsense.</p>
       </div>
     </div>
@@ -140,7 +140,7 @@
       <div class="card-header">LESSON 1</div>
       <div class="card-body">
 
-        <div class="callout callout-neutral">WEIGHT = <strong>0.00</strong></div>
+        <div class="callout callout-neutral">WEIGHT = <strong>0.0</strong></div>
 
         <p>EXAMPLE 1:</p>
         <div class="callout callout-neutral">
@@ -186,7 +186,7 @@
           <p>The mind has just improved itself.</p>
           <p>Now, if it receives the same INPUT of <strong>0.60</strong>, the OUTPUT becomes <strong>1.8</strong> — which is closer to the TARGET <strong>3.0</strong> than the previous OUTPUT <strong>0.0</strong> was.</p>
           <p>The ERROR becomes smaller:</p>
-          <span class="error-chip">ERROR = 1.20</span>
+          <span class="error-chip">ERROR = 1.2</span>
         </div>
 
         <div class="diagram">
@@ -203,7 +203,7 @@
       <div class="card-header">LESSON 2</div>
       <div class="card-body">
 
-        <div class="callout callout-neutral">WEIGHT = <strong>3.00</strong></div>
+        <div class="callout callout-neutral">WEIGHT = <strong>3.0</strong></div>
 
         <p>EXAMPLE 2:</p>
         <div class="callout callout-neutral">
@@ -235,19 +235,19 @@
             <span class="formula">WEIGHT_update = ERROR</span>
           </div>
 
-          WEIGHT = <strong>3.00</strong><br/>
-          ERROR = <strong>2.00</strong><br/>
-          WEIGHT_update = ERROR = <strong>2.00</strong><br/>
+          WEIGHT = <strong>3.0</strong><br/>
+          ERROR = <strong>2.0</strong><br/>
+          WEIGHT_update = ERROR = <strong>2.0</strong><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 3.0 + 2.0 = <strong>5.0</strong><br/><br/>
-          Since the ERROR was <strong>2.00</strong>, we adjusted the WEIGHT by exactly <strong>2.0</strong>. So the WEIGHT becomes <strong>5.0</strong>.
+          Since the ERROR was <strong>2.0</strong>, we adjusted the WEIGHT by exactly <strong>2.0</strong>. So the WEIGHT becomes <strong>5.0</strong>.
         </div>
 
-        <div class="result-banner">WEIGHT = 5.00</div>
+        <div class="result-banner">WEIGHT = 5.0</div>
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong><br/>
           <p>The mind just improved itself. Again!</p>
-          <p>Now, if it receives the same INPUT of <strong>1.00</strong>, the OUTPUT becomes <strong>5.0</strong> — which is closer to the TARGET <strong>5.0</strong> than the previous OUTPUT <strong>3.0</strong> was.</p>
+          <p>Now, if it receives the same INPUT of <strong>1.0</strong>, the OUTPUT becomes <strong>5.0</strong> — which is closer to the TARGET <strong>5.0</strong> than the previous OUTPUT <strong>3.0</strong> was.</p>
         </div>
 
         <div class="success-callout">
@@ -286,7 +286,7 @@
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 10.0 × 5.0 = <strong>50.00</strong><br/>
+          PRODUCT = INPUT × WEIGHT = 10.0 × 5.0 = <strong>50.0</strong><br/>
           OUTPUT &nbsp;= PRODUCT = <strong>50.0</strong><br/>
           ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 50.0 − 50.0 = <strong>0.0</strong>
         </div>
@@ -387,11 +387,11 @@ print(f"WEIGHT = {WEIGHT}\n")
 
           <textarea id="code-input2">
 # THE MIND
-WEIGHT = 5.00
+WEIGHT = 5.0
 
 # EXAMPLE FOR TESTING
-INPUT  = 10.00
-TARGET = 50.00
+INPUT  = 10.0
+TARGET = 50.0
 
 # FORWARD PASS --- INFERENCE
 PRODUCT = INPUT * WEIGHT
@@ -408,7 +408,7 @@ print(f"We've tested the mind: ERROR = {ERROR:.2f}")
           <div id="output-window2">Ready for math!</div>
         </div>
 
-        <p>Great? This was just plain Python code.</p>
+        <p>Great? It was just plain Python code. Copy, paste into ChatGPT, ask any question — done.</p>
         <p>Starting in <strong>Class 4</strong> — we'll switch to <strong>PyTorch</strong> — an <strong>easier</strong> and <strong>more powerful</strong> way to write code.</p>
         <p>On <strong>Hugging Face</strong>, the most popular platform for <strong>Transformers</strong>, most code is written with <strong>PyTorch</strong>.</p>
       </div>
