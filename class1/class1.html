@@ -16,8 +16,8 @@
 
   <style>
     /* ── class1.html-specific textarea heights ── */
-    #code-input1  { height: 1820px; }
-    #code-input2  { height: 910px; }
+    #code-input1  { height: 700px; }
+    #code-input2  { height: 350px; }
   </style>
 
 </head>
@@ -322,63 +322,31 @@
           <!-- textarea-wrap: click anywhere copies; cursor btn tracks mouse -->
           <div class="textarea-wrap" onclick="copyCode('code-input1', document.getElementById('cursor-btn-1'))">
             <textarea id="code-input1" style="line-height: 1.2;">
-# INITIAL PARAMETER
 WEIGHT = 0.0
 
-# DATASET
-INPUTS   = [0.60, 1.00]
-TARGETS  = [3.00, 5.00]
-EXAMPLES = len(TARGETS) # length of TARGETS is 2
+INPUT  = 0.6
+TARGET = 3.0
 
-LESSON = 0
-# INITIAL PARAMETER
-WEIGHT = 0.0
-print("INITIAL PARAMETER:")
-print(f"WEIGHT = {WEIGHT}\n")
+PRODUCT = INPUT * WEIGHT
+OUTPUT  = PRODUCT
 
-# DATASET
-INPUTS = [0.6, 1.0]
-TARGETS = [3.0, 5.0]
-EXAMPLES = 2
+ERROR   = TARGET - OUTPUT
 
-LESSON = 0
-for EXAMPLE in range(EXAMPLES):
-    LESSON = LESSON + 1
-    print(f"LESSON {LESSON}\n")
-    print(f"WEIGHT = {WEIGHT}\n")
+WEIGHT_update = ERROR
+WEIGHT = WEIGHT + WEIGHT_update
 
-    INPUT = INPUTS[EXAMPLE]
-    TARGET = TARGETS[EXAMPLE]
-    print(f"EXAMPLE {EXAMPLE+1}:")
-    print(f"INPUT  = {INPUT}")
-    print(f"TARGET = {TARGET}\n")
+INPUT  = 1.0
+TARGET = 5.0
 
+PRODUCT = INPUT * WEIGHT
+OUTPUT  = PRODUCT
 
-    # FORWARD PASS --- INFERENCE
-    PRODUCT = INPUT * WEIGHT
-    OUTPUT = PRODUCT
-    print("FORWARD PASS --- INFERENCE:")
-    print(f"PRODUCT = INPUT * WEIGHT = {INPUT} * {WEIGHT} = {PRODUCT}")
-    print(f"OUTPUT = PRODUCT = {OUTPUT}\n")
-    
-    # ERROR
-    ERROR = TARGET - OUTPUT
-    print("ERROR:")
-    print(f"ERROR = TARGET - OUTPUT = {TARGET} - {OUTPUT} = {ERROR}\n")
+ERROR   = TARGET - OUTPUT
 
-    # BACKWARD PASS --- BACKPROPAGATION
-    WEIGHT_update = ERROR
-    WEIGHT = WEIGHT + WEIGHT_update
-    print("BACKWARD PASS --- BACKPROPAGATION:")
-    print(f"WEIGHT_update = ERROR = {ERROR}")
-    print(f"WEIGHT = WEIGHT + WEIGHT_update = {WEIGHT}\n")
-    
-    print(f"WEIGHT = {WEIGHT}\n")
-    print(f"LESSON {LESSON} finishes here.\n\n")
+WEIGHT_update = ERROR
+WEIGHT = WEIGHT + WEIGHT_update
 
-print(f"We've grown the mind.")
-print("FINAL PARAMETER:")
-print(f"WEIGHT = {WEIGHT}\n")   
+print(f"We've grown the mind: WEIGHT = {WEIGHT}")
             </textarea>
             <!-- Button 2: follows cursor, pointer-events:none so it never blocks mousemove -->
             <button id="cursor-btn-1" class="copy_btn copy_btn--cursor" title="Copy code">
@@ -412,33 +380,18 @@ print(f"WEIGHT = {WEIGHT}\n")
 
           <!-- textarea-wrap: click anywhere copies; cursor btn tracks mouse -->
           <div class="textarea-wrap" onclick="copyCode('code-input2', document.getElementById('cursor-btn-2'))">
-            <textarea id="code-input2">
-# THE MIND
+            <textarea id="code-input2" style="line-height: 1.2;"></textarea>
 WEIGHT = 5.0
-print(f"THE MIND:")
-print(f"WEIGHT = {WEIGHT}\n")
 
-# EXAMPLE FOR TESTING
 INPUT  = 10.0
 TARGET = 50.0
-print(f"EXAMPLE FOR TESTING:")
-print(f"INPUT  = {INPUT}")
-print(f"TARGET = {TARGET}\n")
 
-# FORWARD PASS --- INFERENCE
 PRODUCT = INPUT * WEIGHT
-OUTPUT  = PRODUCTPRODUCT = INPUT * WEIGHT
-OUTPUT = PRODUCT
-print("FORWARD PASS --- INFERENCE:")
-print(f"PRODUCT = INPUT * WEIGHT = {INPUT} * {WEIGHT} = {PRODUCT}")
-print(f"OUTPUT = PRODUCT = {OUTPUT}\n")
+OUTPUT  = PRODUCT
 
-# ERROR
-ERROR = TARGET - OUTPUT
-print("ERROR:")
-print(f"ERROR = TARGET - OUTPUT = {TARGET} - {OUTPUT} = {ERROR}\n")
+ERROR   = TARGET - OUTPUT
 
-print(f"We've tested the mind: ERROR = {ERROR:.2f}")
+print(f"We've tested the mind: ERROR = {ERROR}")
             </textarea>
             <!-- Button 2: follows cursor, pointer-events:none so it never blocks mousemove -->
             <button id="cursor-btn-2" class="copy_btn copy_btn--cursor" title="Copy code">
