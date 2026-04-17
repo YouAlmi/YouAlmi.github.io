@@ -18,6 +18,14 @@
     /* ── class1.html-specific textarea heights ── */
     #code-input1  { height: 470px; }
     #code-input2  { height: 280px; }
+
+    /* Transparent overlay sits on top of the textarea, owns all mouse events */
+    .textarea-overlay {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
   </style>
 
 </head>
@@ -311,7 +319,7 @@
          <p></p>
 
         <!-- GROW THE MIND -->
-        <div class="pythoncode" onmousemove="moveCopyBtn(event, 'cursor-btn-1')" onmouseleave="hideCopyBtn('cursor-btn-1')">
+        <div class="pythoncode">
 
 
           <!-- ROW: "Just click RUN CODE" + Button 1 (always visible) -->
@@ -322,8 +330,8 @@
             </button>
           </div>
 
-          <!-- textarea-wrap: click anywhere copies; cursor btn tracks mouse -->
-          <div class="textarea-wrap" onclick="copyCode('code-input1', document.getElementById('cursor-btn-1'))">
+          <!-- textarea-wrap: overlay catches mouse for tracking + copy-on-click -->
+          <div class="textarea-wrap">
             <textarea id="code-input1" style="line-height: 1.2;">
 WEIGHT = 0.0
 
@@ -346,7 +354,13 @@ for EXAMPLE in range(EXAMPLES):
 
 print(f"Training complete: WEIGHT = {WEIGHT}")
             </textarea>
-            <!-- Button 2: follows cursor, pointer-events:none so it never blocks mousemove -->
+            <!-- Transparent overlay: catches all mouse events over the textarea -->
+            <div class="textarea-overlay"
+                 onmousemove="moveCopyBtn(event, 'cursor-btn-1')"
+                 onmouseleave="hideCopyBtn('cursor-btn-1')"
+                 onclick="copyCode('code-input1', document.getElementById('cursor-btn-1'))">
+            </div>
+            <!-- Button 2: follows cursor, pointer-events:none -->
             <button id="cursor-btn-1" class="copy_btn copy_btn--cursor" title="Copy code">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
@@ -372,7 +386,7 @@ print(f"Training complete: WEIGHT = {WEIGHT}")
 
 
         <!-- TEST THE MIND -->
-        <div class="pythoncode" onmousemove="moveCopyBtn(event, 'cursor-btn-2')" onmouseleave="hideCopyBtn('cursor-btn-2')">
+        <div class="pythoncode">
          
 
           <!-- ROW: "Just click RUN CODE" + Button 1 (always visible) -->
@@ -383,8 +397,8 @@ print(f"Training complete: WEIGHT = {WEIGHT}")
             </button>
           </div>
 
-          <!-- textarea-wrap: click anywhere copies; cursor btn tracks mouse -->
-          <div class="textarea-wrap" onclick="copyCode('code-input2', document.getElementById('cursor-btn-2'))">
+          <!-- textarea-wrap: overlay catches mouse for tracking + copy-on-click -->
+          <div class="textarea-wrap">
             <textarea id="code-input2" style="line-height: 1.2;">
 WEIGHT = 5.0
 
@@ -398,7 +412,13 @@ ERROR = TARGET - OUTPUT
 
 print(f"Testing complete: ERROR = {ERROR}")
             </textarea>
-            <!-- Button 2: follows cursor, pointer-events:none so it never blocks mousemove -->
+            <!-- Transparent overlay: catches all mouse events over the textarea -->
+            <div class="textarea-overlay"
+                 onmousemove="moveCopyBtn(event, 'cursor-btn-2')"
+                 onmouseleave="hideCopyBtn('cursor-btn-2')"
+                 onclick="copyCode('code-input2', document.getElementById('cursor-btn-2'))">
+            </div>
+            <!-- Button 2: follows cursor, pointer-events:none -->
             <button id="cursor-btn-2" class="copy_btn copy_btn--cursor" title="Copy code">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
@@ -452,35 +472,26 @@ print(f"Testing complete: ERROR = {ERROR}")
 
   <script>
     function moveCopyBtn(event, btnId) {
-      const btn  = document.getElementById(btnId);
-      const wrap = btn.closest('.textarea-wrap');
-      if (!wrap) return;
-      const rect = wrap.getBoundingClientRect(); // recalculated live on every call
-      const bw   = 36;
-      const bh   = 36;
-      // Only show when cursor is actually over the textarea-wrap
-      if (
-        event.clientX < rect.left || event.clientX > rect.right ||
-        event.clientY < rect.top  || event.clientY > rect.bottom
-      ) {
-        btn.style.opacity       = '0';
-        btn.style.pointerEvents = 'none';
-        return;
-      }
-      // Y tracks cursor; X pinned to right edge inside the wrap
+      const btn     = document.getElementById(btnId);
+      const overlay = event.currentTarget;           // the .textarea-overlay div
+      const rect    = overlay.getBoundingClientRect();
+      const bw = 36, bh = 36;
       let y = event.clientY - rect.top - bh / 2;
       y = Math.max(0, Math.min(y, rect.height - bh));
       const x = rect.width - bw - 10;
       btn.style.left          = x + 'px';
       btn.style.top           = y + 'px';
       btn.style.opacity       = '1';
-      btn.style.pointerEvents = 'none'; // always none — click handled by textarea-wrap
+      btn.style.pointerEvents = 'none';
+      btn.style.background    = '#3a3a3a';           // hover colour — overlay owns the cursor
+      btn.style.color         = '#ffffff';
     }
 
     function hideCopyBtn(btnId) {
       const btn = document.getElementById(btnId);
-      btn.style.opacity = '0';
-      btn.style.pointerEvents = 'none';
+      btn.style.opacity    = '0';
+      btn.style.background = '';
+      btn.style.color      = '';
     }
 
     function copyCode(id, btn) {
