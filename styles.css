@@ -127,7 +127,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   align-items: center;
   justify-content: space-between;
   gap: 2px;
-  margin: 2px 0;
+  margin: 2px 2px;
 }
 .code-row > button:not(.copy_btn) { margin-top: 0; }
 .copy_btn--inline {
