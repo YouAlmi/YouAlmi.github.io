@@ -126,8 +126,8 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin: 8px 0;
+  gap: 0px;
+  margin: 0px 0;
 }
 .code-row > button:not(.copy_btn) { margin-top: 0; }
 .copy_btn--inline {
