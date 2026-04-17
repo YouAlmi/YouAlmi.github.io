@@ -324,29 +324,25 @@
             <textarea id="code-input1" style="line-height: 1.2;">
 WEIGHT = 0.0
 
-INPUT  = 0.6
-TARGET = 3.0
+INPUTS   = [0.60, 1.00]
+TARGETS  = [3.00, 5.00]
 
-PRODUCT = INPUT * WEIGHT
-OUTPUT  = PRODUCT
+EXAMPLES = 2    # Number of EXAMPLES
 
-ERROR   = TARGET - OUTPUT
+for EXAMPLE in range(EXAMPLES):
 
-WEIGHT_update = ERROR
-WEIGHT = WEIGHT + WEIGHT_update
+    INPUT  = INPUTS[EXAMPLE]
+    TARGET = TARGETS[EXAMPLE]
 
-INPUT  = 1.0
-TARGET = 5.0
+    PRODUCT = INPUT * WEIGHT
+    OUTPUT  = PRODUCT
 
-PRODUCT = INPUT * WEIGHT
-OUTPUT  = PRODUCT
+    ERROR = TARGET - OUTPUT
 
-ERROR   = TARGET - OUTPUT
+    WEIGHT_update = ERROR
+    WEIGHT = WEIGHT + WEIGHT_update
 
-WEIGHT_update = ERROR
-WEIGHT = WEIGHT + WEIGHT_update
-
-print(f"We've grown the mind: WEIGHT = {WEIGHT}")
+print(f"Training complete: WEIGHT = {WEIGHT}")
             </textarea>
             <!-- Button 2: follows cursor, pointer-events:none so it never blocks mousemove -->
             <button id="cursor-btn-1" class="copy_btn copy_btn--cursor" title="Copy code">
@@ -389,9 +385,9 @@ TARGET = 50.0
 PRODUCT = INPUT * WEIGHT
 OUTPUT  = PRODUCT
 
-ERROR   = TARGET - OUTPUT
+ERROR = TARGET - OUTPUT
 
-print(f"We've tested the mind: ERROR = {ERROR}")
+print(f"Testing complete: ERROR = {ERROR}")
             </textarea>
             <!-- Button 2: follows cursor, pointer-events:none so it never blocks mousemove -->
             <button id="cursor-btn-2" class="copy_btn copy_btn--cursor" title="Copy code">
@@ -410,10 +406,10 @@ print(f"We've tested the mind: ERROR = {ERROR}")
           <div id="output-window2">Ready for math!</div>
         </div>
 
-        <p>Here, we just used simple Python code.</p>
-        <p>You can copy it, paste it into ChatGPT, and ask questions — that’s it!</p>
-        <p>Starting in <strong>Class 4</strong>, we will switch to <strong>PyTorch</strong> — an <strong>easier way</strong> to write the code.</p>
-        <p>On <strong>Hugging Face</strong> — the most popular platform for <strong>Transformers</strong> — most of the code there is written in <strong>PyTorch</strong>.</p>
+        <p>Here, we just used plain Python code.</p>
+        <p>More importantly, today you need to learn how to learn. For example, you could copy this code, paste it into a chatbot like ChatGPT, and ask questions about it. This is one of the most effective ways to understand how the code works.</p>
+        <p>Starting in <strong>Class 4</strong>, we will use <strong>PyTorch</strong> — an <strong>easier way</strong> to write the code.</p>
+        <p>On <strong>Hugging Face</strong> — the most popular platform for <strong>Transformers</strong> — the wide majority most of the code there is written in <strong>PyTorch</strong>.</p>
       </div>
     </div>
 
