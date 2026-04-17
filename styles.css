@@ -150,7 +150,8 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   top: 10px;
   left: 10px;
   opacity: 0;
-  pointer-events: none !important; /* always — click handled by .textarea-wrap onclick */
+  pointer-events: none !important;
+  z-index: 3;
   transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
 }
 
