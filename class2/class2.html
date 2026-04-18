@@ -456,29 +456,25 @@
           <textarea id="code-input1">
 WEIGHT = 0.00
 
-INPUT  = 0.60
-TARGET = 3.00
+EXAMPLES = 2
+INPUTS   = [0.60, -1.00]
+TARGETS  = [3.00, -5.00]
 
-PRODUCT = INPUT * WEIGHT
-OUTPUT  = PRODUCT
-ERROR   = TARGET - OUTPUT
+for EXAMPLE in range(EXAMPLES):
 
-WEIGHT_OUTPUT_influence = INPUT
-WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence
-WEIGHT = WEIGHT + WEIGHT_update
+    INPUT  = INPUTS[EXAMPLE]
+    TARGET = TARGETS[EXAMPLE]
 
-INPUT  = -1.00
-TARGET = -5.00
+    PRODUCT = INPUT * WEIGHT
+    OUTPUT  = PRODUCT
+    
+    ERROR   = TARGET - OUTPUT
 
-PRODUCT = INPUT * WEIGHT
-OUTPUT  = PRODUCT
-ERROR   = TARGET - OUTPUT
+    WEIGHT_OUTPUT_influence = INPUT
+    WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence
+    WEIGHT = WEIGHT + WEIGHT_update
 
-WEIGHT_OUTPUT_influence = INPUT
-WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence
-WEIGHT = WEIGHT + WEIGHT_update
-
-print(f"We've grown the mind: WEIGHT = {WEIGHT:.2f}")
+print(f"Training complete: WEIGHT = {WEIGHT}")
           </textarea>
 
           <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
@@ -500,9 +496,10 @@ TARGET = 50.00
 
 PRODUCT = INPUT * WEIGHT
 OUTPUT  = PRODUCT
+
 ERROR   = TARGET - OUTPUT
 
-print(f"We've tested the mind: ERROR = {ERROR:.2f}")
+print("Testing complete: ERROR = {ERROR:.2f}")
           </textarea>
 
           <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
