@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-
-<style id="webmakerstyle">
-
-</style>
-</head>
-<body>
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -19,7 +8,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulkt-stdlib.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulkt@1.2.0/dist/skulkt-stdlib.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
 
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
@@ -27,8 +16,16 @@
 
   <style>
     /* ── class3.html-specific textarea heights ── */
-    #code-input1 { height: 900px; }
-    #code-input2 { height: 400px; }
+    #code-input1  { height: 900px; }
+    #code-input2  { height: 400px; }
+
+    /* Transparent overlay sits on top of the textarea, owns all mouse events */
+    .textarea-overlay {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
   </style>
 
 </head>
@@ -234,7 +231,7 @@
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = -10.0000 × 0.0180 = <strong>-0.1800</strong><br/>
           OUTPUT &nbsp;= PRODUCT = <strong>-0.1800</strong><br/>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 50.0000 − (−0.1800) = <strong>-49.8200</strong>
+          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = -50.0000 − (−0.1800) = <strong>-49.8200</strong>
         </div>
 
         <div class="diagram">
@@ -305,7 +302,7 @@
 
         <div class="callout callout-neutral">WEIGHT = <strong>5.0000</strong></div>
 
-        <p>EXAMPLE FOR TESTING :</p>
+        <p>EXAMPLE FOR TESTING:</p>
 
         <div class="callout callout-neutral">
           INPUT &nbsp;= <strong>10.0000</strong><br/>
@@ -340,18 +337,29 @@
       <div class="card-body">
 
         <!-- GROW THE MIND -->
-        <div class="pythoncode">
-          <h3>GROW THE MIND 🧠</h3>
-          <p style="color: #cccccc; font-size: 1.0rem;">Just click <strong>RUN CODE</strong></p>
+        <h3>GROW THE MIND 🧠</h3>
+        <p></p>
 
-          <textarea id="code-input1">
+        <div class="pythoncode">
+
+          <!-- ROW: label + Button 1 (always visible) -->
+          <div class="code-row">
+            <p style="color: #cccccc; font-size: 1.0rem; margin: 0;">Just click <strong>RUN CODE</strong></p>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+
+          <!-- textarea-wrap: overlay catches mouse for tracking + copy-on-click -->
+          <div class="textarea-wrap">
+            <textarea id="code-input1" style="line-height: 1.2;">
 WEIGHT = 0.0000
 SMALL  = 0.0100
 
 EXAMPLES = 2
 INPUTS   = [0.6000, -10.0000]
 TARGETS  = [3.0000, -50.0000]
-            
+
 for EXAMPLE in range(EXAMPLES):
 
     INPUT  = INPUTS[EXAMPLE]
@@ -366,20 +374,49 @@ for EXAMPLE in range(EXAMPLES):
     WEIGHT = WEIGHT + WEIGHT_update
 
 print(f"Training complete: WEIGHT = {WEIGHT:.4f}")
-          </textarea>
+            </textarea>
+            <!-- Transparent overlay: catches all mouse events over the textarea -->
+            <div class="textarea-overlay"
+                 onmousemove="moveCopyBtn(event, 'cursor-btn-1')"
+                 onmouseleave="hideCopyBtn('cursor-btn-1')"
+                 onclick="copyCode('code-input1', document.getElementById('cursor-btn-1'))">
+            </div>
+            <!-- Button 2: follows cursor, pointer-events:none -->
+            <button id="cursor-btn-1" class="copy_btn copy_btn--cursor" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
 
-          <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
+          <!-- ROW: RUN CODE button + Button 3 (always visible) -->
+          <div class="code-row">
+            <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
 
           <div id="output-window1">Ready for math!</div>
         </div>
 
 
+        <p><br/></p>
+        <h3>TEST THE MIND 🧠</h3>
+        <p></p>
+
         <!-- TEST THE MIND -->
         <div class="pythoncode">
-          <h3>TEST THE MIND 🧠</h3>
-          <p style="color: #cccccc; font-size: 1.0rem;">Just click <strong>RUN CODE</strong></p>
 
-          <textarea id="code-input2">
+          <!-- ROW: label + Button 1 (always visible) -->
+          <div class="code-row">
+            <p></p>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+
+          <!-- textarea-wrap: overlay catches mouse for tracking + copy-on-click -->
+          <div class="textarea-wrap">
+            <textarea id="code-input2" style="line-height: 1.2;">
 WEIGHT = 5.0000
 
 INPUT  = 10.0000
@@ -391,9 +428,26 @@ OUTPUT  = PRODUCT
 ERROR   = TARGET - OUTPUT
 
 print(f"Testing complete: ERROR = {ERROR:.4f}")
-          </textarea>
+            </textarea>
+            <!-- Transparent overlay: catches all mouse events over the textarea -->
+            <div class="textarea-overlay"
+                 onmousemove="moveCopyBtn(event, 'cursor-btn-2')"
+                 onmouseleave="hideCopyBtn('cursor-btn-2')"
+                 onclick="copyCode('code-input2', document.getElementById('cursor-btn-2'))">
+            </div>
+            <!-- Button 2: follows cursor, pointer-events:none -->
+            <button id="cursor-btn-2" class="copy_btn copy_btn--cursor" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
 
-          <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
+          <!-- ROW: RUN CODE button + Button 3 (always visible) -->
+          <div class="code-row">
+            <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
 
           <div id="output-window2">Ready for math!</div>
         </div>
@@ -442,17 +496,58 @@ print(f"Testing complete: ERROR = {ERROR:.4f}")
 
 
   <script>
+    function moveCopyBtn(event, btnId) {
+      const btn     = document.getElementById(btnId);
+      const overlay = event.currentTarget;
+      const rect    = overlay.getBoundingClientRect();
+      const bw = 36, bh = 36;
+      let y = event.clientY - rect.top - bh / 2;
+      y = Math.max(0, Math.min(y, rect.height - bh));
+      const x = rect.width - bw - 10;
+      btn.style.left          = x + 'px';
+      btn.style.top           = y + 'px';
+      btn.style.opacity       = '1';
+      btn.style.pointerEvents = 'none';
+      btn.style.background    = '#3a3a3a';
+      btn.style.color         = '#ffffff';
+    }
+
+    function hideCopyBtn(btnId) {
+      const btn = document.getElementById(btnId);
+      btn.style.opacity    = '0';
+      btn.style.background = '';
+      btn.style.color      = '';
+    }
+
+    function copyCode(id, btn) {
+      const text = document.getElementById(id).value;
+      navigator.clipboard.writeText(text).then(() => {
+        const block = btn.closest('.pythoncode');
+        const allBtns = block ? block.querySelectorAll('.copy_btn') : [btn];
+        allBtns.forEach(b => {
+          b.classList.add('copy_btn--copied');
+          b.title = 'Copied!';
+        });
+        setTimeout(() => {
+          allBtns.forEach(b => {
+            b.classList.remove('copy_btn--copied');
+            b.title = 'Copy code';
+          });
+        }, 1800);
+      });
+    }
+
     function outf(text, outputId) {
       var mypre = document.getElementById(outputId);
       mypre.innerHTML = mypre.innerHTML + text;
     }
 
     function runPython(block) {
-      const codeId    = block === 1 ? "code-input1"    : "code-input2";
-      const outputId  = block === 1 ? "output-window1" : "output-window2";
+      const codeId   = block === 1 ? "code-input1"    : "code-input2";
+      const outputId = block === 1 ? "output-window1" : "output-window2";
 
-      var code   = document.getElementById(codeId).value;
-      var mypre  = document.getElementById(outputId);
+      var code  = document.getElementById(codeId).value;
+      var mypre = document.getElementById(outputId);
       mypre.innerHTML = '';
 
       Sk.pre = outputId;
@@ -468,11 +563,6 @@ print(f"Testing complete: ERROR = {ERROR:.4f}")
       );
     }
   </script>
-
-</body>
-</html>
-
-
 
 </body>
 </html>
