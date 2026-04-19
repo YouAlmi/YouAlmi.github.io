@@ -59,6 +59,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .callout { border-radius: 8px; padding: 16px 20px; margin: 14px 0; font-weight: 700; line-height: 1.85; }
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
+.callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
 .callout-info    { background: var(--blue-lt);  border-left: 4px solid var(--blue); }
 .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
 .callout-title { font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
