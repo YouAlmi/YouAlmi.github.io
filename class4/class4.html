@@ -200,8 +200,8 @@
             <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
           </div>
 
-          WEIGHT = <strong>0.0000</strong><br/>
-          ERROR  = <strong>3.0000</strong><br/>
+          WEIGHT = <strong>0.0</strong><br/>
+          ERROR  = <strong>32.0</strong><br/>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
@@ -210,10 +210,39 @@
             Therefore: &nbsp;<strong>WEIGHT_OUTPUT_influence = INPUT</strong>
           </div>
 
-          WEIGHT_OUTPUT_influence = INPUT = <strong>0.6000</strong><br/>
-          SMALL  = <strong>0.0100</strong><br/>
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 3.0000 × 0.6000 × 0.0100 = <strong>0.0180</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.0000 + 0.0180 = <strong>0.0180</strong><br/>
+          WEIGHT_OUTPUT_influence = INPUT = <strong>0.0</strong><br/>
+          SMALL  = <strong>1.0</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 32.0 × 0.0 × 1.0 = <strong>0.0</strong><br/>
+          
+          
+          
+          
+          
+          <div class="formula-block">
+            <div class="formula-block-label">Universal Update Rule for BIAS</div>
+            <span class="formula">BIAS = BIAS + BIAS_update</span><br/>
+            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL</span>
+          </div>
+
+          BIAS = <strong>0.0</strong><br/>
+          ERROR  = <strong>32.0</strong><br/>
+
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is BIAS_OUTPUT_influence here?</div>
+            Our formula is: &nbsp;<strong>OUTPUT = INPUT × WEIGHT + BIAS</strong><br/>
+            The number in front of BIAS is 1.0.<br/>
+            Therefore: &nbsp;<strong>BIAS_OUTPUT_influence = 1.0</strong>
+          </div>
+
+          BIAS_OUTPUT_influence = <strong>1.0</strong><br/>
+          SMALL  = <strong>1.0</strong><br/>
+          BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL = 32.0 × 1.0 × 1.0 = <strong>32.0</strong><br/>
+          
+          
+          
+          
+          
+          WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 0.0 = <strong>0.0</strong><br/>
 
         </div>
 
