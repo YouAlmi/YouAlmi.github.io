@@ -66,7 +66,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .callout-neutral .callout-title { color: var(--gray); }
 .callout-success .callout-title { color: var(--green); }
 .callout-info .callout-title    { color: var(--blue); }
-.callout-error  { color: var(--red); }
+.callout-error .callout-error  { color: var(--red); }
 
 .formula-block { background: #111111; color: #ffffff; border-radius: 8px; padding: 20px 24px; margin: 16px 0; font-weight: 700; line-height: 2; border-left: 5px solid var(--green); }
 .formula-block-label { color: var(--green); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
