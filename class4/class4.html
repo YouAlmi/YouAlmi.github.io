@@ -271,23 +271,30 @@
 
     <!-- LESSON 2 -->
     <div class="card">
-      <div class="card-header">LESSON 2</div>
+      <div class="card-header">EPOCH 1 &nbsp;&nbsp;&nbsp;LESSON 2</div>
       <div class="card-body">
 
-        <div class="callout callout-neutral">WEIGHT = <strong>0.0180</strong><br/>
-          SMALL = <strong>0.0100</strong></div>
+        <div class="callout callout-neutral">
+          WEIGHT = <strong>0.0</strong><br/>
+          BIAS = <strong>32.0</strong><br/>
+          SMALL = <strong>1.0</strong></div>
 
         <p>EXAMPLE 2:</p>
         <div class="callout callout-neutral">
-          INPUT &nbsp;= <strong>-10.0000</strong><br/>
-          TARGET = <strong>-50.0000</strong>
+          INPUT &nbsp;= <strong>1.0</strong><br/>
+          TARGET = <strong>33.8</strong>
         </div>
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = -10.0000 × 0.0180 = <strong>-0.1800</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>-0.1800</strong><br/>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = -50.0000 − (−0.1800) = <strong>-49.8200</strong>
+          PRODUCT = INPUT × WEIGHT = 1.0 × 0.0 = <strong>0.0</strong><br/>
+          SUM = PRODUCT + BIAS = 0.0 + 32.0 = <strong>32.0</strong><br/>
+          OUTPUT = SUM = <strong>32.0</strong><br/>
+          </div>
+
+          <div class="callout callout-error">
+          <div class="callout-title">Error</div>
+          ERROR = TARGET − OUTPUT = 33.8 − 32.0 = <strong>1.8</strong>
         </div>
 
         <div class="diagram">
@@ -303,8 +310,8 @@
             <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
           </div>
 
-          WEIGHT = <strong>0.0180</strong><br/>
-          ERROR  = <strong>−49.8200</strong><br/>
+          WEIGHT = <strong>0.0</strong><br/>
+          ERROR  = <strong>32.0</strong><br/>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
@@ -313,31 +320,57 @@
             Therefore: &nbsp;<strong>WEIGHT_OUTPUT_influence = INPUT</strong>
           </div>
 
-          WEIGHT_OUTPUT_influence = INPUT = <strong>−10.0000</strong><br/>
-          SMALL  = <strong>0.0100</strong><br/>
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = −49.8200 × (−10.0000) × 0.0100 = <strong>4.9820</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.0180 + 4.9820 = <strong>5.0000</strong><br/>
+          WEIGHT_OUTPUT_influence = INPUT = <strong>0.0</strong><br/>
+          SMALL  = <strong>1.0</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 32.0 × 0.0 × 1.0 = <strong>0.0</strong><br/>
+          
+          
+          
+          
+          
+          <div class="formula-block">
+            <div class="formula-block-label">Universal Update Rule for BIAS</div>
+            <span class="formula">BIAS = BIAS + BIAS_update</span><br/>
+            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL</span>
+          </div>
+
+          BIAS = <strong>0.0</strong><br/>
+          ERROR  = <strong>32.0</strong><br/>
+
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is BIAS_OUTPUT_influence here?</div>
+            Our formula is: &nbsp;<strong>OUTPUT = INPUT × WEIGHT + BIAS</strong><br/>
+            The number in front of BIAS is 1.0.<br/>
+            Therefore: &nbsp;<strong>BIAS_OUTPUT_influence = 1.0</strong>
+          </div>
+
+          BIAS_OUTPUT_influence = <strong>1.0</strong><br/>
+          SMALL  = <strong>1.0</strong><br/>
+          BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL = 32.0 × 1.0 × 1.0 = <strong>32.0</strong><br/>
+          
+          
+          
+          
+          
+          <br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 0.0 = <strong>0.0</strong><br/>
+          BIAS = BIAS + BIAS_update = 0.0 + 32.0 = <strong>32.0</strong><br/>
+
         </div>
 
-        <div class="result-banner">WEIGHT = 5.0000</div>
+        <div class="result-banner">WEIGHT = 0.0<br/>BIAS = 32.0</div>
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong>
           <p>The mind has just improved itself.</p>
-          <p>Now, if it receives the same INPUT of <strong>−10.0000</strong>,
-          the OUTPUT becomes <strong>−50.0000</strong> — which is closer to the
-          TARGET <strong>−50.0000</strong> than the previous OUTPUT <strong>-0.1800</strong> was.</p>
-        </div>
-
-        <div class="success-callout">
-          <p>Wait — it's not just closer. It's exact!<br/>
-          OUTPUT is now −50.0000 — exactly the same as TARGET.</p>
-          <p>The ERROR becomes zero:</p>
-          <span class="error-chip" style="background:#d4edda; color:#155724;">&nbsp;&nbsp;ERROR = 0.0000</span>
+          <p>Now, if it receives the same INPUT of <strong>0.0</strong>,
+          the OUTPUT becomes <strong>32.0</strong> and
+          <p>the ERROR becomes smaller:</p>
+          <span class="error-chip">ERROR = 0.0</span>
         </div>
 
         <div class="diagram">
-          <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after update" />
+          <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after update" />
         </div>
 
         <p style="color:var(--gray);">Lesson 2 ends here.</p>
