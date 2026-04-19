@@ -162,23 +162,26 @@
 
     <!-- LESSON 1 -->
     <div class="card">
-      <div class="card-header">LESSON 1</div>
+      <div class="card-header">EPOCH 1 &nbsp;&nbsp;&nbsp;LESSON 1</div>
       <div class="card-body">
 
-        <div class="callout callout-neutral">WEIGHT = <strong>0.0000</strong><br/>
-          SMALL = <strong>0.0100</strong></div>
+        <div class="callout callout-neutral">
+          WEIGHT = <strong>0.0000</strong><br/>
+          BIAS = <strong>0.0000</strong><br/>
+          SMALL = <strong>1.0000</strong></div>
 
         <p>EXAMPLE 1:</p>
         <div class="callout callout-neutral">
-          INPUT &nbsp;= <strong>0.6000</strong><br/>
-          TARGET = <strong>3.0000</strong>
+          INPUT &nbsp;= <strong>0.0000</strong><br/>
+          TARGET = <strong>32.0000</strong>
         </div>
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 0.6000 × 0.0000 = <strong>0.0000</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>0.0000</strong><br/>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 3.0000 − 0.0000 = <strong>3.0000</strong>
+          PRODUCT = INPUT × WEIGHT = 0.0000 × 0.0000 = <strong>0.0000</strong><br/>
+          SUM = PRODUCT + BIAS = 0.0000 + 0.0000 = <strong>0.0000</strong><br/>
+          OUTPUT &nbsp;= SUM = <strong>0.0000</strong><br/>
+          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 32.0000 − 0.0000 = <strong>32.0000</strong>
         </div>
 
         <div class="diagram">
