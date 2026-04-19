@@ -311,7 +311,7 @@
           </div>
 
           WEIGHT = <strong>0.0</strong><br/>
-          ERROR  = <strong>32.0</strong><br/>
+          ERROR  = <strong>1.8</strong><br/>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
@@ -320,9 +320,9 @@
             Therefore: &nbsp;<strong>WEIGHT_OUTPUT_influence = INPUT</strong>
           </div>
 
-          WEIGHT_OUTPUT_influence = INPUT = <strong>0.0</strong><br/>
+          WEIGHT_OUTPUT_influence = INPUT = <strong>1.0</strong><br/>
           SMALL  = <strong>1.0</strong><br/>
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 32.0 × 0.0 × 1.0 = <strong>0.0</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 1.8 × 1.0 × 1.0 = <strong>1.8</strong><br/>
           
           
           
@@ -334,8 +334,8 @@
             <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL</span>
           </div>
 
-          BIAS = <strong>0.0</strong><br/>
-          ERROR  = <strong>32.0</strong><br/>
+          BIAS = <strong>32.0</strong><br/>
+          ERROR  = <strong>1.8</strong><br/>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is BIAS_OUTPUT_influence here?</div>
@@ -346,19 +346,19 @@
 
           BIAS_OUTPUT_influence = <strong>1.0</strong><br/>
           SMALL  = <strong>1.0</strong><br/>
-          BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL = 32.0 × 1.0 × 1.0 = <strong>32.0</strong><br/>
+          BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL = 1.8 × 1.0 × 1.0 = <strong>1.8</strong><br/>
           
           
           
           
           
           <br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 0.0 = <strong>0.0</strong><br/>
-          BIAS = BIAS + BIAS_update = 0.0 + 32.0 = <strong>32.0</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 1.8 = <strong>1.8</strong><br/>
+          BIAS = BIAS + BIAS_update = 1.8 + 32.0 = <strong>33.8</strong><br/>
 
         </div>
 
-        <div class="result-banner">WEIGHT = 0.0<br/>BIAS = 32.0</div>
+        <div class="result-banner">WEIGHT = 1.8<br/>BIAS = 33.8</div>
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong>
@@ -377,6 +377,11 @@
 
       </div>
     </div>
+
+
+
+
+
 
 
     <div class="completion-banner">✓ &nbsp; DONE &nbsp; ✓</div>
