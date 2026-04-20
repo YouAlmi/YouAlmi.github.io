@@ -46,8 +46,8 @@
 
     <div class="card">
       <div class="card-body">
-        <p>For the first time, our machine mind has more than one PARAMETER.</p>  
-        <p>Specifically, the mind has two PARAMETERS: WEIGHT and BIAS.</p>
+        <p>Here, we add <strong>BIAS</strong> to <strong>WEIGHT</strong>.</p>  
+        <p>In other words, the mind will have two PARAMETERS: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
         <p>During training, at every lesson, the PARAMETERS compete for who gets updated more. The PARAMETER that has more influence on the OUTPUT gets a bigger update.</p>
         <p>To see this competition more clearly, let's set SMALL to <strong>1.0</strong>:</p>
         <div class="callout callout-neutral">SMALL = <strong>1.0</strong></div>
@@ -55,12 +55,12 @@
     </div>
 
 
-    <!-- THE MIND WE WANT TO BUILD -->
+    <!-- THE MIND -->
     <div class="section-label">The Mind</div>
     <div class="card">
       <div class="card-body">
-        <p>We want to grow a mind that learns to convert Celsius to Fahrenheit.</p>
-        <p>As mentioned, this mind has two PARAMETERS: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
+        <p>We want to train a machine mind to convert Celsius temperatures into Fahrenheit.”.</p>
+        <p>This mind will have two PARAMETERS: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
       </div>
     </div>
 
@@ -590,10 +590,16 @@
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 10.0000 × 5.0000 = <strong>50.0000</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>50.0000</strong><br/>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 50.0000 − 50.0000 = <strong>0.0000</strong>
+          PRODUCT = INPUT × WEIGHT = 10.0 × 1.8 = <strong>18.0</strong><br/>
+          SUM = PRODUCT + BIAS = 18.0 + 32.0 = <strong>50.0</strong><br/>
+          OUTPUT = SUM = <strong>50.0</strong><br/>
+          </div>
+
+          <div class="callout callout-error">
+          <div class="callout-title">Error</div>
+          ERROR = TARGET − OUTPUT = 50.0 − 50.0 = <strong>0.0</strong>
         </div>
+
 
         <div class="diagram">
           <img src="graph_L0_validation.png" alt="Neuron diagram — Validation" />
