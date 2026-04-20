@@ -16,7 +16,7 @@
   <style>
     /* ── class3.html-specific textarea heights ── */
     #code-input1  { height: 750px; }
-    #code-input2  { height: 290px; }
+    #code-input2  { height: 300px; }
 
     /* Transparent overlay sits on top of the textarea, owns all mouse events */
     .textarea-overlay {
@@ -720,7 +720,7 @@ OUTPUT  = SUM
 
 ERROR   = TARGET - OUTPUT
 
-print(f"Testing complete: ERROR = {ERROR:.4f}")
+print(f"Testing complete: ERROR = {ERROR:.1f}")
             </textarea>
             <!-- Transparent overlay: catches all mouse events over the textarea -->
             <div class="textarea-overlay"
