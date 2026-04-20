@@ -16,7 +16,7 @@
   <style>
     /* ── class3.html-specific textarea heights ── */
     #code-input1  { height: 750px; }
-    #code-input2  { height: 280px; }
+    #code-input2  { height: 290px; }
 
     /* Transparent overlay sits on top of the textarea, owns all mouse events */
     .textarea-overlay {
@@ -708,13 +708,15 @@ BIAS   = {BIAS:.1f}""")
           <!-- textarea-wrap: overlay catches mouse for tracking + copy-on-click -->
           <div class="textarea-wrap">
             <textarea id="code-input2" style="line-height: 1.2;">
-WEIGHT = 5.0000
+WEIGHT = 1.8
+BIAS   = 32.0
 
 INPUT  = 10.0000
 TARGET = 50.0000
 
 PRODUCT = INPUT * WEIGHT
-OUTPUT  = PRODUCT
+SUM = PRODUCT + BIAS
+OUTPUT  = SUM
 
 ERROR   = TARGET - OUTPUT
 
