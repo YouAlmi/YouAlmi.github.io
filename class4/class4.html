@@ -632,27 +632,39 @@
           <!-- textarea-wrap: overlay catches mouse for tracking + copy-on-click -->
           <div class="textarea-wrap">
             <textarea id="code-input1" style="line-height: 1.2;">
-WEIGHT = 0.0000
-SMALL  = 0.0100
+WEIGHT = 0.0
+BIAS   = 0.0
+SMALL  = 0.0
 
 EXAMPLES = 2
-INPUTS   = [0.6000, -10.0000]
-TARGETS  = [3.0000, -50.0000]
+INPUTS   = [0.0, 32.0]
+TARGETS  = [1.0, 33.8]
 
-for EXAMPLE in range(EXAMPLES):
+EPOCHS = 2
+for EPOCH in range(EPOCHS):
+    for EXAMPLE in range(EXAMPLES):
 
-    INPUT  = INPUTS[EXAMPLE]
-    TARGET = TARGETS[EXAMPLE]
+        INPUT  = INPUTS[EXAMPLE]
+        TARGET = TARGETS[EXAMPLE]
 
-    PRODUCT = INPUT * WEIGHT
-    OUTPUT  = PRODUCT
-    ERROR   = TARGET - OUTPUT
+        PRODUCT = INPUT * WEIGHT
+        SUM = PRODUCT + BIAS
+        OUTPUT  = SUM
 
-    WEIGHT_OUTPUT_influence = INPUT
-    WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * SMALL
-    WEIGHT = WEIGHT + WEIGHT_update
+        ERROR   = TARGET - OUTPUT
 
-print(f"Training complete: WEIGHT = {WEIGHT:.4f}")
+        WEIGHT_OUTPUT_influence = INPUT
+        WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * SMALL
+
+        BIAS_OUTPUT_influence = 1.0
+        BIAS_update = ERROR * BIAS_OUTPUT_influence * SMALL
+
+        WEIGHT = WEIGHT + WEIGHT_update
+        BIAS = BIAS + BIAS_update
+
+print(f"""Training complete:
+                          WEIGHT = {WEIGHT}
+                          BIAS = {BIAS}""")
             </textarea>
             <!-- Transparent overlay: catches all mouse events over the textarea -->
             <div class="textarea-overlay"
