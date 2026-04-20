@@ -70,7 +70,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 
 .formula-block { background: #111111; color: #ffffff; border-radius: 8px; padding: 20px 24px; margin: 16px 0; font-weight: 700; line-height: 2; border-left: 5px solid var(--green); }
 .formula-block-label { color: var(--green); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
-.formula { color: var(--yellow); }
+.formula { color: var(--yellow); font-weight: 900;}
 
 /* ── TABLES ── */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
