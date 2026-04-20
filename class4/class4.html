@@ -60,7 +60,7 @@
     <div class="card">
       <div class="card-body">
         <p>We want to train a machine mind to convert Celsius temperatures into Fahrenheit temperatures. In this scenario, <strong>INPUT</strong> represents Celsius and <strong>OUTPUT</strong> represents Fahrenheit.</p>
-        <p>As said, the mind will have two <strong>PARAMETERS</strong>: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
+        <p>As previously noted, the mind will have two <strong>PARAMETERS</strong>: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
       </div>
     </div>
 
@@ -389,7 +389,7 @@
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = 0.0 × 1.8 = <strong>0.0</strong><br/>
           SUM = PRODUCT + BIAS = 0.0 + 33.8 = <strong>33.8</strong><br/>
-          OUTPUT = SUM = <strong>0.0</strong><br/>
+          OUTPUT = SUM = <strong>33.8</strong><br/>
           </div>
 
           <div class="callout callout-error">
@@ -400,7 +400,7 @@
 
 
         <div class="diagram">
-          <img src="graph_L3_before.png" alt="Neuron diagram — Lesson 1 before update" />
+          <img src="graph_L3_before.png" alt="Neuron diagram — Lesson3 before update" />
         </div>
 
         <div class="callout callout-info">
@@ -501,7 +501,7 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L4_before.png" alt="Neuron diagram — Lesson 2 before update" />
+          <img src="graph_L4_before.png" alt="Neuron diagram — Lesson 4 before update" />
         </div>
 
         <div class="callout callout-info">
@@ -577,15 +577,18 @@
     <div class="card">
       <div class="card-body">
 
-        <p>To test the mind, we give it a problem — an <strong>INPUT</strong> — it has never encountered before.</p>
+        <p>To test the mind, we give it a problem — <strong>INPUT</strong> — it has never encountered before.</p>
 
-        <div class="callout callout-neutral">WEIGHT = <strong>5.0000</strong></div>
+        <div class="callout callout-neutral">
+          WEIGHT = <strong>1.8</strong><br/>
+          BIAS = <strong>32.0</strong>
+        </div>
 
         <p>EXAMPLE FOR TESTING:</p>
 
         <div class="callout callout-neutral">
-          INPUT &nbsp;= <strong>10.0000</strong><br/>
-          TARGET = <strong>50.0000</strong>
+          INPUT = <strong>10.0</strong><br/>
+          TARGET = <strong>50.0</strong>
         </div>
 
         <div class="callout callout-success">
@@ -606,7 +609,7 @@
         </div>
 
         <div class="callout callout-warning">
-          <p>This mind — since <strong>ERROR = 0.0000</strong> — works perfectly!</p>
+          <p>This mind — since <strong>ERROR = 0.0</strong> — works perfectly!</p>
           <p>It has learned the rule to convert <strong>Celsius temperatures into Fahrenheit</strong>.</p>
           <p>The <strong>Converter °C to °F </strong> can now solve problems it has never encountered before.</p>
         </div>
@@ -780,7 +783,7 @@ print(f"Testing complete: ERROR = {ERROR:.1f}")
     <!-- TEASER -->
     <div class="teaser">
       <div class="teaser-next">Up Next: Class 5</div>
-      <p>We'll intoduce <strong style="color:var(--yellow);">ACTIVATION</strong> to the <strong style="color:var(--yellow);">NEURON</strong>.<br/>
+      <p>We'll introduce <strong style="color:var(--yellow);">ACTIVATION</strong> to the <strong style="color:var(--yellow);">NEURON</strong>.<br/>
       The new mind will be more powerful.</p>
     </div>
 
