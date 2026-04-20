@@ -363,6 +363,210 @@
 
 
 
+    <!-- LESSON 3 -->
+    <div class="card">
+      <div class="card-header">
+        EPOCH 2<br/>
+        LESSON 3<br/>
+        EXAMPLE 1
+      </div>
+      <div class="card-body">
+
+        <div class="callout callout-neutral">
+          WEIGHT = <strong>0.0</strong><br/>
+          BIAS = <strong>0.0</strong><br/>
+          SMALL = <strong>1.0</strong>
+        </div>
+          
+
+        <p>EXAMPLE 1:</p>
+        <div class="callout callout-neutral">
+          INPUT = <strong>0.0</strong><br/>
+          TARGET = <strong>32.0</strong>
+        </div>
+
+        <div class="callout callout-success">
+          <div class="callout-title">Forward Pass</div>
+          PRODUCT = INPUT × WEIGHT = 0.0 × 0.0 = <strong>0.0</strong><br/>
+          SUM = PRODUCT + BIAS = 0.0 + 0.0 = <strong>0.0</strong><br/>
+          OUTPUT = SUM = <strong>0.0</strong><br/>
+          </div>
+
+          <div class="callout callout-error">
+          <div class="callout-title">Error</div>
+          ERROR = TARGET − OUTPUT = 32.0 − 0.0 = <strong>32.0</strong>
+        </div>
+
+
+
+        <div class="diagram">
+          <img src="graph_L3_before.png" alt="Neuron diagram — Lesson 1 before update" />
+        </div>
+
+        <div class="callout callout-info">
+          <div class="callout-title">Backward Pass — Backpropagation</div>
+
+          <div class="formula-block">
+            <div class="formula-block-label">Universal Update Rule for WEIGHT</div>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+          </div>
+
+          WEIGHT = <strong>0.0</strong><br/>
+          ERROR  = <strong>32.0</strong><br/>
+
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
+            Our formula is: &nbsp;<strong>OUTPUT = INPUT × WEIGHT</strong><br/>
+            The number in front of WEIGHT is INPUT.<br/>
+            Therefore: &nbsp;<strong>WEIGHT_OUTPUT_influence = INPUT</strong>
+          </div>
+
+          WEIGHT_OUTPUT_influence = INPUT = <strong>0.0</strong><br/>
+          SMALL  = <strong>1.0</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 32.0 × 0.0 × 1.0 = <strong>0.0</strong><br/>
+          
+          
+          
+          
+          
+          <div class="formula-block">
+            <div class="formula-block-label">Universal Update Rule for BIAS</div>
+            <span class="formula">BIAS = BIAS + BIAS_update</span><br/>
+            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL</span>
+          </div>
+
+          BIAS = <strong>0.0</strong><br/>
+          ERROR  = <strong>32.0</strong><br/>
+
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is BIAS_OUTPUT_influence here?</div>
+            Our formula is: &nbsp;<strong>OUTPUT = INPUT × WEIGHT + BIAS</strong><br/>
+            The number in front of BIAS is 1.0.<br/>
+            Therefore: &nbsp;<strong>BIAS_OUTPUT_influence = 1.0</strong>
+          </div>
+
+          BIAS_OUTPUT_influence = <strong>1.0</strong><br/>
+          SMALL  = <strong>1.0</strong><br/>
+          BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL = 32.0 × 1.0 × 1.0 = <strong>32.0</strong><br/>
+          
+          
+          
+          
+          
+          <br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 0.0 = <strong>0.0</strong><br/>
+          BIAS = BIAS + BIAS_update = 0.0 + 32.0 = <strong>32.0</strong><br/>
+
+        </div>
+
+        <div class="result-banner">WEIGHT = 0.0<br/>BIAS = 32.0</div>
+
+        <p style="color:var(--gray);">Lesson 1 ends here.</p>
+
+      </div>
+    </div>
+
+
+    <!-- LESSON 4 -->
+    <div class="card">
+      <div class="card-header">
+        EPOCH 2<br/>
+        LESSON 4<br/>
+        EXAMPLE 2
+      </div>
+      <div class="card-body">
+
+        <div class="callout callout-neutral">
+          WEIGHT = <strong>0.0</strong><br/>
+          BIAS = <strong>32.0</strong><br/>
+          SMALL = <strong>1.0</strong></div>
+
+        <p>EXAMPLE 2:</p>
+        <div class="callout callout-neutral">
+          INPUT = <strong>1.0</strong><br/>
+          TARGET = <strong>33.8</strong>
+        </div>
+
+        <div class="callout callout-success">
+          <div class="callout-title">Forward Pass</div>
+          PRODUCT = INPUT × WEIGHT = 1.0 × 0.0 = <strong>0.0</strong><br/>
+          SUM = PRODUCT + BIAS = 0.0 + 32.0 = <strong>32.0</strong><br/>
+          OUTPUT = SUM = <strong>32.0</strong><br/>
+          </div>
+
+          <div class="callout callout-error">
+          <div class="callout-title">Error</div>
+          ERROR = TARGET − OUTPUT = 33.8 − 32.0 = <strong>1.8</strong>
+        </div>
+
+        <div class="diagram">
+          <img src="graph_L4_before.png" alt="Neuron diagram — Lesson 2 before update" />
+        </div>
+
+        <div class="callout callout-info">
+          <div class="callout-title">Backward Pass — Backpropagation</div>
+
+          <div class="formula-block">
+            <div class="formula-block-label">Universal Update Rule for WEIGHT</div>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+          </div>
+
+          WEIGHT = <strong>0.0</strong><br/>
+          ERROR  = <strong>1.8</strong><br/>
+
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
+            Our formula is: <strong>OUTPUT = INPUT × WEIGHT</strong><br/>
+            The number in front of WEIGHT is INPUT.<br/>
+            Therefore: <strong>WEIGHT_OUTPUT_influence = INPUT</strong>
+          </div>
+
+          WEIGHT_OUTPUT_influence = INPUT = <strong>1.0</strong><br/>
+          SMALL  = <strong>1.0</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 1.8 × 1.0 × 1.0 = <strong>1.8</strong><br/>
+          
+          
+          
+          
+          
+          <div class="formula-block">
+            <div class="formula-block-label">Universal Update Rule for BIAS</div>
+            <span class="formula">BIAS = BIAS + BIAS_update</span><br/>
+            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL</span>
+          </div>
+
+          BIAS = <strong>32.0</strong><br/>
+          ERROR  = <strong>1.8</strong><br/>
+
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is BIAS_OUTPUT_influence here?</div>
+            Our formula is: <strong>OUTPUT = INPUT × WEIGHT + BIAS</strong><br/>
+            The number in front of BIAS is 1.0.<br/>
+            Therefore: <strong>BIAS_OUTPUT_influence = 1.0</strong>
+          </div>
+
+          BIAS_OUTPUT_influence = <strong>1.0</strong><br/>
+          SMALL  = <strong>1.0</strong><br/>
+          BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL = 1.8 × 1.0 × 1.0 = <strong>1.8</strong><br/>
+           
+          <br/>
+          WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 1.8 = <strong>1.8</strong><br/>
+          BIAS = BIAS + BIAS_update = 1.8 + 32.0 = <strong>33.8</strong><br/>
+
+        </div>
+
+        <div class="result-banner">WEIGHT = 1.8<br/>BIAS = 33.8</div>
+
+
+        <p style="color:var(--gray);">Lesson 2 ends here.</p>
+
+      </div>
+    </div>
+
+
+
 
 
     <div class="completion-banner">✓ &nbsp; DONE &nbsp; ✓</div>
