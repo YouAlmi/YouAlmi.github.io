@@ -49,7 +49,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .header-audience { font-size: 30px; color: #ffffff; font-weight: 700; }
 
 /* ── LAYOUT ── */
-.page { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+.page { max-width: 760px; margin: 0 auto; padding: 0 10px; }
 .section-label { display: inline-block; background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 18px; border-radius: 4px; margin: 36px 0 18px; }
 .card { background: var(--white); border: 1.5px solid var(--border); border-radius: 10px; margin: 16px 0; overflow: hidden; }
 .card-header { background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.06em; padding: 11px 20px; }
@@ -87,7 +87,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .mapping-table tr:first-child td { background: #111111; color: #ffffff; font-weight: 900; text-transform: uppercase; }
 
 /* ── CODE & INTERACTIVE ── */
-.pythoncode { background-color: #1e1e1e; color: #ffffff; padding: 1px; border-radius: 12px; font-family: 'Courier New', monospace; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.pythoncode { background-color: #1e1e1e; color: #ffffff; padding: 5px; border-radius: 12px; font-family: 'Courier New', monospace; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 .pythoncode h3 { margin-top: 0; color: #ffffff; }
 .pythoncode textarea { width: 100%; font-weight: bold; border: 1px solid #444; padding: 15px; font-size: 1rem; border-radius: 5px; outline: none; resize: vertical; background: #1e1e1e; color: #ffffff; font-family: 'Courier New', monospace; }
 .pythoncode div[id^="output-window"] { background-color: #000000; color: #ffffff; font-weight: bold; padding: 15px; margin-top: 10px; border-radius: 5px; white-space: pre-wrap; border-left: 4px solid #00ff00; font-size: 0.95rem; font-family: 'Courier New', monospace; }
