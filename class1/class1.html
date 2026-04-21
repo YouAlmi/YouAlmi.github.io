@@ -15,7 +15,7 @@
 
   <style>
     /* ── class1.html-specific textarea heights ── */
-    #code-input1  { height: 545px; }
+    #code-input1  { height: 550px; }
     #code-input2  { height: 280px; }
 
     /* Transparent overlay sits on top of the textarea, owns all mouse events */
@@ -309,17 +309,17 @@
 
     <!-- CODE -->
     <div class="section-label">Code</div>
+
     <div class="card">
       <div class="card-body">
-        <p>The code below performs all the calculations instantly — just click “<strong>RUN CODE</strong>”.</p>
-         <h3>TRAIN THE MIND 🧠</h3>
-         <p></p>
 
-        <!-- TRAIN THE MIND -->
+        <!-- GROW THE MIND -->
+        <h3>TRAIN THE MIND 🧠</h3>
+        <p></p>
+
         <div class="pythoncode">
 
-
-          <!-- ROW: "Just click RUN CODE" + Button 1 (always visible) -->
+          <!-- ROW: label + Button 1 (always visible) -->
           <div class="code-row">
             <br/>
             <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" title="Copy code">
@@ -378,19 +378,15 @@ print(f"TRAINING complete: WEIGHT = {WEIGHT}")
           <div id="output-window1">Ready for math!</div>
         </div>
 
-        
-        
+
         <p><br/></p>
         <h3>TEST THE MIND 🧠</h3>
         <p></p>
-        
-
 
         <!-- TEST THE MIND -->
         <div class="pythoncode">
-         
 
-          <!-- ROW: "Just click RUN CODE" + Button 1 (always visible) -->
+          <!-- ROW: label + Button 1 (always visible) -->
           <div class="code-row">
             <br/>
             <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" title="Copy code">
@@ -436,10 +432,6 @@ print(f"TESTING complete: ERROR = {ERROR}")
           <div id="output-window2">Ready for math!</div>
         </div>
 
-        <p>Here, we used plain <strong>Python</strong> code.</p>
-        <p>More importantly, today you need to learn how to learn. You could copy this code, paste it into a chatbot like <a href="https://chat.openai.com" target="_blank">ChatGPT</a>, and ask it any questions about the code. This is one of the most effective ways to understand how the code works.</p>
-        <p>Starting in <strong>Class 4</strong>, we will use <strong>PyTorch</strong> — an <strong>easier way</strong> to write this kind of code.</p>
-        <p>On <strong>Hugging Face</strong>, the most popular platform for <strong>Transformers</strong>, most code is written in <strong>PyTorch</strong>.</p>
       </div>
     </div>
 
@@ -476,7 +468,7 @@ print(f"TESTING complete: ERROR = {ERROR}")
   <script>
     function moveCopyBtn(event, btnId) {
       const btn     = document.getElementById(btnId);
-      const overlay = event.currentTarget;           // the .textarea-overlay div
+      const overlay = event.currentTarget;
       const rect    = overlay.getBoundingClientRect();
       const bw = 36, bh = 36;
       let y = event.clientY - rect.top - bh / 2;
@@ -486,7 +478,7 @@ print(f"TESTING complete: ERROR = {ERROR}")
       btn.style.top           = y + 'px';
       btn.style.opacity       = '1';
       btn.style.pointerEvents = 'none';
-      btn.style.background    = '#3a3a3a';           // hover colour — overlay owns the cursor
+      btn.style.background    = '#3a3a3a';
       btn.style.color         = '#ffffff';
     }
 
@@ -497,23 +489,23 @@ print(f"TESTING complete: ERROR = {ERROR}")
       btn.style.color      = '';
     }
 
-    function copyCode(textareaId, btn) {
-  const text = document.getElementById(textareaId).value;
-
-  navigator.clipboard.writeText(text);
-
-  // activate "copied" state
-  btn.classList.add('copy_btn--copied');
-  btn.setAttribute('data-copied', 'true');
-  btn.title = 'Copied!';
-
-  // reset after 1.5s
-  setTimeout(() => {
-    btn.classList.remove('copy_btn--copied');
-    btn.removeAttribute('data-copied');
-    btn.title = 'Copy code';
-  }, 1500);
-}
+    function copyCode(id, btn) {
+      const text = document.getElementById(id).value;
+      navigator.clipboard.writeText(text).then(() => {
+        const block = btn.closest('.pythoncode');
+        const allBtns = block ? block.querySelectorAll('.copy_btn') : [btn];
+        allBtns.forEach(b => {
+          b.classList.add('copy_btn--copied');
+          b.title = 'Copied!';
+        });
+        setTimeout(() => {
+          allBtns.forEach(b => {
+            b.classList.remove('copy_btn--copied');
+            b.title = 'Copy code';
+          });
+        }, 1800);
+      });
+    }
 
     function outf(text, outputId) {
       var mypre = document.getElementById(outputId);
