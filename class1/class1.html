@@ -315,7 +315,7 @@
          <h3>TRAIN THE MIND 🧠</h3>
          <p></p>
 
-        <!-- GROW THE MIND -->
+        <!-- TRAIN THE MIND -->
         <div class="pythoncode">
 
 
@@ -497,23 +497,23 @@ print(f"TESTING complete: ERROR = {ERROR}")
       btn.style.color      = '';
     }
 
-    function copyCode(id, btn) {
-      const text = document.getElementById(id).value;
-      navigator.clipboard.writeText(text).then(() => {
-        const block = btn.closest('.pythoncode');
-        const allBtns = block ? block.querySelectorAll('.copy_btn') : [btn];
-        allBtns.forEach(b => {
-          b.classList.add('copy_btn--copied');
-          b.title = 'Copied!';
-        });
-        setTimeout(() => {
-          allBtns.forEach(b => {
-            b.classList.remove('copy_btn--copied');
-            b.title = 'Copy code';
-          });
-        }, 1800);
-      });
-    }
+    function copyCode(textareaId, btn) {
+  const text = document.getElementById(textareaId).value;
+
+  navigator.clipboard.writeText(text);
+
+  // activate "copied" state
+  btn.classList.add('copy_btn--copied');
+  btn.setAttribute('data-copied', 'true');
+  btn.title = 'Copied!';
+
+  // reset after 1.5s
+  setTimeout(() => {
+    btn.classList.remove('copy_btn--copied');
+    btn.removeAttribute('data-copied');
+    btn.title = 'Copy code';
+  }, 1500);
+}
 
     function outf(text, outputId) {
       var mypre = document.getElementById(outputId);
