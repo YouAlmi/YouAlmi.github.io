@@ -127,6 +127,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .copy_btn--copied::after {
   content: "✓ &nbsp;Copied";
   font-size: 20px;
+  color: gray;
   margin-left: 6px;
 }
 
