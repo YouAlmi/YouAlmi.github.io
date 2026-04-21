@@ -157,15 +157,15 @@
 
         <p>EXAMPLE 1:</p>
         <div class="callout callout-neutral">
-          INPUT &nbsp;= <strong>0.6000</strong><br/>
+          INPUT = <strong>0.6000</strong><br/>
           TARGET = <strong>3.0000</strong>
         </div>
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = 0.6000 × 0.0000 = <strong>0.0000</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>0.0000</strong><br/>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = 3.0000 − 0.0000 = <strong>3.0000</strong>
+          OUTPUT = PRODUCT = <strong>0.0000</strong><br/>
+          ERROR = TARGET − OUTPUT = 3.0000 − 0.0000 = <strong>3.0000</strong>
         </div>
 
         <div class="diagram">
@@ -186,9 +186,9 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
-            Our formula is: &nbsp;<strong>OUTPUT = INPUT × WEIGHT</strong><br/>
-            The number in front of WEIGHT is INPUT.<br/>
-            Therefore: &nbsp;<strong>WEIGHT_OUTPUT_influence = INPUT</strong>
+            Our formula is: <strong>OUTPUT = INPUT × WEIGHT</strong><br/>
+            The number in front of <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
+            Therefore: <strong>WEIGHT_OUTPUT_influence = INPUT</strong>
           </div>
 
           WEIGHT_OUTPUT_influence = INPUT = <strong>0.6000</strong><br/>
@@ -203,10 +203,10 @@
         <div class="callout callout-warning">
           <strong>What just happened?</strong>
           <p>The mind has just improved itself.</p>
-          <p>Now, if it receives the same INPUT of <strong>0.6000</strong>,
-          the OUTPUT becomes <strong>0.0108</strong> — which is closer to the
-          TARGET <strong>3.0000</strong> than the previous OUTPUT <strong>0.0000</strong> was.</p>
-          <p>The ERROR becomes smaller:</p>
+          <p>Now, if it receives the same <strong>INPUT</strong> of <strong>0.6000</strong>,
+          the <strong>OUTPUT</strong> becomes <strong>0.0108</strong> — which is closer to the
+          <strong>TARGET</strong> (<strong>3.0000</strong>) than the previous <strong>OUTPUT</strong> (<strong>0.0000</strong>) was.</p>
+          <p>The <strong>ERROR</strong> becomes smaller:</p>
           <span class="error-chip">ERROR = 2.9892</span>
         </div>
 
@@ -259,9 +259,9 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
-            Our formula is: &nbsp;<strong>OUTPUT = INPUT × WEIGHT</strong><br/>
-            The number in front of WEIGHT is INPUT.<br/>
-            Therefore: &nbsp;<strong>WEIGHT_OUTPUT_influence = INPUT</strong>
+            Our formula is: <strong>OUTPUT = INPUT × WEIGHT</strong><br/>
+            The number in front of <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
+            Therefore: <strong>WEIGHT_OUTPUT_influence = INPUT</strong>
           </div>
 
           WEIGHT_OUTPUT_influence = INPUT = <strong>−10.0000</strong><br/>
@@ -284,7 +284,7 @@
           <p>Wait — it's not just closer. It's exact!<br/>
           OUTPUT is now −50.0000 — exactly the same as TARGET.</p>
           <p>The ERROR becomes zero:</p>
-          <span class="error-chip" style="background:#d4edda; color:#155724;">&nbsp;&nbsp;ERROR = 0.0000</span>
+          <span class="error-chip">ERROR = 0.0000</span>
         </div>
 
         <div class="diagram">
