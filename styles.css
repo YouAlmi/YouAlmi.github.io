@@ -82,8 +82,12 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .doc-table .total-row td { background: #111111; color: var(--yellow); font-weight: 900; }
 .doc-table .sum-row td { background: var(--gray-lt); font-weight: 900; }
 .data-table { width: 100%; border-collapse: collapse; }
+
 .data-table th { padding: 8px 14px; text-align: left; }
 .data-table td { padding: 8px 14px; border-bottom: 1px solid var(--border); font-weight: 700; }
+.data-table th:not(:first-child),
+.data-table td:not(:first-child) {text-align: center;}
+
 .mapping-table tr:first-child td { background: #111111; color: #ffffff; font-weight: 900; text-transform: uppercase; }
 
 /* ── CODE & INTERACTIVE ── */
