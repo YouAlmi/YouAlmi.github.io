@@ -166,6 +166,10 @@
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = 0.6000 × 0.0000 = <strong>0.0000</strong><br/>
           OUTPUT = PRODUCT = <strong>0.0000</strong><br/>
+        </div>
+
+        <div class="callout callout-error">
+          <div class="callout-title">Error</div>
           ERROR = TARGET − OUTPUT = 3.0000 − 0.0000 = <strong>3.0000</strong>
         </div>
 
@@ -215,7 +219,7 @@
           <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after update" />
         </div>
 
-        <p style="color:var(--gray);">Lesson 1 ends here.</p>
+         <p><br/><strong>LESSON 1</strong> ends here.</p>
 
       </div>
     </div>
@@ -231,15 +235,19 @@
 
         <p>EXAMPLE 2:</p>
         <div class="callout callout-neutral">
-          INPUT &nbsp;= <strong>-10.0000</strong><br/>
+          INPUT = <strong>-10.0000</strong><br/>
           TARGET = <strong>-50.0000</strong>
         </div>
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
           PRODUCT = INPUT × WEIGHT = -10.0000 × 0.0180 = <strong>-0.1800</strong><br/>
-          OUTPUT &nbsp;= PRODUCT = <strong>-0.1800</strong><br/>
-          ERROR &nbsp;&nbsp;= TARGET − OUTPUT = -50.0000 − (−0.1800) = <strong>-49.8200</strong>
+          OUTPUT = PRODUCT = <strong>-0.1800</strong><br/>
+        </div>
+
+        <div class="callout callout-error">
+          <div class="callout-title">Error</div>
+          ERROR = TARGET − OUTPUT = -50.0000 − (−0.1800) = <strong>-49.8200</strong>
         </div>
 
         <div class="diagram">
@@ -276,15 +284,15 @@
         <div class="callout callout-warning">
           <strong>What just happened?</strong>
           <p>The mind has just improved itself.</p>
-          <p>Now, if it receives the same INPUT of <strong>−10.0000</strong>,
-          the OUTPUT becomes <strong>−50.0000</strong> — which is closer to the
-          TARGET <strong>−50.0000</strong> than the previous OUTPUT <strong>-0.1800</strong> was.</p>
+          <p>Now, if it receives the same <strong>INPUT</strong> of <strong>−10.0000</strong>,
+          the <strong>OUTPUT</strong> becomes <strong>−50.0000</strong> — which is closer to the
+          <strong>TARGET</strong> (<strong>−50.0000</strong>) than the previous <strong>OUTPUT</strong> (<strong>-0.1800</strong>) was.</p>
         </div>
 
-        <div class="success-callout">
-          <p>Wait — it's not just closer. It's exact!<br/>
-          OUTPUT is now −50.0000 — exactly the same as TARGET.</p>
-          <p>The ERROR becomes zero:</p>
+         <div class="success-callout">
+          <p>Wait — it's not just closer. It's exact!</p>
+          <p>The <strong>OUTPUT</strong> is now -50.0000 — exactly the same as the <strong>TARGET</strong>.</p>
+          <p>The <strong>ERROR</strong> becomes <strong>zero</strong>:</p>
           <span class="error-chip">ERROR = 0.0000</span>
         </div>
 
@@ -292,7 +300,7 @@
           <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after update" />
         </div>
 
-        <p style="color:var(--gray);">Lesson 2 ends here.</p>
+         <p><br/><strong>LESSON 2</strong> ends here.</p>
 
       </div>
     </div>
@@ -312,7 +320,7 @@
         <p><strong>EXAMPLE</strong> FOR <strong>TESTING</strong>:</p>
 
         <div class="callout callout-neutral">
-          INPUT &nbsp;= <strong>10.0000</strong><br/>
+          INPUT = <strong>10.0000</strong><br/>
           TARGET = <strong>50.0000</strong>
         </div>
 
@@ -324,7 +332,7 @@
 
         <div class="callout callout-error">
           <div class="callout-title">Error</div>
-          ERROR = TARGET − OUTPUT = 50.0000 − 50.0000 = <strong>0.0</strong>
+          ERROR = TARGET − OUTPUT = 50.0000 − 50.0000 = <strong>0.0000</strong>
         </div>
 
         <div class="diagram">
