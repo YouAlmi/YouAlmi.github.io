@@ -15,7 +15,7 @@
 
   <style>
     /* ── class2.html-specific textarea heights ── */
-    #code-input1  { height: 485px; }
+    #code-input1  { height: 505px; }
     #code-input2  { height: 280px; }
 
     /* Transparent overlay sits on top of the textarea, owns all mouse events */
@@ -481,11 +481,15 @@
           <!-- textarea-wrap: overlay catches mouse for tracking + copy-on-click -->
           <div class="textarea-wrap">
             <textarea id="code-input1" style="line-height: 1.2;">
-WEIGHT = 0.00
+WEIGHT   = 0.00
 
 EXAMPLES = 2
-INPUTS   = [0.60, -1.00]
-TARGETS  = [3.00, -5.00]
+
+INPUTS   = [0.60, 
+           -1.00]
+
+TARGETS  = [3.00,
+           -5.00]
 
 for EXAMPLE in range(EXAMPLES):
 
