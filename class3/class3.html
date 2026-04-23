@@ -46,28 +46,29 @@
 
     <div class="card">
       <div class="card-body">
-        <p>The <strong>SMALL</strong> is just a small number — like <strong>0.1000</strong> or <strong>0.0100</strong>.</p>
+        <p>The <strong>SMALL</strong> is just a small number that keeps each update from being too big.</p>
         <p>For example, let's set it to <strong>0.0100</strong>:</p>
         <div class="callout callout-neutral">SMALL = <strong>0.0100</strong></div>
       </div>
     </div>
 
 
-    <!-- THE MIND -->
+     <!-- THE MIND -->
     <div class="section-label">The Mind</div>
     <div class="card">
       <div class="card-body">
-        <p>We want to <strong>TRAIN</strong> a machine mind that may <strong>LEARN</strong> to multiply any number by <strong>5.0000</strong>.</p>
-        <p>The mind will have a single PARAMETER: <strong>WEIGHT</strong>.</p>
+        <p>We want to <strong>train</strong> a machine mind that may <strong>learn</strong> to multiply any number by <strong>5.0</strong>.</p>
+        <p>The mind will be called the <strong>Multiplier By Five</strong>.</p>
+        <p>It will have a single <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
       </div>
     </div>
 
 
-    <!-- Initial PARAMETER -->
+   <!-- Initial PARAMETER -->
     <div class="section-label">Initial PARAMETER</div>
     <div class="card">
       <div class="card-body">
-        <p>Suppose we don't yet know what this <strong>PARAMETER</strong> should be, so let's start by setting it to <strong>zero</strong>:</p>
+        <p>Suppose we don't yet know what the <strong>PARAMETER</strong> should be, so let's start by setting it to <strong>zero</strong>:</p>
         <div class="callout callout-neutral">WEIGHT = <strong>0.0000</strong></div>
         <p>At first, the mind will generate nonsense.</p>
       </div>
@@ -78,13 +79,13 @@
     <div class="section-label">The Dataset</div>
     <div class="card">
       <div class="card-body">
-        <p>We have the following training <strong>DATASET</strong>:</p>
+        <p>We have the training <strong>DATASET</strong> consisting of two <strong>EXAMPLES</strong>:</p>
 
         <div class="table-wrap">
           <table class="data-table">
             <thead>
               <tr>
-                <th>#</th>
+                <th> </th>
                 <th>INPUT</th>
                 <th>TARGET</th>
               </tr>
@@ -92,8 +93,8 @@
             <tbody>
               <tr>
                 <td>EXAMPLE 1</td>
-                <td>&nbsp;&nbsp;0.6000</td>
-                <td>&nbsp;&nbsp;3.0000</td>
+                <td>&nbsp;0.6000</td>
+                <td>&nbsp;3.0000</td>
               </tr>
               <tr>
                 <td>EXAMPLE 2</td>
@@ -105,15 +106,14 @@
         </div>
 
         <p>
-          EXAMPLE 1 means when <strong>INPUT</strong> is <strong>0.6000</strong>, the <strong>OUTPUT</strong> must be <strong>3.0000</strong>.<br/>
-          EXAMPLE 2 means when <strong>INPUT</strong> is <strong>-10.0000</strong>, the <strong>OUTPUT</strong> must be <strong>-50.0000</strong>.
+          <strong>EXAMPLE 1</strong> means when the <strong>INPUT</strong> is <strong>0.6000</strong>, the <strong>OUTPUT</strong> must be <strong>3.0000</strong>.<br/>
+          <strong>EXAMPLE 2</strong> means when the <strong>INPUT</strong> is <strong>-10.0000</strong>, the <strong>OUTPUT</strong> must be <strong>-50.0000</strong>.
         </p>
         <p>
-          During <strong>TRAINING</strong>, at every <strong>LESSON</strong>, the mind will <strong>update</strong> the <strong>PARAMETER</strong> to improve itself.
+          During <strong>training</strong>, at every <strong>LESSON</strong>, the mind will <strong>update</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
         </p>
       </div>
     </div>
-
 
     <!-- THE UNIVERSAL UPDATE RULE -->
     <div class="section-label">The Update Rule</div>
@@ -121,10 +121,10 @@
     <div class="card">
       <div class="card-body">
 
-        <p>The mind <strong>updates</strong> the <strong>PARAMETER</strong> using this update rule:</p>
+        <p>The mind will <strong>update</strong> every <strong>PARAMETER</strong> using the <strong>Fundamental Update Rule</strong>:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">Universal Update Rule</div>
+          <div class="formula-block-label">Fundamental Update Rule</div>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
           <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × SMALL</span>
         </div>
@@ -132,7 +132,7 @@
         <p>Because the mind has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">Universal Update Rule for WEIGHT</div>
+          <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
           <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
           <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
         </div>
