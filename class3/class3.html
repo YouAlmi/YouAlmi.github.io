@@ -194,7 +194,7 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
             Our formula is: <strong>OUTPUT = INPUT × WEIGHT</strong><br/>
-            The number in front of <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
+            The number that multiplies the <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
             Therefore: <strong>WEIGHT_OUTPUT_influence = INPUT</strong>
           </div>
 
@@ -271,7 +271,7 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
             Our formula is: <strong>OUTPUT = INPUT × WEIGHT</strong><br/>
-            The number in front of <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
+            The number that multiplies the <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
             Therefore: <strong>WEIGHT_OUTPUT_influence = INPUT</strong>
           </div>
 
@@ -500,14 +500,19 @@ print(f"Testing complete: ERROR = {ERROR:.4f}")
         <p><strong>ERROR</strong> → How wrong the machine was.</p>
         <p><strong>PARAMETER_OUTPUT_influence</strong> → INFLUENCE of PARAMETER on OUTPUT.</p>
         <p><strong>SMALL</strong> → A small number that keeps each update from being too big.</p>
+        <br/>
+        <p>CLASS 3 perfectly demonstrates why we need SMALL. Without it, that Lesson 2 update would have been 498.2, making the WEIGHT to skyrocket!</p>
       </div>
     </div>
+
+
+    
 
 
     <!-- TEASER -->
     <div class="teaser">
       <div class="teaser-next">Up Next: Class 4</div>
-      <p>We additionally introduce the <strong style="color:var(--yellow);">BIAS</strong> to the <strong style="color:var(--yellow);">NUERON</strong>.<br/>
+      <p>We additionally introduce the <strong style="color:var(--yellow);">BIAS</strong> to the <strong style="color:var(--yellow);">NEURON</strong>.<br/>
       The new mind will be more powerful.</p>
     </div>
 
