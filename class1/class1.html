@@ -17,6 +17,14 @@
     /* ── class1.html-specific textarea heights ── */
     #code-input1  { height: 550px; }
     #code-input2  { height: 280px; }
+
+    /* Transparent overlay sits on top of the textarea, owns all mouse events */
+    .textarea-overlay {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
   </style>
 
 </head>
@@ -329,12 +337,79 @@
           <!-- ROW: label + Button 1 (always visible) -->
           <div class="code-row">
             <br/>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" data-tooltip="Copy code">
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" title="Copy code">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
           </div>
 
-          <!-- textarea-wrap: sidebar owns mouse events, textarea stays fully editable -->
+          <!-- textarea-wrap: overlay catches mouse for tracking + copy-on-click -->
+          <div class="textarea-wrap">
+            <textarea id="code-input1" style="line-height: 1.2;">
+WEIGHT = 0.0
+
+EXAMPLES = 2
+
+INPUTS  = [0.6,
+           1.0]
+
+TARGETS = [3.0,
+           5.0]
+
+for EXAMPLE in range(EXAMPLES):
+
+    INPUT  = INPUTS[EXAMPLE]
+    TARGET = TARGETS[EXAMPLE]
+
+    PRODUCT = INPUT * WEIGHT
+    OUTPUT  = PRODUCT
+
+    ERROR = TARGET - OUTPUT
+
+    WEIGHT_update = ERROR
+    WEIGHT = WEIGHT + WEIGHT_update
+
+print(f"Training complete: WEIGHT = {WEIGHT}")
+            </textarea>
+            <!-- Transparent overlay: catches all mouse events over the textarea -->
+            <div class="textarea-overlay"
+                 onmousemove="moveCopyBtn(event, 'cursor-btn-1')"
+                 onmouseleave="hideCopyBtn('cursor-btn-1')"
+                 onclick="copyCode('code-input1', document.getElementById('cursor-btn-1'))">
+            </div>
+            <!-- Button 2: follows cursor, pointer-events:none -->
+            <button id="cursor-btn-1" class="copy_btn copy_btn--cursor" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+
+          <!-- ROW: RUN CODE button + Button 3 (always visible) -->
+          <div class="code-row">
+            <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+
+          <div id="output-window1">Ready for math!</div>
+        </div>
+
+
+        <p><br/></p>
+        <h3>TEST THE MIND 🧠</h3>
+        <p></p>
+
+        <!-- TEST THE MIND -->
+        <div class="pythoncode">
+
+          <!-- ROW: label + Button 1 (always visible) -->
+          <div class="code-row">
+            <br/>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+
+          <!-- textarea-wrap: overlay catches mouse for tracking + copy-on-click -->
           <div class="textarea-wrap">
             <textarea id="code-input2" style="line-height: 1.2;">
 WEIGHT = 5.0
@@ -349,21 +424,22 @@ ERROR = TARGET - OUTPUT
 
 print(f"Testing complete: ERROR = {ERROR}")
             </textarea>
-            <div id="sidebar-btn-2" class="textarea-sidebar"
-                 onmousemove="moveCopyBtn(event, 'cursor-btn-2', 'sidebar-btn-2')"
+            <!-- Transparent overlay: catches all mouse events over the textarea -->
+            <div class="textarea-overlay"
+                 onmousemove="moveCopyBtn(event, 'cursor-btn-2')"
                  onmouseleave="hideCopyBtn('cursor-btn-2')"
                  onclick="copyCode('code-input2', document.getElementById('cursor-btn-2'))">
-              <!-- Button 2: follows cursor in sidebar -->
-              <button id="cursor-btn-2" class="copy_btn copy_btn--cursor" data-tooltip="Copy code">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              </button>
             </div>
+            <!-- Button 2: follows cursor, pointer-events:none -->
+            <button id="cursor-btn-2" class="copy_btn copy_btn--cursor" title="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
           </div>
 
           <!-- ROW: RUN CODE button + Button 3 (always visible) -->
           <div class="code-row">
             <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" data-tooltip="Copy code">
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" title="Copy code">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
           </div>
@@ -406,38 +482,45 @@ print(f"Testing complete: ERROR = {ERROR}")
 
   </div>
   <!-- /page -->
-  <script>
-    // ── COPY BUTTON: floating button follows cursor in sidebar, textarea stays editable ──
 
-    function moveCopyBtn(event, btnId, sidebarId) {
+
+  <script>
+    function moveCopyBtn(event, btnId) {
       const btn     = document.getElementById(btnId);
-      const sidebar = document.getElementById(sidebarId);
-      const rect    = sidebar.getBoundingClientRect();
-      const bh      = 36;
+      const overlay = event.currentTarget;
+      const rect    = overlay.getBoundingClientRect();
+      const bw = 36, bh = 36;
       let y = event.clientY - rect.top - bh / 2;
       y = Math.max(0, Math.min(y, rect.height - bh));
-      btn.style.top     = y + 'px';
-      btn.style.opacity = '1';
+      const x = rect.width - bw - 10;
+      btn.style.left          = x + 'px';
+      btn.style.top           = y + 'px';
+      btn.style.opacity       = '1';
+      btn.style.pointerEvents = 'none';
+      btn.style.background    = '#3a3a3a';
+      btn.style.color         = '#ffffff';
     }
 
     function hideCopyBtn(btnId) {
       const btn = document.getElementById(btnId);
-      btn.style.opacity = '0';
+      btn.style.opacity    = '0';
+      btn.style.background = '';
+      btn.style.color      = '';
     }
 
-    function copyCode(id, triggerBtn) {
+    function copyCode(id, btn) {
       const text = document.getElementById(id).value;
       navigator.clipboard.writeText(text).then(() => {
-        const block   = triggerBtn.closest('.pythoncode');
-        const allBtns = block ? block.querySelectorAll('.copy_btn') : [triggerBtn];
+        const block = btn.closest('.pythoncode');
+        const allBtns = block ? block.querySelectorAll('.copy_btn') : [btn];
         allBtns.forEach(b => {
           b.classList.add('copy_btn--copied');
-          b.setAttribute('data-tooltip', 'Copied!');
+          b.title = 'Copied!';
         });
         setTimeout(() => {
           allBtns.forEach(b => {
             b.classList.remove('copy_btn--copied');
-            b.setAttribute('data-tooltip', 'Copy code');
+            b.title = 'Copy code';
           });
         }, 1800);
       });
@@ -451,14 +534,18 @@ print(f"Testing complete: ERROR = {ERROR}")
     function runPython(block) {
       const codeId   = block === 1 ? "code-input1"    : "code-input2";
       const outputId = block === 1 ? "output-window1" : "output-window2";
+
       var code  = document.getElementById(codeId).value;
       var mypre = document.getElementById(outputId);
       mypre.innerHTML = '';
+
       Sk.pre = outputId;
       Sk.configure({ output: (text) => outf(text, outputId) });
+
       var myPromise = Sk.misceval.asyncToPromise(function () {
         return Sk.importMainWithBody("<stdin>", false, code, true);
       });
+
       myPromise.then(
         function (mod) { console.log('Success!'); },
         function (err)  { mypre.innerHTML = err.toString(); }
