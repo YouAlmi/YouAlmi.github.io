@@ -605,6 +605,7 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
       var mypre = document.getElementById(outputId);
       mypre.innerHTML = '';
 
+      Sk.sysmodules = {};
       Sk.pre = outputId;
       Sk.configure({ output: (text) => outf(text, outputId) });
 
