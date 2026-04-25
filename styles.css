@@ -101,6 +101,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 
 /* Shared base */
 .copy_btn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,24 +142,41 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   pointer-events: auto;
 }
 
-/* BUTTON 2 — follows the cursor inside the textarea-wrap */
+/* TOOLTIP on copy button */
+.copy_btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  color: #111111;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  z-index: 10;
+}
+.copy_btn:hover::after {
+  opacity: 1;
+}
+.copy_btn--copied::after {
+  opacity: 1;
+}
+
+/* textarea-wrap — plain container */
 .textarea-wrap {
   position: relative;
-  cursor: pointer;
 }
 .textarea-wrap textarea {
   display: block;
   width: 100%;
-  cursor: text;
-}
-.copy_btn--cursor {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  opacity: 0;
-  pointer-events: none !important;
-  z-index: 3;
-  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
 }
 
 /* ── TYPOGRAPHY & BLOCKS ── */
