@@ -362,7 +362,7 @@ for EXAMPLE in range(EXAMPLES):
 
 print(f"Training complete: WEIGHT = {WEIGHT}")
             </textarea>
-
+          </div>
           <!-- ROW: RUN CODE button + Button 3 (always visible) -->
           <div class="code-row">
             <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
@@ -405,7 +405,7 @@ ERROR = TARGET - OUTPUT
 
 print(f"Testing complete: ERROR = {ERROR}")
             </textarea>
-
+          </div>
           <!-- ROW: RUN CODE button + Button 3 (always visible) -->
           <div class="code-row">
             <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
@@ -459,17 +459,11 @@ print(f"Testing complete: ERROR = {ERROR}")
     function copyCode(id, btn) {
       const text = document.getElementById(id).value;
       navigator.clipboard.writeText(text).then(() => {
-        const block = btn.closest('.pythoncode');
-        const allBtns = block ? block.querySelectorAll('.copy_btn') : [btn];
-        allBtns.forEach(b => {
-          b.classList.add('copy_btn--copied');
-          b.setAttribute('data-tooltip', 'Copied!');
-        });
+        btn.classList.add('copy_btn--copied');
+        btn.setAttribute('data-tooltip', 'Copied!');
         setTimeout(() => {
-          allBtns.forEach(b => {
-            b.classList.remove('copy_btn--copied');
-            b.setAttribute('data-tooltip', 'Copy code');
-          });
+          btn.classList.remove('copy_btn--copied');
+          btn.setAttribute('data-tooltip', 'Copy code');
         }, 1800);
       });
     }
