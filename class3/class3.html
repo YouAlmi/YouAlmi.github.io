@@ -39,7 +39,7 @@
     <div class="card">
       <div class="card-body">
         <p>The <strong>PACE</strong> is just a number.</p>
-        <p>It keeps each update from being both too big or too small.</p>
+        <p>It keeps each update from being too big.</p>
         <p>For example, let's set it to <strong>0.0100</strong>:</p>
         <div class="callout callout-neutral">PACE = <strong>0.0100</strong></div>
       </div>
@@ -371,6 +371,8 @@ INPUTS   = [0.6000,
 TARGETS  = [3.0000, 
           -50.0000]
 
+EPOCHS = 1
+
 for EXAMPLE in range(EXAMPLES):
 
     INPUT  = INPUTS[EXAMPLE]
@@ -442,17 +444,19 @@ print(f"TESTING complete: ERROR = {ERROR:.4f}")
     <div class="section-label">Note</div>
     <div class="card">
       <div class="card-body">
-        <p>CLASS 3 perfectly demonstrates why we need <strong>PACE</strong>. 
+        <p>CLASS 3 clearly shows why we need <strong>PACE</strong>. 
           Without it, that <strong>LESSON 2</strong> update would have been <strong>498.2</strong>, 
-          causing the <strong>WEIGHT</strong> to skyrocket. 
-          You can try changing the <strong>PACE</strong> to, say, <strong>2.0000</strong> — and see the <strong>WEIGHT</strong> go to the sky.</p>
-        <p>On the other hand, when <strong>PACE</strong> is too small, <strong>LEARNING</strong> becomes very slow and can take a long time.
-        You can try changing the <strong>PACE</strong> to, say, <strong>0.0001</strong> — and see that the <strong>LEARNING</strong> becomes too slow.</p></p>
+          causing the <strong>WEIGHT</strong> to shoot too high. 
+          </p>
+
+        
         <p>By keeping the <strong>PACE</strong> at <strong>0.0100</strong>, you are effectively telling the machine:
           "I know you found an error, but don't try to fix it all at once; just take a small step in the right direction."
           The <strong>PACE</strong>, together with the <strong>ERROR</strong> and <strong>INFLUENCE</strong>, helps the <strong>WEIGHT</strong> reach exactly <strong>5.0000</strong>.
         </p>
-
+        <p>On the other hand, when <strong>PACE</strong> is too small, <strong>LEARNING</strong> becomes very slow and can take a long time.</p>
+        <p>Generally, <strong>PACE</strong> keeps each update from being both too big and too small.</p>
+        
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule</div>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
