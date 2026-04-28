@@ -4,7 +4,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Class 3 — THE SMALL</title>
+  <title>Class 3 — THE PACE</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
@@ -27,7 +27,7 @@
   <header>
     <div class="header-tag">How Machines Learn and Think</div>
     <div class="header-title">Class 3</div>
-    <div class="header-subtitle">THE SMALL</div>
+    <div class="header-subtitle">THE PACE</div>
   </header>
 
 
@@ -38,10 +38,10 @@
 
     <div class="card">
       <div class="card-body">
-        <p>The <strong>SMALL</strong> is just a small number.</p>
+        <p>The <strong>PACE</strong> is just a small number.</p>
         <p>It handles big numbers in a dataset, keeping each update from being too big.</p>
         <p>For example, let's set it to <strong>0.0100</strong>:</p>
-        <div class="callout callout-neutral">SMALL = <strong>0.0100</strong></div>
+        <div class="callout callout-neutral">PACE = <strong>0.0100</strong></div>
       </div>
     </div>
 
@@ -121,7 +121,7 @@
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule</div>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
-          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × SMALL</span>
+          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span>
         </div>
 
         <p>Because the mind has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
@@ -129,7 +129,7 @@
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
           <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
         </div>
 
         <p>Don't worry — it's really simple. Just follow the calculations below.</p>
@@ -148,7 +148,7 @@
       <div class="card-body">
 
         <div class="callout callout-neutral">WEIGHT = <strong>0.0000</strong><br/>
-          SMALL = <strong>0.0100</strong></div>
+          PACE = <strong>0.0100</strong></div>
 
         <p>EXAMPLE 1:</p>
         <div class="callout callout-neutral">
@@ -177,7 +177,7 @@
           <div class="formula-block">
             <div class="formula-block-label">Universal Update Rule for WEIGHT</div>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
           </div>
 
           WEIGHT = <strong>0.0000</strong><br/>
@@ -191,8 +191,8 @@
           </div>
 
           WEIGHT_OUTPUT_influence = INPUT = <strong>0.6000</strong><br/>
-          SMALL  = <strong>0.0100</strong><br/>
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 3.0000 × 0.6000 × 0.0100 = <strong>0.0180</strong><br/>
+          PACE  = <strong>0.0100</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = 3.0000 × 0.6000 × 0.0100 = <strong>0.0180</strong><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0000 + 0.0180 = <strong>0.0180</strong><br/>
 
         </div>
@@ -225,7 +225,7 @@
       <div class="card-body">
 
         <div class="callout callout-neutral">WEIGHT = <strong>0.0180</strong><br/>
-          SMALL = <strong>0.0100</strong></div>
+          PACE = <strong>0.0100</strong></div>
 
         <p>EXAMPLE 2:</p>
         <div class="callout callout-neutral">
@@ -254,7 +254,7 @@
           <div class="formula-block">
             <div class="formula-block-label">Universal Update Rule for WEIGHT</div>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
           </div>
 
           WEIGHT = <strong>0.0180</strong><br/>
@@ -268,8 +268,8 @@
           </div>
 
           WEIGHT_OUTPUT_influence = INPUT = <strong>−10.0000</strong><br/>
-          SMALL  = <strong>0.0100</strong><br/>
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = −49.8200 × (−10.0000) × 0.0100 = <strong>4.9820</strong><br/>
+          PACE  = <strong>0.0100</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = −49.8200 × (−10.0000) × 0.0100 = <strong>4.9820</strong><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0180 + 4.9820 = <strong>5.0000</strong><br/>
         </div>
 
@@ -361,7 +361,7 @@
           <div class="textarea-wrap">
             <textarea id="code-input1" style="line-height: 1.2;">
 WEIGHT = 0.0000
-SMALL  = 0.0100
+PACE  = 0.0100
 
 EXAMPLES = 2
 
@@ -381,7 +381,7 @@ for EXAMPLE in range(EXAMPLES):
     ERROR   = TARGET - OUTPUT
 
     WEIGHT_OUTPUT_influence = INPUT
-    WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * SMALL
+    WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * PACE
     WEIGHT = WEIGHT + WEIGHT_update
 
 print(f"TRAINING complete: WEIGHT = {WEIGHT:.4f}")
@@ -447,22 +447,23 @@ print(f"TESTING complete: ERROR = {ERROR:.4f}")
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule</div>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
-          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × SMALL</span>
+          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span>
         </div>
 
         <p><strong>PARAMETER</strong> → This is the thing the machine is trying to get right.</p>
         <p><strong>PARAMETER_update</strong> → How much PARAMETER is updated.</p>
         <p><strong>ERROR</strong> → How wrong the machine was.</p>
         <p><strong>PARAMETER_OUTPUT_influence</strong> → INFLUENCE of PARAMETER on OUTPUT.</p>
-        <p><strong>SMALL</strong> → A small number that keeps each update from being too big.</p>
+        <p><strong>PACE</strong> → A small number that keeps each update from being too big.</p>
         <br/>
-        <p>CLASS 3 perfectly demonstrates why we need the <strong>SMALL</strong>. 
+        <p>CLASS 3 perfectly demonstrates why we need the <strong>PACE</strong>. 
           Without it, that <strong>LESSON 2</strong> update would have been <strong>498.2</strong>, 
           causing the <strong>WEIGHT</strong> to skyrocket. 
-          You can try changing the <strong>SMALL</strong> to, say, <strong>1.0000</strong> — and see the <strong>WEIGHT</strong> go to the sky.</p>
-        <p>By keeping the <strong>SMALL</strong> at <strong>0.0100</strong>, you are effectively telling the machine:
+          You can try changing the <strong>PACE</strong> to, say, <strong>2.0000</strong> — and see the <strong>WEIGHT</strong> go to the sky.</p>
+        <p>On the other hand, when PACE is too small, <strong>LEARNING</strong> becomes very slow and can take forever.</p>
+        <p>By keeping the <strong>PACE</strong> at <strong>0.0100</strong>, you are effectively telling the machine:
           "I know you found an error, but don't try to fix it all at once; just take a small step in the right direction."
-          The <strong>SMALL</strong>, together with the <strong>ERROR</strong> and <strong>INFLUENCE</strong>, helps the <strong>WEIGHT</strong> reach exactly <strong>5.0000</strong>.</p>
+          The <strong>PACE</strong>, together with the <strong>ERROR</strong> and <strong>INFLUENCE</strong>, helps the <strong>WEIGHT</strong> reach exactly <strong>5.0000</strong>.</p>
       </div>
     </div>
 
