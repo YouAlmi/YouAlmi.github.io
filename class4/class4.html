@@ -722,7 +722,9 @@ print(f"TESTING complete: ERROR = {ERROR:.1f}")
     <div class="section-label">Note</div>
     <div class="card">
       <div class="card-body">
-        <p>Machines improve themselves by learning from their own errors. They do this using the <strong>Fundamental Update Rule</strong>:</p>
+        <p>During <strong>TRAINING</strong>, at every <strong>LESSON</strong>, the <strong>PARAMETERS</strong> compete over which gets updated more. The <strong>PARAMETER</strong> that has more <strong>INFLUENCE</strong> on <strong>OUTPUT</strong> receives a larger update.
+        </p>
+        
 
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule</div>
@@ -735,8 +737,7 @@ print(f"TESTING complete: ERROR = {ERROR:.1f}")
         <p><strong>ERROR</strong> → How wrong the machine was.</p>
         <p><strong>PARAMETER_OUTPUT_influence</strong> → INFLUENCE of PARAMETER on OUTPUT.</p>
         <p><strong>PACE</strong> → A small number that keeps each update from being both too big and too small.</p>
-        <br/>
-        <p>During <strong>TRAINING</strong>, at every <strong>LESSON</strong>, the <strong>PARAMETERS</strong> compete over which gets updated more. The <strong>PARAMETER</strong> that has more <strong>INFLUENCE</strong> on <strong>OUTPUT</strong> receives a larger update.</p>
+        
       </div>
     </div>
 
