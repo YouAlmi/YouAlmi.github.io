@@ -41,8 +41,8 @@
         <p>Here, we additionally introduce the <strong>BIAS</strong> to the <strong>NEURON</strong>. 
         In other words, the mind will have two <strong>PARAMETERS</strong>: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
         <p>During <strong>TRAINING</strong>, at every <strong>LESSON</strong>, the <strong>PARAMETERS</strong> will compete over which gets updated more. The <strong>PARAMETER</strong> that has more <strong>INFLUENCE</strong> on the <strong>OUTPUT</strong> receives a larger update.</p>
-        <p>To see this competition more clearly, let's set <strong>SMALL</strong> to <strong>1.0</strong>:</p>
-        <div class="callout callout-neutral">SMALL = <strong>1.0</strong></div>
+        <p>To see this competition more clearly, let's set <strong>PACE</strong> to <strong>1.0</strong>:</p>
+        <div class="callout callout-neutral">PACE = <strong>1.0</strong></div>
         <p>In Class 4, it can equal <strong>1.0</strong> — it is okay.</p>
       </div>
     </div>
@@ -125,7 +125,7 @@
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule</div>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
-          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × SMALL</span>
+          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span>
         </div>
 
         <p>Because the mind has two <strong>PARAMETERS</strong> — <strong>WEIGHT</strong> and <strong>BIAS</strong> — we obtain:</p>
@@ -133,13 +133,13 @@
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
           <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
         </div>
 
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule for BIAS</div>
           <span class="formula">BIAS = BIAS + BIAS_update</span><br/>
-          <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL</span>
+          <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE</span>
         </div>
 
         <p>Don't worry — it's really simple. Just follow the calculations below.</p>
@@ -164,7 +164,7 @@
         <div class="callout callout-neutral">
           WEIGHT = <strong>0.0</strong><br/>
           BIAS = <strong>0.0</strong><br/>
-          SMALL = <strong>1.0</strong>
+          PACE = <strong>1.0</strong>
         </div>
           
 
@@ -196,7 +196,7 @@
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
           </div>
 
           WEIGHT = <strong>0.0</strong><br/>
@@ -210,8 +210,8 @@
           </div>
 
           WEIGHT_OUTPUT_influence = INPUT = <strong>0.0</strong><br/>
-          SMALL  = <strong>1.0</strong><br/>
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 32.0 × 0.0 × 1.0 = <strong>0.0</strong><br/>
+          PACE  = <strong>1.0</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = 32.0 × 0.0 × 1.0 = <strong>0.0</strong><br/>
           
           
           
@@ -220,7 +220,7 @@
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for BIAS</div>
             <span class="formula">BIAS = BIAS + BIAS_update</span><br/>
-            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL</span>
+            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE</span>
           </div>
 
           BIAS = <strong>0.0</strong><br/>
@@ -234,8 +234,8 @@
           </div>
 
           BIAS_OUTPUT_influence = <strong>1.0</strong><br/>
-          SMALL  = <strong>1.0</strong><br/>
-          BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL = 32.0 × 1.0 × 1.0 = <strong>32.0</strong><br/>
+          PACE  = <strong>1.0</strong><br/>
+          BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE = 32.0 × 1.0 × 1.0 = <strong>32.0</strong><br/>
           
           
           
@@ -265,7 +265,7 @@
         <div class="callout callout-neutral">
           WEIGHT = <strong>0.0</strong><br/>
           BIAS = <strong>32.0</strong><br/>
-          SMALL = <strong>1.0</strong></div>
+          PACE = <strong>1.0</strong></div>
 
         <p><strong>EXAMPLE 2</strong>:</p>
         <div class="callout callout-neutral">
@@ -295,7 +295,7 @@
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
           </div>
 
           WEIGHT = <strong>0.0</strong><br/>
@@ -309,8 +309,8 @@
           </div>
 
           WEIGHT_OUTPUT_influence = INPUT = <strong>1.0</strong><br/>
-          SMALL  = <strong>1.0</strong><br/>
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 1.8 × 1.0 × 1.0 = <strong>1.8</strong><br/>
+          PACE  = <strong>1.0</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = 1.8 × 1.0 × 1.0 = <strong>1.8</strong><br/>
           
           
           
@@ -319,7 +319,7 @@
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for BIAS</div>
             <span class="formula">BIAS = BIAS + BIAS_update</span><br/>
-            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL</span>
+            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE</span>
           </div>
 
           BIAS = <strong>32.0</strong><br/>
@@ -333,8 +333,8 @@
           </div>
 
           BIAS_OUTPUT_influence = <strong>1.0</strong><br/>
-          SMALL  = <strong>1.0</strong><br/>
-          BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL = 1.8 × 1.0 × 1.0 = <strong>1.8</strong><br/>
+          PACE  = <strong>1.0</strong><br/>
+          BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE = 1.8 × 1.0 × 1.0 = <strong>1.8</strong><br/>
            
           <br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 1.8 = <strong>1.8</strong><br/>
@@ -365,7 +365,7 @@
         <div class="callout callout-neutral">
           WEIGHT = <strong>1.8</strong><br/>
           BIAS = <strong>33.8</strong><br/>
-          SMALL = <strong>1.0</strong>
+          PACE = <strong>1.0</strong>
         </div>
           
 
@@ -399,7 +399,7 @@
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
           </div>
 
           WEIGHT = <strong>1.8</strong><br/>
@@ -413,8 +413,8 @@
           </div>
 
           WEIGHT_OUTPUT_influence = INPUT = <strong>0.0</strong><br/>
-          SMALL  = <strong>1.0</strong><br/>
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = -1.8 × 0.0 × 1.0 = <strong>0.0</strong><br/>
+          PACE  = <strong>1.0</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = -1.8 × 0.0 × 1.0 = <strong>0.0</strong><br/>
           
           
           
@@ -423,7 +423,7 @@
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for BIAS</div>
             <span class="formula">BIAS = BIAS + BIAS_update</span><br/>
-            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL</span>
+            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE</span>
           </div>
 
           BIAS = <strong>33.8</strong><br/>
@@ -437,8 +437,8 @@
           </div>
 
           BIAS_OUTPUT_influence = <strong>1.0</strong><br/>
-          SMALL  = <strong>1.0</strong><br/>
-          BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL = -1.8 × 1.0 × 1.0 = <strong>-1.8</strong><br/>
+          PACE  = <strong>1.0</strong><br/>
+          BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE = -1.8 × 1.0 × 1.0 = <strong>-1.8</strong><br/>
           
           
           
@@ -469,7 +469,7 @@
         <div class="callout callout-neutral">
           WEIGHT = <strong>1.8</strong><br/>
           BIAS = <strong>32.0</strong><br/>
-          SMALL = <strong>1.0</strong></div>
+          PACE = <strong>1.0</strong></div>
 
         <p><strong>EXAMPLE 2</strong>:</p>
         <div class="callout callout-neutral">
@@ -499,7 +499,7 @@
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
           </div>
 
           WEIGHT = <strong>1.8</strong><br/>
@@ -513,8 +513,8 @@
           </div>
 
           WEIGHT_OUTPUT_influence = INPUT = <strong>1.0</strong><br/>
-          SMALL  = <strong>1.0</strong><br/>
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × SMALL = 0.0 × 1.0 × 1.0 = <strong>0.0</strong><br/>
+          PACE  = <strong>1.0</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = 0.0 × 1.0 × 1.0 = <strong>0.0</strong><br/>
           
           
           
@@ -523,7 +523,7 @@
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for BIAS</div>
             <span class="formula">BIAS = BIAS + BIAS_update</span><br/>
-            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL</span>
+            <span class="formula">BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE</span>
           </div>
 
           BIAS = <strong>32.0</strong><br/>
@@ -537,8 +537,8 @@
           </div>
 
           BIAS_OUTPUT_influence = <strong>1.0</strong><br/>
-          SMALL  = <strong>1.0</strong><br/>
-          BIAS_update = ERROR × BIAS_OUTPUT_influence × SMALL = 0.0 × 1.0 × 1.0 = <strong>0.0</strong><br/>
+          PACE  = <strong>1.0</strong><br/>
+          BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE = 0.0 × 1.0 × 1.0 = <strong>0.0</strong><br/>
            
           <br/>
           WEIGHT = WEIGHT + WEIGHT_update = 1.8 + 0.0 = <strong>1.8</strong><br/>
@@ -627,7 +627,7 @@
             <textarea id="code-input1" style="line-height: 1.2;">
 WEIGHT = 0.0
 BIAS   = 0.0
-SMALL  = 1.0
+PACE  = 1.0
 
 EXAMPLES = 2
 
@@ -652,10 +652,10 @@ for EPOCH in range(EPOCHS):
         ERROR   = TARGET - OUTPUT
 
         WEIGHT_OUTPUT_influence = INPUT
-        WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * SMALL
+        WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * PACE
 
         BIAS_OUTPUT_influence = 1.0
-        BIAS_update = ERROR * BIAS_OUTPUT_influence * SMALL
+        BIAS_update = ERROR * BIAS_OUTPUT_influence * PACE
 
         WEIGHT = WEIGHT + WEIGHT_update
         BIAS = BIAS + BIAS_update
@@ -727,14 +727,14 @@ print(f"TESTING complete: ERROR = {ERROR:.1f}")
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule</div>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
-          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × SMALL</span>
+          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span>
         </div>
 
         <p><strong>PARAMETER</strong> → This is the thing the machine is trying to get right.</p>
         <p><strong>PARAMETER_update</strong> → How much PARAMETER is updated.</p>
         <p><strong>ERROR</strong> → How wrong the machine was.</p>
         <p><strong>PARAMETER_OUTPUT_influence</strong> → INFLUENCE of PARAMETER on OUTPUT.</p>
-        <p><strong>SMALL</strong> → A small number that keeps each update from being too big.</p>
+        <p><strong>PACE</strong> → A small number that keeps each update from being too big.</p>
         <br/>
         <p>During <strong>TRAINING</strong>, at every <strong>LESSON</strong>, the <strong>PARAMETERS</strong> compete over which gets updated more. The <strong>PARAMETER</strong> that has more <strong>INFLUENCE</strong> on <strong>OUTPUT</strong> receives a larger update.</p>
       </div>
