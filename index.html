@@ -391,7 +391,62 @@
         </div>
 
         <p>Again, no math changed. Only names changed.</p>
-        <p>Every <strong>NEURON</strong> follows the same simple logic as a simple <strong>RECEIPT</strong>.</p>
+
+
+        
+        <!-- TRAIN THE MIND -->
+         <p>The code below makes all the calculations instantly.</p>
+         <p>Just click <strong>RUN CODE</strong>.</p>
+        <h3>TRAIN THE MIND 🧠</h3>
+        <p></p>  
+
+        <div class="pythoncode">
+       
+
+          <!-- textarea-wrap -->
+          <div class="textarea-wrap">
+            <textarea id="code-input1" style="line-height: 1.2;">
+WEIGHT = 0.0
+
+EXAMPLES = 2
+
+INPUTS  = [0.6,
+           1.0]
+
+TARGETS = [3.0,
+           5.0]
+
+for EXAMPLE in range(EXAMPLES):
+
+    INPUT  = INPUTS[EXAMPLE]
+    TARGET = TARGETS[EXAMPLE]
+
+    PRODUCT = INPUT * WEIGHT
+    OUTPUT  = PRODUCT
+
+    ERROR = TARGET - OUTPUT
+
+    WEIGHT_update = ERROR
+    WEIGHT = WEIGHT + WEIGHT_update
+
+print(f"TRAINING complete: WEIGHT = {WEIGHT}")
+            </textarea>
+          </div>
+          <!-- ROW: RUN CODE button + Button 3 (always visible) -->
+          <div class="code-row">
+            <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+
+          <div id="output-window1">Ready for math!</div>
+        </div>
+
+
+
+
+        <p>So every <strong>NEURON</strong> follows the same simple logic as a simple <strong>RECEIPT</strong>.</p>
         <p>The mapping:</p>
 
         <div class="table-wrap">
@@ -488,6 +543,49 @@
     <a href="../class3/class3.html" target="_blank" style="margin: 0 10px;">Class3</a><br/>
     <a href="../class4/class4.html" target="_blank" style="margin: 0 10px;">Class4</a><br/>
   </div>
+
+
+<script>
+
+    function copyCode(id, btn) {
+      const text = document.getElementById(id).value;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('copy_btn--copied');
+        btn.setAttribute('data-tooltip', 'Copied!');
+        setTimeout(() => {
+          btn.classList.remove('copy_btn--copied');
+          btn.setAttribute('data-tooltip', 'Copy code');
+        }, 1800);
+      });
+    }
+
+    function outf(text, outputId) {
+      var mypre = document.getElementById(outputId);
+      mypre.innerHTML = mypre.innerHTML + text;
+    }
+
+    function runPython(block) {
+      const codeId   = block === 1 ? "code-input1"    : "code-input2";
+      const outputId = block === 1 ? "output-window1" : "output-window2";
+
+      var code  = document.getElementById(codeId).value;
+      var mypre = document.getElementById(outputId);
+      mypre.innerHTML = '';
+
+      Sk.sysmodules = {};
+      Sk.pre = outputId;
+      Sk.configure({ output: (text) => outf(text, outputId) });
+
+      var myPromise = Sk.misceval.asyncToPromise(function () {
+        return Sk.importMainWithBody("<stdin>", false, code, true);
+      });
+
+      myPromise.then(
+        function (mod) { console.log('Success!'); },
+        function (err)  { mypre.innerHTML = err.toString(); }
+      );
+    }
+  </script>
 
 </body>
 </html>
