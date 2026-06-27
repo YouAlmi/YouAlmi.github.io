@@ -182,7 +182,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 /* ── TYPOGRAPHY & BLOCKS ── */
 .inner-heading { font-weight: 900; font-size: 19px; margin: 24px 0 10px; }
 .prose-list { margin: 10px 0 14px 24px; }
-.prose-list li { margin-bottom: 8px; font-weight: 700; }
+.prose-list li { margin-bottom: 8px;  }
 .img-block { text-align: center; margin: 20px 0; }
 .img-block img { max-width: 100%; height: auto; border-radius: 8px; display: inline-block; }
 @media (min-width: 768px) { .img-block img { max-width: 150px; } }
