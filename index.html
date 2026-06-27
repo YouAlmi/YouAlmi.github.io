@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How Machines Learn and Think</title>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
@@ -345,7 +349,7 @@
           OUTPUT = 4.00 &times; 2.00 + 2.00 &times; 3.00 + (-0.50)<br/>
           OUTPUT = 8.00 + 6.00 - 0.50<br/>
           OUTPUT = 14.00 - 0.50<br/>
-          OUTPUT = 13.50
+          TOTAL = 13.50
         </div>
 
         <p>Ultra simple. No math changed. Only names changed.</p>
@@ -401,8 +405,7 @@
 
 
         
-        <!-- TRAIN THE MIND -->
-         <p>The code below makes all the calculations instantly.</p>
+        <p>The code below makes all the calculations instantly.</p>
          <p>Just click <strong>RUN CODE</strong>.</p>
         <h3>RUN THE NEURON 🧠</h3>
         <p></p>  
@@ -410,7 +413,6 @@
         <div class="pythoncode">
        
 
-          <!-- textarea-wrap -->
           <div class="textarea-wrap">
             <textarea id="code-input1" style="line-height: 1.2;">
 INPUT1 = 3.00
@@ -432,7 +434,6 @@ OUTPUT = SUM_VAL + BIAS
 print(f"Our OUTPUT = {OUTPUT}")
             </textarea>
           </div>
-          <!-- ROW: RUN CODE button + Button 3 (always visible) -->
           <div class="code-row">
             <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
             <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" data-tooltip="Copy code">
@@ -546,8 +547,25 @@ print(f"Our OUTPUT = {OUTPUT}")
 
 
 <script>
+    // REASON 3 FIXED: Restored copyCode and outf scripts so runPython functions correctly
+    function copyCode(id, btn) {
+      const text = document.getElementById(id).value;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('copy_btn--copied');
+        btn.setAttribute('data-tooltip', 'Copied!');
+        setTimeout(() => {
+          btn.classList.remove('copy_btn--copied');
+          btn.setAttribute('data-tooltip', 'Copy code');
+        }, 1800);
+      });
+    }
+
+    function outf(text, outputId) {
+      var mypre = document.getElementById(outputId);
+      mypre.innerHTML = mypre.innerHTML + text;
+    }
+
     function runPython(block) {
-      // Hardcode it to look for window 1 since there is no window 2
       const codeId   = "code-input1";
       const outputId = "output-window1";
 
