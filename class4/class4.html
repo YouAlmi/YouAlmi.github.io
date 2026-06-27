@@ -722,24 +722,23 @@ print(f"TESTING complete: ERROR = {ERROR:.1f}")
       <div class="card-body">
         <p>Crucially, <strong>BIAS</strong> adds flexibility to the mind. Without it, the mind would not even be able to solve a problem as simple as converting Celsius to Fahrenheit (because 0°C is 32°F, which requires adding a baseline number).</p>
         <p>During <strong>TRAINING</strong>, at every <strong>LESSON</strong>, all <strong>PARAMETERS</strong> compete over which gets updated more. The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., ERROR × INFLUENCE — receives a larger update.</p>
-      </div>
-    </div>
-
+        
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule</div>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
           <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span>
         </div>
-
-        <p><strong>PARAMETER</strong> → This is the thing the machine is trying to get right.</p>
-        <p><strong>PARAMETER_update</strong> → How much the PARAMETER is updated at the given LESSON.</p>
-        <p><strong>ERROR</strong> → How wrong the machine was.</p>
-        <p><strong>PARAMETER_OUTPUT_influence</strong> → INFLUENCE of PARAMETER on OUTPUT.</p>
-        <p><strong>PACE</strong> → A number that keeps each update from being both too big and too small.</p>      
+        
+        <p><strong>PARAMETER</strong> — This is the thing the machine is trying to get right.</p>
+        <p><strong>PARAMETER_update</strong> — How much the PARAMETER is updated at the given LESSON.</p>
+        <p><strong>ERROR</strong> — How wrong the machine was.</p>
+        <p><strong>PARAMETER_OUTPUT_influence</strong> — The INFLUENCE of the PARAMETER on the OUTPUT.</p>
+        <p><strong>PACE</strong> — A number that keeps each update from being both too big and too small.</p>       
       </div>
     </div>
-
-
+    
+    
+  
     <!-- TEASER -->
     <div class="teaser">
       <div class="teaser-next">Up Next: Class 5</div>
