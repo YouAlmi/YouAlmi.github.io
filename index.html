@@ -397,13 +397,14 @@
         </div>
 
         <p>Again, no math changed. Only names changed.</p>
+        <p>You can try changing the INPUTS yourself and watch how it works.</p>
 
 
         
         <!-- TRAIN THE MIND -->
          <p>The code below makes all the calculations instantly.</p>
          <p>Just click <strong>RUN CODE</strong>.</p>
-        <h3>TRAIN THE MIND 🧠</h3>
+        <h3>RUN THE NEURON 🧠</h3>
         <p></p>  
 
         <div class="pythoncode">
@@ -412,30 +413,22 @@
           <!-- textarea-wrap -->
           <div class="textarea-wrap">
             <textarea id="code-input1" style="line-height: 1.2;">
-WEIGHT = 0.0
+INPUT1 = 3.00
+INPUT2 = 5.00
 
-EXAMPLES = 2
+WEIGHT1 = 2.00
+WEIGHT2 = 3.00
 
-INPUTS  = [0.6,
-           1.0]
+BIAS = -0.50
 
-TARGETS = [3.0,
-           5.0]
+PRODUCT1 = INPUT1 * WEIGHT1
+PRODUCT2 = INPUT2 * WEIGHT2
 
-for EXAMPLE in range(EXAMPLES):
+SUM = PRODUCT1 + PRODUCT2
 
-    INPUT  = INPUTS[EXAMPLE]
-    TARGET = TARGETS[EXAMPLE]
+OUTPUT = SUM - BIAS 
 
-    PRODUCT = INPUT * WEIGHT
-    OUTPUT  = PRODUCT
-
-    ERROR = TARGET - OUTPUT
-
-    WEIGHT_update = ERROR
-    WEIGHT = WEIGHT + WEIGHT_update
-
-print(f"TRAINING complete: WEIGHT = {WEIGHT}")
+print(f"Our OUTPUT = {OUTPUT}")
             </textarea>
           </div>
           <!-- ROW: RUN CODE button + Button 3 (always visible) -->
