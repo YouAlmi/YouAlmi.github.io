@@ -545,27 +545,10 @@ print(f"Our OUTPUT = {OUTPUT}")
 
 
 <script>
-
-    function copyCode(id, btn) {
-      const text = document.getElementById(id).value;
-      navigator.clipboard.writeText(text).then(() => {
-        btn.classList.add('copy_btn--copied');
-        btn.setAttribute('data-tooltip', 'Copied!');
-        setTimeout(() => {
-          btn.classList.remove('copy_btn--copied');
-          btn.setAttribute('data-tooltip', 'Copy code');
-        }, 1800);
-      });
-    }
-
-    function outf(text, outputId) {
-      var mypre = document.getElementById(outputId);
-      mypre.innerHTML = mypre.innerHTML + text;
-    }
-
     function runPython(block) {
-      const codeId   = block === 1 ? "code-input1"    : "code-input2";
-      const outputId = block === 1 ? "output-window1" : "output-window2";
+      // Hardcode it to look for window 1 since there is no window 2
+      const codeId   = "code-input1";
+      const outputId = "output-window1";
 
       var code  = document.getElementById(codeId).value;
       var mypre = document.getElementById(outputId);
