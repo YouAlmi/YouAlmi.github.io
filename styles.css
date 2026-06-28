@@ -45,6 +45,7 @@ em { font-style: italic; }
 header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text-align: center; }
 .header-eyebrow, .header-tag { font-size: 22px; color: var(--green); font-weight: 700; margin-bottom: 6px; }
 .header-title { font-size: 30px; font-weight: 900; line-height: 1.2; margin-bottom: 8px; color: var(--yellow); }
+.header-class { font-size: 30px; font-weight: 900; line-height: 1.2; margin-bottom: 8px; color: var(--green); }
 .header-subtitle { font-size: 22px; color: #aaaaaa; font-weight: 700; margin-bottom: 6px; }
 .header-audience { font-size: 30px; color: #ffffff; font-weight: 700; }
 
