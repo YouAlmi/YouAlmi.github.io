@@ -14,47 +14,30 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* ── PAGE-SPECIFIC INTERACTIVE & RESPONSIVE OVERRIDES ── */
-
-    /* Base setups for mobile viewports */
+    /* ── index.html-specific overrides ── */
     header {
       padding: 40px 24px 0px;
     }
 
     .header-title {
-      font-size: 30px;
+      font-size:     30px;
       margin-bottom: 8px;
-      color: var(--yellow);
+      color:         var(--yellow);
     }
 
     .header-subtitle {
       margin-bottom: 6px;
     }
 
-    /* Interactive Python Textarea Baseline Heights for Mobile Screens */
-    #code-input1 { 
-      height: 380px; 
-    }
-    #code-input2 { 
-      height: 240px; 
-    }
-
-    /* Narrow Smartphone Viewport Overrides */
     @media (max-width: 480px) {
-      .header-title { 
-        font-size: 22px; 
-      }
+      .header-title { font-size: 22px; }
     }
+  </style>
 
-    /* Expanded Desktop Viewport Overrides */
-    @media (min-width: 601px) {
-      #code-input1 { 
-        height: 530px; 
-      }
-      #code-input2 { 
-        height: 260px; 
-      }
-    }
+  <style>
+    /* ── class1.html-specific textarea heights ── */
+    #code-input1  { height: 380px; }
+  
   </style>
 
 </head>
