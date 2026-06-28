@@ -74,7 +74,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 
 /* ── TABLES ── */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
-.doc-table, .data-table, .mapping-table {  margin: 0 auto; font-weight: 700; }
+.doc-table, .data-table, .mapping-table { border-collapse: collapse; margin: 0 auto; font-weight: 700; }
 .doc-table td, .mapping-table td { border: 1px solid #aaaaaa; padding: 8px 14px; text-align: center; vertical-align: middle; }
 .doc-table .label-cell { border: none; text-align: left; color: var(--black); font-weight: 700; padding-left: 12px; white-space: nowrap; }
 .doc-table .table-title-row td, .data-table th { background: #111111; color: #ffffff; font-weight: 900; text-transform: uppercase; }
