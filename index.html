@@ -16,13 +16,13 @@
   <style>
     /* ── PAGE-SPECIFIC INTERACTIVE & RESPONSIVE OVERRIDES ── */
 
-    /* Universal baseline styles for mobile/small touch viewports */
+    /* Base setups for mobile viewports */
     header {
       padding: 40px 24px 0px;
     }
 
     .header-title {
-      font-size: 2rem; /* Clean responsive scaling */
+      font-size: 30px;
       margin-bottom: 8px;
       color: var(--yellow);
     }
@@ -31,26 +31,26 @@
       margin-bottom: 6px;
     }
 
-    /* Responsive heights for code textareas on small screens */
+    /* Interactive Python Textarea Baseline Heights for Mobile Screens */
     #code-input1 { 
-      height: 380px; /* Kept your updated preferred baseline height */
-    } 
+      height: 380px; 
+    }
     #code-input2 { 
       height: 240px; 
     }
 
-    /* Smartphone Viewport Adjustments (Narrow screens) */
+    /* Narrow Smartphone Viewport Overrides */
     @media (max-width: 480px) {
       .header-title { 
-        font-size: 1.45rem; /* Clean text scaling for small screens */
+        font-size: 22px; 
       }
     }
 
-    /* Desktop Viewport Adjustments (Large screens) */
+    /* Expanded Desktop Viewport Overrides */
     @media (min-width: 601px) {
       #code-input1 { 
-        height: 530px; /* Full visual container height when room allows */
-      } 
+        height: 530px; 
+      }
       #code-input2 { 
         height: 260px; 
       }
