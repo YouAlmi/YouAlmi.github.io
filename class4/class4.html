@@ -15,7 +15,7 @@
 
   <style>
     /* ── class3.html-specific textarea heights ── */
-    #code-input1  { height: 830px; }
+    #code-input1  { height: 900px; }
     #code-input2  { height: 320px; }
   </style>
 
@@ -124,16 +124,16 @@
 
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule</div>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
-          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span>
+          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span><br/>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
         </div>
 
         <p>Because the mind has two <strong>PARAMETERS</strong> — <strong>WEIGHT</strong> and <strong>BIAS</strong> — we obtain these two update rules:</p>
 
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
+          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span><br/>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
         </div>
 
         <div class="formula-block">
@@ -195,8 +195,8 @@
 
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
           WEIGHT = <strong>0.0</strong><br/>
@@ -294,8 +294,8 @@
 
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
           WEIGHT = <strong>0.0</strong><br/>
@@ -398,8 +398,8 @@
 
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
           WEIGHT = <strong>1.8</strong><br/>
@@ -498,8 +498,8 @@
 
           <div class="formula-block">
             <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
           WEIGHT = <strong>1.8</strong><br/>
@@ -652,12 +652,14 @@ for EPOCH in range(EPOCHS):
         ERROR   = TARGET - OUTPUT
 
         WEIGHT_OUTPUT_influence = INPUT
-        WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * PACE
-
         BIAS_OUTPUT_influence = 1.0
-        BIAS_update = ERROR * BIAS_OUTPUT_influence * PACE
 
+        # FUNDAMENTAL UPDATE RULE for WEIGHT
+        WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * PACE
         WEIGHT = WEIGHT + WEIGHT_update
+     
+        # FUNDAMENTAL UPDATE RULE for BIAS
+        BIAS_update = ERROR * BIAS_OUTPUT_influence * PACE      
         BIAS = BIAS + BIAS_update
 
 print(f"""TRAINING complete:
