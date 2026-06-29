@@ -111,7 +111,7 @@
     </div>
 
 
-    <!-- THE REFINED UPDATE RULE -->
+    <!-- THE INTERMEDIATE UPDATE RULE -->
     <div class="section-label">The Update Rule</div>
 
     <div class="card">
@@ -120,7 +120,7 @@
         <p>The mind will <strong>update</strong> the <strong>PARAMETER</strong> using this <strong>UPDATE RULE</strong>:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">Refined Update Rule</div>
+          <div class="formula-block-label">Intermediate Update Rule</div>
           <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence</span><br/>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
         </div>
@@ -227,10 +227,10 @@
         <hr class="divider"/>
 
 
-        <p>Now we can write the refined rule again, this time with full understanding:</p>
+        <p>Now we can write the Intermediate UPDATE Rule again, this time with full understanding:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">Refined Update Rule (restated)</div>
+          <div class="formula-block-label">Intermediate Update Rule (restated)</div>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
           <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence</span>
         </div>
@@ -238,7 +238,7 @@
         <p>Because the mind has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">Refined Update Rule for WEIGHT</div>
+          <div class="formula-block-label">Intermediate Update Rule for WEIGHT</div>
           <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence</span><br/>
           <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
         </div>
@@ -284,7 +284,7 @@
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">Refined Update Rule for WEIGHT</div>
+            <div class="formula-block-label">Intermediate Update Rule for WEIGHT</div>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
             <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence</span>
           </div>
@@ -361,7 +361,7 @@
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">Refined Update Rule for WEIGHT</div>
+            <div class="formula-block-label">Intermediate Update Rule for WEIGHT</div>
             <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence</span><br/> 
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>           
           </div>
@@ -494,7 +494,7 @@ for EXAMPLE in range(EXAMPLES):
 
     WEIGHT_OUTPUT_influence = INPUT
 
-    # REFINED UPDATE RULE
+    # INTERMEDIATE UPDATE RULE
     WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence
     WEIGHT = WEIGHT + WEIGHT_update
 
@@ -556,7 +556,7 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
     <div class="section-label">Note</div>
     <div class="card">
       <div class="card-body">
-        <p>Modern machines can learn from their own errors, thanks to the <strong>FUNDAMENTAL UPDATE RULE</strong> and its variations. While the REFINED UPDATE RULE was sufficient for this task, we are moving toward the <strong>FUNDAMENTAL UPDATE RULE</strong> step by step — with just one step left.</p>
+        <p>Modern machines can learn from their own errors, thanks to the <strong>FUNDAMENTAL UPDATE RULE</strong> and its variations. While the INTERMEDIATE UPDATE RULE was sufficient for this task, we are moving toward the <strong>FUNDAMENTAL UPDATE RULE</strong> step by step — with just one step left.</p>
       </div>
     </div>
 
