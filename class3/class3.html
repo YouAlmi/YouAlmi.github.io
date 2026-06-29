@@ -15,7 +15,7 @@
 
   <style>
     /* ── class3.html-specific textarea heights ── */
-    #code-input1  { height: 565px; }
+    #code-input1  { height: 605px; }
     #code-input2  { height: 280px; }
   </style>
 
@@ -121,16 +121,16 @@
 
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule</div>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
-          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span>
+          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span><br/>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
         </div>
 
         <p>Because the mind has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
 
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule for WEIGHT</div>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
+          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span><br/>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
         </div>
 
         <p>Don't worry — everything is really simple. Just follow the calculations below.</p>
@@ -254,8 +254,8 @@
 
           <div class="formula-block">
             <div class="formula-block-label">Universal Update Rule for WEIGHT</div>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span>
+            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span><br/>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
           WEIGHT = <strong>0.0180</strong><br/>
@@ -382,6 +382,8 @@ for EXAMPLE in range(EXAMPLES):
     ERROR   = TARGET - OUTPUT
 
     WEIGHT_OUTPUT_influence = INPUT
+
+    # FUNDAMENTAL UPDATE RULE
     WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * PACE
     WEIGHT = WEIGHT + WEIGHT_update
 
@@ -459,8 +461,8 @@ print(f"TESTING complete: ERROR = {ERROR:.4f}")
         
         <div class="formula-block">
           <div class="formula-block-label">Fundamental Update Rule</div>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
-          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span>
+          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span><br/>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>         
         </div>
 
         <p><strong>PARAMETER</strong> — This is the thing the machine is trying to get right.</p>
