@@ -120,7 +120,7 @@
         <p>The mind will <strong>update</strong> the <strong>PARAMETER</strong> using this <strong>UPDATE RULE</strong>:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">Intermediate Update Rule</div>
+          <div class="formula-block-label">INTERMEDIATE UPDATE RULE for PARAMETER</div>
           <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence</span><br/>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
         </div>
@@ -230,7 +230,7 @@
         <p>Now we can write the Intermediate UPDATE Rule again, this time with full understanding:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">Intermediate Update Rule (restated)</div>
+          <div class="formula-block-label">INTERMEDIATE UPDATE RULE for PARAMETER (restated)</div>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span><br/>
           <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence</span>
         </div>
@@ -238,7 +238,7 @@
         <p>Because the mind has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">Intermediate Update Rule for WEIGHT</div>
+          <div class="formula-block-label">INTERMEDIATE UPDATE RULE for WEIGHT</div>
           <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence</span><br/>
           <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
         </div>
@@ -284,7 +284,7 @@
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">Intermediate Update Rule for WEIGHT</div>
+            <div class="formula-block-label">INTERMEDIATE UPDATE RULE for WEIGHT</div>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span><br/>
             <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence</span>
           </div>
@@ -361,7 +361,7 @@
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">Intermediate Update Rule for WEIGHT</div>
+            <div class="formula-block-label">INTERMEDIATE UPDATE RULE for WEIGHT</div>
             <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence</span><br/> 
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>           
           </div>
@@ -494,7 +494,7 @@ for EXAMPLE in range(EXAMPLES):
 
     WEIGHT_OUTPUT_influence = INPUT
 
-    # INTERMEDIATE UPDATE RULE
+    # INTERMEDIATE UPDATE RULE for WEIGHT
     WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence
     WEIGHT = WEIGHT + WEIGHT_update
 
