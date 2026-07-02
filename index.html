@@ -29,7 +29,7 @@
       margin-bottom: 6px;
     }
 
-    @media (max-width: 465px) {
+    @media (max-width: 480px) {
       .header-title { font-size: 22px; }
     }
 
@@ -278,11 +278,7 @@
               <td>3.00</td>
               <td>6.00</td>
             </tr>
-            <tr>
-              <td style="text-align:left; font-weight:900;"><strong>SUM</strong></td>
-              <td colspan="2"></td>
-              <td>14.00</td>
-            </tr>
+            
             <tr>
               <td style="text-align:left; font-weight:900;"><strong>DISCOUNT</strong></td>
               <td colspan="2"></td>
@@ -311,6 +307,7 @@
             <tr><td>4.00</td><td>2.00</td><td class="label-cell"><strong>UNITS</strong></td></tr>
             <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>PRICES</strong></td></tr>
             <tr><td>8.00</td><td>6.00</td><td class="label-cell"><strong>AMOUNTS</strong></td></tr>
+            <tr><td colspan="2">14.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
             <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>DISCOUNT</strong></td></tr>
             <tr class="sum-row"><td colspan="2">13.50</td><td class="label-cell"><strong>TOTAL</strong></td></tr>
           </table>
@@ -323,6 +320,7 @@
         <div class="callout callout-neutral">
           TOTAL = 4.00 &times; 2.00 + 2.00 &times; 3.00 + (-0.50)<br/>
           TOTAL = 8.00 + 6.00 - 0.50<br/>
+          TOTAL = 14.00 - 0.50<br/>
           TOTAL = 13.50
         </div>
 
@@ -333,6 +331,7 @@
             <tr><td>4.00</td><td>2.00</td><td class="label-cell"><strong>INPUTS</strong></td></tr>
             <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>WEIGHTS</strong></td></tr>
             <tr><td>8.00</td><td>6.00</td><td class="label-cell"><strong>PRODUCTS</strong></td></tr>
+            <tr><td colspan="2">14.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
             <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>BIAS</strong></td></tr>
             <tr class="sum-row"><td colspan="2">13.50</td><td class="label-cell"><strong>OUTPUT</strong></td></tr>
           </table>
@@ -345,6 +344,7 @@
         <div class="callout callout-neutral">
           OUTPUT = 4.00 &times; 2.00 + 2.00 &times; 3.00 + (-0.50)<br/>
           OUTPUT = 8.00 + 6.00 - 0.50<br/>
+          OUTPUT = 14.00 - 0.50<br/>
           OUTPUT = 13.50
         </div>
 
@@ -357,6 +357,7 @@
             <tr><td>3.00</td><td>5.00</td><td class="label-cell"><strong>UNITS</strong></td></tr>
             <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>PRICES</strong></td></tr>
             <tr><td>6.00</td><td>15.00</td><td class="label-cell"><strong>AMOUNTS</strong></td></tr>
+            <tr><td colspan="2">21.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
             <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>DISCOUNT</strong></td></tr>
             <tr class="sum-row"><td colspan="2">20.50</td><td class="label-cell"><strong>TOTAL</strong></td></tr>
           </table>
@@ -369,6 +370,7 @@
             <tr><td>3.00</td><td>5.00</td><td class="label-cell"><strong>INPUTS</strong></td></tr>
             <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>WEIGHTS</strong></td></tr>
             <tr><td>6.00</td><td>15.00</td><td class="label-cell"><strong>PRODUCTS</strong></td></tr>
+            <tr><td colspan="2">21.00</td><td class="label-cell"><strong>SUM</strong></td></tr>
             <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>BIAS</strong></td></tr>
             <tr class="sum-row"><td colspan="2">20.50</td><td class="label-cell"><strong>OUTPUT</strong></td></tr>
           </table>
@@ -396,7 +398,9 @@ BIAS = -0.50
 PRODUCT1 = INPUT1 * WEIGHT1
 PRODUCT2 = INPUT2 * WEIGHT2
 
-OUTPUT = PRODUCT1 + PRODUCT2 + BIAS 
+SUM = PRODUCT1 + PRODUCT2
+
+OUTPUT = SUM + BIAS 
 
 print(f"Our OUTPUT = {OUTPUT}")
 </textarea>
@@ -426,6 +430,7 @@ print(f"Our OUTPUT = {OUTPUT}")
             <tr><td><strong>UNITS</strong></td><td>&rarr;</td><td><strong>INPUTS</strong></td></tr>
             <tr><td><strong>PRICES</strong></td><td>&rarr;</td><td><strong>WEIGHTS</strong></td></tr>
             <tr><td><strong>AMOUNTS</strong></td><td>&rarr;</td><td><strong>PRODUCTS</strong></td></tr>
+            <tr><td><strong>SUM</strong></td><td>&rarr;</td><td><strong>SUM</strong></td></tr>
             <tr><td><strong>DISCOUNT</strong></td><td>&rarr;</td><td><strong>BIAS</strong></td></tr>
             <tr><td><strong>TOTAL</strong></td><td>&rarr;</td><td><strong>OUTPUT</strong></td></tr>
           </table>
