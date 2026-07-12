@@ -430,7 +430,17 @@ print(f"Testing complete: ERROR = {ERROR}")
     <div class="section-label">Note</div>
     <div class="card">
       <div class="card-body">
-        <p>Modern machines can learn from their own errors, 
+        <p>The first intuition:</p>
+        <ul class="prose-list">
+          <li>a machine has a <strong>PARAMETER</strong> (<strong>WEIGHT</strong>),</li>
+          <li>it makes a guess (<strong>OUTPUT</strong>),</li>
+          <li>it compares with the desired answer (<strong>TARGET</strong>),</li>
+          <li>it measures the difference (<strong>ERROR</strong>),</li>
+          <li>it changes itself.</li>
+        </ul>
+
+
+        <p>So modern machines can learn from their own errors, 
           thanks to the <strong>PARAMETER UPDATE RULE</strong> and its variations. 
           While the SIMPLEST UPDATE RULE was sufficient for this task, 
           we are moving step by step toward the <strong>FUNDAMENTAL UPDATE RULE</strong> 
