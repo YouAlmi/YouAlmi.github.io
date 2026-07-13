@@ -44,89 +44,18 @@
       </div>
     </div>
 
-    <!-- THE MIND -->
-    <div class="section-label">Mind</div>
-    <div class="card">
-      <div class="card-body">
-        <p>We're going to build a machine mind that can multiply any number by <strong>5.0</strong>.</p>
-        <p>Let's call this mind the <strong>Multiplier-by-Five</strong>.</p>
-        <p>It will have a single <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
-        <p>The mind will be a simple formula like this:</p>
-        <div class="callout callout-neutral">
-          <strong>OUTPUT = INPUT × WEIGHT</strong>
-        </div>
-        <p>We need to find the correct <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
-      </div>
-    </div>
-
-
-    <!-- Initial PARAMETER -->
-    <div class="section-label">Initial PARAMETER</div>
-    <div class="card">
-      <div class="card-body">
-        <p>Suppose we don't yet know what the <strong>PARAMETER</strong> should be, so let's start by setting it to <strong>zero</strong>:</p>
-        <div class="callout callout-neutral">WEIGHT = <strong>0.00</strong></div>
-        <p>At first, the mind will generate nonsense, since with any <strong>INPUT</strong> the <strong>OUTPUT</strong> is <strong>zero</strong>.</p>
-      </div>
-    </div>
-
-
-    <!-- THE DATASET -->
-    <div class="section-label">Dataset</div>
-    <div class="card">
-      <div class="card-body">
-        <p>We have this training <strong>DATASET</strong> consisting of two <strong>EXAMPLES</strong>:</p>
-
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th> </th>
-                <th>INPUT</th>
-                <th>TARGET</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>EXAMPLE 1</td>
-                <td>&nbsp;0.60</td>
-                <td>&nbsp;3.00</td>
-              </tr>
-              <tr>
-                <td>EXAMPLE 2</td>
-                <td>-1.00</td>
-                <td>-5.00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>
-          <strong>EXAMPLE 1</strong> means when the <strong>INPUT</strong> is <strong>0.60</strong>, the <strong>OUTPUT</strong> must be <strong>3.00</strong>.<br/>
-          <strong>EXAMPLE 2</strong> means when the <strong>INPUT</strong> is <strong>-1.00</strong>, the <strong>OUTPUT</strong> must be <strong>-5.00</strong>.
-        </p>
-        <p>
-          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the mind <strong>updates</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
-        </p>
-      </div>
-    </div>
 
 
 
 
-
-
-
-
-
-    <!-- INFLUENCE -->
+<!-- INFLUENCE -->
     <div class="section-label">INFLUENCE</div>
 
     <div class="card">
       <div class="card-body">
 
     
-        <p>Consider <strong>INFLUENCE</strong>.</p>
+        <p>First of all, consider <strong>INFLUENCE</strong>.</p>
 
         <p>To understand this simple concept, let's look at three examples, each with a simple formula.</p>
 
@@ -292,7 +221,7 @@
       <div class="card-body">
 
     
-        <p>Consider the <strong>CHAIN of INFLUENCE</strong>.</p>
+        <p>Now, Consider the <strong>CHAIN of INFLUENCE</strong>.</p>
 
         <p>To understand this simple concept, let's look at two examples, each with simple formulas.</p>
 
@@ -451,6 +380,85 @@
     </div>
 
 
+
+
+
+    <!-- THE MIND -->
+    <div class="section-label">Mind</div>
+    <div class="card">
+      <div class="card-body">
+        <p>We're going to build a machine mind that can multiply any number by <strong>5.0</strong>.</p>
+        <p>Let's call this mind the <strong>Multiplier-by-Five</strong>.</p>
+        <p>It will have a single <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
+        <p>The mind will be a simple formula like this:</p>
+        <div class="callout callout-neutral">
+          <strong>OUTPUT = INPUT × WEIGHT</strong>
+        </div>
+        <p>We need to find the correct <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
+      </div>
+    </div>
+
+
+    <!-- Initial PARAMETER -->
+    <div class="section-label">Initial PARAMETER</div>
+    <div class="card">
+      <div class="card-body">
+        <p>Suppose we don't yet know what the <strong>PARAMETER</strong> should be, so let's start by setting it to <strong>zero</strong>:</p>
+        <div class="callout callout-neutral">WEIGHT = <strong>0.00</strong></div>
+        <p>At first, the mind will generate nonsense, since with any <strong>INPUT</strong> the <strong>OUTPUT</strong> is <strong>zero</strong>.</p>
+      </div>
+    </div>
+
+
+    <!-- THE DATASET -->
+    <div class="section-label">Dataset</div>
+    <div class="card">
+      <div class="card-body">
+        <p>We have this training <strong>DATASET</strong> consisting of two <strong>EXAMPLES</strong>:</p>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th> </th>
+                <th>INPUT</th>
+                <th>TARGET</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>EXAMPLE 1</td>
+                <td>&nbsp;0.60</td>
+                <td>&nbsp;3.00</td>
+              </tr>
+              <tr>
+                <td>EXAMPLE 2</td>
+                <td>-1.00</td>
+                <td>-5.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <strong>EXAMPLE 1</strong> means when the <strong>INPUT</strong> is <strong>0.60</strong>, the <strong>OUTPUT</strong> must be <strong>3.00</strong>.<br/>
+          <strong>EXAMPLE 2</strong> means when the <strong>INPUT</strong> is <strong>-1.00</strong>, the <strong>OUTPUT</strong> must be <strong>-5.00</strong>.
+        </p>
+        <p>
+          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the mind <strong>updates</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    
 
 
 
