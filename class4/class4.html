@@ -203,14 +203,47 @@
           ERROR  = <strong>32.0</strong><br/>
           PACE  = <strong>1.0</strong><br/>
 
-          <div class="influence-panel">
-            <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
-            Our formula is: <strong>OUTPUT = INPUT × WEIGHT + BIAS</strong><br/>
-            The number that multiplies the <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
-            Therefore: <strong>WEIGHT_OUTPUT_influence = INPUT</strong>
+          
+           <div class="influence-panel">
+            <div class="influence-panel-label">CHAIN of INFLUENCES</div>
+            WEIGHT_OUTPUT_influence = WEIGHT_PRODUCT_influence × PRODUCT_SUM_influence × SUM_OUTPUT_influence
           </div>
 
-          WEIGHT_OUTPUT_influence = INPUT = <strong>0.0</strong><br/><br/>
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is WEIGHT_PRODUCT_influence here?</div>
+            Our formula is: <strong>PRODUCT = INPUT × WEIGHT</strong><br/>
+            The number that multiplies the <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
+            Therefore: <strong>WEIGHT_PRODUCT_influence = INPUT</strong>
+          </div>
+            WEIGHT_PRODUCT_influence = INPUT = <strong>0.0</strong><br/><br/>
+          
+
+
+
+
+            <div class="influence-panel">
+            <div class="influence-panel-label">What is PRODUCT_SUM_influence here?</div>
+            The formula is: <strong>SOM = PRODUCT + BIAS</strong><br/>
+            We can re-write it this way: <strong>SOM = 1.0 × PRODUCT + BIAS</strong><br/>
+            The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0</strong>.<br/>
+            Therefore: <strong>PRODUCT_OUTPUT_influence = 1.0</strong>
+          </div>
+            PRODUCT_SOM_influence = <strong>1.0</strong><br/><br/>
+
+
+
+          
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is SOM_OUTPUT_influence here?</div>
+            Our formula is: <strong>OUTPUT = SUM</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0 × SUM</strong><br/>
+            The number that multiplies the <strong>SUM</strong> is <strong>1.0</strong>.<br/>
+            Therefore: <strong>SUM_OUTPUT_influence = 1.0</strong>
+          </div>
+
+          SUM_OUTPUT_influence = <strong>1.0</strong><br/><br/>
+
+          WEIGHT_OUTPUT_influence = WEIGHT_PRODUCT_influence × PRODUCT_SUM_influence × SUM_OUTPUT_influence = 0.0 × 1.0 × 1.0 = <strong>0.0</strong><br/>
          
           WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = 32.0 × 0.0 × 1.0 = <strong>0.0</strong><br/><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 0.0 = <strong>0.0</strong><br/>
