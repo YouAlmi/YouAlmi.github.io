@@ -204,7 +204,7 @@
           PACE  = <strong>1.0</strong><br/>
 
           
-           <div class="influence-panel">
+          <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
             WEIGHT_OUTPUT_influence = WEIGHT_PRODUCT_influence × PRODUCT_SUM_influence × SUM_OUTPUT_influence
           </div>
@@ -255,14 +255,24 @@
           ERROR  = <strong>32.0</strong><br/>
           PACE  = <strong>1.0</strong><br/>
 
+          
           <div class="influence-panel">
-            <div class="influence-panel-label">What is BIAS_OUTPUT_influence here?</div>
-            Our formula is: <strong>OUTPUT = INPUT × WEIGHT + BIAS</strong><br/>
+            <div class="influence-panel-label">CHAIN of INFLUENCES</div>
+            BIAS_OUTPUT_influence = BIAS_SUM_influence × SUM_OUTPUT_influence
+          </div>
+          
+          
+          
+          
+          <div class="influence-panel">
+            <div class="influence-panel-label">What is BIAS_SUM_influence here?</div>
+            Our formula is: <strong>SUM = INPUT × WEIGHT + BIAS</strong><br/>
+            We can re-write it this way: <strong>SUM = INPUT × WEIGHT + 1.0 × BIAS</strong><br/>
             The number that multiplies the <strong>BIAS</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>BIAS_OUTPUT_influence = 1.0</strong>
           </div>
 
-          BIAS_OUTPUT_influence = <strong>1.0</strong><br/><br/>
+          BIAS_SUM_influence = <strong>1.0</strong><br/>
          
           BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE = 32.0 × 1.0 × 1.0 = <strong>32.0</strong><br/><br/>
           BIAS = BIAS + BIAS_update = 0.0 + 32.0 = <strong>32.0</strong><br/>
