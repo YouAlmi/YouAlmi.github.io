@@ -302,7 +302,7 @@
             The number that multiplies the <strong>WEIGHT</strong> is the <strong>INPUT</strong>.<br/>
             Therefore: <strong>WEIGHT_PRODUCT_influence = INPUT</strong>
           </div>
-          WEIGHT_PRODUCT_influence = INPUT = <strong>0.6000</strong><br/>
+          WEIGHT_PRODUCT_influence = INPUT = <strong>-10.0000</strong><br/>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is PRODUCT_OUTPUT_influence here?</div>
@@ -313,35 +313,22 @@
           </div>
           PRODUCT_OUTPUT_influence = <strong>1.0000</strong><br/><br/>
 
-          WEIGHT_OUTPUT_influence = WEIGHT_PRODUCT_influence × PRODUCT_OUTPUT_influence = 0.6000 × 1.0000 = <strong>0.6000</strong><br/><br/>
+          WEIGHT_OUTPUT_influence = WEIGHT_PRODUCT_influence × PRODUCT_OUTPUT_influence = -10.0000 × 1.0000 = <strong>-10.0000</strong><br/><br/>
          
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = 3.0000 × 0.6000 × 0.0100 = <strong>0.0180</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.0000 + 0.0180 = <strong>0.0180</strong><br/>
-
-
-
-
-
-          <div class="influence-panel">
-            <div class="influence-panel-label">What is WEIGHT_OUTPUT_influence here?</div>
-            Our formula is: <strong>OUTPUT = INPUT × WEIGHT</strong><br/>
-            The number that multiplies the <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
-            Therefore: <strong>WEIGHT_OUTPUT_influence = INPUT</strong>
-          </div>
-
-          WEIGHT_OUTPUT_influence = INPUT = <strong>−10.0000</strong><br/>
-          
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = −49.8200 × (−10.0000) × 0.0100 = <strong>4.9820</strong><br/>
+          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = −49.8200 × (-10.0000) × 0.0100 = <strong>4.9820</strong><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0180 + 4.9820 = <strong>5.0000</strong><br/>
+
+
+
         </div>
 
         <div class="result-banner">WEIGHT = 5.0000</div>
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong>
-          <p>The mind has just improved itself.</p>
+          <p>The mind has just improved itself again.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>−10.0000</strong>,
-          the <strong>OUTPUT</strong> becomes <strong>−50.0000</strong> — which is closer to the
+          the <strong>OUTPUT</strong> becomes <strong>−50.0000</strong> (−10.0000 × 5.0000) — which is closer to the
           <strong>TARGET</strong> (<strong>−50.0000</strong>) than the previous <strong>OUTPUT</strong> (<strong>-0.1800</strong>) was.</p>
         </div>
 
