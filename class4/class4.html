@@ -224,7 +224,7 @@
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>PRODUCT_OUTPUT_influence = 1.0</strong>
           </div>
-            PRODUCT_SOM_influence = <strong>1.0</strong><br/>
+            PRODUCT_SUM_influence = <strong>1.0</strong><br/>
           
           <div class="influence-panel">
             <div class="influence-panel-label">What is SOM_OUTPUT_influence here?</div>
@@ -273,6 +273,18 @@
           </div>
 
           BIAS_SUM_influence = <strong>1.0</strong><br/>
+
+           <div class="influence-panel">
+            <div class="influence-panel-label">What is SOM_OUTPUT_influence here?</div>
+            Our formula is: <strong>OUTPUT = SUM</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0 × SUM</strong><br/>
+            The number that multiplies the <strong>SUM</strong> is <strong>1.0</strong>.<br/>
+            Therefore: <strong>SUM_OUTPUT_influence = 1.0</strong>
+          </div>
+
+          SUM_OUTPUT_influence = <strong>1.0</strong><br/><br/>
+
+          BIAS_OUTPUT_influence = BIAS_SUM_influence × SUM_OUTPUT_influence = 1.0 × 1.0 = <strong>1.0</strong><br/><br/>
          
           BIAS_update = ERROR × BIAS_OUTPUT_influence × PACE = 32.0 × 1.0 × 1.0 = <strong>32.0</strong><br/><br/>
           BIAS = BIAS + BIAS_update = 0.0 + 32.0 = <strong>32.0</strong><br/>
