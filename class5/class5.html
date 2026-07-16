@@ -49,24 +49,33 @@
 
 
 
-    <div class="section-label">ACTIVATION</div>
-    <div class="card">
-      <div class="card-body">
-        <p>Let's look at a famous <strong>ACTIVATION</strong> called <strong>ReLU</strong>.</p>
-        <p><strong>ReLU</strong>'s behavior is known as "<strong>SAVE or ZERO</strong>".</p>
-        <p>Imagine <strong>ReLU</strong> is a special math wizard. 
-          Its job is incredibly simple: it plays a game of "<strong>PASS or ZERO</strong>" 
-          with every <strong>SUM</strong> that passes through it.</p>
-        <p>When a <strong>SUM</strong> enters <strong>ReLU</strong>, 
-          it asks one simple question: "Is the <strong>SUM</strong> positive or negative?"</p>
-        <ul class="prose-list">
-          <li><strong>SAVE (The Positives):</strong> If the <strong>SUM</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> actually <strong>SAVES</strong> it. It lets the <strong>SUM</strong> pass through completely unchanged. A 0.1 stays 0.1, and a 10.0 stays 10.0.</li>
-          <li><strong>ZERO (The Negatives):</strong> If the <strong>SUM</strong> is negative (like -0.1, -0.7, or -10.0), <strong>ReLU</strong> instantly <strong>ZEROS</strong> it. It turns the <strong>SUM</strong> into <strong>zero</strong> (<strong>0.0</strong>). It only lets the <strong>zero</strong> pass through.</li>
-        </ul>
-        <p>In other words, <strong>ReLU</strong> takes in a <strong>SUM</strong> 
-        and sends out the maximum between that <strong>SUM</strong> and <strong>0.0</strong>:</p>
-        <p style="text-align: center;"><strong>max(SUM, 0.0)</strong></p>
-        <p>Here is how we can write this "<strong>SAVE or ZERO</strong>" game in Python code:</p>
+   <div class="section-label">ACTIVATION</div>
+<div class="card">
+  <div class="card-body">
+    <p>Let's look at a famous <strong>ACTIVATION</strong> called <strong>ReLU</strong>.</p>
+
+    <p><strong>ReLU</strong>'s behavior is known as "<strong>SAVE or ZERO</strong>".</p>
+
+    <p>Imagine <strong>ReLU</strong> is a special math magician.
+      Its favorite trick is a game called "<strong>SAVE or ZERO</strong>",
+      which it plays with every <strong>SUM</strong> that passes through it.</p>
+
+    <p>When a <strong>SUM</strong> enters <strong>ReLU</strong>,
+      the magician asks one simple question:
+      "<strong>Are you positive or negative?</strong>"</p>
+
+    <ul class="prose-list">
+      <li><strong>SAVE (The Positives):</strong> If the <strong>SUM</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> <strong>SAVES</strong> it. The <strong>SUM</strong> passes through completely unchanged. A 0.1 stays 0.1, and a 10.0 stays 10.0.</li>
+
+<li><strong>ZERO (The Negatives):</strong> If the <strong>SUM</strong> is negative (like −0.1, −0.7, or −10.0), <strong>ReLU</strong> turns it into <strong>0.0</strong>. The <strong>0.0</strong> passes through. A −0.1 becomes 0.0, and a −10.0 becomes 0.0.</li>
+    </ul>
+
+    <p>In other words, <strong>ReLU</strong> takes in a <strong>SUM</strong>
+    and sends out the maximum of that <strong>SUM</strong> and <strong>0.0</strong>:</p>
+
+    <p style="text-align: center;"><strong>max(SUM, 0.0)</strong></p>
+
+    <p>Here is how we can write this "<strong>SAVE or ZERO</strong>" game in Python code:</p>
 
 
         <p><strong>🟢 GAME 1: The positive SUM is SAVED ✅</strong></p>
