@@ -63,22 +63,21 @@
           <li><strong>SAVE (The Positives):</strong> If the <strong>SUM</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> actually <strong>SAVES</strong> it. <strong>ReLU</strong> says, "You're good! Keep going." It lets the <strong>SUM</strong> pass through completely unchanged. A 0.1 stays 0.1, and a 10.0 stays 10.0.</li>
           <li><strong>KILL (The Negatives):</strong> If the <strong>SUM</strong> is negative (like -0.1, -0.7, or -10.0), <strong>ReLU</strong> instantly <strong>KILLS</strong> it. It turns the <strong>SUM</strong> into <strong>zero</strong> (<strong>0.0</strong>). The <strong>SUM</strong> is dead — it stops right there and cannot go any further.</li>
         </ul>
-        <strong>In other words, ReLU takes in a <strong>SUM</strong> 
-        and sends out whichever number is bigger between that <strong>SUM</strong> and <strong>0.0</strong>.
+        <p>In other words, ReLU takes in a <strong>SUM</strong> 
+        and sends out whichever number is bigger between that <strong>SUM</strong> and <strong>0.0</strong>.</p>
         <p>Here is how we can write this "<strong>SAVE or KILL</strong>" game in Python code:</p>
 
 
-
-
-
-
-
-
+        <p><strong># Game 1: The positive SUM is SAVED</strong></p>
 
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input3" style="line-height: 1.2;">
-print(3)
+SUM = 0.1
+ACTIVATION = max(0.0, SUM) 
+OUTPUT = ACTIVATION
+
+print(f"OUTPUT = {OUTPUT}")  # Output is 0.1
 </textarea>
           </div>
           <div class="code-row">
@@ -90,13 +89,17 @@ print(3)
           <div id="output-window3">Ready to execute!</div>
         </div>
 
-        <p>4</p>
-
+        <p><strong># Game 2: The negative SUM is KILLED</strong></p>
+     
     
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input4" style="line-height: 1.2;">
-print(4)
+SUM = -0.7
+ACTIVATION = max(0.0, SUM)
+OUTPUT = ACTIVATION 
+
+print(f"OUTPUT = {OUTPUT}")  # Output is 0.0
 </textarea>
           </div>
           <div class="code-row">
@@ -108,6 +111,8 @@ print(4)
           <div id="output-window4">Ready to execute!</div>
         </div>
     
+
+
 
 
   </div>
