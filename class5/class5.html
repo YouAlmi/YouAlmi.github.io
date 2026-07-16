@@ -61,8 +61,65 @@
           the guard asks one question: "Are you positive or negative?"</p>
         <ul class="prose-list">
           <li><strong>SAVE (The Positives):</strong> If the <strong>SUM</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> actually <strong>SAVES</strong> it. <strong>ReLU</strong> says, "You're good! Keep going." It lets the <strong>SUM</strong> pass through completely unchanged. A 0.1 stays 0.1, and a 10.0 stays 10.0.</li>
-          <li><strong>KILL (The Negatives):</strong> If the <strong>SUM</strong> is negative (like -0.1, -0.7, or -10.0), <strong>ReLU</strong> instantly <strong>KILLS</strong> it. It turns the <strong>SUM</strong> into <strong>zero</strong> (0.0). The <strong>SUM</strong> is dead — it stops right there and cannot go any further.</li>
-        </ul> 
+          <li><strong>KILL (The Negatives):</strong> If the <strong>SUM</strong> is negative (like -0.1, -0.7, or -10.0), <strong>ReLU</strong> instantly <strong>KILLS</strong> it. It turns the <strong>SUM</strong> into <strong>zero</strong> (<strong>0.0</strong>). The <strong>SUM</strong> is dead — it stops right there and cannot go any further.</li>
+        </ul>
+        <strong>In other words, ReLU takes in a <strong>SUM</strong> 
+        and sends out whichever number is bigger between that <strong>SUM</strong> and <strong>0.0</strong>.
+        <p>Here is how we can write this "<strong>SAVE or KILL</strong>" game in Python code:</p>
+
+
+
+
+
+
+
+
+    <div class="card">
+      <div class="card-body">
+        <h3>3. ADDITIONAL TEST BLOCK A</h3>
+        <p>Run simple validation tests inside this sandbox workspace.</p>
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input3" style="line-height: 1.2;">
+print(3)
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(3)"><strong>RUN CODE 3</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input3', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window3">Ready to execute!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3>4. ADDITIONAL TEST BLOCK B</h3>
+        <p>Run auxiliary validation checks within this dedicated test container.</p>
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input4" style="line-height: 1.2;">
+print(4)
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(4)"><strong>RUN CODE 4</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input4', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window4">Ready to execute!</div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
       </div>
     </div>
 
@@ -839,50 +896,14 @@ print(f"ERROR: {ERROR}")
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-body">
-        <h3>3. ADDITIONAL TEST BLOCK A</h3>
-        <p>Run simple validation tests inside this sandbox workspace.</p>
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input3" style="line-height: 1.2;">
-print(3)
-</textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(3)"><strong>RUN CODE 3</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input3', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window3">Ready to execute!</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-body">
-        <h3>4. ADDITIONAL TEST BLOCK B</h3>
-        <p>Run auxiliary validation checks within this dedicated test container.</p>
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input4" style="line-height: 1.2;">
-print(4)
-</textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(4)"><strong>RUN CODE 4</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input4', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window4">Ready to execute!</div>
-        </div>
-      </div>
-    </div>
 
 
-  </div>
+
+    
+
+
+
+
 
 
   <script>
