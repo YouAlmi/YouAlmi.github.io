@@ -4,7 +4,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLASS 1. FIRST MIND</title>
+  <title>CLASS 1. FIRST BRAIN</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
@@ -27,7 +27,7 @@
   <header>
     <div class="header-title">HOW MACHINES LEARN AND THINK</div>
     <div class="header-class">CLASS 1</div>
-    <div class="header-subtitle class-subtitle">Our Very First Machine Mind</div>
+    <div class="header-subtitle class-subtitle">Our Very First Machine Brain</div>
   </header>
 
 
@@ -38,20 +38,20 @@
     <div class="card">
       <div class="card-body">
         <p>A <strong>NEURON</strong> needs at least one <strong>WEIGHT</strong> to do anything useful.</p>
-        <p>To learn from data, a mind also needs a <strong>PARAMETER UPDATE RULE</strong>.</p>
+        <p>To learn from data, a brain also needs a <strong>PARAMETER UPDATE RULE</strong>.</p>
       </div>
     </div>
 
 
-    <!-- THE MIND -->
-    <div class="section-label">Mind</div>
+    <!-- THE BRAIN -->
+    <div class="section-label">Brain</div>
     <div class="card">
       <div class="card-body">
-        <p>We're going to build a machine mind that can multiply any number by <strong>5.0</strong>.</p>
+        <p>We're going to build a machine brain that can multiply any number by <strong>5.0</strong>.</p>
         <p>In this scenario, the <strong>INPUT</strong> represents the number being multiplied, and the <strong>OUTPUT</strong> represents the result of the multiplication.</p>
-        <p>Let's call this mind the <strong>Multiplier-by-Five</strong>.</p>
+        <p>Let's call this brain the <strong>Multiplier-by-Five</strong>.</p>
         <p>It will have a single <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
-        <p>The mind will be a simple formula like this:</p>
+        <p>The brain will be a simple formula like this:</p>
         <div class="callout callout-neutral">
           <strong>OUTPUT = INPUT × WEIGHT</strong>
         </div>
@@ -66,7 +66,7 @@
       <div class="card-body">
         <p>Suppose we don't yet know what the <strong>PARAMETER</strong> should be, so let's start by setting it to <strong>zero</strong>:</p>
         <div class="callout callout-neutral">WEIGHT = <strong>0.0</strong></div>
-        <p>At first, the mind will generate nonsense, since with any <strong>INPUT</strong> the <strong>OUTPUT</strong> is <strong>zero</strong>.</p>
+        <p>At first, the brain will generate nonsense, since with any <strong>INPUT</strong> the <strong>OUTPUT</strong> is <strong>zero</strong>.</p>
       </div>
     </div>
 
@@ -107,7 +107,7 @@
           <strong>EXAMPLE 2</strong> means when the <strong>INPUT</strong> is <strong>1.0</strong>, the <strong>OUTPUT</strong> must be <strong>5.0</strong>.
         </p>
         <p>
-          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the mind <strong>updates</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
+          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the brain <strong>updates</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
         </p>
       </div>
     </div>
@@ -117,7 +117,7 @@
     <div class="section-label">Update Rule</div>
     <div class="card">
       <div class="card-body">
-        <p>The mind <strong>updates</strong> the <strong>PARAMETER</strong> using this <strong>UPDATE RULE</strong>:</p>
+        <p>The brain <strong>updates</strong> the <strong>PARAMETER</strong> using this <strong>UPDATE RULE</strong>:</p>
 
         <div class="formula-block">
           <div class="formula-block-label">SIMPLEST UPDATE RULE for PARAMETER</div>
@@ -125,7 +125,7 @@
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
         </div>
 
-        <p>Because the mind has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
+        <p>Because the brain has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
 
         <div class="formula-block">
           <div class="formula-block-label">SIMPLEST UPDATE RULE for WEIGHT</div>
@@ -174,7 +174,7 @@
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
-          <p>Imagine the mind asking itself:</p>
+          <p>Imagine the brain asking itself:</p>
           <p>"How should I change my WEIGHT so the OUTPUT gets closer to the TARGET?"</p>
           <p>The <strong>ERROR</strong> provides the answer:</p>
           <p>"Your OUTPUT is <strong>3.0</strong> below the TARGET, so increase the WEIGHT by <strong>3.0</strong>."</p>
@@ -196,7 +196,7 @@
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong><br/>
-          <p>The mind has just improved itself.</p>
+          <p>The brain has just improved itself.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>0.6</strong>, 
             the <strong>OUTPUT</strong> becomes <strong>1.8</strong> (0.6 × 3.0) — 
             which is closer to the <strong>TARGET</strong> (<strong>3.0</strong>) 
@@ -244,7 +244,7 @@
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
-          <p>Imagine the mind asking itself again:</p>
+          <p>Imagine the brain asking itself again:</p>
           <p>"How should I change my WEIGHT so the OUTPUT gets closer to the TARGET?"</p>
           <p>The <strong>ERROR</strong> provides the answer:</p>
           <p>"Your OUTPUT is <strong>2.0</strong> below the TARGET, so increase the WEIGHT by <strong>2.0</strong>."</p>
@@ -266,7 +266,7 @@
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong><br/>
-          <p>The mind has just improved itself again.</p>
+          <p>The brain has just improved itself again.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>1.0</strong>, 
             the <strong>OUTPUT</strong> becomes <strong>5.0</strong> (1.0 × 5.0) — 
             which is closer to the <strong>TARGET</strong> (<strong>5.0</strong>) 
@@ -297,7 +297,7 @@
     <div class="card">
       <div class="card-body">
 
-        <p>To <strong>test</strong> the mind, we give it a new <strong>EXAMPLE</strong> it has never seen before.</p>
+        <p>To <strong>test</strong> the brain, we give it a new <strong>EXAMPLE</strong> it has never seen before.</p>
 
         <div class="callout callout-neutral">WEIGHT = <strong>5.0</strong></div>
         <p><strong>EXAMPLE</strong> for <strong>TESTING</strong>:</p>
@@ -323,10 +323,10 @@
         </div>
 
         <div class="callout callout-warning">
-          <p>Since <strong>ERROR = 0.0</strong>, this mind works perfectly!</p>
+          <p>Since <strong>ERROR = 0.0</strong>, this brain works perfectly!</p>
           <p>It has learned the rule: <strong>multiply any number by 5.0</strong>.</p>
           <p>The <strong>Multiplier-by-Five</strong> can now solve problems it has never encountered before.</p>
-          <p>The mind is now just this formula:</p>
+          <p>The brain is now just this formula:</p>
           <div class="callout callout-neutral"><strong>OUTPUT = INPUT × 5.0</strong></div>
         </div>
 
@@ -340,9 +340,9 @@
     <div class="card">
       <div class="card-body">
 
-        <!-- TRAIN THE MIND -->
+        <!-- TRAIN THE BRAIN -->
          <p>Just click <strong>RUN CODE</strong>.</p>
-        <h3>TRAIN THE MIND 🧠</h3>
+        <h3>TRAIN THE BRAIN 🧠</h3>
         <p></p>  
 
         <div class="pythoncode">
@@ -391,10 +391,10 @@ print(f"TRAINING complete: WEIGHT = {WEIGHT}")
 
 
         <p><br/></p>
-        <h3>TEST THE MIND 🧠</h3>
+        <h3>TEST THE BRAIN 🧠</h3>
         <p></p>
 
-        <!-- TEST THE MIND -->
+        <!-- TEST THE BRAIN -->
         <div class="pythoncode">
 
 
@@ -439,7 +439,7 @@ print(f"Testing complete: ERROR = {ERROR}")
       <div class="card-body">
         <p>Our first intuition:</p>
         <ul class="prose-list">
-          <li>a machine mind has a <strong>PARAMETER</strong> (<strong>WEIGHT</strong>),</li>
+          <li>a machine brain has a <strong>PARAMETER</strong> (<strong>WEIGHT</strong>),</li>
           <li>it takes in an <strong>INPUT</strong> and makes a guess (<strong>OUTPUT</strong>),</li>
           <li>it checks the guess against the right answer (<strong>TARGET</strong>),</li>
           <li>it sees the difference (<strong>ERROR</strong>),</li>
