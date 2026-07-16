@@ -39,7 +39,7 @@
     <div class="card">
       <div class="card-body">
         <p>Here, we add <strong>BIAS</strong> to the <strong>NEURON</strong>. 
-        So the mind will have two <strong>PARAMETERS</strong>: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
+        So the brain will have two <strong>PARAMETERS</strong>: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
         <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, these <strong>PARAMETERS</strong> will compete over which gets updated more. 
           The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., <strong>ERROR × PARAMETER_OUTPUT_influence</strong> — receives a larger update.</p>
         <p>To see this competition more clearly, let's set <strong>PACE</strong> to <strong>1.0</strong>:</p>
@@ -47,15 +47,15 @@
       </div>
     </div>
 
-    <!-- MIND -->
-    <div class="section-label">Mind</div>
+    <!-- BRAIN -->
+    <div class="section-label">Brain</div>
     <div class="card">
       <div class="card-body">
-        <p>We're going to build a machine mind that can convert Celsius temperatures to Fahrenheit temperatures.</p>
+        <p>We're going to build a machine brain that can convert Celsius temperatures to Fahrenheit temperatures.</p>
         <p>In this scenario, the <strong>INPUT</strong> represents Celsius and the <strong>OUTPUT</strong> represents Fahrenheit.</p>
-        <p>Let's call this mind the <strong>Converter-°C-to-°F</strong>.</p>
+        <p>Let's call this brain the <strong>Converter-°C-to-°F</strong>.</p>
         <p>As previously noted, it will have two <strong>PARAMETERS</strong>: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
-        <p>The mind will be just a formula like this:</p>
+        <p>The brain will be just a formula like this:</p>
         <div class="callout callout-neutral"><strong>OUTPUT = INPUT × WEIGHT + BIAS</strong></div>
       </div>
     </div>
@@ -70,7 +70,7 @@
         <div class="callout callout-neutral">
           WEIGHT = <strong>0.0</strong><br/>
           BIAS = <strong>0.0</strong></div>
-        <p>At first, the mind will generate nonsense, since with any <strong>INPUT</strong> the <strong>OUTPUT</strong> is <strong>zero</strong>.</p>
+        <p>At first, the brain will generate nonsense, since with any <strong>INPUT</strong> the <strong>OUTPUT</strong> is <strong>zero</strong>.</p>
       </div>
     </div>
 
@@ -109,7 +109,7 @@
         <p><strong>EXAMPLE</strong> 2 means when the <strong>INPUT</strong> is <strong>1.0</strong>, the <strong>OUTPUT</strong> must be <strong>33.8</strong>, because 1.0°C equals 33.8°F.</p>
     
         <p>
-          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the mind <strong>updates</strong> each <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
+          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the brain <strong>updates</strong> each <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
         </p>
       </div>
     </div>
@@ -121,7 +121,7 @@
     <div class="card">
       <div class="card-body">
 
-        <p>The mind <strong>updates</strong> each <strong>PARAMETER</strong> using the <strong>FUNDAMENTAL UPDATE RULE</strong>:</p>
+        <p>The brain <strong>updates</strong> each <strong>PARAMETER</strong> using the <strong>FUNDAMENTAL UPDATE RULE</strong>:</p>
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
@@ -129,7 +129,7 @@
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
         </div>
 
-        <p>Because the mind has two <strong>PARAMETERS</strong> — <strong>WEIGHT</strong> and <strong>BIAS</strong> — we obtain these two update rules:</p>
+        <p>Because the brain has two <strong>PARAMETERS</strong> — <strong>WEIGHT</strong> and <strong>BIAS</strong> — we obtain these two update rules:</p>
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
@@ -685,7 +685,7 @@
     <div class="card">
       <div class="card-body">
 
-        <p>To <strong>test</strong> the mind, we give it a new <strong>EXAMPLE</strong> it has never seen before.</p>
+        <p>To <strong>test</strong> the brain, we give it a new <strong>EXAMPLE</strong> it has never seen before.</p>
 
         <div class="callout callout-neutral">
           WEIGHT = <strong>1.8</strong><br/>
@@ -717,10 +717,10 @@
         </div>
 
         <div class="callout callout-warning">
-          <p>Since <strong>ERROR = 0.0</strong>, this mind works perfectly!</p>
+          <p>Since <strong>ERROR = 0.0</strong>, this brain works perfectly!</p>
           <p>It has learned the rule: <strong>convert Celsius temperatures into Fahrenheit</strong>.</p>
           <p>The <strong>Converter-°C-to-°F</strong> can now solve problems it has never encountered before.</p>
-          <p>The mind is now just this formula:</p>
+          <p>The brain is now just this formula:</p>
         <div class="callout callout-neutral"><strong>OUTPUT = INPUT × 1.8 + 32.0</strong></div>
         </div>
 
@@ -734,8 +734,8 @@
     <div class="card">
       <div class="card-body">
 
-        <!-- GROW THE MIND -->
-        <h3>TRAIN THE MIND 🧠</h3>
+        <!-- GROW THE BRAIN -->
+        <h3>TRAIN THE BRAIN 🧠</h3>
         <p></p>
 
         <div class="pythoncode">
@@ -799,10 +799,10 @@ BIAS   = {BIAS:.1f}""")
 
 
         <p><br/></p>
-        <h3>TEST THE MIND 🧠</h3>
+        <h3>TEST THE BRAIN 🧠</h3>
         <p></p>
 
-        <!-- TEST THE MIND -->
+        <!-- TEST THE BRAIN -->
         <div class="pythoncode">
 
 
@@ -842,7 +842,7 @@ print(f"TESTING complete: ERROR = {ERROR:.1f}")
     <div class="section-label">Note</div>
     <div class="card">
       <div class="card-body">
-        <p>Crucially, <strong>BIAS</strong> adds capability to the <strong>NEURON</strong>. Without <strong>BIAS</strong>, the mind would not even be able to solve a problem as simple as converting Celsius to Fahrenheit (because 0°C is 32°F, which requires adding an additional number).</p>
+        <p>Crucially, <strong>BIAS</strong> adds capability to the <strong>NEURON</strong>. Without <strong>BIAS</strong>, the brain would not even be able to solve a problem as simple as converting Celsius to Fahrenheit (because 0°C is 32°F, which requires adding an additional number).</p>
         <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, all <strong>PARAMETERS</strong> compete over which gets updated more. The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., <strong>ERROR × PARAMETER_OUTPUT_influence</strong> — receives a larger update.</p>
         
         <div class="formula-block">
@@ -866,7 +866,7 @@ print(f"TESTING complete: ERROR = {ERROR:.1f}")
       <p>Here, the <strong style="color:var(--yellow);">NEURON</strong> 
         receives multiple <strong style="color:var(--yellow);">INPUTS</strong>
         at once.<br/>
-      The mind recommends whether you should<br/>
+      The brain recommends whether you should<br/>
       go to a party or not.</p>
     </div>
 
