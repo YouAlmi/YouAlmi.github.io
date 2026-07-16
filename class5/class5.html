@@ -64,7 +64,8 @@
           <li><strong>KILL (The Negatives):</strong> If the <strong>SUM</strong> is negative (like -0.1, -0.7, or -10.0), <strong>ReLU</strong> instantly <strong>KILLS</strong> it. It turns the <strong>SUM</strong> into <strong>zero</strong> (<strong>0.0</strong>). The <strong>SUM</strong> is dead — it stops right there and cannot go any further.</li>
         </ul>
         <p>In other words, ReLU takes in a <strong>SUM</strong> 
-        and sends out the maximum between that <strong>SUM</strong> and <strong>0.0</strong>: maximum(SUM, 0.0)</p>
+        and sends out the maximum between that <strong>SUM</strong> and <strong>0.0</strong>:</p> 
+        <p style="text-align: center;">max(SUM, 0.0)</p>
         <p>Here is how we can write this "<strong>SAVE or KILL</strong>" game in Python code:</p>
 
 
@@ -74,7 +75,7 @@
           <div class="textarea-wrap">
 <textarea id="code-input3" style="line-height: 1.2;">
 SUM = 0.1
-ACTIVATION = maximum(SUM, 0.0) 
+ACTIVATION = max(SUM, 0.0)
 OUTPUT = ACTIVATION
 
 print(f"OUTPUT = {OUTPUT}")
@@ -96,7 +97,7 @@ print(f"OUTPUT = {OUTPUT}")
           <div class="textarea-wrap">
 <textarea id="code-input4" style="line-height: 1.2;">
 SUM = -0.7
-ACTIVATION = maximum(SUM, 0.0)
+ACTIVATION = max(SUM, 0.0)
 OUTPUT = ACTIVATION 
 
 print(f"OUTPUT = {OUTPUT}")
