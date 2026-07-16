@@ -131,17 +131,16 @@
           <img src="nn.jpg" alt="nn" />
         </div>
 
-          <p>It’s called <i>neural</i> because it’s made of <strong>NEURONS</strong>.</p>
-          <div class="neuron-emoji">😎</div>
-          <div class="neuron-label">NEURON</div>
-          <p>It’s called a <i>network</i> because <strong>NEURONS</strong> connect to each other and work together.</p>
-        </ul>
+        <p>It’s called <i>neural</i> because it’s made of <strong>NEURONS</strong>.</p>
+        <div class="neuron-emoji">😎</div>
+        <div class="neuron-label">NEURON</div>
+        <p>It’s called a <i>network</i> because <strong>NEURONS</strong> connect to each other and work together.</p>
 
         <p>Think of each <strong>NEURON</strong> as a small, smart helper.</p>
         <p>But what does every <strong>NEURON</strong> do?</p>
           
-        <p>Actually, each <strong>NEURON</strong takes in input <strong>SIGNALS</strong>, does a simple math, and sends out one output <strong>SIGNAL</strong>.</p>
-        <p>For example, a <strong>NEURON</strong> might take in two input <strong>SIGNALS</strong>, do a simple math, and send out one output <strong>SIGNAL</strong>.</p>
+        <p>Actually, each <strong>NEURON</strong> takes in input <strong>SIGNALS</strong>, does simple math, and sends out one output <strong>SIGNAL</strong>.</p>
+        <p>For example, a <strong>NEURON</strong> might take in two input <strong>SIGNALS</strong>, do simple math, and send out one output <strong>SIGNAL</strong>.</p>
 
         <div class="table-wrap">
           <table class="doc-table">
@@ -201,10 +200,12 @@
         </div>
 
         <p>For short:</p>
-        <li>Input <strong>SIGNALS</strong> → <strong>INPUTS</strong></li>
-        <li>Output <strong>SIGNAL</strong> → <strong>OUTPUT</strong></li>
+        <ul class="prose-list">
+          <li>Input <strong>SIGNALS</strong> → <strong>INPUTS</strong></li>
+          <li>Output <strong>SIGNAL</strong> → <strong>OUTPUT</strong></li>
+        </ul>
 
-      <div class="table-wrap">
+        <div class="table-wrap">
           <table class="doc-table">
             <tr>
               <td><strong>0.36</strong></td>
@@ -372,9 +373,8 @@
 
         <p>Again, no math changed. Only names changed.</p>
         <p>The Python code below makes all the calculations instantly.</p>
-         <p>Just click <strong>RUN CODE</strong>.</p>
-         <h3>RUN THE AI NEURON 🧠</h3>
-        <p></p>  
+        <p>Just click <strong>RUN CODE</strong>.</p>
+        <h3>RUN THE AI NEURON 🧠</h3>
 
         <div class="pythoncode">
        
@@ -443,8 +443,10 @@ print(f"Our OUTPUT = {OUTPUT}")
     <div class="card-body">
     <p>Today's largest AI models may each have over 1 trillion <strong>PARAMETERS</strong>. 
       Meanwhile, the human brain is staggeringly complex:</p>
-    <li>~500 trillion connections (<strong>synapses</strong>)</li>
-    <li>~86 billion <strong>neurons</strong></li>
+    <ul class="prose-list">
+      <li>~500 trillion connections (<strong>synapses</strong>)</li>
+      <li>~86 billion <strong>neurons</strong></li>
+    </ul>
 
 
     <p>You can think of each <strong>synapse</strong> as playing the role of a <strong>WEIGHT</strong>, while each biological <strong>neuron</strong> also has properties that loosely resemble a <strong>BIAS</strong>.</p>
@@ -563,7 +565,6 @@ print(f"Our OUTPUT = {OUTPUT}")
 
 
 <script>
-    // REASON 3 FIXED: Restored copyCode and outf scripts so runPython functions correctly
     function copyCode(id, btn) {
       const text = document.getElementById(id).value;
       navigator.clipboard.writeText(text).then(() => {
