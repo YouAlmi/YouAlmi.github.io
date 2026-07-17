@@ -147,7 +147,158 @@ print(f"OUTPUT = {OUTPUT}")
 </div>
 
 
+     <div class="section-label">🧠 BRAIN</div>
 
+<div class="card">
+  <div class="card-body">
+
+    <p>Let's build a tiny <strong>machine brain</strong> that helps us make decisions.</p>
+
+    <p>Our first <strong>machine brain</strong> will answer one simple question:</p>
+
+    <div class="callout callout-neutral">
+      <strong>Should I go to this party?</strong> 🎉
+    </div>
+
+    <p>In other words, we're building an AI <strong>Recommender</strong> for open-air dance parties.</p>
+
+    <p>To keep things simple, let's pretend that only <strong>three things</strong> matter when you decide whether to go.</p>
+
+    <ul class="prose-list">
+      <li>Will at least one of your <strong>best friends</strong> be there?</li>
+      <li>Will at least one of your <strong>favorite DJs</strong> be performing?</li>
+      <li>Will it <strong>rain</strong>, according to the weather forecast?</li>
+    </ul>
+
+    <p>These three pieces of information will become our three <strong>INPUTS</strong>.</p>
+
+  </div>
+</div>
+
+
+<div class="section-label">🎯 Your Preferences</div>
+
+<div class="card">
+  <div class="card-body">
+
+    <p>Every person has different preferences.</p>
+
+    <p>Let's imagine these are yours.</p>
+
+  </div>
+</div>
+
+
+<div class="section-label">Preference 1</div>
+
+<div class="card">
+  <div class="card-body">
+
+    <p>If at least one of your <strong>best friends</strong> will be at the party and it <strong>won't rain</strong>, you always go.</p>
+
+    <p>It doesn't matter whether your favorite <strong>DJ</strong> is performing.</p>
+
+    <p>So we already know these two situations:</p>
+
+    <!-- SMALL EXAMPLE TABLE -->
+
+    <p>So our <strong>machine brain</strong> learns these two examples:</p>
+
+    <!-- TRAINING TABLE -->
+
+  </div>
+</div>
+
+
+<div class="section-label">Preference 2</div>
+
+<div class="card">
+  <div class="card-body">
+
+    <p>Now suppose you also have another preference.</p>
+
+    <p>If at least one of your favorite <strong>DJs</strong> will be performing and it <strong>won't rain</strong>, you always go.</p>
+
+    <p>This time, it doesn't matter whether any of your <strong>best friends</strong> will be there.</p>
+
+    <p>That gives us two more situations.</p>
+
+    <!-- SMALL EXAMPLE TABLE -->
+
+    <p>So now our <strong>machine brain</strong> knows these examples:</p>
+
+    <!-- TRAINING TABLE -->
+
+  </div>
+</div>
+
+
+<div class="section-label">Preference 3</div>
+
+<div class="card">
+  <div class="card-body">
+
+    <p>Finally, suppose the weather forecast says it <strong>will rain</strong>. 🌧️</p>
+
+    <p>Now you're much pickier.</p>
+
+    <p>You only go if <strong>both</strong> of these are true:</p>
+
+    <ul class="prose-list">
+      <li>At least one of your <strong>best friends</strong> will be there.</li>
+      <li>At least one of your favorite <strong>DJs</strong> will be performing.</li>
+    </ul>
+
+    <p>Otherwise, you stay home.</p>
+
+    <!-- SMALL EXAMPLE TABLE -->
+
+    <p>So now our <strong>machine brain</strong> knows these examples:</p>
+
+    <!-- FULL TRAINING TABLE -->
+
+  </div>
+</div>
+
+
+<div class="section-label">Removing Duplicates</div>
+
+<div class="card">
+  <div class="card-body">
+
+    <p>Look carefully.</p>
+
+    <p><strong>CASE&nbsp;2</strong> and <strong>CASE&nbsp;4</strong> are exactly the same.</p>
+
+    <p>Our <strong>machine brain</strong> doesn't need to learn the same example twice, so we can simply remove one of them.</p>
+
+    <p>Now our training table becomes:</p>
+
+    <!-- DEDUPLICATED TABLE -->
+
+  </div>
+</div>
+
+
+<div class="section-label">🔢 From Words to Numbers</div>
+
+<div class="card">
+  <div class="card-body">
+
+    <p>Computers don't really understand words like <strong>YES</strong>, <strong>NO</strong>, <strong>GO</strong>, or <strong>DO NOT GO</strong>.</p>
+
+    <p>They prefer numbers.</p>
+
+    <p>So let's translate everything:</p>
+
+    <!-- YES/NO → 1.0/0.0 TABLE -->
+
+    <p>Now our <strong>machine brain</strong> sees this:</p>
+
+    <!-- NUMERIC TRAINING TABLE -->
+
+  </div>
+</div>
 
 
     <div class="section-label">Brain</div>
