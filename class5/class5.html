@@ -126,72 +126,25 @@ print(f"OUTPUT = {OUTPUT}")
 
 
 
+  <div class="section-label">INFLUENCE</div>
 
-    <div class="section-label">ACTIVATION</div>
-    <div class="card">
-      <div class="card-body">
-        <p>Let's look at a famous <strong>ACTIVATION</strong> called <strong>ReLU</strong>.</p>
-        <p><strong>ReLU</strong>'s behavior is known as "<strong>SAVE or KILL</strong>".</p>
-        <p>Imagine <strong>ReLU</strong> is the security guard of a super-exclusive club. 
-          Its job is incredibly simple: it plays a game of "<strong>SAVE or KILL</strong>" 
-          with every <strong>SUM</strong> that tries to pass through it.</p>
-        <p>When a <strong>SUM</strong> knocks on <strong>ReLU</strong>'s door, 
-          the guard asks one question: "Are you positive or negative?"</p>
-        <ul class="prose-list">
-          <li><strong>SAVE (The Positives):</strong> If the <strong>SUM</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> actually <strong>SAVES</strong> it. <strong>ReLU</strong> says, "You're good! Keep going." It lets the <strong>SUM</strong> pass through completely unchanged. A 0.1 stays 0.1, and a 10.0 stays 10.0.</li>
-          <li><strong>KILL (The Negatives):</strong> If the <strong>SUM</strong> is negative (like -0.1, -0.7, or -10.0), <strong>ReLU</strong> instantly <strong>KILLS</strong> it. It turns the <strong>SUM</strong> into <strong>zero</strong> (<strong>0.0</strong>). The <strong>SUM</strong> is dead — it stops right there and cannot go any further.</li>
-        </ul>
-        <p>In other words, ReLU takes in a <strong>SUM</strong> 
-        and sends out the maximum between that <strong>SUM</strong> and <strong>0.0</strong>:</p> 
-        <p style="text-align: center;"><strong>max(SUM, 0.0)</strong></p>
-        <p>Here is how we can write this "<strong>SAVE or KILL</strong>" game in Python code:</p>
+<div class="card">
+  <div class="card-body">
 
+    <p>Of course, when the <strong>ACTIVATION</strong> is <strong>ReLU</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is also incredibly simple.</p>
 
-        <p><strong>🟢 GAME 1: The positive SUM is SAVED ✅</strong></p>
+    <ul class="prose-list">
+      <li><strong>When the SUM is positive:</strong> The <strong>ACTIVATION = SUM</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is <strong>1.0</strong>.</li>
 
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input3" style="line-height: 1.2;">
-SUM = 0.1
-ACTIVATION = max(SUM, 0.0)
-OUTPUT = ACTIVATION
+      <li><strong>When the SUM is negative:</strong> The <strong>ACTIVATION = 0.0</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is <strong>0.0</strong>.</li>
+    </ul>
 
-print(f"OUTPUT = {OUTPUT}")
-</textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(3)"><strong>RUN CODE 3</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input3', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window3">Ready to execute!</div>
-        </div>
+    <p>In a <strong>NEURON</strong>, 
+        <strong>ReLU</strong> is both incredibly simple and incredibly useful. 
+        We will see this throughout this entire course.</p>
 
-        <p><strong>🔴 GAME 2: The negative SUM is KILLED ❌</strong></p>
-     
-    
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input4" style="line-height: 1.2;">
-SUM = -0.7
-ACTIVATION = max(SUM, 0.0)
-OUTPUT = ACTIVATION 
-
-print(f"OUTPUT = {OUTPUT}")
-</textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(4)"><strong>RUN CODE 4</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input4', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window4">Ready to execute!</div>
-        </div>
-    
-      </div>
-    </div>
+  </div>
+</div>
 
 
 
