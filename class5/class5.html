@@ -215,7 +215,7 @@ print(f"OUTPUT = {OUTPUT}")
         <p>So we already know these two situations:</p>
 
         <div class="table-wrap" style="width:100%;">
-          <table class="doc-table" style="width:100%; table-layout: fixed;">
+          <table class="doc-table" style="width:70%; table-layout: fixed;">
             
             <!-- ROW 1: HEADERS -->
             <tr class="col-header">
@@ -240,6 +240,98 @@ print(f"OUTPUT = {OUTPUT}")
               <td style="text-align:left;"><strong>SITUATION1</strong></td>
               <td><strong>YES</strong></td>
               <td><strong>NO</strong></td>
+              <td><strong>NO</strong></td>
+              <td><strong>GO</strong></td>
+            </tr>
+
+          </table>
+        </div>
+
+      <div class="table-wrap" style="width:100%;">
+          <table class="doc-table" style="width:70%; table-layout: fixed;">
+            
+            <!-- ROW 1: HEADERS -->
+            <tr class="col-header">
+              <td style="text-align:left; width: 20%;"></td>
+              <td style="width: 20%;"><strong>INPUT1</strong></td>
+              <td style="width: 20%;"><strong>INPUT2</strong></td>
+              <td style="width: 20%;"><strong>INPUT3</strong></td>
+              <td style="width: 20%;"><strong>OUTPUT</strong></td>
+            </tr>
+            
+            <!-- ROW 2: IMAGES -->
+            <tr>
+              <td style="text-align:left;"></td>
+              <td><img src="friend.png" alt="INPUT 1 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="dj.png" alt="INPUT 2 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="rain.png" alt="INPUT 3 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="up.png" alt="OUTPUT VISUAL" style="width:100%; height:auto;" /></td>
+            </tr>
+            
+            <!-- ROW 3: EXAMPLE DATA -->
+            <tr>
+              <td style="text-align:left;"><strong>SITUATION2</strong></td>
+              <td><strong>YES</strong></td>
+              <td><strong>YES</strong></td>
+              <td><strong>NO</strong></td>
+              <td><strong>GO</strong></td>
+            </tr>
+
+          </table>
+        </div>
+
+
+        <p>So our <strong>machine brain</strong> learns these two examples:</p>
+
+        <!-- TRAINING TABLE -->
+
+     
+
+        <hr class="divider"/>
+
+
+        <!-- EXAMPLE 2 -->
+        <div class="step-heading">
+          <div class="step-badge">2</div>
+          <span>Preference 2</span>
+        </div>
+
+        
+    <p>Now suppose you also have another preference.</p>
+
+    <p>If at least one of your favorite <strong>DJs</strong> will be performing and it <strong>won't rain</strong>, you always go.</p>
+
+    <p>This time, it doesn't matter whether any of your <strong>best friends</strong> will be there.</p>
+
+    <p>That gives us two more situations.</p>
+
+
+        <div class="table-wrap" style="width:100%;">
+          <table class="doc-table" style="width:100%; table-layout: fixed;">
+            
+            <!-- ROW 1: HEADERS -->
+            <tr class="col-header">
+              <td style="text-align:left; width: 20%;"></td>
+              <td style="width: 20%;"><strong>INPUT1</strong></td>
+              <td style="width: 20%;"><strong>INPUT2</strong></td>
+              <td style="width: 20%;"><strong>INPUT3</strong></td>
+              <td style="width: 20%;"><strong>OUTPUT</strong></td>
+            </tr>
+            
+            <!-- ROW 2: IMAGES -->
+            <tr>
+              <td style="text-align:left;"></td>
+              <td><img src="friend.png" alt="INPUT 1 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="dj.png" alt="INPUT 2 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="rain.png" alt="INPUT 3 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="up.png" alt="OUTPUT VISUAL" style="width:100%; height:auto;" /></td>
+            </tr>
+            
+            <!-- ROW 3: EXAMPLE DATA -->
+            <tr>
+              <td style="text-align:left;"><strong>SITUATION1</strong></td>
+              <td><strong>NO</strong></td>
+              <td><strong>YES</strong></td>
               <td><strong>NO</strong></td>
               <td><strong>GO</strong></td>
             </tr>
@@ -281,81 +373,12 @@ print(f"OUTPUT = {OUTPUT}")
         </div>
 
 
-        <p>So our <strong>machine brain</strong> learns these two examples:</p>
 
-        <!-- TRAINING TABLE -->
+    <p>So now our <strong>machine brain</strong> knows these examples:</p>
 
-        <div class="formula-block">
-          <span class="formula">RESULT = 3.0 × PARAMETER</span>
-        </div>
-
-        <p>If PARAMETER = <strong>5.0</strong>, then RESULT = 3.0 × 5.0 = <strong>15.0</strong>.</p>
-        <p>Now, if we change the <strong>PARAMETER</strong> by <strong>+0.1</strong>, the <strong>RESULT</strong> changes by <strong>+0.3</strong>:</p>
-
-        <div class="callout callout-neutral">
-          PARAMETER = 5.0 + 0.1 = <strong>5.1</strong><br/>
-          RESULT = 3.0 × 5.1 = <strong>15.3</strong><br/>
-          <br/>
-          PARAMETER_change = 5.1 − 5.0 = <strong>0.1</strong><br/>
-          RESULT_change = 15.3 − 15.0 = <strong>0.3</strong><br/>
-          <br/>
-          MULTIPLIER = RESULT_change / PARAMETER_change = 0.3 / 0.1 = <strong>3.0</strong>
-        </div>
-
-        <div class="callout callout-success">
-          <p>👉 The <strong>RESULT</strong> changed <strong>3.0</strong> times as much as the <strong>PARAMETER</strong>.</p>
-          <p>So we say: The <strong>INFLUENCE</strong> of the <strong>PARAMETER</strong> on the <strong>RESULT</strong> is <strong>3.0</strong>:</p>
-          <p>PARAMETER_RESULT_influence = <strong>3.0</strong></p>
-        </div>
-
-        <div class="takeaway">
-          <div class="takeaway-label">Takeaway</div>
-          The number (3.0) that multiplies the PARAMETER is the INFLUENCE of the PARAMETER on the RESULT.<br/><br/>
-          RESULT = <strong>3.0</strong> × PARAMETER<br/>
-          PARAMETER_RESULT_influence = <strong>3.0</strong>
-        </div>
+    <!-- TRAINING TABLE -->
 
 
-        <hr class="divider"/>
-
-
-        <!-- EXAMPLE 2 -->
-        <div class="step-heading">
-          <div class="step-badge">2</div>
-          <span>Example 2</span>
-        </div>
-
-        <p>The simple formula:</p>
-
-        <div class="formula-block">
-          <span class="formula">RESULT = −3.0 × PARAMETER</span>
-        </div>
-
-        <p>If <strong>PARAMETER</strong> = <strong>5.0</strong>, then <strong>RESULT</strong> = −3.0 × 5.0 = <strong>−15.0</strong>.</p>
-        <p>Now, if we change the <strong>PARAMETER</strong> by <strong>+0.1</strong>, the <strong>RESULT</strong> changes by <strong>−0.3</strong>:</p>
-
-        <div class="callout callout-neutral">
-          PARAMETER = 5.0 + 0.1 = <strong>5.1</strong><br/>
-          RESULT = −3.0 × 5.1 = <strong>−15.3</strong><br/>
-          <br/>
-          PARAMETER_change = 5.1 − 5.0 = <strong>0.1</strong><br/>
-          RESULT_change = −15.3 − (−15.0) = <strong>−0.3</strong><br/>
-          <br/>
-          MULTIPLIER = RESULT_change / PARAMETER_change = −0.3 / 0.1 = <strong>−3.0</strong>
-        </div>
-
-        <div class="callout callout-success">
-          <p>👉 The <strong>RESULT</strong> changed <strong>3.0</strong> times as much as the <strong>PARAMETER</strong>, but in the <strong>opposite direction</strong>.</p>
-          <p>So we say: The <strong>INFLUENCE</strong> of the <strong>PARAMETER</strong> on the <strong>RESULT</strong> is <strong>−3.0</strong>.</p>
-          <p>PARAMETER_RESULT_influence = <strong>-3.0</strong></p>
-        </div>
-
-        <div class="takeaway">
-          <div class="takeaway-label">Takeaway</div>
-          The number (-3.0) that multiplies the PARAMETER is the INFLUENCE of the PARAMETER on the RESULT.<br/><br/>
-          RESULT = <strong>−3.0</strong> × PARAMETER<br/>
-          PARAMETER_RESULT_influence = <strong>−3.0</strong>
-        </div>
 
 
       <hr class="divider"/>
@@ -363,62 +386,168 @@ print(f"OUTPUT = {OUTPUT}")
       <!-- EXAMPLE 3 -->
         <div class="step-heading">
           <div class="step-badge">3</div>
-          <span>Example 3</span>
+          <span>Preference 3</span>
         </div>
 
-        <p>The simple formula:</p>
+ 
+    <p>Finally, suppose the weather forecast says it <strong>will rain</strong>. 🌧️</p>
 
-        <div class="formula-block">
-          <span class="formula">RESULT = PARAMETER</span>
+    <p>Now you're much pickier.</p>
+
+    <p>You only go if <strong>both</strong> of these are true:</p>
+
+    <ul class="prose-list">
+      <li>At least one of your <strong>best friends</strong> will be there.</li>
+      <li>At least one of your favorite <strong>DJs</strong> will be performing.</li>
+    </ul>
+
+    <p>Otherwise, you stay home.</p>
+
+
+        <div class="table-wrap" style="width:100%;">
+          <table class="doc-table" style="width:100%; table-layout: fixed;">
+            
+            <!-- ROW 1: HEADERS -->
+            <tr class="col-header">
+              <td style="text-align:left; width: 20%;"></td>
+              <td style="width: 20%;"><strong>INPUT1</strong></td>
+              <td style="width: 20%;"><strong>INPUT2</strong></td>
+              <td style="width: 20%;"><strong>INPUT3</strong></td>
+              <td style="width: 20%;"><strong>OUTPUT</strong></td>
+            </tr>
+            
+            <!-- ROW 2: IMAGES -->
+            <tr>
+              <td style="text-align:left;"></td>
+              <td><img src="friend.png" alt="INPUT 1 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="dj.png" alt="INPUT 2 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="rain.png" alt="INPUT 3 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="up.png" alt="OUTPUT VISUAL" style="width:100%; height:auto;" /></td>
+            </tr>
+            
+            <!-- ROW 3: EXAMPLE DATA -->
+            <tr>
+              <td style="text-align:left;"><strong>SITUATION1</strong></td>
+              <td><strong>YES</strong></td>
+              <td><strong>YES</strong></td>
+              <td><strong>YES</strong></td>
+              <td><strong>GO</strong></td>
+            </tr>
+
+          </table>
         </div>
-        <p>We can re-write it this way:</p>
 
-        <div class="formula-block">
-          <span class="formula">RESULT = 1.0 × PARAMETER</span>
+      <div class="table-wrap" style="width:100%;">
+          <table class="doc-table" style="width:100%; table-layout: fixed;">
+            
+            <!-- ROW 1: HEADERS -->
+            <tr class="col-header">
+              <td style="text-align:left; width: 20%;"></td>
+              <td style="width: 20%;"><strong>INPUT1</strong></td>
+              <td style="width: 20%;"><strong>INPUT2</strong></td>
+              <td style="width: 20%;"><strong>INPUT3</strong></td>
+              <td style="width: 20%;"><strong>OUTPUT</strong></td>
+            </tr>
+            
+            <!-- ROW 2: IMAGES -->
+            <tr>
+              <td style="text-align:left;"></td>
+              <td><img src="friend.png" alt="INPUT 1 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="dj.png" alt="INPUT 2 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="rain.png" alt="INPUT 3 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="down.png" alt="OUTPUT VISUAL" style="width:100%; height:auto;" /></td>
+            </tr>
+            
+            <!-- ROW 3: EXAMPLE DATA -->
+            <tr>
+              <td style="text-align:left;"><strong>SITUATION2</strong></td>
+              <td><strong>NO</strong></td>
+              <td><strong>YES</strong></td>
+              <td><strong>YES</strong></td>
+              <td><strong>STAY</strong></td>
+            </tr>
+
+          </table>
         </div>
 
-        <p>If PARAMETER = <strong>5.0</strong>, then RESULT = 1.0 × 5.0 = <strong>5.0</strong>.</p>
-        <p>Now, if we change the <strong>PARAMETER</strong> by <strong>+0.1</strong>, the <strong>RESULT</strong> also changes by <strong>+0.1</strong>:</p>
 
-        <div class="callout callout-neutral">
-          PARAMETER = 5.0 + 0.1 = <strong>5.1</strong><br/>
-          RESULT = 1.0 × 5.1 = <strong>5.1</strong><br/>
-          <br/>
-          PARAMETER_change = 5.1 − 5.0 = <strong>0.1</strong><br/>
-          RESULT_change = 5.1 − 5.0 = <strong>0.1</strong><br/>
-          <br/>
-          MULTIPLIER = RESULT_change / PARAMETER_change = 0.1 / 0.1 = <strong>1.0</strong>
+      <div class="table-wrap" style="width:100%;">
+          <table class="doc-table" style="width:100%; table-layout: fixed;">
+            
+            <!-- ROW 1: HEADERS -->
+            <tr class="col-header">
+              <td style="text-align:left; width: 20%;"></td>
+              <td style="width: 20%;"><strong>INPUT1</strong></td>
+              <td style="width: 20%;"><strong>INPUT2</strong></td>
+              <td style="width: 20%;"><strong>INPUT3</strong></td>
+              <td style="width: 20%;"><strong>OUTPUT</strong></td>
+            </tr>
+            
+            <!-- ROW 2: IMAGES -->
+            <tr>
+              <td style="text-align:left;"></td>
+              <td><img src="friend.png" alt="INPUT 1 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="dj.png" alt="INPUT 2 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="rain.png" alt="INPUT 3 VISUAL" style="width:100%; height:auto;" /></td>
+              <td><img src="down.png" alt="OUTPUT VISUAL" style="width:100%; height:auto;" /></td>
+            </tr>
+            
+            <!-- ROW 3: EXAMPLE DATA -->
+            <tr>
+              <td style="text-align:left;"><strong>SITUATION2</strong></td>
+              <td><strong>YES</strong></td>
+              <td><strong>NO</strong></td>
+              <td><strong>YES</strong></td>
+              <td><strong>STAY</strong></td>
+            </tr>
+
+          </table>
         </div>
 
-        <div class="callout callout-success">
-          <p>👉 The <strong>RESULT</strong> changed <strong>1.0</strong> time as much as the <strong>PARAMETER</strong>. In other words, the <strong>RESULT</strong> remains equal to <strong>PARAMETER</strong>.</p>
-          <p>So we say: The <strong>INFLUENCE</strong> of the <strong>PARAMETER</strong> on the <strong>RESULT</strong> is <strong>1.0</strong>:</p>
-          <p>PARAMETER_RESULT_influence = <strong>1.0</strong></p>
-        </div>
 
-        <div class="takeaway">
-          <div class="takeaway-label">Takeaway</div>
-          The number (1.0) that multiplies the PARAMETER is the INFLUENCE of the PARAMETER on the RESULT.<br/><br/>
-          RESULT = <strong>1.0</strong> × PARAMETER<br/>
-          PARAMETER_RESULT_influence = <strong>1.0</strong>
-        </div>
+    <p>So now our <strong>machine brain</strong> knows these examples:</p>
+
+    <!-- FULL TRAINING TABLE -->
+
 
 
         <hr class="divider"/>
 
 
 
-        <p>The universal takeaway for simple formulas:</p>
+        <div class="takeaway-label">Removing Duplicates</div>
 
-        <div class="takeaway">
-          <div class="takeaway-label">Universal Takeaway</div>
-          The number that multiplies a PARAMETER is always the INFLUENCE of that PARAMETER on the RESULT.
+
+         <p>Look carefully.</p>
+
+        <p><strong>CASE&nbsp;2</strong> and <strong>CASE&nbsp;4</strong> are exactly the same.</p>
+
+        <p>Our <strong>machine brain</strong> doesn't need to learn the same example twice, so we can simply remove one of them.</p>
+
+        <p>Now our training table becomes:</p>
+
+        <!-- DEDUPLICATED TABLE -->
+
+
+       <hr class="divider"/>
+
+
+        <div class="takeaway-label">🔢 From Words to Numbers</div>       
+
+        <p>Computers don't really understand words like <strong>YES</strong>, <strong>NO</strong>, <strong>GO</strong>, or <strong>STAY</strong>.</p>
+
+        <p>They prefer numbers.</p>
+
+        <p>So let's translate everything this way:</p>
+
+        <!-- YES/NO → 1.0/0.0 TABLE -->
+
+        <p>Now our <strong>machine brain</strong> sees this:</p>
+
+        <!-- NUMERIC TRAINING TABLE -->
+
+          </div>
         </div>
-
-
-
-      </div>
-    </div>
 
 
 
