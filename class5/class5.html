@@ -4,7 +4,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLASS 5. ACTIVATION</title>
+  <title>CLASS 5. ACT</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
@@ -32,7 +32,7 @@
   <header>
     <div class="header-title">HOW MACHINES LEARN AND THINK</div>
     <div class="header-class">CLASS 5</div>
-    <div class="header-subtitle class-subtitle">ACTIVATION</div>
+    <div class="header-subtitle class-subtitle">ACT</div>
   </header>
 
 
@@ -44,7 +44,7 @@
   <div class="card-body">
     <p>In this class, for the first time, we are building a multilayer model — a 2-layer one.</p>
     <p>(Here's a pic of the model.)</p>
-    <p>We introduce two <strong>ACTIVATION FUNCTIONS</strong> — or <strong>ACTIVATIONS</strong> for short. We'll call them <strong>ACTS</strong> for even shorter.</p>
+    <p>We introduce two <strong>ACT FUNCTIONS</strong> — or <strong>ACTS</strong> for short. We'll call them <strong>ACTS</strong> for even shorter.</p>
     <p>An <strong>ACT</strong> takes in a <strong>SUM</strong> and sends out a final number, which becomes the official <strong>OUTPUT</strong> of the <strong>NEURON</strong>.</p>
     <p>Each <strong>ACT</strong> is simply a formula that behaves in an interesting way.</p>
     <p>We'll explore two <strong>ACTS</strong>: <strong>ReLU</strong> and <strong>SIGMOID</strong>.</p>
@@ -53,10 +53,10 @@
 
 
 
-    <div class="section-label">ACTIVATION (ReLU)</div>
+    <div class="section-label">ACT (ReLU)</div>
     <div class="card">
       <div class="card-body">
-        <p>Let's look at a famous <strong>ACTIVATION</strong> called <strong>ReLU</strong>.</p>
+        <p>Let's look at a famous <strong>ACT</strong> called <strong>ReLU</strong>.</p>
 
         <p><strong>ReLU</strong>'s behavior is known as "<strong>SAVE or ZERO</strong>".</p>
 
@@ -87,9 +87,9 @@
           <div class="textarea-wrap">
 <textarea id="code-input3" style="line-height: 1.2;">
 SUM = 0.1
-ACTIVATION = max(SUM, 0.0) # ReLU
+ACT = max(SUM, 0.0) # ReLU
 
-print(f"OUTPUT = {ACTIVATION}")
+print(f"OUTPUT = {ACT}")
 </textarea>
           </div>
           <div class="code-row">
@@ -107,9 +107,9 @@ print(f"OUTPUT = {ACTIVATION}")
           <div class="textarea-wrap">
 <textarea id="code-input4" style="line-height: 1.2;">
 SUM = -0.7
-ACTIVATION = max(SUM, 0.0) # ReLU
+ACT = max(SUM, 0.0) # ReLU
 
-print(f"OUTPUT = {ACTIVATION}")
+print(f"OUTPUT = {ACT}")
 </textarea>
           </div>
           <div class="code-row">
@@ -131,12 +131,12 @@ print(f"OUTPUT = {ACTIVATION}")
     <div class="card">
       <div class="card-body">
 
-        <p>Of course, when the <strong>ACTIVATION</strong> is <strong>ReLU</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is incredibly simple.</p>
+        <p>Of course, when the <strong>ACT</strong> is <strong>ReLU</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACT</strong> is incredibly simple.</p>
 
         <ul class="prose-list">
-          <li><strong>When the SUM is positive:</strong> The <strong>ACTIVATION = SUM</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is <strong>1.0</strong>.</li>
+          <li><strong>When the SUM is positive:</strong> The <strong>ACT = SUM</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACT</strong> is <strong>1.0</strong>.</li>
 
-          <li><strong>When the SUM is negative:</strong> The <strong>ACTIVATION = 0.0</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is <strong>0.0</strong>.</li>
+          <li><strong>When the SUM is negative:</strong> The <strong>ACT = 0.0</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACT</strong> is <strong>0.0</strong>.</li>
         </ul>
 
         <p>In a <strong>NEURON</strong>, 
@@ -154,7 +154,7 @@ print(f"OUTPUT = {ACTIVATION}")
     <div class="card">
       <div class="card-body">
 
-        <p>Let's look at another famous <strong>ACTIVATION</strong> called <strong>SIGMOID</strong>.</p>
+        <p>Let's look at another famous <strong>ACT</strong> called <strong>SIGMOID</strong>.</p>
 
         <p><strong>SIGMOID</strong>'s behavior is known as <strong>"ZERO TO ONE"</strong>.</p>
 
@@ -187,8 +187,8 @@ print(f"OUTPUT = {ACTIVATION}")
           <div class="textarea-wrap">
 <textarea id="code-input5" style="line-height: 1.2;">
 SUM = 10.0
-ACTIVATION = 1 / ( 1 + 1 / 2.71828**SUM )  # SIGMOID
-OUTPUT = ACTIVATION
+ACT = 1 / ( 1 + 1 / 2.71828**SUM )  # SIGMOID
+OUTPUT = ACT
 
 print(f"OUTPUT = {OUTPUT:.7f}")
 </textarea>
@@ -208,8 +208,8 @@ print(f"OUTPUT = {OUTPUT:.7f}")
           <div class="textarea-wrap">
 <textarea id="code-input6" style="line-height: 1.2;">
 SUM = -10.0
-ACTIVATION = 1 / ( 1 + 1 / 2.71828**SUM )  # SIGMOID
-OUTPUT = ACTIVATION
+ACT = 1 / ( 1 + 1 / 2.71828**SUM )  # SIGMOID
+OUTPUT = ACT
 
 print(f"OUTPUT = {OUTPUT:.7f}")
 </textarea>
@@ -229,8 +229,8 @@ print(f"OUTPUT = {OUTPUT:.7f}")
           <div class="textarea-wrap">
 <textarea id="code-input7" style="line-height: 1.2;">
 SUM = 0.0
-ACTIVATION = 1 / ( 1 + 1 / 2.71828**SUM )  # SIGMOID
-OUTPUT = ACTIVATION
+ACT = 1 / ( 1 + 1 / 2.71828**SUM )  # SIGMOID
+OUTPUT = ACT
 
 print(f"OUTPUT = {OUTPUT:.7f}")
 </textarea>
@@ -256,11 +256,11 @@ print(f"OUTPUT = {OUTPUT:.7f}")
     <div class="card">
       <div class="card-body">
 
-        <p>When the <strong>ACTIVATION</strong> is <strong>SIGMOID</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is also incredibly simple.</p>
+        <p>When the <strong>ACT</strong> is <strong>SIGMOID</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACT</strong> is also incredibly simple.</p>
 
         <ul class="prose-list">
-          <li><strong>When the SUM is near 0.0:</strong> The <strong>INFLUENCE</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM makes a noticeable change in the ACTIVATION.</li>
-          <li><strong>When the SUM is very positive or very negative:</strong> The <strong>INFLUENCE</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM barely affects the ACTIVATION — it's already squeezed to its limit!</li>
+          <li><strong>When the SUM is near 0.0:</strong> The <strong>INFLUENCE</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM makes a noticeable change in the ACT.</li>
+          <li><strong>When the SUM is very positive or very negative:</strong> The <strong>INFLUENCE</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM barely affects the ACT — it's already squeezed to its limit!</li>
         </ul>
 
       </div>
