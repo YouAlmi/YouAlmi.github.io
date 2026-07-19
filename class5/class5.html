@@ -153,17 +153,6 @@ print(f"OUTPUT = {ACT}")
       <div class="card-body">
 
         <p>Of course, when the <strong>ACT</strong> is <strong>ReLU</strong>, calculating <strong>SUM_ACT_INFLUENCE</strong> is incredibly simple.</p>
-
-        <ul class="prose-list">
-          <li><strong>When the SUM is positive:</strong> The <strong>ACT = SUM</strong>. Therefore, <strong>SUM_ACT_INFLUENCE</strong> is <strong>1.0</strong>.</li>
-
-          <li><strong>When the SUM is negative:</strong> The <strong>ACT = 0.0</strong>. Therefore, <strong>SUM_ACT_INFLUENCE</strong> is <strong>0.0</strong>.</li>
-        </ul>
-        
-        <div class="diagram">
-          <img src="relui.png" alt="relui" />
-        </div>
-        <br/>
         <p>So for <strong>ReLU</strong>:</p>
 
 <p style="text-align: center;"><strong>SUM_ACT_INFLUENCE = 1.0</strong> (when SUM > 0.0)</p>
@@ -171,6 +160,19 @@ print(f"OUTPUT = {ACT}")
 <p style="text-align: center;"><strong>SUM_ACT_INFLUENCE = 0.0</strong> (when SUM = 0.0)</p>
 
     <p>Very easy!</p>
+
+       
+        
+        <div class="diagram">
+          <img src="relui.png" alt="relui" />
+        </div>
+        <br/>
+         <ul class="prose-list">
+          <li><strong>When the SUM is positive:</strong> The <strong>ACT = SUM</strong>. Therefore, <strong>SUM_ACT_INFLUENCE</strong> is <strong>1.0</strong>.</li>
+
+          <li><strong>When the SUM is negative:</strong> The <strong>ACT = 0.0</strong>. Therefore, <strong>SUM_ACT_INFLUENCE</strong> is <strong>0.0</strong>.</li>
+        </ul>
+        
 
       </div>
     </div>
@@ -292,19 +294,22 @@ print(f"OUTPUT = {OUTPUT:.7f}")
 
         <p>When the <strong>ACT</strong> is <strong>SIGMOID</strong>, calculating the <strong>SUM_ACT_INFLUENCE</strong> is also incredibly simple.</p>
 
-        <ul class="prose-list">
-          <li><strong>When the SUM is near 0.0:</strong> <strong>SUM_ACT_INFLUENCE</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM makes a noticeable change in the ACT.</li>
-          <li><strong>When the SUM is very positive or very negative:</strong> <strong>SUM_ACT_INFLUENCE</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM barely affects the ACT — it's already squeezed to its limit!</li>
-        </ul>
+        
+        <p>For <strong>SIGMOID</strong>:</p>
+
+        <p style="text-align: center;"><strong>SUM_ACT_INFLUENCE = ACT × (1 - ACT)</strong></p>
+        <p>Very easy!</p>
+        <p>Some clever mathematicians figured out this super simple formula. 👍</p>
         <div class="diagram">
           <img src="si.png" alt="SUM_ACT_influence" />
         </div>
 
         <br/>
-        <p>For <strong>SIGMOID</strong>:</p>
-
-        <p style="text-align: center;"><strong>SUM_ACT_INFLUENCE = ACT × (1 - ACT)</strong></p>
-        <p>Some clever mathematicians figured out this super simple formula. 👍</p>
+        <ul class="prose-list">
+          <li><strong>When the SUM is near 0.0:</strong> <strong>SUM_ACT_INFLUENCE</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM makes a noticeable change in the ACT.</li>
+          <li><strong>When the SUM is very positive or very negative:</strong> <strong>SUM_ACT_INFLUENCE</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM barely affects the ACT — it's already squeezed to its limit!</li>
+        </ul>
+        
 
       </div>
     </div>
