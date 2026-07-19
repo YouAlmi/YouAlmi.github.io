@@ -1,200 +1,361 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Logic Table</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            max-width: 600px;
-            font-family: Arial, sans-serif;
-        }
-        th, td {
-            border: 1px solid #333;
-            padding: 8px 12px;
-            text-align: center;
-        }
-        thead {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-        tbody tr:nth-child(even) {
-            background-color: #fafafa;
-        }
-        .input-cell {
-            text-transform: uppercase;
-        }
-    </style>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLASS 5. ACTIVATION</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    /* ── code block heights ── */
+    #code-input1  { height: 870px; }
+    #code-input2  { height: 320px; }
+    #code-input3  { height: 155px; }
+    #code-input4  { height: 140px; }
+    #code-input5  { height: 155px; }
+    #code-input6  { height: 140px; }
+    #code-input7  { height: 140px; }
+  </style>
+
 </head>
+
+
 <body>
 
-<table>
-    <thead>
-        <tr>
-            <th>INPUT 1</th>
-            <th>INPUT 2</th>
-            <th>INPUT 3</th>
-            <th>OUTPUT</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="input-cell">friend</td>
-            <td class="input-cell">dj</td>
-            <td class="input-cell">rain</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>YES</td>
-            <td>NO</td>
-            <td>NO</td>
-            <td>GO</td>
-        </tr>
-        <tr>
-            <td>YES</td>
-            <td>YES</td>
-            <td>NO</td>
-            <td>GO P</td>
-        </tr>
-    </tbody>
-</table>
+  <header>
+    <div class="header-title">HOW MACHINES LEARN AND THINK</div>
+    <div class="header-class">CLASS 5</div>
+    <div class="header-subtitle class-subtitle">ACTIVATION</div>
+  </header>
+
+
+  <div class="page">
+
+    <div class="section-label">Introduction</div>
+
+    <div class="card">
+      <div class="card-body">
+        <p>In this class, for the first time, we are building a multilayer model — a 2-layer one.</p>
+        <p>(Here's a pic of the model.)</p>
+        <p>Also, we introduce two <strong>ACTIVATION FUNCTIONS</strong> — or <strong>ACTIVATIONS</strong> for short.</p>
+        <p>An <strong>ACTIVATION</strong> takes in a <strong>SUM</strong> and sends out a final number, which becomes the official <strong>OUTPUT</strong> of the <strong>NEURON</strong>.</p>
+        <p>Each <strong>ACTIVATION</strong> is simply a formula that behaves in an interesting way.</p>
+      </div>
+    </div>
+
+
+
+    <div class="section-label">ACTIVATION</div>
+    <div class="card">
+      <div class="card-body">
+        <p>Let's look at a famous <strong>ACTIVATION</strong> called <strong>ReLU</strong>.</p>
+
+        <p><strong>ReLU</strong>'s behavior is known as "<strong>SAVE or ZERO</strong>".</p>
+
+        <p>Imagine <strong>ReLU</strong> is a special math magician.
+          Its favorite trick is a game called "<strong>SAVE or ZERO</strong>",
+          which it plays with every <strong>SUM</strong> that passes through it.</p>
+
+        <p>When a <strong>SUM</strong> enters <strong>ReLU</strong>,
+          the magician asks one simple question:
+          "<strong>Are you positive or negative?</strong>"</p>
+
+        <ul class="prose-list">
+          <li><strong>SAVE (The Positives):</strong> If the <strong>SUM</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> <strong>SAVES</strong> it. The <strong>SUM</strong> passes through completely unchanged. So a 0.1 stays 0.1, and a 10.0 stays 10.0.</li>
+
+          <li><strong>ZERO (The Negatives):</strong> If the <strong>SUM</strong> is negative (like −0.1, −0.7, or −10.0), <strong>ReLU</strong> <strong>ZEROS</strong> it, turning the <strong>SUM</strong> into <strong>0.0</strong>. Only the <strong>0.0</strong> passes through. So a −0.1 becomes 0.0, and a −10.0 becomes 0.0.</li>
+        </ul>
+
+        <p>In other words, <strong>ReLU</strong> takes in a <strong>SUM</strong>
+        and sends out the maximum of that <strong>SUM</strong> and <strong>0.0</strong>:</p>
+
+        <p style="text-align: center;"><strong>max(SUM, 0.0)</strong></p>
+
+        <p>Here is how we can write this "<strong>SAVE or ZERO</strong>" game in Python code:</p>
+
+        <p><strong>🟢 GAME 1: The positive SUM is SAVED ✨</strong></p>
+
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input3" style="line-height: 1.2;">
+SUM = 0.1
+ACTIVATION = max(SUM, 0.0) # ReLU
+OUTPUT = ACTIVATION
+
+print(f"OUTPUT = {OUTPUT}")
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(3)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input3', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window3">Ready to execute!</div>
+        </div>
+
+        <p><strong>🔵 GAME 2: The negative SUM is turned into ZERO 🪄</strong></p>
+
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input4" style="line-height: 1.2;">
+SUM = -0.7
+ACTIVATION = max(SUM, 0.0) # ReLU
+OUTPUT = ACTIVATION
+
+print(f"OUTPUT = {OUTPUT}")
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(4)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input4', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window4">Ready to execute!</div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="section-label">INFLUENCE</div>
+
+    <div class="card">
+      <div class="card-body">
+
+        <p>Of course, when the <strong>ACTIVATION</strong> is <strong>ReLU</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is also incredibly simple.</p>
+
+        <ul class="prose-list">
+          <li><strong>When the SUM is positive:</strong> The <strong>ACTIVATION = SUM</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is <strong>1.0</strong>.</li>
+
+          <li><strong>When the SUM is negative:</strong> The <strong>ACTIVATION = 0.0</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is <strong>0.0</strong>.</li>
+        </ul>
+
+        <p>In a <strong>NEURON</strong>, 
+            <strong>ReLU</strong> is both incredibly simple and incredibly useful. 
+            We will see this throughout this entire course.</p>
+
+      </div>
+    </div>
+
+
+
+
+
+    <div class="section-label">ACTIVATION</div>
+    <div class="card">
+      <div class="card-body">
+
+        <p>Let's look at another famous <strong>ACTIVATION</strong> called <strong>SIGMOID</strong>.</p>
+
+        <p><strong>SIGMOID</strong>'s behavior is known as <strong>"FROM ZERO to ONE"</strong>.</p>
+
+        <p>Imagine <strong>SIGMOID</strong> is a friendly math genie.
+          Its favorite trick is a game called <strong>"FROM ZERO to ONE"</strong>,
+          which it plays with every <strong>SUM</strong> that enters its lamp.</p>
+
+        <p>When a <strong>SUM</strong> arrives, <strong>SIGMOID</strong> doesn't ask questions.
+          Instead, it <strong>squeezes</strong> that <strong>SUM</strong> — no matter how big or small —
+          into a cozy new home <strong>between 0.0 and 1.0</strong>.</p>
+
+        <ul class="prose-list">
+          <li><strong>Huge positive numbers</strong> (like 10.0 or 100.0) get squeezed <strong>very close to 1.0</strong> — but never quite reach it.</li>
+          <li><strong>Huge negative numbers</strong> (like −10.0 or −100.0) get squeezed <strong>very close to 0.0</strong> — but never quite reach it.</li>
+          <li><strong>Zero (0.0)</strong> stays right in the middle — it becomes <strong>0.5</strong>.</li>
+        </ul>
+
+        <p>In other words, <strong>SIGMOID</strong> takes in any <strong>SUM</strong>
+        and sends out a number that is <strong>always between 0.0 and 1.0</strong>.</p>
+
+        <p style="text-align: center;"><strong>SIGMOID(SUM) = 1 / (1 + e<sup>−SUM</sup>)</strong></p>
+
+        <p><em>(Don't worry about the fancy formula — just know it's a gentle squeeze!)</em></p>
+
+        <p>Here is how we can write this <strong>"FROM ZERO to ONE"</strong> game in Python code:</p>
+
+        <p><strong>🟢 GAME 3: A positive SUM gets squeezed close to 1.0 ✨</strong></p>
+
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input5" style="line-height: 1.2;">
+SUM = 2.0
+ACTIVATION = 1 / (1 + 2.71828**(-SUM))  # SIGMOID
+OUTPUT = ACTIVATION
+
+print(f"OUTPUT = {OUTPUT:.4f}")
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(5)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input5', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window5">Ready to execute!</div>
+        </div>
+
+        <p><strong>🔵 GAME 4: A negative SUM gets squeezed close to 0.0 🪄</strong></p>
+
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input6" style="line-height: 1.2;">
+SUM = -2.0
+ACTIVATION = 1 / (1 + 2.71828**(-SUM))  # SIGMOID
+OUTPUT = ACTIVATION
+
+print(f"OUTPUT = {OUTPUT:.4f}")
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(6)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input6', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window6">Ready to execute!</div>
+        </div>
+
+        <p><strong>🟣 GAME 5: Zero (0.0) stays right in the middle — 0.5 🎯</strong></p>
+
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input7" style="line-height: 1.2;">
+SUM = 0.0
+ACTIVATION = 1 / (1 + 2.71828**(-SUM))  # SIGMOID
+OUTPUT = ACTIVATION
+
+print(f"OUTPUT = {OUTPUT:.4f}")
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(7)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input7', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window7">Ready to execute!</div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="section-label">INFLUENCE</div>
+    <div class="card">
+      <div class="card-body">
+
+        <p>When the <strong>ACTIVATION</strong> is <strong>SIGMOID</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is a bit different from ReLU — but still incredibly simple.</p>
+
+        <ul class="prose-list">
+          <li><strong>When the SUM is near 0.0:</strong> The <strong>INFLUENCE</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM makes a noticeable change in the ACTIVATION.</li>
+          <li><strong>When the SUM is very positive or very negative:</strong> The <strong>INFLUENCE</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM barely affects the ACTIVATION — it's already squeezed to its limit!</li>
+        </ul>
+
+        <p>In a <strong>NEURON</strong>, 
+          <strong>SIGMOID</strong> is gentle, smooth, and always keeps things <strong>between 0.0 and 1.0</strong>. 
+          It's like a calm teacher who never raises their voice too high or drops too low.</p>
+
+      </div>
+    </div>
+
+
+
+    <div class="section-label">Code Exercises</div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3>1. TRAIN THE BIAS NEURON 🧠</h3>
+        <p>Let's write code to train our model over multiple epochs.</p>
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input1" style="line-height: 1.2;">
+print(1)
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(1)"><strong>RUN TRAIN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window1">Ready to train!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3>2. TEST THE TRAINED NEURON 🌡️</h3>
+        <p>Now let's verify if the updated weights correctly estimate a new input.</p>
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input2" style="line-height: 1.2;">
+print(2)
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(2)"><strong>RUN TEST CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window2">Ready to test!</div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  <script>
+    function copyCode(id, btn) {
+      const text = document.getElementById(id).value;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('copy_btn--copied');
+        btn.setAttribute('data-tooltip', 'Copied!');
+        setTimeout(() => {
+          btn.classList.remove('copy_btn--copied');
+          btn.setAttribute('data-tooltip', 'Copy code');
+        }, 1800);
+      });
+    }
+
+    function outf(text, outputId) {
+      var mypre = document.getElementById(outputId);
+      mypre.innerHTML = mypre.innerHTML + text;
+    }
+
+    function runPython(block) {
+      const codeId   = "code-input" + block;
+      const outputId = "output-window" + block;
+
+      var code  = document.getElementById(codeId).value;
+      var mypre = document.getElementById(outputId);
+      mypre.innerHTML = '';
+
+      Sk.sysmodules = {};
+      Sk.pre = outputId;
+      Sk.configure({ output: (text) => outf(text, outputId) });
+
+      var myPromise = Sk.misceval.asyncToPromise(function () {
+        return Sk.importMainWithBody("<stdin>", false, code, true);
+      });
+
+      myPromise.then(
+        function (mod) { console.log('Success Block ' + block + '!'); },
+        function (err)  { mypre.innerHTML = err.toString(); }
+      );
+    }
+  </script>
 
 </body>
 </html>
-
-<div class="section-label">🎯 Your Preferences</div>
-
-<div class="card">
-  <div class="card-body">
-
-    <p>Every person has different preferences.</p>
-
-    <p>Let's imagine these are yours.</p>
-
-  </div>
-</div>
-
-
-<div class="section-label">Preference 1</div>
-
-<div class="card">
-  <div class="card-body">
-
-    <p>If at least one of your <strong>best friends</strong> will be at the party and it <strong>won't rain</strong>, you always go.</p>
-
-    <p>It doesn't matter whether your favorite <strong>DJ</strong> is performing.</p>
-
-    <p>So we already know these two situations:</p>
-
-    <!-- SMALL EXAMPLE TABLE -->
-
-    <p>So our <strong>machine brain</strong> learns these two examples:</p>
-
-    <!-- TRAINING TABLE -->
-
-  </div>
-</div>
-
-
-<div class="section-label">Preference 2</div>
-
-<div class="card">
-  <div class="card-body">
-
-    <p>Now suppose you also have another preference.</p>
-
-    <p>If at least one of your favorite <strong>DJs</strong> will be performing and it <strong>won't rain</strong>, you always go.</p>
-
-    <p>This time, it doesn't matter whether any of your <strong>best friends</strong> will be there.</p>
-
-    <p>That gives us two more situations.</p>
-
-    <!-- SMALL EXAMPLE TABLE -->
-
-    <p>So now our <strong>machine brain</strong> knows these examples:</p>
-
-    <!-- TRAINING TABLE -->
-
-  </div>
-</div>
-
-
-<div class="section-label">Preference 3</div>
-
-<div class="card">
-  <div class="card-body">
-
-    <p>Finally, suppose the weather forecast says it <strong>will rain</strong>. 🌧️</p>
-
-    <p>Now you're much pickier.</p>
-
-    <p>You only go if <strong>both</strong> of these are true:</p>
-
-    <ul class="prose-list">
-      <li>At least one of your <strong>best friends</strong> will be there.</li>
-      <li>At least one of your favorite <strong>DJs</strong> will be performing.</li>
-    </ul>
-
-    <p>Otherwise, you stay home.</p>
-
-    <!-- SMALL EXAMPLE TABLE -->
-
-    <p>So now our <strong>machine brain</strong> knows these examples:</p>
-
-    <!-- FULL TRAINING TABLE -->
-
-  </div>
-</div>
-
-
-<div class="section-label">Removing Duplicates</div>
-
-<div class="card">
-  <div class="card-body">
-
-    <p>Look carefully.</p>
-
-    <p><strong>CASE&nbsp;2</strong> and <strong>CASE&nbsp;4</strong> are exactly the same.</p>
-
-    <p>Our <strong>machine brain</strong> doesn't need to learn the same example twice, so we can simply remove one of them.</p>
-
-    <p>Now our training table becomes:</p>
-
-    <!-- DEDUPLICATED TABLE -->
-
-  </div>
-</div>
-
-
-<div class="section-label">🔢 From Words to Numbers</div>
-
-<div class="card">
-  <div class="card-body">
-
-    <p>Computers don't really understand words like <strong>YES</strong>, <strong>NO</strong>, <strong>GO</strong>, or <strong>DO NOT GO</strong>.</p>
-
-    <p>They prefer numbers.</p>
-
-    <p>So let's translate everything:</p>
-
-    <!-- YES/NO → 1.0/0.0 TABLE -->
-
-    <p>Now our <strong>machine brain</strong> sees this:</p>
-
-    <!-- NUMERIC TRAINING TABLE -->
-
-  </div>
-</div>
-
-
-
-
-
-
-
-
-

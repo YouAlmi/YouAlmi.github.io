@@ -14,11 +14,14 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    /* ── class4.html-specific textarea heights ── */
+    /* ── code block heights ── */
     #code-input1  { height: 870px; }
     #code-input2  { height: 320px; }
     #code-input3  { height: 155px; }
     #code-input4  { height: 140px; }
+    #code-input5  { height: 155px; }
+    #code-input6  { height: 140px; }
+    #code-input7  { height: 140px; }
   </style>
 
 </head>
@@ -49,34 +52,33 @@
 
 
 
-   <div class="section-label">ACTIVATION</div>
-<div class="card">
-  <div class="card-body">
-    <p>Let's look at a famous <strong>ACTIVATION</strong> called <strong>ReLU</strong>.</p>
+    <div class="section-label">ACTIVATION</div>
+    <div class="card">
+      <div class="card-body">
+        <p>Let's look at a famous <strong>ACTIVATION</strong> called <strong>ReLU</strong>.</p>
 
-    <p><strong>ReLU</strong>'s behavior is known as "<strong>SAVE or ZERO</strong>".</p>
+        <p><strong>ReLU</strong>'s behavior is known as "<strong>SAVE or ZERO</strong>".</p>
 
-    <p>Imagine <strong>ReLU</strong> is a special math magician.
-      Its favorite trick is a game called "<strong>SAVE or ZERO</strong>",
-      which it plays with every <strong>SUM</strong> that passes through it.</p>
+        <p>Imagine <strong>ReLU</strong> is a special math magician.
+          Its favorite trick is a game called "<strong>SAVE or ZERO</strong>",
+          which it plays with every <strong>SUM</strong> that passes through it.</p>
 
-    <p>When a <strong>SUM</strong> enters <strong>ReLU</strong>,
-      the magician asks one simple question:
-      "<strong>Are you positive or negative?</strong>"</p>
+        <p>When a <strong>SUM</strong> enters <strong>ReLU</strong>,
+          the magician asks one simple question:
+          "<strong>Are you positive or negative?</strong>"</p>
 
-  <ul class="prose-list">
-    <li><strong>SAVE (The Positives):</strong> If the <strong>SUM</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> <strong>SAVES</strong> it. The <strong>SUM</strong> passes through completely unchanged. So a 0.1 stays 0.1, and a 10.0 stays 10.0.</li>
+        <ul class="prose-list">
+          <li><strong>SAVE (The Positives):</strong> If the <strong>SUM</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> <strong>SAVES</strong> it. The <strong>SUM</strong> passes through completely unchanged. So a 0.1 stays 0.1, and a 10.0 stays 10.0.</li>
 
-    <li><strong>ZERO (The Negatives):</strong> If the <strong>SUM</strong> is negative (like −0.1, −0.7, or −10.0), <strong>ReLU</strong> <strong>ZEROS</strong> it, turning the <strong>SUM</strong> into <strong>0.0</strong>. Only the <strong>0.0</strong> passes through. So a −0.1 becomes 0.0, and a −10.0 becomes 0.0.</li>
-  </ul>
+          <li><strong>ZERO (The Negatives):</strong> If the <strong>SUM</strong> is negative (like −0.1, −0.7, or −10.0), <strong>ReLU</strong> <strong>ZEROS</strong> it, turning the <strong>SUM</strong> into <strong>0.0</strong>. Only the <strong>0.0</strong> passes through. So a −0.1 becomes 0.0, and a −10.0 becomes 0.0.</li>
+        </ul>
 
-    <p>In other words, <strong>ReLU</strong> takes in a <strong>SUM</strong>
-    and sends out the maximum of that <strong>SUM</strong> and <strong>0.0</strong>:</p>
+        <p>In other words, <strong>ReLU</strong> takes in a <strong>SUM</strong>
+        and sends out the maximum of that <strong>SUM</strong> and <strong>0.0</strong>:</p>
 
-    <p style="text-align: center;"><strong>max(SUM, 0.0)</strong></p>
+        <p style="text-align: center;"><strong>max(SUM, 0.0)</strong></p>
 
-    <p>Here is how we can write this "<strong>SAVE or ZERO</strong>" game in Python code:</p>
-
+        <p>Here is how we can write this "<strong>SAVE or ZERO</strong>" game in Python code:</p>
 
         <p><strong>🟢 GAME 1: The positive SUM is SAVED ✨</strong></p>
 
@@ -93,20 +95,20 @@ print(f"OUTPUT = {OUTPUT}")
           <div class="code-row">
             <button onclick="runPython(3)"><strong>RUN CODE</strong></button>
             <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input3', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2) ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
           </div>
           <div id="output-window3">Ready to execute!</div>
         </div>
 
         <p><strong>🔵 GAME 2: The negative SUM is turned into ZERO 🪄</strong></p>
-     
+
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input4" style="line-height: 1.2;">
 SUM = -0.7
 ACTIVATION = max(SUM, 0.0) # ReLU
-OUTPUT = ACTIVATION 
+OUTPUT = ACTIVATION
 
 print(f"OUTPUT = {OUTPUT}")
 </textarea>
@@ -119,144 +121,150 @@ print(f"OUTPUT = {OUTPUT}")
           </div>
           <div id="output-window4">Ready to execute!</div>
         </div>
-    
+
       </div>
     </div>
 
 
-  <div class="section-label">INFLUENCE</div>
+    <div class="section-label">INFLUENCE</div>
 
-<div class="card">
-  <div class="card-body">
+    <div class="card">
+      <div class="card-body">
 
-    <p>Of course, when the <strong>ACTIVATION</strong> is <strong>ReLU</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is also incredibly simple.</p>
+        <p>Of course, when the <strong>ACTIVATION</strong> is <strong>ReLU</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is also incredibly simple.</p>
 
-    <ul class="prose-list">
-      <li><strong>When the SUM is positive:</strong> The <strong>ACTIVATION = SUM</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is <strong>1.0</strong>.</li>
+        <ul class="prose-list">
+          <li><strong>When the SUM is positive:</strong> The <strong>ACTIVATION = SUM</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is <strong>1.0</strong>.</li>
 
-      <li><strong>When the SUM is negative:</strong> The <strong>ACTIVATION = 0.0</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is <strong>0.0</strong>.</li>
-    </ul>
+          <li><strong>When the SUM is negative:</strong> The <strong>ACTIVATION = 0.0</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is <strong>0.0</strong>.</li>
+        </ul>
 
-    <p>In a <strong>NEURON</strong>, 
-        <strong>ReLU</strong> is both incredibly simple and incredibly useful. 
-        We will see this throughout this entire course.</p>
+        <p>In a <strong>NEURON</strong>, 
+            <strong>ReLU</strong> is both incredibly simple and incredibly useful. 
+            We will see this throughout this entire course.</p>
 
-  </div>
-</div>
-
-
+      </div>
+    </div>
 
 
 
 
 
+    <div class="section-label">ACTIVATION</div>
+    <div class="card">
+      <div class="card-body">
 
+        <p>Let's look at another famous <strong>ACTIVATION</strong> called <strong>SIGMOID</strong>.</p>
 
+        <p><strong>SIGMOID</strong>'s behavior is known as <strong>"FROM ZERO to ONE"</strong>.</p>
 
+        <p>Imagine <strong>SIGMOID</strong> is a friendly math genie.
+          Its favorite trick is a game called <strong>"FROM ZERO to ONE"</strong>,
+          which it plays with every <strong>SUM</strong> that enters its lamp.</p>
 
+        <p>When a <strong>SUM</strong> arrives, <strong>SIGMOID</strong> doesn't ask questions.
+          Instead, it <strong>squeezes</strong> that <strong>SUM</strong> — no matter how big or small —
+          into a cozy new home <strong>between 0.0 and 1.0</strong>.</p>
 
+        <ul class="prose-list">
+          <li><strong>Huge positive numbers</strong> (like 10.0 or 100.0) get squeezed <strong>very close to 1.0</strong> — but never quite reach it.</li>
+          <li><strong>Huge negative numbers</strong> (like −10.0 or −100.0) get squeezed <strong>very close to 0.0</strong> — but never quite reach it.</li>
+          <li><strong>Zero (0.0)</strong> stays right in the middle — it becomes <strong>0.5</strong>.</li>
+        </ul>
 
+        <p>In other words, <strong>SIGMOID</strong> takes in any <strong>SUM</strong>
+        and sends out a number that is <strong>always between 0.0 and 1.0</strong>.</p>
 
-<div class="section-label">ACTIVATION</div>
-<div class="card">
-  <div class="card-body">
+        <p style="text-align: center;"><strong>SIGMOID(SUM) = 1 / (1 + e<sup>−SUM</sup>)</strong></p>
 
-    <p>Let's look at another famous <strong>ACTIVATION</strong> called <strong>SIGMOID</strong>.</p>
+        <p><em>(Don't worry about the fancy formula — just know it's a gentle squeeze!)</em></p>
 
-    <p><strong>SIGMOID</strong>'s behavior is known as <strong>"FROM ZERO to ONE"</strong>.</p>
+        <p>Here is how we can write this <strong>"FROM ZERO to ONE"</strong> game in Python code:</p>
 
-    <p>Imagine <strong>SIGMOID</strong> is a friendly math genie.
-      Its favorite trick is a game called <strong>"FROM ZERO to ONE"</strong>,
-      which it plays with every <strong>SUM</strong> that enters its lamp.</p>
+        <p><strong>🟢 GAME 3: A positive SUM gets squeezed close to 1.0 ✨</strong></p>
 
-    <p>When a <strong>SUM</strong> arrives, <strong>SIGMOID</strong> doesn't ask questions.
-      Instead, it <strong>squeezes</strong> that <strong>SUM</strong> — no matter how big or small —
-      into a cozy new home <strong>between 0.0 and 1.0</strong>.</p>
-
-    <ul class="prose-list">
-      <li><strong>Huge positive numbers</strong> (like 10.0 or 100.0) get squeezed <strong>very close to 1.0</strong> — but never quite reach it.</li>
-      <li><strong>Huge negative numbers</strong> (like −10.0 or −100.0) get squeezed <strong>very close to 0.0</strong> — but never quite reach it.</li>
-      <li><strong>Zero (0.0)</strong> stays right in the middle — it becomes <strong>0.5</strong>.</li>
-    </ul>
-
-    <p>In other words, <strong>SIGMOID</strong> takes in any <strong>SUM</strong>
-    and sends out a number that is <strong>always between 0.0 and 1.0</strong>.</p>
-
-    <p style="text-align: center;"><strong>SIGMOID(SUM) = 1 / (1 + e<sup>−SUM</sup>)</strong></p>
-
-    <p><em>(Don't worry about the fancy formula — just know it's a gentle squeeze!)</em></p>
-
-    <p>Here is how we can write this <strong>"FROM ZERO to ONE"</strong> game in Python code:</p>
-
-    <p><strong>🟢 GAME 1: A positive SUM gets squeezed close to 1.0 ✨</strong></p>
-
-    <div class="pythoncode">
-      <div class="textarea-wrap">
-<textarea id="code-input-sig1" style="line-height: 1.2;">
-import math
-
-SUM = 2.0
-ACTIVATION = 1 / (1 + math.exp(-SUM))  # SIGMOID
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input5" style="line-height: 1.2;">
+SUM = -100.0
+ACTIVATION = 1 / (1 + 1/2.71828**SUM)  # SIGMOID
 OUTPUT = ACTIVATION
 
 print(f"OUTPUT = {OUTPUT:.4f}")
 </textarea>
-      </div>
-      <div class="code-row">
-        <button onclick="runPython('sig1')"><strong>RUN CODE</strong></button>
-        <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input-sig1', this)" data-tooltip="Copy code">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </button>
-      </div>
-      <div id="output-window-sig1">Ready to execute!</div>
-    </div>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(5)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input5', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window5">Ready to execute!</div>
+        </div>
 
-    <p><strong>🔵 GAME 2: A negative SUM gets squeezed close to 0.0 🪄</strong></p>
+        <p><strong>🔵 GAME 4: A negative SUM gets squeezed close to 0.0 🪄</strong></p>
 
-    <div class="pythoncode">
-      <div class="textarea-wrap">
-<textarea id="code-input-sig2" style="line-height: 1.2;">
-import math
-
-SUM = -2.0
-ACTIVATION = 1 / (1 + math.exp(-SUM))  # SIGMOID
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input6" style="line-height: 1.2;">
+SUM = -100.0
+ACTIVATION = 1 / (1 + 1/2.71828**SUM)  # SIGMOID
 OUTPUT = ACTIVATION
 
 print(f"OUTPUT = {OUTPUT:.4f}")
 </textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(6)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input6', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window6">Ready to execute!</div>
+        </div>
+
+        <p><strong>🟣 GAME 5: Zero (0.0) stays right in the middle — 0.5 🎯</strong></p>
+
+        <div class="pythoncode">
+          <div class="textarea-wrap">
+<textarea id="code-input7" style="line-height: 1.2;">
+SUM = 0.0
+ACTIVATION = 1 / (1 + 1/2.71828**SUM)  # SIGMOID
+OUTPUT = ACTIVATION
+
+print(f"OUTPUT = {OUTPUT:.4f}")
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(7)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input7', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div id="output-window7">Ready to execute!</div>
+        </div>
+
       </div>
-      <div class="code-row">
-        <button onclick="runPython('sig2')"><strong>RUN CODE</strong></button>
-        <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input-sig2', this)" data-tooltip="Copy code">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </button>
-      </div>
-      <div id="output-window-sig2">Ready to execute!</div>
     </div>
 
-  </div>
-</div>
 
+    <div class="section-label">INFLUENCE</div>
+    <div class="card">
+      <div class="card-body">
 
+        <p>When the <strong>ACTIVATION</strong> is <strong>SIGMOID</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is a bit different from ReLU — but still incredibly simple.</p>
 
+        <ul class="prose-list">
+          <li><strong>When the SUM is near 0.0:</strong> The <strong>INFLUENCE</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM makes a noticeable change in the ACTIVATION.</li>
+          <li><strong>When the SUM is very positive or very negative:</strong> The <strong>INFLUENCE</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM barely affects the ACTIVATION — it's already squeezed to its limit!</li>
+        </ul>
 
-<div class="section-label">INFLUENCE</div>
-<div class="card">
-  <div class="card-body">
+        <p>In a <strong>NEURON</strong>, 
+          <strong>SIGMOID</strong> is gentle, smooth, and always keeps things <strong>between 0.0 and 1.0</strong>. 
+          It's like a calm teacher who never raises their voice too high or drops too low.</p>
 
-    <p>When the <strong>ACTIVATION</strong> is <strong>SIGMOID</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is a bit different from ReLU — but still increadibly simple</p>
-
-    <ul class="prose-list">
-      <li><strong>When the SUM is near 0.0:</strong> The <strong>INFLUENCE</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM makes a noticeable change in the ACTIVATION.</li>
-      <li><strong>When the SUM is very positive or very negative:</strong> The <strong>INFLUENCE</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM barely affects the ACTIVATION — it's already squeezed to its limit!</li>
-    </ul>
-
-    <p>In a <strong>NEURON</strong>, 
-      <strong>SIGMOID</strong> is gentle, smooth, and always keeps things <strong>between 0.0 and 1.0</strong>. 
-      It's like a calm teacher who never raises their voice too high or drops too low.</p>
-
-  </div>
-</div>
+      </div>
+    </div>
 
 
 
