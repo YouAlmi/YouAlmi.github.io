@@ -44,7 +44,7 @@
   <div class="card-body">
     <p>In this class, for the first time, we are building a multilayer model — a 2-layer one.</p>
     <p>(Here's a pic of the model.)</p>
-    <p>We introduce two <strong>ACT FUNCTIONS</strong> — or <strong>ACTS</strong> for short. We'll call them <strong>ACTS</strong> for even shorter.</p>
+    <p>We introduce two <strong>ACT FUNCTIONS</strong> — or <strong>ACTS</strong> for short.</p>
     <p>An <strong>ACT</strong> takes in a <strong>SUM</strong> and sends out a final number, which becomes the official <strong>OUTPUT</strong> of the <strong>NEURON</strong>.</p>
     <p>Each <strong>ACT</strong> is simply a formula that behaves in an interesting way.</p>
     <p>We'll explore two <strong>ACTS</strong>: <strong>ReLU</strong> and <strong>SIGMOID</strong>.</p>
@@ -121,7 +121,10 @@ print(f"OUTPUT = {ACT}")
           <div id="output-window4">Ready to execute!</div>
         </div>
 
-      <p>So whether OUTPUT equals SUM or becomes ZERO.</p>
+      <div class="diagram">
+          <img src="relu.png" alt="relu" />
+        </div>
+        <p>So OUTPUT equals SUM or becomes ZERO.</p>
       </div>
     </div>
 
@@ -131,13 +134,16 @@ print(f"OUTPUT = {ACT}")
     <div class="card">
       <div class="card-body">
 
-        <p>Of course, when the <strong>ACT</strong> is <strong>ReLU</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACT</strong> is incredibly simple.</p>
+        <p>Of course, when the <strong>ACT</strong> is <strong>ReLU</strong>, calculating <strong>SUM_ACT_INFLUENCE</strong> is incredibly simple.</p>
 
         <ul class="prose-list">
-          <li><strong>When the SUM is positive:</strong> The <strong>ACT = SUM</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACT</strong> is <strong>1.0</strong>.</li>
+          <li><strong>When the SUM is positive:</strong> The <strong>ACT = SUM</strong>. Therefore, the <strong>INFLUENCE</strong> is <strong>1.0</strong>.</li>
 
-          <li><strong>When the SUM is negative:</strong> The <strong>ACT = 0.0</strong>. Therefore, the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACT</strong> is <strong>0.0</strong>.</li>
+          <li><strong>When the SUM is negative:</strong> The <strong>ACT = 0.0</strong>. Therefore, the <strong>INFLUENCE</strong> is <strong>0.0</strong>.</li>
         </ul>
+        <div class="diagram">
+          <img src="relui.png" alt="relui" />
+        </div>
 
         <p>In a <strong>NEURON</strong>, 
             <strong>ReLU</strong> is both incredibly simple and incredibly useful. 
@@ -260,7 +266,7 @@ print(f"OUTPUT = {OUTPUT:.7f}")
     <div class="card">
       <div class="card-body">
 
-        <p>When the <strong>ACT</strong> is <strong>SIGMOID</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACT</strong> is also incredibly simple.</p>
+        <p>When the <strong>ACT</strong> is <strong>SIGMOID</strong>, calculating the <strong>SUM_ACT_INFLUENCE</strong> is also incredibly simple.</p>
 
         <ul class="prose-list">
           <li><strong>When the SUM is near 0.0:</strong> The <strong>INFLUENCE</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM makes a noticeable change in the ACT.</li>
