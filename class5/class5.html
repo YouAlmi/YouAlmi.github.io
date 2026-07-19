@@ -39,7 +39,7 @@
 
     <div class="card">
       <div class="card-body">
-        <p>In this class, for the first time, we are building a multilayer model—a 2-layer one.</p>
+        <p>In this class, for the first time, we are building a multilayer model — a 2-layer one.</p>
         <p>(Here's a pic of the model.)</p>
         <p>Also, we introduce two <strong>ACTIVATION FUNCTIONS</strong> — or <strong>ACTIVATIONS</strong> for short.</p>
         <p>An <strong>ACTIVATION</strong> takes in a <strong>SUM</strong> and sends out a final number, which becomes the official <strong>OUTPUT</strong> of the <strong>NEURON</strong>.</p>
@@ -124,8 +124,6 @@ print(f"OUTPUT = {OUTPUT}")
     </div>
 
 
-
-
   <div class="section-label">INFLUENCE</div>
 
 <div class="card">
@@ -145,6 +143,133 @@ print(f"OUTPUT = {OUTPUT}")
 
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-label">ACTIVATION</div>
+<div class="card">
+  <div class="card-body">
+
+    <p>Let's look at another famous <strong>ACTIVATION</strong> called <strong>SIGMOID</strong>.</p>
+
+    <p><strong>SIGMOID</strong>'s behavior is known as <strong>"FROM ZERO to ONE"</strong>.</p>
+
+    <p>Imagine <strong>SIGMOID</strong> is a friendly math genie.
+      Its favorite trick is a game called <strong>"FROM ZERO to ONE"</strong>,
+      which it plays with every <strong>SUM</strong> that enters its lamp.</p>
+
+    <p>When a <strong>SUM</strong> arrives, <strong>SIGMOID</strong> doesn't ask questions.
+      Instead, it <strong>squeezes</strong> that <strong>SUM</strong> — no matter how big or small —
+      into a cozy new home <strong>between 0.0 and 1.0</strong>.</p>
+
+    <ul class="prose-list">
+      <li><strong>Huge positive numbers</strong> (like 10.0 or 100.0) get squeezed <strong>very close to 1.0</strong> — but never quite reach it.</li>
+      <li><strong>Huge negative numbers</strong> (like −10.0 or −100.0) get squeezed <strong>very close to 0.0</strong> — but never quite reach it.</li>
+      <li><strong>Zero (0.0)</strong> stays right in the middle — it becomes <strong>0.5</strong>.</li>
+    </ul>
+
+    <p>In other words, <strong>SIGMOID</strong> takes in any <strong>SUM</strong>
+    and sends out a number that is <strong>always between 0.0 and 1.0</strong>.</p>
+
+    <p style="text-align: center;"><strong>SIGMOID(SUM) = 1 / (1 + e<sup>−SUM</sup>)</strong></p>
+
+    <p><em>(Don't worry about the fancy formula — just know it's a gentle squeeze!)</em></p>
+
+    <p>Here is how we can write this <strong>"FROM ZERO to ONE"</strong> game in Python code:</p>
+
+    <p><strong>🟢 GAME 1: A positive SUM gets squeezed close to 1.0 ✨</strong></p>
+
+    <div class="pythoncode">
+      <div class="textarea-wrap">
+<textarea id="code-input-sig1" style="line-height: 1.2;">
+import math
+
+SUM = 2.0
+ACTIVATION = 1 / (1 + math.exp(-SUM))  # SIGMOID
+OUTPUT = ACTIVATION
+
+print(f"OUTPUT = {OUTPUT:.4f}")
+</textarea>
+      </div>
+      <div class="code-row">
+        <button onclick="runPython('sig1')"><strong>RUN CODE</strong></button>
+        <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input-sig1', this)" data-tooltip="Copy code">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+      </div>
+      <div id="output-window-sig1">Ready to execute!</div>
+    </div>
+
+    <p><strong>🔵 GAME 2: A negative SUM gets squeezed close to 0.0 🪄</strong></p>
+
+    <div class="pythoncode">
+      <div class="textarea-wrap">
+<textarea id="code-input-sig2" style="line-height: 1.2;">
+import math
+
+SUM = -2.0
+ACTIVATION = 1 / (1 + math.exp(-SUM))  # SIGMOID
+OUTPUT = ACTIVATION
+
+print(f"OUTPUT = {OUTPUT:.4f}")
+</textarea>
+      </div>
+      <div class="code-row">
+        <button onclick="runPython('sig2')"><strong>RUN CODE</strong></button>
+        <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input-sig2', this)" data-tooltip="Copy code">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+      </div>
+      <div id="output-window-sig2">Ready to execute!</div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div class="section-label">INFLUENCE</div>
+<div class="card">
+  <div class="card-body">
+
+    <p>When the <strong>ACTIVATION</strong> is <strong>SIGMOID</strong>, calculating the <strong>INFLUENCE</strong> of the <strong>SUM</strong> on the <strong>ACTIVATION</strong> is a bit different from ReLU — but still increadibly simple</p>
+
+    <ul class="prose-list">
+      <li><strong>When the SUM is near 0.0:</strong> The <strong>INFLUENCE</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM makes a noticeable change in the ACTIVATION.</li>
+      <li><strong>When the SUM is very positive or very negative:</strong> The <strong>INFLUENCE</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM barely affects the ACTIVATION — it's already squeezed to its limit!</li>
+    </ul>
+
+    <p>In a <strong>NEURON</strong>, 
+      <strong>SIGMOID</strong> is gentle, smooth, and always keeps things <strong>between 0.0 and 1.0</strong>. 
+      It's like a calm teacher who never raises their voice too high or drops too low.</p>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
      <div class="section-label">📖 STORY</div>
