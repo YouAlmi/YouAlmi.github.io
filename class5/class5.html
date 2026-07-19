@@ -154,26 +154,23 @@ print(f"OUTPUT = {ACT}")
     <div class="card">
       <div class="card-body">
 
-        <p>Of course, when the <strong>ACT</strong> is <strong>ReLU</strong>, calculating <strong>SUM_ACT_INFLUENCE</strong> is incredibly simple:</p>
+        <p>When the <strong>ACT</strong> is <strong>ReLU</strong>, calculating <strong>SUM_ACT_INFLUENCE</strong> is incredibly simple:</p>
+<ul class="prose-list">
+          <li><strong>When the SUM is positive:</strong> The <strong>ACT = SUM</strong>. Therefore, <strong>SUM_ACT_INFLUENCE</strong> is <strong>1.0</strong>.</li>
 
-
-<p style="text-align: center;"><strong>SUM_ACT_INFLUENCE = 1.0</strong> (when SUM > 0.0)</p>
-<p style="text-align: center;"><strong>SUM_ACT_INFLUENCE = 0.0</strong> (when SUM < 0.0)</p>
-<p style="text-align: center;"><strong>SUM_ACT_INFLUENCE = 0.0</strong> (when SUM = 0.0)</p>
-
-    <p>Very easy!</p>
-
-       
+          <li><strong>When the SUM is negative:</strong> The <strong>ACT = 0.0</strong>. Therefore, <strong>SUM_ACT_INFLUENCE</strong> is <strong>0.0</strong>.</li>
+        </ul>   
         
         <div class="diagram">
           <img src="relui.png" alt="relui" />
         </div>
         <br/>
-         <ul class="prose-list">
-          <li><strong>When the SUM is positive:</strong> The <strong>ACT = SUM</strong>. Therefore, <strong>SUM_ACT_INFLUENCE</strong> is <strong>1.0</strong>.</li>
+        <p style="text-align: center;"><strong>SUM_ACT_INFLUENCE = 1.0</strong> (when SUM > 0.0)</p>
+        <p style="text-align: center;"><strong>SUM_ACT_INFLUENCE = 0.0</strong> (when SUM < 0.0)</p>
+        <p style="text-align: center;"><strong>SUM_ACT_INFLUENCE = 0.0</strong> (when SUM = 0.0)</p>
 
-          <li><strong>When the SUM is negative:</strong> The <strong>ACT = 0.0</strong>. Therefore, <strong>SUM_ACT_INFLUENCE</strong> is <strong>0.0</strong>.</li>
-        </ul>
+    <p>Very easy!</p>
+         
         
 
       </div>
