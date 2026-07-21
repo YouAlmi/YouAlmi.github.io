@@ -124,7 +124,7 @@
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span><br/>
+          <span class="formula">PARAMETER_update = ERROR × influence_PARAMETER_OUTPUT × PACE</span><br/>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
         </div>
 
@@ -132,7 +132,7 @@
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-          <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span><br/>
+          <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
           <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
         </div>
 
@@ -180,7 +180,7 @@
 
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span><br/>
+            <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
@@ -195,29 +195,29 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            WEIGHT_OUTPUT_influence = WEIGHT_PRODUCT_influence × PRODUCT_OUTPUT_influence
+            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_OUTPUT
           </div>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">What is WEIGHT_PRODUCT_influence here?</div>
+            <div class="influence-panel-label">What is influence_WEIGHT_PRODUCT here?</div>
             The formula is: <strong>PRODUCT = INPUT × WEIGHT</strong><br/>
             The number that multiplies the <strong>WEIGHT</strong> is the <strong>INPUT</strong>.<br/>
-            Therefore: <strong>WEIGHT_PRODUCT_influence = INPUT</strong>
+            Therefore: <strong>influence_WEIGHT_PRODUCT = INPUT</strong>
           </div>
-          WEIGHT_PRODUCT_influence = INPUT = <strong>0.6000</strong><br/>
+          influence_WEIGHT_PRODUCT = INPUT = <strong>0.6000</strong><br/>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">What is PRODUCT_OUTPUT_influence here?</div>
+            <div class="influence-panel-label">What is influence_PRODUCT_OUTPUT here?</div>
             The formula is: <strong>OUTPUT = PRODUCT</strong><br/>
             We can re-write it this way: <strong>OUTPUT = 1.0000 × PRODUCT</strong><br/>
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0000</strong>.<br/>
-            Therefore: <strong>PRODUCT_OUTPUT_influence = 1.0000</strong>
+            Therefore: <strong>influence_PRODUCT_OUTPUT = 1.0000</strong>
           </div>
-          PRODUCT_OUTPUT_influence = <strong>1.0000</strong><br/><br/>
+          influence_PRODUCT_OUTPUT = <strong>1.0000</strong><br/><br/>
 
-          WEIGHT_OUTPUT_influence = WEIGHT_PRODUCT_influence × PRODUCT_OUTPUT_influence = 0.6000 × 1.0000 = <strong>0.6000</strong><br/><br/>
+          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_OUTPUT = 0.6000 × 1.0000 = <strong>0.6000</strong><br/><br/>
          
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = 3.0000 × 0.6000 × 0.0100 = <strong>0.0180</strong><br/>
+          WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE = 3.0000 × 0.6000 × 0.0100 = <strong>0.0180</strong><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0000 + 0.0180 = <strong>0.0180</strong><br/>
 
         </div>
@@ -278,7 +278,7 @@
 
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE</span><br/>
+            <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
@@ -293,29 +293,29 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            WEIGHT_OUTPUT_influence = WEIGHT_PRODUCT_influence × PRODUCT_OUTPUT_influence
+            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_OUTPUT
           </div>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">What is WEIGHT_PRODUCT_influence here?</div>
+            <div class="influence-panel-label">What is influence_WEIGHT_PRODUCT here?</div>
             The formula is: <strong>PRODUCT = INPUT × WEIGHT</strong><br/>
             The number that multiplies the <strong>WEIGHT</strong> is the <strong>INPUT</strong>.<br/>
-            Therefore: <strong>WEIGHT_PRODUCT_influence = INPUT</strong>
+            Therefore: <strong>influence_WEIGHT_PRODUCT = INPUT</strong>
           </div>
-          WEIGHT_PRODUCT_influence = INPUT = <strong>-10.0000</strong><br/>
+          influence_WEIGHT_PRODUCT = INPUT = <strong>-10.0000</strong><br/>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">What is PRODUCT_OUTPUT_influence here?</div>
+            <div class="influence-panel-label">What is influence_PRODUCT_OUTPUT here?</div>
             The formula is: <strong>OUTPUT = PRODUCT</strong><br/>
             We can re-write it this way: <strong>OUTPUT = 1.0000 × PRODUCT</strong><br/>
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0000</strong>.<br/>
-            Therefore: <strong>PRODUCT_OUTPUT_influence = 1.0000</strong>
+            Therefore: <strong>influence_PRODUCT_OUTPUT = 1.0000</strong>
           </div>
-          PRODUCT_OUTPUT_influence = <strong>1.0000</strong><br/><br/>
+          influence_PRODUCT_OUTPUT = <strong>1.0000</strong><br/><br/>
 
-          WEIGHT_OUTPUT_influence = WEIGHT_PRODUCT_influence × PRODUCT_OUTPUT_influence = -10.0000 × 1.0000 = <strong>-10.0000</strong><br/><br/>
+          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_OUTPUT = -10.0000 × 1.0000 = <strong>-10.0000</strong><br/><br/>
          
-          WEIGHT_update = ERROR × WEIGHT_OUTPUT_influence × PACE = −49.8200 × (-10.0000) × 0.0100 = <strong>4.9820</strong><br/>
+          WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE = −49.8200 × (-10.0000) × 0.0100 = <strong>4.9820</strong><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0180 + 4.9820 = <strong>5.0000</strong><br/>
 
 
@@ -429,10 +429,10 @@ for EXAMPLE in range(EXAMPLES):
     OUTPUT  = PRODUCT
     ERROR   = TARGET - OUTPUT
 
-    WEIGHT_OUTPUT_influence = INPUT
+    influence_WEIGHT_OUTPUT = INPUT
 
     # FUNDAMENTAL UPDATE RULE for WEIGHT
-    WEIGHT_update = ERROR * WEIGHT_OUTPUT_influence * PACE
+    WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE
     WEIGHT = WEIGHT + WEIGHT_update
 
 print(f"TRAINING complete: WEIGHT = {WEIGHT:.4f}")
@@ -510,13 +510,13 @@ print(f"TESTING complete: ERROR = {ERROR:.4f}")
         
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR × PARAMETER_OUTPUT_influence × PACE</span><br/>
+          <span class="formula">PARAMETER_update = ERROR × influence_PARAMETER_OUTPUT × PACE</span><br/>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>         
         </div>
         <p><strong>PARAMETER</strong> — This is the thing the machine is trying to get right.</p>  
         <p><strong>PARAMETER_update</strong> — How much the PARAMETER is updated at the given LESSON.</p>
         <p><strong>ERROR</strong> — How wrong the machine was.</p>
-        <p><strong>PARAMETER_OUTPUT_influence</strong> — The INFLUENCE of the PARAMETER on the OUTPUT.</p>
+        <p><strong>influence_PARAMETER_OUTPUT</strong> — The INFLUENCE of the PARAMETER on the OUTPUT.</p>
         <p><strong>PACE</strong> — A number that keeps each update from being both too big and too small.</p>     
       </div>
     </div>
