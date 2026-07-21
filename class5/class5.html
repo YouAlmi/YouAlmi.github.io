@@ -197,7 +197,7 @@ print(f"OUTPUT = {ACT}")
         and sends out a number that is <strong>always between 0.0 and 1.0</strong>.</p>
         <p>The <strong>SIGMOID</strong> formula:</p>
 
-        <p style="text-align: center;"><strong>SIGMOID = 1/(1+1/2.71828<sup>SUM</sup>)</strong></p>
+        <p style="text-align: center;"><strong>SIGMOID = 1 / (1 + 1/2.71828<sup>SUM</sup>)</strong></p>
 
         <p><em>(Don't worry about the fancy formula — just know it's a gentle squeeze!)</em></p>
 
@@ -209,7 +209,7 @@ print(f"OUTPUT = {ACT}")
           <div class="textarea-wrap">
 <textarea id="code-input5" style="line-height: 1.2;">
 SUM = 10.0
-ACT = 1/(1+1/2.71828**SUM)  # SIGMOID
+ACT = 1 / (1 + 1/2.71828**SUM)  # SIGMOID
 OUTPUT = ACT
 
 print(f"OUTPUT = {OUTPUT:.7f}")
@@ -230,7 +230,7 @@ print(f"OUTPUT = {OUTPUT:.7f}")
           <div class="textarea-wrap">
 <textarea id="code-input6" style="line-height: 1.2;">
 SUM = -10.0
-ACT = 1/(1+1/2.71828**SUM)  # SIGMOID
+ACT = 1 / (1 + 1/2.71828**SUM)  # SIGMOID
 OUTPUT = ACT
 
 print(f"OUTPUT = {OUTPUT:.7f}")
@@ -251,7 +251,7 @@ print(f"OUTPUT = {OUTPUT:.7f}")
           <div class="textarea-wrap">
 <textarea id="code-input7" style="line-height: 1.2;">
 SUM = 0.0
-ACT = 1/(1+1/2.71828**SUM)  # SIGMOID
+ACT = 1 / (1 + 1/2.71828**SUM)  # SIGMOID
 OUTPUT = ACT
 
 print(f"OUTPUT = {OUTPUT:.7f}")
@@ -1118,6 +1118,27 @@ print(f"OUTPUT = {OUTPUT:.7f}")
 
         <p>Don't worry — each step is simple. Just follow the calculations below.</p>
 
+      
+      <div class="table-wrap"> 
+          <table class="mapping-table">
+            <tr>
+              <td><strong>INPUT</strong></td>
+              <td>&rarr;</td>
+              <td><strong>INP</strong></td>
+            </tr>
+            <tr><td><strong>WEIGHT</strong></td><td>&rarr;</td><td><strong>W</strong></td></tr>
+            <tr><td><strong>PRODUCT</strong></td><td>&rarr;</td><td><strong>P</strong></td></tr>
+            <tr><td><strong>BIAS</strong></td><td>&rarr;</td><td><strong>B</strong></td></tr>
+            <tr><td><strong>SUM</strong></td><td>&rarr;</td><td><strong>S</strong></td></tr>
+            <tr><td><strong>ACT</strong></td><td>&rarr;</td><td><strong>A</strong></td></tr>
+
+            <tr><td><strong>OUTPUT</strong></td><td>&rarr;</td><td><strong>OUT</strong></td></tr>
+            <tr><td><strong>TARGET</strong></td><td>&rarr;</td><td><strong>TAR</strong></td></tr>
+            <tr><td><strong>ERROR</strong></td><td>&rarr;</td><td><strong>ERR</strong></td></tr>
+            <tr><td><strong>A_B_INFLUENCE</strong></td><td>&rarr;</td><td><strong>A_B_i</strong></td></tr>
+          </table>
+        </div>
+      
       </div>
     </div>
 
