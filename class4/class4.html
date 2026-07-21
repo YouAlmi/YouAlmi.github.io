@@ -41,7 +41,7 @@
         <p>Here, we add <strong>BIAS</strong> to the <strong>NEURON</strong>. 
         So the brain will have two <strong>PARAMETERS</strong>: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
         <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, these <strong>PARAMETERS</strong> will compete over which gets updated more. 
-          The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., <strong>ERROR × influence_PARAMETER_OUTPUT</strong> — receives a larger update.</p>
+          The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — receives a larger update.</p>
         <p>To see this competition more clearly, let's set <strong>PACE</strong> to <strong>1.0</strong>:</p>
         <div class="callout callout-neutral">PACE = <strong>1.0</strong></div>
       </div>
@@ -56,7 +56,7 @@
         <p>Let's call this brain the <strong>Converter-°C-to-°F</strong>.</p>
         <p>As previously noted, it will have two <strong>PARAMETERS</strong>: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
         <p>The brain will be just a formula like this:</p>
-        <div class="callout callout-neutral"><strong>OUTPUT = INPUT × WEIGHT + BIAS</strong></div>
+        <div class="callout callout-neutral"><strong>OUTPUT = INPUT * WEIGHT + BIAS</strong></div>
       </div>
     </div>
 
@@ -125,7 +125,7 @@
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR × influence_PARAMETER_OUTPUT × PACE</span><br/>
+          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
         </div>
 
@@ -133,13 +133,13 @@
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-          <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
+          <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
           <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
         </div>
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-          <span class="formula">BIAS_update = ERROR × influence_BIAS_OUTPUT × PACE</span><br/>
+          <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
           <span class="formula">BIAS = BIAS + BIAS_update</span>
         </div>
 
@@ -173,7 +173,7 @@
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 0.0 × 0.0 = <strong>0.0</strong><br/>
+          PRODUCT = INPUT * WEIGHT = 0.0 * 0.0 = <strong>0.0</strong><br/>
           SUM = PRODUCT + BIAS = 0.0 + 0.0 = <strong>0.0</strong><br/>
           OUTPUT = SUM = <strong>0.0</strong><br/>
         </div>
@@ -192,7 +192,7 @@
 
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
+            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
@@ -202,12 +202,12 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_SUM × influence_SUM_OUTPUT
+            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT
           </div>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_WEIGHT_PRODUCT here?</div>
-            Our formula is: <strong>PRODUCT = INPUT × WEIGHT</strong><br/>
+            Our formula is: <strong>PRODUCT = INPUT * WEIGHT</strong><br/>
             The number that multiplies the <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
             Therefore: <strong>influence_WEIGHT_PRODUCT = INPUT</strong>
           </div>
@@ -216,7 +216,7 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_PRODUCT_SUM here?</div>
             The formula is: <strong>SUM = PRODUCT + BIAS</strong><br/>
-            We can re-write it this way: <strong>SUM = 1.0 × PRODUCT + BIAS</strong><br/>
+            We can re-write it this way: <strong>SUM = 1.0 * PRODUCT + BIAS</strong><br/>
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_PRODUCT_SUM = 1.0</strong>
           </div>
@@ -225,20 +225,20 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_SUM_OUTPUT here?</div>
             Our formula is: <strong>OUTPUT = SUM</strong><br/>
-            We can re-write it this way: <strong>OUTPUT = 1.0 × SUM</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0 * SUM</strong><br/>
             The number that multiplies the <strong>SUM</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_SUM_OUTPUT = 1.0</strong>
           </div>
           influence_SUM_OUTPUT = <strong>1.0</strong><br/><br/>
 
-          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_SUM × influence_SUM_OUTPUT = 0.0 × 1.0 × 1.0 = <strong>0.0</strong><br/><br/>
+          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 0.0 * 1.0 * 1.0 = <strong>0.0</strong><br/><br/>
          
-          WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE = 32.0 × 0.0 × 1.0 = <strong>0.0</strong><br/><br/>
+          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = 32.0 * 0.0 * 1.0 = <strong>0.0</strong><br/><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 0.0 = <strong>0.0</strong><br/>       
           
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-            <span class="formula">BIAS_update = ERROR × influence_BIAS_OUTPUT × PACE</span><br/>
+            <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
             <span class="formula">BIAS = BIAS + BIAS_update</span>
           </div>
 
@@ -248,13 +248,13 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_BIAS_OUTPUT = influence_BIAS_SUM × influence_SUM_OUTPUT
+            influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT
           </div>
           
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_BIAS_SUM here?</div>
             Our formula is: <strong>SUM = PRODUCT + BIAS</strong><br/>
-            We can re-write it this way: <strong>SUM = PRODUCT + 1.0 × BIAS</strong><br/>
+            We can re-write it this way: <strong>SUM = PRODUCT + 1.0 * BIAS</strong><br/>
             The number that multiplies the <strong>BIAS</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_BIAS_SUM = 1.0</strong>
           </div>
@@ -263,15 +263,15 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_SUM_OUTPUT here?</div>
             Our formula is: <strong>OUTPUT = SUM</strong><br/>
-            We can re-write it this way: <strong>OUTPUT = 1.0 × SUM</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0 * SUM</strong><br/>
             The number that multiplies the <strong>SUM</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_SUM_OUTPUT = 1.0</strong>
           </div>
           influence_SUM_OUTPUT = <strong>1.0</strong><br/><br/>
 
-          influence_BIAS_OUTPUT = influence_BIAS_SUM × influence_SUM_OUTPUT = 1.0 × 1.0 = <strong>1.0</strong><br/><br/>
+          influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
          
-          BIAS_update = ERROR × influence_BIAS_OUTPUT × PACE = 32.0 × 1.0 × 1.0 = <strong>32.0</strong><br/><br/>
+          BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE = 32.0 * 1.0 * 1.0 = <strong>32.0</strong><br/><br/>
           BIAS = BIAS + BIAS_update = 0.0 + 32.0 = <strong>32.0</strong><br/>
 
         </div>
@@ -304,7 +304,7 @@
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 1.0 × 0.0 = <strong>0.0</strong><br/>
+          PRODUCT = INPUT * WEIGHT = 1.0 * 0.0 = <strong>0.0</strong><br/>
           SUM = PRODUCT + BIAS = 0.0 + 32.0 = <strong>32.0</strong><br/>
           OUTPUT = SUM = <strong>32.0</strong><br/>
         </div>
@@ -323,7 +323,7 @@
 
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
+            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
@@ -333,12 +333,12 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_SUM × influence_SUM_OUTPUT
+            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT
           </div>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_WEIGHT_PRODUCT here?</div>
-            Our formula is: <strong>PRODUCT = INPUT × WEIGHT</strong><br/>
+            Our formula is: <strong>PRODUCT = INPUT * WEIGHT</strong><br/>
             The number that multiplies the <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
             Therefore: <strong>influence_WEIGHT_PRODUCT = INPUT</strong>
           </div>
@@ -347,7 +347,7 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_PRODUCT_SUM here?</div>
             The formula is: <strong>SUM = PRODUCT + BIAS</strong><br/>
-            We can re-write it this way: <strong>SUM = 1.0 × PRODUCT + BIAS</strong><br/>
+            We can re-write it this way: <strong>SUM = 1.0 * PRODUCT + BIAS</strong><br/>
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_PRODUCT_SUM = 1.0</strong>
           </div>
@@ -356,20 +356,20 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_SUM_OUTPUT here?</div>
             Our formula is: <strong>OUTPUT = SUM</strong><br/>
-            We can re-write it this way: <strong>OUTPUT = 1.0 × SUM</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0 * SUM</strong><br/>
             The number that multiplies the <strong>SUM</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_SUM_OUTPUT = 1.0</strong>
           </div>
           influence_SUM_OUTPUT = <strong>1.0</strong><br/><br/>
 
-          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_SUM × influence_SUM_OUTPUT = 1.0 × 1.0 × 1.0 = <strong>1.0</strong><br/><br/>
+          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
           
-          WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE = 1.8 × 1.0 × 1.0 = <strong>1.8</strong><br/><br/>
+          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = 1.8 * 1.0 * 1.0 = <strong>1.8</strong><br/><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 1.8 = <strong>1.8</strong><br/>
           
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-            <span class="formula">BIAS_update = ERROR × influence_BIAS_OUTPUT × PACE</span><br/>
+            <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
             <span class="formula">BIAS = BIAS + BIAS_update</span>
           </div>
 
@@ -379,13 +379,13 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_BIAS_OUTPUT = influence_BIAS_SUM × influence_SUM_OUTPUT
+            influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT
           </div>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_BIAS_SUM here?</div>
             Our formula is: <strong>SUM = PRODUCT + BIAS</strong><br/>
-            We can re-write it this way: <strong>SUM = PRODUCT + 1.0 × BIAS</strong><br/>
+            We can re-write it this way: <strong>SUM = PRODUCT + 1.0 * BIAS</strong><br/>
             The number that multiplies the <strong>BIAS</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_BIAS_SUM = 1.0</strong>
           </div>
@@ -394,15 +394,15 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_SUM_OUTPUT here?</div>
             Our formula is: <strong>OUTPUT = SUM</strong><br/>
-            We can re-write it this way: <strong>OUTPUT = 1.0 × SUM</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0 * SUM</strong><br/>
             The number that multiplies the <strong>SUM</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_SUM_OUTPUT = 1.0</strong>
           </div>
           influence_SUM_OUTPUT = <strong>1.0</strong><br/><br/>
 
-          influence_BIAS_OUTPUT = influence_BIAS_SUM × influence_SUM_OUTPUT = 1.0 × 1.0 = <strong>1.0</strong><br/><br/>
+          influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
           
-          BIAS_update = ERROR × influence_BIAS_OUTPUT × PACE = 1.8 × 1.0 × 1.0 = <strong>1.8</strong><br/><br/>    
+          BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE = 1.8 * 1.0 * 1.0 = <strong>1.8</strong><br/><br/>    
           BIAS = BIAS + BIAS_update = 32.0 + 1.8 = <strong>33.8</strong><br/>
 
         </div>
@@ -436,7 +436,7 @@
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 0.0 × 1.8 = <strong>0.0</strong><br/>
+          PRODUCT = INPUT * WEIGHT = 0.0 * 1.8 = <strong>0.0</strong><br/>
           SUM = PRODUCT + BIAS = 0.0 + 33.8 = <strong>33.8</strong><br/>
           OUTPUT = SUM = <strong>33.8</strong><br/>
         </div>
@@ -455,7 +455,7 @@
 
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
+            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
@@ -465,12 +465,12 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_SUM × influence_SUM_OUTPUT
+            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT
           </div>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_WEIGHT_PRODUCT here?</div>
-            Our formula is: <strong>PRODUCT = INPUT × WEIGHT</strong><br/>
+            Our formula is: <strong>PRODUCT = INPUT * WEIGHT</strong><br/>
             The number that multiplies the <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
             Therefore: <strong>influence_WEIGHT_PRODUCT = INPUT</strong>
           </div>
@@ -479,7 +479,7 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_PRODUCT_SUM here?</div>
             The formula is: <strong>SUM = PRODUCT + BIAS</strong><br/>
-            We can re-write it this way: <strong>SUM = 1.0 × PRODUCT + BIAS</strong><br/>
+            We can re-write it this way: <strong>SUM = 1.0 * PRODUCT + BIAS</strong><br/>
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_PRODUCT_SUM = 1.0</strong>
           </div>
@@ -488,20 +488,20 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_SUM_OUTPUT here?</div>
             Our formula is: <strong>OUTPUT = SUM</strong><br/>
-            We can re-write it this way: <strong>OUTPUT = 1.0 × SUM</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0 * SUM</strong><br/>
             The number that multiplies the <strong>SUM</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_SUM_OUTPUT = 1.0</strong>
           </div>
           influence_SUM_OUTPUT = <strong>1.0</strong><br/><br/>
 
-          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_SUM × influence_SUM_OUTPUT = 0.0 × 1.0 × 1.0 = <strong>0.0</strong><br/><br/>
+          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 0.0 * 1.0 * 1.0 = <strong>0.0</strong><br/><br/>
           
-          WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE = -1.8 × 0.0 × 1.0 = <strong>0.0</strong><br/><br/>
+          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = -1.8 * 0.0 * 1.0 = <strong>0.0</strong><br/><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 1.8 + 0.0 = <strong>1.8</strong><br/>
           
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-            <span class="formula">BIAS_update = ERROR × influence_BIAS_OUTPUT × PACE</span><br/>
+            <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
             <span class="formula">BIAS = BIAS + BIAS_update</span>
           </div>
 
@@ -511,13 +511,13 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_BIAS_OUTPUT = influence_BIAS_SUM × influence_SUM_OUTPUT
+            influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT
           </div>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_BIAS_SUM here?</div>
             Our formula is: <strong>SUM = PRODUCT + BIAS</strong><br/>
-            We can re-write it this way: <strong>SUM = PRODUCT + 1.0 × BIAS</strong><br/>
+            We can re-write it this way: <strong>SUM = PRODUCT + 1.0 * BIAS</strong><br/>
             The number that multiplies the <strong>BIAS</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_BIAS_SUM = 1.0</strong>
           </div>
@@ -526,15 +526,15 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_SUM_OUTPUT here?</div>
             Our formula is: <strong>OUTPUT = SUM</strong><br/>
-            We can re-write it this way: <strong>OUTPUT = 1.0 × SUM</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0 * SUM</strong><br/>
             The number that multiplies the <strong>SUM</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_SUM_OUTPUT = 1.0</strong>
           </div>
           influence_SUM_OUTPUT = <strong>1.0</strong><br/><br/>
 
-          influence_BIAS_OUTPUT = influence_BIAS_SUM × influence_SUM_OUTPUT = 1.0 × 1.0 = <strong>1.0</strong><br/><br/>
+          influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
           
-          BIAS_update = ERROR × influence_BIAS_OUTPUT × PACE = -1.8 × 1.0 × 1.0 = <strong>-1.8</strong><br/><br/>
+          BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE = -1.8 * 1.0 * 1.0 = <strong>-1.8</strong><br/><br/>
           BIAS = BIAS + BIAS_update = 33.8 + (-1.8) = <strong>32.0</strong><br/>
 
         </div>
@@ -567,7 +567,7 @@
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 1.0 × 1.8 = <strong>1.8</strong><br/>
+          PRODUCT = INPUT * WEIGHT = 1.0 * 1.8 = <strong>1.8</strong><br/>
           SUM = PRODUCT + BIAS = 1.8 + 32.0 = <strong>33.8</strong><br/>
           OUTPUT = SUM = <strong>33.8</strong><br/>
         </div>
@@ -586,7 +586,7 @@
 
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
+            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
@@ -596,12 +596,12 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_SUM × influence_SUM_OUTPUT
+            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT
           </div>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_WEIGHT_PRODUCT here?</div>
-            Our formula is: <strong>PRODUCT = INPUT × WEIGHT</strong><br/>
+            Our formula is: <strong>PRODUCT = INPUT * WEIGHT</strong><br/>
             The number that multiplies the <strong>WEIGHT</strong> is <strong>INPUT</strong>.<br/>
             Therefore: <strong>influence_WEIGHT_PRODUCT = INPUT</strong>
           </div>
@@ -610,7 +610,7 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_PRODUCT_SUM here?</div>
             The formula is: <strong>SUM = PRODUCT + BIAS</strong><br/>
-            We can re-write it this way: <strong>SUM = 1.0 × PRODUCT + BIAS</strong><br/>
+            We can re-write it this way: <strong>SUM = 1.0 * PRODUCT + BIAS</strong><br/>
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_PRODUCT_SUM = 1.0</strong>
           </div>
@@ -619,20 +619,20 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_SUM_OUTPUT here?</div>
             Our formula is: <strong>OUTPUT = SUM</strong><br/>
-            We can re-write it this way: <strong>OUTPUT = 1.0 × SUM</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0 * SUM</strong><br/>
             The number that multiplies the <strong>SUM</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_SUM_OUTPUT = 1.0</strong>
           </div>
           influence_SUM_OUTPUT = <strong>1.0</strong><br/><br/>
 
-          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_SUM × influence_SUM_OUTPUT = 1.0 × 1.0 × 1.0 = <strong>1.0</strong><br/><br/>
+          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
           
-          WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE = 0.0 × 1.0 × 1.0 = <strong>0.0</strong><br/><br/>
+          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = 0.0 * 1.0 * 1.0 = <strong>0.0</strong><br/><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 1.8 + 0.0 = <strong>1.8</strong><br/>
           
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-            <span class="formula">BIAS_update = ERROR × influence_BIAS_OUTPUT × PACE</span><br/>
+            <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
             <span class="formula">BIAS = BIAS + BIAS_update</span>
           </div>
 
@@ -642,13 +642,13 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_BIAS_OUTPUT = influence_BIAS_SUM × influence_SUM_OUTPUT
+            influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT
           </div>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_BIAS_SUM here?</div>
             Our formula is: <strong>SUM = PRODUCT + BIAS</strong><br/>
-            We can re-write it this way: <strong>SUM = PRODUCT + 1.0 × BIAS</strong><br/>
+            We can re-write it this way: <strong>SUM = PRODUCT + 1.0 * BIAS</strong><br/>
             The number that multiplies the <strong>BIAS</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_BIAS_SUM = 1.0</strong>
           </div>
@@ -657,15 +657,15 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_SUM_OUTPUT here?</div>
             Our formula is: <strong>OUTPUT = SUM</strong><br/>
-            We can re-write it this way: <strong>OUTPUT = 1.0 × SUM</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0 * SUM</strong><br/>
             The number that multiplies the <strong>SUM</strong> is <strong>1.0</strong>.<br/>
             Therefore: <strong>influence_SUM_OUTPUT = 1.0</strong>
           </div>
           influence_SUM_OUTPUT = <strong>1.0</strong><br/><br/>
 
-          influence_BIAS_OUTPUT = influence_BIAS_SUM × influence_SUM_OUTPUT = 1.0 × 1.0 = <strong>1.0</strong><br/><br/>
+          influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
           
-          BIAS_update = ERROR × influence_BIAS_OUTPUT × PACE = 0.0 × 1.0 × 1.0 = <strong>0.0</strong><br/><br/>
+          BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE = 0.0 * 1.0 * 1.0 = <strong>0.0</strong><br/><br/>
           BIAS = BIAS + BIAS_update = 32.0 + 0.0 = <strong>32.0</strong><br/>
 
         </div>
@@ -701,7 +701,7 @@
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 10.0 × 1.8 = <strong>18.0</strong><br/>
+          PRODUCT = INPUT * WEIGHT = 10.0 * 1.8 = <strong>18.0</strong><br/>
           SUM = PRODUCT + BIAS = 18.0 + 32.0 = <strong>50.0</strong><br/>
           OUTPUT = SUM = <strong>50.0</strong><br/>
           </div>
@@ -721,7 +721,7 @@
           <p>It has learned the rule: <strong>convert Celsius temperatures into Fahrenheit</strong>.</p>
           <p>The <strong>Converter-°C-to-°F</strong> can now solve problems it has never encountered before.</p>
           <p>The brain is now just this formula:</p>
-        <div class="callout callout-neutral"><strong>OUTPUT = INPUT × 1.8 + 32.0</strong></div>
+        <div class="callout callout-neutral"><strong>OUTPUT = INPUT * 1.8 + 32.0</strong></div>
         </div>
 
       </div>
@@ -843,11 +843,11 @@ print(f"TESTING complete: ERROR = {ERROR:.1f}")
     <div class="card">
       <div class="card-body">
         <p>Crucially, <strong>BIAS</strong> adds capability to the <strong>NEURON</strong>. Without <strong>BIAS</strong>, the brain would not even be able to solve a problem as simple as converting Celsius to Fahrenheit (because 0°C is 32°F, which requires adding an additional number).</p>
-        <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, all <strong>PARAMETERS</strong> compete over which gets updated more. The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., <strong>ERROR × influence_PARAMETER_OUTPUT</strong> — receives a larger update.</p>
+        <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, all <strong>PARAMETERS</strong> compete over which gets updated more. The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — receives a larger update.</p>
         
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR × influence_PARAMETER_OUTPUT × PACE</span><br/>
+          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>         
         </div>
         <p><strong>PARAMETER</strong> — This is the thing the machine is trying to get right.</p>     

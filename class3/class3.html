@@ -56,7 +56,7 @@
         <p>It will have a single <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
         <p>The brain will be a simple formula like this:</p>
         <div class="callout callout-neutral">
-          <strong>OUTPUT = INPUT × WEIGHT</strong>
+          <strong>OUTPUT = INPUT * WEIGHT</strong>
         </div>
         <p>We need to find the correct <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
       </div>
@@ -124,7 +124,7 @@
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR × influence_PARAMETER_OUTPUT × PACE</span><br/>
+          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
         </div>
 
@@ -132,7 +132,7 @@
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-          <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
+          <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
           <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
         </div>
 
@@ -162,7 +162,7 @@
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 0.6000 × 0.0000 = <strong>0.0000</strong><br/>
+          PRODUCT = INPUT * WEIGHT = 0.6000 * 0.0000 = <strong>0.0000</strong><br/>
           OUTPUT = PRODUCT = <strong>0.0000</strong><br/>
         </div>
 
@@ -180,7 +180,7 @@
 
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
+            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
@@ -195,12 +195,12 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_OUTPUT
+            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT
           </div>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_WEIGHT_PRODUCT here?</div>
-            The formula is: <strong>PRODUCT = INPUT × WEIGHT</strong><br/>
+            The formula is: <strong>PRODUCT = INPUT * WEIGHT</strong><br/>
             The number that multiplies the <strong>WEIGHT</strong> is the <strong>INPUT</strong>.<br/>
             Therefore: <strong>influence_WEIGHT_PRODUCT = INPUT</strong>
           </div>
@@ -209,15 +209,15 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_PRODUCT_OUTPUT here?</div>
             The formula is: <strong>OUTPUT = PRODUCT</strong><br/>
-            We can re-write it this way: <strong>OUTPUT = 1.0000 × PRODUCT</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0000 * PRODUCT</strong><br/>
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0000</strong>.<br/>
             Therefore: <strong>influence_PRODUCT_OUTPUT = 1.0000</strong>
           </div>
           influence_PRODUCT_OUTPUT = <strong>1.0000</strong><br/><br/>
 
-          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_OUTPUT = 0.6000 × 1.0000 = <strong>0.6000</strong><br/><br/>
+          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT = 0.6000 * 1.0000 = <strong>0.6000</strong><br/><br/>
          
-          WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE = 3.0000 × 0.6000 × 0.0100 = <strong>0.0180</strong><br/>
+          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = 3.0000 * 0.6000 * 0.0100 = <strong>0.0180</strong><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0000 + 0.0180 = <strong>0.0180</strong><br/>
 
         </div>
@@ -228,7 +228,7 @@
           <strong>What just happened?</strong>
           <p>The brain has just improved itself.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>0.6000</strong>,
-          the <strong>OUTPUT</strong> becomes <strong>0.0108</strong> (0.6000 × 0.0180) — which is closer to the
+          the <strong>OUTPUT</strong> becomes <strong>0.0108</strong> (0.6000 * 0.0180) — which is closer to the
           <strong>TARGET</strong> (<strong>3.0000</strong>) than the previous <strong>OUTPUT</strong> (<strong>0.0000</strong>) was.</p>
           <p>The <strong>ERROR</strong> becomes smaller:</p>
           <span class="error-chip">ERROR = 2.9892</span>
@@ -260,7 +260,7 @@
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = -10.0000 × 0.0180 = <strong>-0.1800</strong><br/>
+          PRODUCT = INPUT * WEIGHT = -10.0000 * 0.0180 = <strong>-0.1800</strong><br/>
           OUTPUT = PRODUCT = <strong>-0.1800</strong><br/>
         </div>
 
@@ -278,7 +278,7 @@
 
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE</span><br/>
+            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
             <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
           </div>
 
@@ -293,12 +293,12 @@
 
           <div class="influence-panel">
             <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_OUTPUT
+            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT
           </div>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_WEIGHT_PRODUCT here?</div>
-            The formula is: <strong>PRODUCT = INPUT × WEIGHT</strong><br/>
+            The formula is: <strong>PRODUCT = INPUT * WEIGHT</strong><br/>
             The number that multiplies the <strong>WEIGHT</strong> is the <strong>INPUT</strong>.<br/>
             Therefore: <strong>influence_WEIGHT_PRODUCT = INPUT</strong>
           </div>
@@ -307,15 +307,15 @@
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_PRODUCT_OUTPUT here?</div>
             The formula is: <strong>OUTPUT = PRODUCT</strong><br/>
-            We can re-write it this way: <strong>OUTPUT = 1.0000 × PRODUCT</strong><br/>
+            We can re-write it this way: <strong>OUTPUT = 1.0000 * PRODUCT</strong><br/>
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0000</strong>.<br/>
             Therefore: <strong>influence_PRODUCT_OUTPUT = 1.0000</strong>
           </div>
           influence_PRODUCT_OUTPUT = <strong>1.0000</strong><br/><br/>
 
-          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT × influence_PRODUCT_OUTPUT = -10.0000 × 1.0000 = <strong>-10.0000</strong><br/><br/>
+          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT = -10.0000 * 1.0000 = <strong>-10.0000</strong><br/><br/>
          
-          WEIGHT_update = ERROR × influence_WEIGHT_OUTPUT × PACE = −49.8200 × (-10.0000) × 0.0100 = <strong>4.9820</strong><br/>
+          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = −49.8200 * (-10.0000) * 0.0100 = <strong>4.9820</strong><br/>
           WEIGHT = WEIGHT + WEIGHT_update = 0.0180 + 4.9820 = <strong>5.0000</strong><br/>
 
 
@@ -328,7 +328,7 @@
           <strong>What just happened?</strong>
           <p>The brain has just improved itself again.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>−10.0000</strong>,
-          the <strong>OUTPUT</strong> becomes <strong>−50.0000</strong> (−10.0000 × 5.0000) — which is closer to the
+          the <strong>OUTPUT</strong> becomes <strong>−50.0000</strong> (−10.0000 * 5.0000) — which is closer to the
           <strong>TARGET</strong> (<strong>−50.0000</strong>) than the previous <strong>OUTPUT</strong> (<strong>-0.1800</strong>) was.</p>
         </div>
 
@@ -369,7 +369,7 @@
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT × WEIGHT = 10.0000 × 5.0000 = <strong>50.0</strong><br/>
+          PRODUCT = INPUT * WEIGHT = 10.0000 * 5.0000 = <strong>50.0</strong><br/>
           OUTPUT = PRODUCT = <strong>50.0000</strong><br/>
         </div>
 
@@ -387,7 +387,7 @@
           <p>It has learned the rule: <strong>multiply any number by 5.0</strong>.</p>
           <p>The <strong>Multiplier-By-Five</strong> can now solve problems it has never encountered before.</p>
           <p>The brain is now just this formula:</p>
-        <div class="callout callout-neutral"><strong>OUTPUT = INPUT × 5.0000</strong></div>
+        <div class="callout callout-neutral"><strong>OUTPUT = INPUT * 5.0000</strong></div>
         </div>
 
       </div>
@@ -510,7 +510,7 @@ print(f"TESTING complete: ERROR = {ERROR:.4f}")
         
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR × influence_PARAMETER_OUTPUT × PACE</span><br/>
+          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
           <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>         
         </div>
         <p><strong>PARAMETER</strong> — This is the thing the machine is trying to get right.</p>  
