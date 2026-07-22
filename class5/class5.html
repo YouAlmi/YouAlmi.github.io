@@ -1098,22 +1098,22 @@ print(f"OUTPUT = {OUTPUT:.7f}")
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
+          <span class="formula">PAR_update = ERR * i_PARA_OUT * PACE</span><br/>
+          <span class="formula">PAR = PAR + PAR_update</span>
         </div>
 
         <p>Because the brain has multiple <strong>PARAMETERS</strong> — <strong>WEIGHTS</strong> and <strong>BIASES</strong> — we obtain these two update rules:</p>
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-          <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+          <span class="formula">W_update = ERR * i_W_OUT * PACE</span><br/>
+          <span class="formula">W = W + W_update</span>
         </div>
 
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-          <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
-          <span class="formula">BIAS = BIAS + BIAS_update</span>
+          <span class="formula">B_update = ERR * i_B_OUT * PACE</span><br/>
+          <span class="formula">B = B + B_update</span>
         </div>
 
         <p>Don't worry — each step is simple. Just follow the calculations below.</p>
