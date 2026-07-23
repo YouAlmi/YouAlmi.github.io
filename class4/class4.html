@@ -40,8 +40,8 @@
       <div class="card-body">
         <p>Here, we add <strong>BIAS</strong> to the <strong>NEURON</strong>. 
         So the brain will have two <strong>PARAMETERS</strong>: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
-        <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, these <strong>PARAMETERS</strong> will compete over which gets updated more. 
-          The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — receives a larger update.</p>
+        <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, these <strong>PARAMETERS</strong> will compete over which gets changed more. 
+          The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — receives a larger change.</p>
         <p>To see this competition more clearly, let's set <strong>PACE</strong> to <strong>1.0</strong>:</p>
         <div class="callout callout-neutral">PACE = <strong>1.0</strong></div>
       </div>
@@ -109,38 +109,38 @@
         <p><strong>EXAMPLE</strong> 2 means when the <strong>INPUT</strong> is <strong>1.0</strong>, the <strong>OUTPUT</strong> must be <strong>33.8</strong>, because 1.0°C equals 33.8°F.</p>
     
         <p>
-          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the brain <strong>updates</strong> each <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
+          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the brain <strong>changes</strong> each <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
         </p>
       </div>
     </div>
 
 
-    <!-- UPDATE RULE -->
-    <div class="section-label">Update Rule</div>
+    <!-- CHANGE RULE -->
+    <div class="section-label">Change Rule</div>
 
     <div class="card">
       <div class="card-body">
 
-        <p>The brain <strong>updates</strong> each <strong>PARAMETER</strong> using the <strong>FUNDAMENTAL UPDATE RULE</strong>:</p>
+        <p>The brain <strong>changes</strong> each <strong>PARAMETER</strong> using the <strong>FUNDAMENTAL CHANGE RULE</strong>:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
+          <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for PARAMETER</div>
+          <span class="formula">PARAMETER_change = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span>
         </div>
 
-        <p>Because the brain has two <strong>PARAMETERS</strong> — <strong>WEIGHT</strong> and <strong>BIAS</strong> — we obtain these two update rules:</p>
+        <p>Because the brain has two <strong>PARAMETERS</strong> — <strong>WEIGHT</strong> and <strong>BIAS</strong> — we obtain these two change rules:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-          <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+          <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
+          <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
         </div>
 
         <div class="formula-block">
-          <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-          <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
-          <span class="formula">BIAS = BIAS + BIAS_update</span>
+          <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for BIAS</div>
+          <span class="formula">BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
+          <span class="formula">BIAS = BIAS + BIAS_change</span>
         </div>
 
         <p>Don't worry — each step is simple. Just follow the calculations below.</p>
@@ -184,7 +184,7 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before update" />
+          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before change" />
         </div>
 
         <div class="callout callout-info">
@@ -192,9 +192,9 @@
           <p>Now the brain changes each PARAMETER that contributed to the ERROR.</p><br/>
 
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
+            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
           </div>
 
           WEIGHT = <strong>0.0</strong><br/>
@@ -234,13 +234,13 @@
 
           influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 0.0 * 1.0 * 1.0 = <strong>0.0</strong><br/><br/>
          
-          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = 32.0 * 0.0 * 1.0 = <strong>0.0</strong><br/><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 0.0 = <strong>0.0</strong><br/>       
+          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = 32.0 * 0.0 * 1.0 = <strong>0.0</strong><br/><br/>
+          WEIGHT = WEIGHT + WEIGHT_change = 0.0 + 0.0 = <strong>0.0</strong><br/>       
           
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-            <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
-            <span class="formula">BIAS = BIAS + BIAS_update</span>
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for BIAS</div>
+            <span class="formula">BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
+            <span class="formula">BIAS = BIAS + BIAS_change</span>
           </div>
 
           BIAS = <strong>0.0</strong><br/>
@@ -272,8 +272,8 @@
 
           influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
          
-          BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE = 32.0 * 1.0 * 1.0 = <strong>32.0</strong><br/><br/>
-          BIAS = BIAS + BIAS_update = 0.0 + 32.0 = <strong>32.0</strong><br/>
+          BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE = 32.0 * 1.0 * 1.0 = <strong>32.0</strong><br/><br/>
+          BIAS = BIAS + BIAS_change = 0.0 + 32.0 = <strong>32.0</strong><br/>
 
         </div>
 
@@ -316,16 +316,16 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before update" />
+          <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before change" />
         </div>
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
+            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
           </div>
 
           WEIGHT = <strong>0.0</strong><br/>
@@ -365,13 +365,13 @@
 
           influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
           
-          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = 1.8 * 1.0 * 1.0 = <strong>1.8</strong><br/><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.0 + 1.8 = <strong>1.8</strong><br/>
+          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = 1.8 * 1.0 * 1.0 = <strong>1.8</strong><br/><br/>
+          WEIGHT = WEIGHT + WEIGHT_change = 0.0 + 1.8 = <strong>1.8</strong><br/>
           
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-            <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
-            <span class="formula">BIAS = BIAS + BIAS_update</span>
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for BIAS</div>
+            <span class="formula">BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
+            <span class="formula">BIAS = BIAS + BIAS_change</span>
           </div>
 
           BIAS = <strong>32.0</strong><br/>
@@ -403,8 +403,8 @@
 
           influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
           
-          BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE = 1.8 * 1.0 * 1.0 = <strong>1.8</strong><br/><br/>    
-          BIAS = BIAS + BIAS_update = 32.0 + 1.8 = <strong>33.8</strong><br/>
+          BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE = 1.8 * 1.0 * 1.0 = <strong>1.8</strong><br/><br/>    
+          BIAS = BIAS + BIAS_change = 32.0 + 1.8 = <strong>33.8</strong><br/>
 
         </div>
 
@@ -448,16 +448,16 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L3_before.png" alt="Neuron diagram — Lesson 3 before update" />
+          <img src="graph_L3_before.png" alt="Neuron diagram — Lesson 3 before change" />
         </div>
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
+            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
           </div>
 
           WEIGHT = <strong>1.8</strong><br/>
@@ -497,13 +497,13 @@
 
           influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 0.0 * 1.0 * 1.0 = <strong>0.0</strong><br/><br/>
           
-          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = -1.8 * 0.0 * 1.0 = <strong>0.0</strong><br/><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 1.8 + 0.0 = <strong>1.8</strong><br/>
+          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = -1.8 * 0.0 * 1.0 = <strong>0.0</strong><br/><br/>
+          WEIGHT = WEIGHT + WEIGHT_change = 1.8 + 0.0 = <strong>1.8</strong><br/>
           
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-            <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
-            <span class="formula">BIAS = BIAS + BIAS_update</span>
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for BIAS</div>
+            <span class="formula">BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
+            <span class="formula">BIAS = BIAS + BIAS_change</span>
           </div>
 
           BIAS = <strong>33.8</strong><br/>
@@ -535,8 +535,8 @@
 
           influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
           
-          BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE = -1.8 * 1.0 * 1.0 = <strong>-1.8</strong><br/><br/>
-          BIAS = BIAS + BIAS_update = 33.8 + (-1.8) = <strong>32.0</strong><br/>
+          BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE = -1.8 * 1.0 * 1.0 = <strong>-1.8</strong><br/><br/>
+          BIAS = BIAS + BIAS_change = 33.8 + (-1.8) = <strong>32.0</strong><br/>
 
         </div>
 
@@ -579,16 +579,16 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L4_before.png" alt="Neuron diagram — Lesson 4 before update" />
+          <img src="graph_L4_before.png" alt="Neuron diagram — Lesson 4 before change" />
         </div>
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
+            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
           </div>
 
           WEIGHT = <strong>1.8</strong><br/>
@@ -628,13 +628,13 @@
 
           influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
           
-          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = 0.0 * 1.0 * 1.0 = <strong>0.0</strong><br/><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 1.8 + 0.0 = <strong>1.8</strong><br/>
+          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = 0.0 * 1.0 * 1.0 = <strong>0.0</strong><br/><br/>
+          WEIGHT = WEIGHT + WEIGHT_change = 1.8 + 0.0 = <strong>1.8</strong><br/>
           
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for BIAS</div>
-            <span class="formula">BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
-            <span class="formula">BIAS = BIAS + BIAS_update</span>
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for BIAS</div>
+            <span class="formula">BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE</span><br/>
+            <span class="formula">BIAS = BIAS + BIAS_change</span>
           </div>
 
           BIAS = <strong>32.0</strong><br/>
@@ -666,8 +666,8 @@
 
           influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = <strong>1.0</strong><br/><br/>
           
-          BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE = 0.0 * 1.0 * 1.0 = <strong>0.0</strong><br/><br/>
-          BIAS = BIAS + BIAS_update = 32.0 + 0.0 = <strong>32.0</strong><br/>
+          BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE = 0.0 * 1.0 * 1.0 = <strong>0.0</strong><br/><br/>
+          BIAS = BIAS + BIAS_change = 32.0 + 0.0 = <strong>32.0</strong><br/>
 
         </div>
 
@@ -774,13 +774,13 @@ for EPOCH in range(EPOCHS):
         influence_WEIGHT_OUTPUT = INPUT
         influence_BIAS_OUTPUT = 1.0
 
-        # FUNDAMENTAL UPDATE RULE for WEIGHT
-        WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE
-        WEIGHT = WEIGHT + WEIGHT_update
+        # FUNDAMENTAL CHANGE RULE for WEIGHT
+        WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE
+        WEIGHT = WEIGHT + WEIGHT_change
      
-        # FUNDAMENTAL UPDATE RULE for BIAS
-        BIAS_update = ERROR * influence_BIAS_OUTPUT * PACE      
-        BIAS = BIAS + BIAS_update
+        # FUNDAMENTAL CHANGE RULE for BIAS
+        BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE      
+        BIAS = BIAS + BIAS_change
 
 print(f"""TRAINING complete:
 WEIGHT = {WEIGHT:.1f}
@@ -844,18 +844,18 @@ print(f"TESTING complete: ERROR = {ERROR:.1f}")
     <div class="card">
       <div class="card-body">
         <p>Crucially, <strong>BIAS</strong> adds capability to the <strong>NEURON</strong>. Without <strong>BIAS</strong>, the brain would not even be able to solve a problem as simple as converting Celsius to Fahrenheit (because 0°C is 32°F, which requires adding an additional number).</p>
-        <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, all <strong>PARAMETERS</strong> compete over which gets updated more. The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — receives a larger update.</p>
+        <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, all <strong>PARAMETERS</strong> compete over which gets changed more. The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — i.e., <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — receives a larger change.</p>
         
         <div class="formula-block">
-          <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>         
+          <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for PARAMETER</div>
+          <span class="formula">PARAMETER_change = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span>         
         </div>
         <p><strong>PARAMETER</strong> — This is the thing the machine is trying to get right.</p>     
-        <p><strong>PARAMETER_update</strong> — How much the PARAMETER is updated at the given LESSON.</p>
+        <p><strong>PARAMETER_change</strong> — How much the PARAMETER is changed at the given LESSON.</p>
         <p><strong>ERROR</strong> — How wrong the machine was.</p>
         <p><strong>influence_PARAMETER_OUTPUT</strong> — The INFLUENCE of the PARAMETER on the OUTPUT.</p>
-        <p><strong>PACE</strong> — A number that keeps each update from being both too big and too small.</p>  
+        <p><strong>PACE</strong> — A number that keeps each change from being both too big and too small.</p>  
       </div>
     </div>
     
