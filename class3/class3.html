@@ -39,8 +39,8 @@
     <div class="card">
   <div class="card-body">
     <p>In this Class, we introduce the <strong>Pace of Learning</strong> — or <strong>PACE</strong> for short.</p>
-    <p><strong>PACE</strong> is just a number that keeps each update from being both too big and too small.</p>
-    <p>By adding <strong>PACE</strong> to our <strong>PARAMETER UPDATE RULE</strong>, we help the brain learn smoothly and steadily.</p>
+    <p><strong>PACE</strong> is just a number that keeps each change from being both too big and too small.</p>
+    <p>By adding <strong>PACE</strong> to our <strong>PARAMETER CHANGE RULE</strong>, we help the brain learn smoothly and steadily.</p>
     <p>For example, let's set it to <strong>0.0100</strong>:</p>
     <div class="callout callout-neutral">PACE = <strong>0.0100</strong></div>
   </div>
@@ -109,31 +109,31 @@
           <strong>EXAMPLE 2</strong> means when the <strong>INPUT</strong> is <strong>-10.0000</strong>, the <strong>OUTPUT</strong> must be <strong>-50.0000</strong>.
         </p>
         <p>
-          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the brain <strong>updates</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
+          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the brain <strong>changes</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
         </p>
       </div>
     </div>
 
-    <!-- THE UNIVERSAL UPDATE RULE -->
-    <div class="section-label">Update Rule</div>
+    <!-- THE UNIVERSAL CHANGE RULE -->
+    <div class="section-label">Change Rule</div>
 
     <div class="card">
       <div class="card-body">
 
-        <p>The brain <strong>updates</strong> the <strong>PARAMETER</strong> using the <strong>FUNDAMENTAL UPDATE RULE</strong>:</p>
+        <p>The brain <strong>changes</strong> the <strong>PARAMETER</strong> using the <strong>FUNDAMENTAL CHANGE RULE</strong>:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
+          <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for PARAMETER</div>
+          <span class="formula">PARAMETER_change = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span>
         </div>
 
         <p>Because the brain has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-          <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+          <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
+          <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
         </div>
 
         <p>Don't worry — each step is simple. Just follow the calculations below.</p>
@@ -172,16 +172,16 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before update" />
+          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before change" />
         </div>
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
+            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
           </div>
 
           WEIGHT = <strong>0.0000</strong><br/>
@@ -217,8 +217,8 @@
 
           influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT = 0.6000 * 1.0000 = <strong>0.6000</strong><br/><br/>
          
-          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = 3.0000 * 0.6000 * 0.0100 = <strong>0.0180</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.0000 + 0.0180 = <strong>0.0180</strong><br/>
+          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = 3.0000 * 0.6000 * 0.0100 = <strong>0.0180</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_change = 0.0000 + 0.0180 = <strong>0.0180</strong><br/>
 
         </div>
 
@@ -235,7 +235,7 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after update" />
+          <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after change" />
         </div>
 
          <p><br/><strong>LESSON 1</strong> ends here.</p>
@@ -270,16 +270,16 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before update" />
+          <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before change" />
         </div>
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
+            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
           </div>
 
           WEIGHT = <strong>0.0180</strong><br/>
@@ -315,8 +315,8 @@
 
           influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT = -10.0000 * 1.0000 = <strong>-10.0000</strong><br/><br/>
          
-          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE = −49.8200 * (-10.0000) * 0.0100 = <strong>4.9820</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.0180 + 4.9820 = <strong>5.0000</strong><br/>
+          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = −49.8200 * (-10.0000) * 0.0100 = <strong>4.9820</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_change = 0.0180 + 4.9820 = <strong>5.0000</strong><br/>
 
 
 
@@ -340,7 +340,7 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after update" />
+          <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after change" />
         </div>
 
          <p><br/><strong>LESSON 2</strong> ends here.</p>
@@ -431,9 +431,9 @@ for EXAMPLE in range(EXAMPLES):
 
     influence_WEIGHT_OUTPUT = INPUT
 
-    # FUNDAMENTAL UPDATE RULE for WEIGHT
-    WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT * PACE
-    WEIGHT = WEIGHT + WEIGHT_update
+    # FUNDAMENTAL CHANGE RULE for WEIGHT
+    WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE
+    WEIGHT = WEIGHT + WEIGHT_change
 
 print(f"TRAINING complete: WEIGHT = {WEIGHT:.4f}")
 </textarea>
@@ -494,7 +494,7 @@ print(f"TESTING complete: ERROR = {ERROR:.4f}")
     <div class="card">
       <div class="card-body">
         <p>CLASS 3 clearly shows why we need <strong>PACE</strong>. 
-          Without it, that <strong>LESSON 2</strong> update would have been <strong>498.2</strong>, 
+          Without it, that <strong>LESSON 2</strong> change would have been <strong>498.2</strong>, 
           causing the <strong>WEIGHT</strong> to shoot too high. 
           </p>
 
@@ -504,20 +504,20 @@ print(f"TESTING complete: ERROR = {ERROR:.4f}")
           The <strong>PACE</strong>, together with the <strong>ERROR</strong> and <strong>INFLUENCE</strong>, helps the <strong>WEIGHT</strong> reach exactly <strong>5.0000</strong>.
         </p>
         <p>On the other hand, when <strong>PACE</strong> is too small — say, <strong>0.000001</strong> — then <strong>LEARNING</strong> becomes very slow and can take a long time.</p>
-        <p>Therefore, <strong>PACE</strong> keeps each update from being both too big and too small.</p>
-        <p>Metaphorically, the "villain" is exploding updates, and the hero is <strong>PACE</strong>, which keeps <strong>LEARNING</strong> stable.</p>
-        <p>So, we finally arrive at the <strong>FUNDAMENTAL UPDATE RULE</strong>:</p>
+        <p>Therefore, <strong>PACE</strong> keeps each change from being both too big and too small.</p>
+        <p>Metaphorically, the "villain" is exploding changes, and the hero is <strong>PACE</strong>, which keeps <strong>LEARNING</strong> stable.</p>
+        <p>So, we finally arrive at the <strong>FUNDAMENTAL CHANGE RULE</strong>:</p>
         
         <div class="formula-block">
-          <div class="formula-block-label">FUNDAMENTAL UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>         
+          <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for PARAMETER</div>
+          <span class="formula">PARAMETER_change = ERROR * influence_PARAMETER_OUTPUT * PACE</span><br/>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span>         
         </div>
         <p><strong>PARAMETER</strong> — This is the thing the machine is trying to get right.</p>  
-        <p><strong>PARAMETER_update</strong> — How much the PARAMETER is updated at the given LESSON.</p>
+        <p><strong>PARAMETER_change</strong> — How much the PARAMETER is changed at the given LESSON.</p>
         <p><strong>ERROR</strong> — How wrong the machine was.</p>
         <p><strong>influence_PARAMETER_OUTPUT</strong> — The INFLUENCE of the PARAMETER on the OUTPUT.</p>
-        <p><strong>PACE</strong> — A number that keeps each update from being both too big and too small.</p>     
+        <p><strong>PACE</strong> — A number that keeps each change from being both too big and too small.</p>     
       </div>
     </div>
 

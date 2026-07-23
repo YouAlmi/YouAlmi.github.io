@@ -39,7 +39,7 @@
     <div class="card">
       <div class="card-body">
         <p>Our educational materials are carefully designed to be clear, repetitive, and accessible for young learners. We believe that if a typical 10-year-old can easily understand an idea, most adults can too.</p>
-        <p>In this class, we add <strong>INFLUENCE</strong> to the <strong>PARAMETER UPDATE RULE</strong>.</p>
+        <p>In this class, we add <strong>INFLUENCE</strong> to the <strong>PARAMETER CHANGE RULE</strong>.</p>
         <p>We also introduce the <strong>CHAIN of INFLUENCES</strong>.</p>
       </div>
     </div>
@@ -356,7 +356,7 @@
           <strong>EXAMPLE 2</strong> means when the <strong>INPUT</strong> is <strong>-1.00</strong>, the <strong>OUTPUT</strong> must be <strong>-5.00</strong>.
         </p>
         <p>
-          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the mind <strong>updates</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
+          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the mind <strong>changes</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
         </p>
       </div>
     </div>
@@ -376,26 +376,26 @@
 
 
 
-    <!-- THE SIMPLIFIED UPDATE RULE -->
-    <div class="section-label">Update Rule</div>
+    <!-- THE SIMPLIFIED CHANGE RULE -->
+    <div class="section-label">Change Rule</div>
 
     <div class="card">
       <div class="card-body">
 
-        <p>The mind <strong>updates</strong> the <strong>PARAMETER</strong> using this <strong>UPDATE RULE</strong>:</p>
+        <p>The mind <strong>changes</strong> the <strong>PARAMETER</strong> using this <strong>CHANGE RULE</strong>:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">SIMPLIFIED UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT</span><br/>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
+          <div class="formula-block-label">SIMPLIFIED CHANGE RULE for PARAMETER</div>
+          <span class="formula">PARAMETER_change = ERROR * influence_PARAMETER_OUTPUT</span><br/>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span>
         </div>
 
         <p>Because the mind has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">SIMPLIFIED UPDATE RULE for WEIGHT</div>
-          <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT</span><br/>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+          <div class="formula-block-label">SIMPLIFIED CHANGE RULE for WEIGHT</div>
+          <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT</span><br/>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
         </div>
 
         <p>Don't worry — each step is simple. Just follow the calculations below.</p>
@@ -432,16 +432,16 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before update" />
+          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before change" />
         </div>
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">SIMPLIFIED UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+            <div class="formula-block-label">SIMPLIFIED CHANGE RULE for WEIGHT</div>
+            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
           </div>
 
           WEIGHT = <strong>0.00</strong><br/>
@@ -471,8 +471,8 @@
 
           influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT = 0.60 * 1.00 = <strong>0.60</strong><br/><br/>
           
-          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT = 3.00 * 0.60 = <strong>1.80</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.00 + 1.80 = <strong>1.80</strong><br/><br/>
+          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT = 3.00 * 0.60 = <strong>1.80</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_change = 0.00 + 1.80 = <strong>1.80</strong><br/><br/>
 
           So the <strong>WEIGHT</strong> becomes <strong>1.80</strong>.
         </div>
@@ -490,7 +490,7 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after update" />
+          <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after change" />
         </div>
 
         <p><br/><strong>LESSON 1</strong> ends here.</p>
@@ -524,16 +524,16 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before update" />
+          <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before change" />
         </div>
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">SIMPLIFIED UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT</span><br/> 
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>           
+            <div class="formula-block-label">SIMPLIFIED CHANGE RULE for WEIGHT</div>
+            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT</span><br/> 
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>           
           </div>
 
           WEIGHT = <strong>1.80</strong><br/>
@@ -563,8 +563,8 @@
 
           influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT = -1.00 * 1.00 = <strong>-1.00</strong><br/><br/>
 
-          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT = −3.20 * (−1.00) = <strong>3.20</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 1.80 + 3.20 = <strong>5.00</strong><br/><br/>
+          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT = −3.20 * (−1.00) = <strong>3.20</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_change = 1.80 + 3.20 = <strong>5.00</strong><br/><br/>
 
           So the <strong>WEIGHT</strong> becomes <strong>5.00</strong>.
         </div>
@@ -587,7 +587,7 @@
         </div>
 
         <div class="diagram">
-          <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after update" />
+          <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after change" />
         </div>
 
         <p><br/><strong>LESSON 2</strong> ends here.</p>
@@ -679,9 +679,9 @@ for EXAMPLE in range(EXAMPLES):
 
     influence_WEIGHT_OUTPUT = INPUT
 
-    # SIMPLIFIED UPDATE RULE for WEIGHT
-    WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT
-    WEIGHT = WEIGHT + WEIGHT_update
+    # SIMPLIFIED CHANGE RULE for WEIGHT
+    WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT
+    WEIGHT = WEIGHT + WEIGHT_change
 
 print(f"TRAINING complete: WEIGHT = {WEIGHT:.2f}")
 </textarea>
@@ -742,9 +742,9 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
     <div class="card">
       <div class="card-body">
         <p>Modern machines can learn from their own errors, 
-          thanks to the <strong>PARAMETER UPDATE RULE</strong> and its variations. 
-          While the SIMPLIFIED UPDATE RULE was sufficient for this task, 
-          we are moving step by step toward the <strong>FUNDAMENTAL UPDATE RULE</strong> 
+          thanks to the <strong>PARAMETER CHANGE RULE</strong> and its variations. 
+          While the SIMPLIFIED CHANGE RULE was sufficient for this task, 
+          we are moving step by step toward the <strong>FUNDAMENTAL CHANGE RULE</strong> 
            — with just one step remaining.</p>  
       </div>
     </div>
@@ -755,7 +755,7 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
       <div class="teaser-next">Up Next: Class 3</div>
       <p>Datasets often contain large numbers. To handle them,<br/>
       we add <strong style="color:var(--yellow);">PACE</strong>
-      to the <strong style="color:var(--yellow);">PARAMETER UPDATE RULE</strong>.
+      to the <strong style="color:var(--yellow);">PARAMETER CHANGE RULE</strong>.
       </p>
     </div>
 
@@ -855,7 +855,7 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
     <div class="card">
       <div class="card-body">
         <p>Our educational materials are carefully designed to be clear, repetitive, and accessible for young learners. We believe that if a typical 10-year-old can easily understand an idea, most adults can too.</p>
-        <p>In this class, we add <strong>INFLUENCE</strong> to the <strong>PARAMETER UPDATE RULE</strong>.</p>
+        <p>In this class, we add <strong>INFLUENCE</strong> to the <strong>PARAMETER CHANGE RULE</strong>.</p>
         <p>We also introduce the <strong>CHAIN of INFLUENCES</strong>.</p>
       </div>
     </div>
@@ -1165,7 +1165,7 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
           <strong>EXAMPLE 2</strong> means when the <strong>INPUT</strong> is <strong>-1.00</strong>, the <strong>OUTPUT</strong> must be <strong>-5.00</strong>.
         </p>
         <p>
-          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the mind <strong>updates</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
+          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the mind <strong>changes</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
         </p>
       </div>
     </div>
@@ -1185,26 +1185,26 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
 
 
 
-    <!-- THE SIMPLIFIED UPDATE RULE -->
-    <div class="section-label">Update Rule</div>
+    <!-- THE SIMPLIFIED CHANGE RULE -->
+    <div class="section-label">Change Rule</div>
 
     <div class="card">
       <div class="card-body">
 
-        <p>The mind <strong>updates</strong> the <strong>PARAMETER</strong> using this <strong>UPDATE RULE</strong>:</p>
+        <p>The mind <strong>changes</strong> the <strong>PARAMETER</strong> using this <strong>CHANGE RULE</strong>:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">SIMPLIFIED UPDATE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_update = ERROR * influence_PARAMETER_OUTPUT_influence</span><br/>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_update</span>
+          <div class="formula-block-label">SIMPLIFIED CHANGE RULE for PARAMETER</div>
+          <span class="formula">PARAMETER_change = ERROR * influence_PARAMETER_OUTPUT_influence</span><br/>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span>
         </div>
 
         <p>Because the mind has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">SIMPLIFIED UPDATE RULE for WEIGHT</div>
-          <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT</span><br/>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+          <div class="formula-block-label">SIMPLIFIED CHANGE RULE for WEIGHT</div>
+          <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT</span><br/>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
         </div>
 
         <p>Don't worry — each step is simple. Just follow the calculations below.</p>
@@ -1241,16 +1241,16 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
         </div>
 
         <div class="diagram">
-          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before update" />
+          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before change" />
         </div>
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">SIMPLIFIED UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>
+            <div class="formula-block-label">SIMPLIFIED CHANGE RULE for WEIGHT</div>
+            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
           </div>
 
           WEIGHT = <strong>0.00</strong><br/>
@@ -1280,8 +1280,8 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
 
           influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT = 0.60 * 1.00 = <strong>0.60</strong><br/><br/>
           
-          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT = 3.00 * 0.60 = <strong>1.80</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 0.00 + 1.80 = <strong>1.80</strong><br/><br/>
+          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT = 3.00 * 0.60 = <strong>1.80</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_change = 0.00 + 1.80 = <strong>1.80</strong><br/><br/>
 
           So the <strong>WEIGHT</strong> becomes <strong>1.80</strong>.
         </div>
@@ -1299,7 +1299,7 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
         </div>
 
         <div class="diagram">
-          <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after update" />
+          <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after change" />
         </div>
 
         <p><br/><strong>LESSON 1</strong> ends here.</p>
@@ -1333,16 +1333,16 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
         </div>
 
         <div class="diagram">
-          <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before update" />
+          <img src="graph_L2_before.png" alt="Neuron diagram — Lesson 2 before change" />
         </div>
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">SIMPLIFIED UPDATE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT</span><br/> 
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_update</span>           
+            <div class="formula-block-label">SIMPLIFIED CHANGE RULE for WEIGHT</div>
+            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT</span><br/> 
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>           
           </div>
 
           WEIGHT = <strong>1.80</strong><br/>
@@ -1372,8 +1372,8 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
 
           influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT = -1.00 * 1.00 = <strong>-1.00</strong><br/><br/>
 
-          WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT = −3.20 * (−1.00) = <strong>3.20</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_update = 1.80 + 3.20 = <strong>5.00</strong><br/><br/>
+          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT = −3.20 * (−1.00) = <strong>3.20</strong><br/>
+          WEIGHT = WEIGHT + WEIGHT_change = 1.80 + 3.20 = <strong>5.00</strong><br/><br/>
 
           So the <strong>WEIGHT</strong> becomes <strong>5.00</strong>.
         </div>
@@ -1396,7 +1396,7 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
         </div>
 
         <div class="diagram">
-          <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after update" />
+          <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after change" />
         </div>
 
         <p><br/><strong>LESSON 2</strong> ends here.</p>
@@ -1488,9 +1488,9 @@ for EXAMPLE in range(EXAMPLES):
 
     influence_WEIGHT_OUTPUT = INPUT
 
-    # SIMPLIFIED UPDATE RULE for WEIGHT
-    WEIGHT_update = ERROR * influence_WEIGHT_OUTPUT
-    WEIGHT = WEIGHT + WEIGHT_update
+    # SIMPLIFIED CHANGE RULE for WEIGHT
+    WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT
+    WEIGHT = WEIGHT + WEIGHT_change
 
 print(f"TRAINING complete: WEIGHT = {WEIGHT:.2f}")
 </textarea>
@@ -1554,9 +1554,9 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
           is the real secret weapon used by modern AI. 
           It is truly a game changer.</p> 
         <p>So modern machines can learn from their own errors, 
-          thanks to the <strong>PARAMETER UPDATE RULE</strong> and its variations. 
-          While the SIMPLIFIED UPDATE RULE was sufficient for this task, 
-          we are moving step by step toward the <strong>FUNDAMENTAL UPDATE RULE</strong> 
+          thanks to the <strong>PARAMETER CHANGE RULE</strong> and its variations. 
+          While the SIMPLIFIED CHANGE RULE was sufficient for this task, 
+          we are moving step by step toward the <strong>FUNDAMENTAL CHANGE RULE</strong> 
            — with just one step remaining.</p>  
       </div>
     </div>
@@ -1567,7 +1567,7 @@ print(f"TESTING complete: ERROR = {ERROR:.2f}")
       <div class="teaser-next">Up Next: Class 3</div>
       <p>Datasets often contain large numbers. To handle them,<br/>
       we add <strong style="color:var(--yellow);">PACE</strong>
-      to the <strong style="color:var(--yellow);">PARAMETER UPDATE RULE</strong>.
+      to the <strong style="color:var(--yellow);">PARAMETER CHANGE RULE</strong>.
       </p>
     </div>
 
