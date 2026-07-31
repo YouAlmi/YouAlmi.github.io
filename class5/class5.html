@@ -932,15 +932,15 @@ print(f"OUTPUT = {OUTPUT:.7f}")
          <pre>
 # LEYER 1:
 
-WEIGHT1 = ([
-        [ 0.54,  0.22,  0.05],         # NEURON 1
-        [ 0.51, -0.37, -0.14]         # NEURON 2
-        ])
+WEIGHT1 = 
+          0.54   0.22   0.05          # NEURON 1
+          0.51  -0.37  -0.14         # NEURON 2
+        
 
-BIAS1 = ([
-        [0.00],                               # NEURON 1
-        [0.00]                                # NEURON 2
-        ])
+BIAS1 = 
+          0.00                                # NEURON 1
+          0.00                               # NEURON 2
+  
 
 # LAYER 2:
 
@@ -1095,16 +1095,27 @@ BIAS2 = ([
       </div>
       <div class="card-body">
 
-        <div class="callout callout-neutral">
-          WEIGHT = <strong>0.0</strong><br/>
-          BIAS = <strong>0.0</strong><br/>
-          PACE = <strong>1.0</strong>
-        </div>
-          
+      INPUTS tensor([1., 1., 0.])
+TARGET 0
+PRODUCT1 tensor([[ 0.5400,  0.2179,  0.0000],
+        [ 0.5073, -0.3690, -0.0000]])
+
+SUM1 tensor([[0.7579],
+        [0.1383]])
+
+ACT1 tensor([[0.7579, 0.1383]])
+
+PRODUCT2 tensor([[-1.1542,  0.0528]])
+
+SUM2 tensor([[-1.1014]])
+
+ACT2 tensor([[0.2495]])
+
+OUTPUT tensor([[0.2495]])    
 
         <p><strong>EXAMPLE 1</strong>:</p>
         <div class="callout callout-neutral">
-          INPUT = <strong>0.0</strong><br/>
+          INPUT = ([[-1.52, 0.38]])<br/>
           TARGET = <strong>32.0</strong>
         </div>
 
