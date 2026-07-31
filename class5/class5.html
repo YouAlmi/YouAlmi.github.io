@@ -10,6 +10,10 @@
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
 
+
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 
@@ -22,6 +26,32 @@
     #code-input5  { height: 155px; }
     #code-input6  { height: 140px; }
     #code-input7  { height: 140px; }
+  </style>
+
+
+  
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif; /* Simulated body font from your template */
+    }
+
+    /* CODE BLOCK STYLING */
+    pre.code-block {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      
+      /* Essential alignment fixes */
+      font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, "Liberation Mono", monospace !important;
+      white-space: pre !important;
+      letter-spacing: normal !important;
+      word-spacing: normal !important;
+      font-variant-ligatures: none !important;
+      font-size: 14px;
+      line-height: 1.5;
+    }
   </style>
 
 </head>
@@ -1108,6 +1138,13 @@ SUM2 tensor([[-1.1014]])
 ACT2 tensor([[0.2495]])
 
 OUTPUT tensor([[0.2495]])    
+
+
+
+
+  <pre class="code-block"><code>INPUT = 1.00  1.00  1.00
+TARGET = 0.00</code></pre>
+
 
         <p><strong>EXAMPLE 1</strong>:</p>
         <div class="callout callout-neutral">
