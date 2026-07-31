@@ -219,18 +219,3 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .teaser { background: #111111; color: #ffffff; border-radius: 10px; padding: 28px; text-align: center; margin: 36px 0 0; font-weight: 700; }
 .teaser-next { color: var(--yellow); font-weight: 900; font-size: 22px; margin: 8px 0; }
 
-
-/* Monospace text that inherits callout styling without looking like a code block */
-pre.plain-align {
-  font-size: 24px !important;
-
-  white-space: pre !important;
-  font-size: inherit !important;
-  line-height: inherit !important;
-  font-weight: inherit !important;
-  color: inherit !important;
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
