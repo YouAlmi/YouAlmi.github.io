@@ -218,3 +218,10 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .step-badge { background: var(--green); color: #ffffff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
 .teaser { background: #111111; color: #ffffff; border-radius: 10px; padding: 28px; text-align: center; margin: 36px 0 0; font-weight: 700; }
 .teaser-next { color: var(--yellow); font-weight: 900; font-size: 22px; margin: 8px 0; }
+
+pre, code {
+  font-family: 'Courier New', Courier, monospace; /* Monospace preserves character alignment */
+  white-space: pre;                               /* Preserves spaces, tabs, and line breaks */
+  tab-size: 4;                                    /* Sets tab spacing */
+  overflow-x: auto;                               /* Adds horizontal scroll if lines are too long */
+}
