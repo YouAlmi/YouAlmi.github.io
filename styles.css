@@ -222,30 +222,23 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 
 
 
-/* ── FORMULA / CODE PRE BLOCK ── */
-pre.code-block {
-  background: #111111;
-  color: #ffffff;
-  border-radius: 8px;
-  border-left: 5px solid var(--green);
-  padding: 16px 20px;
-  margin: 16px 0;
-  overflow-x: auto;
-}
-
-/* Force exact monospace geometry for pre and all inner tags */
-pre.code-block, pre.code-block * {
+/* ── MONOSPACE CALLOUT (Looks like regular HTML, aligns like code) ── */
+pre.callout-code, 
+pre.callout-code * {
   font-family: 'Courier New', Courier, monospace !important;
   white-space: pre !important;
   letter-spacing: 0px !important;
   word-spacing: 0px !important;
   font-variant-ligatures: none !important;
-  line-height: 1.4 !important;
-  font-size: 16px !important;
+  
+  /* Matches .callout styling perfectly */
+  font-size: 17px !important;
+  line-height: 1.85 !important;
   font-weight: 700 !important;
-}
-
-/* Optional styling for highlighted variables inside the code block */
-pre.code-block .formula {
-  color: var(--yellow) !important;
+  
+  /* Reset default pre element margins */
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
 }
