@@ -219,12 +219,13 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .teaser { background: #111111; color: #ffffff; border-radius: 10px; padding: 28px; text-align: center; margin: 36px 0 0; font-weight: 700; }
 .teaser-next { color: var(--yellow); font-weight: 900; font-size: 22px; margin: 8px 0; }
 
-pre, pre code {
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  white-space: pre;       /* Enforces exact spacing and line breaks */
-  font-size: 14px;        /* Consistent font sizing */
-  line-height: 1.4;       /* Consistent vertical spacing */
-  tab-size: 4;            /* Standard tab alignment */
-  margin: 0;
-  padding: 0;
+/* ── MONOSPACE CODE BLOCK ── */
+pre, pre code, .code-block {
+  font-family: 'Courier New', monospace !important;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: pre;
+  tab-size: 4;
+  word-break: normal;
+  overflow-x: auto;
 }
