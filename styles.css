@@ -222,7 +222,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 
 /* Monospace text that inherits callout styling without looking like a code block */
 pre.plain-align {
-  font-family: 'Courier New', Courier, monospace !important;
+
   white-space: pre !important;
   font-size: inherit !important;
   line-height: inherit !important;
