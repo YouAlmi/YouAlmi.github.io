@@ -220,25 +220,16 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .teaser-next { color: var(--yellow); font-weight: 900; font-size: 22px; margin: 8px 0; }
 
 
-
-
-/* ── MONOSPACE CALLOUT (Looks like regular HTML, aligns like code) ── */
-pre.callout-code, 
-pre.callout-code * {
+/* Monospace text that inherits callout styling without looking like a code block */
+pre.plain-align {
   font-family: 'Courier New', Courier, monospace !important;
   white-space: pre !important;
-  letter-spacing: 0px !important;
-  word-spacing: 0px !important;
-  font-variant-ligatures: none !important;
-  
-  /* Matches .callout styling perfectly */
-  font-size: 17px !important;
-  line-height: 1.85 !important;
-  font-weight: 700 !important;
-  
-  /* Reset default pre element margins */
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  border: none;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
