@@ -55,7 +55,7 @@
     <p>What is an <strong>ACT</strong>?</p>
     <p>Any <strong>ACT</strong> is simply a formula.</p>
     <p>What does an <strong>ACT</strong> do?</p> 
-    <p>In a <strong>NEURON</strong>, an <strong>ACT</strong> takes in a <strong>SUM</strong> and transforms it into the final number, which becomes the official <strong>OUTPUT</strong> of the <strong>NEURON</strong>. Magic! ✨</p>
+    <p>In a <strong>NEURON</strong>, an <strong>ACT</strong> takes in a <strong>SUM</strong> and transforms it into the final number, which becomes the official <strong>RESULT</strong> of the <strong>NEURON</strong>. Magic! ✨</p>
     <p>So every <strong>ACT</strong> is simply a formula that behaves in an interesting way and has its own <strong>superpower</strong>.</p>
     <p>Today, we meet two famous <strong>ACTS</strong>: <strong>ReLU</strong> and <strong>SIGMOID</strong>.</p> 
     <p>Let's dive in! 🚀</p>
@@ -71,35 +71,35 @@
 
         <p>Imagine <strong>ReLU</strong> is a special math magician.
           Its favorite trick is a game called "<strong>SAVE or ZERO</strong>",
-          which it plays with every <strong>SUM</strong> that passes through it.</p>
+          which it plays with every <strong>SUM1</strong> that passes through it.</p>
 
-        <p>When a <strong>SUM</strong> enters <strong>ReLU</strong>,
+        <p>When a <strong>SUM1</strong> enters <strong>ReLU</strong>,
           the magician asks one simple question:
           "<strong>Are you positive or negative?</strong>"</p>
 
         <ul class="prose-list">
-          <li><strong>SAVE (The Positives):</strong> If the <strong>SUM</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> <strong>SAVES</strong> it. The <strong>SUM</strong> passes through completely unchanged. So, 0.1 stays 0.1, and 10.0 stays 10.0.</li>
+          <li><strong>SAVE (The Positives):</strong> If the <strong>SUM1</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> <strong>SAVES</strong> it. The <strong>SUM1</strong> passes through completely unchanged. So, 0.1 stays 0.1, and 10.0 stays 10.0.</li>
 
-          <li><strong>ZERO (The Negatives):</strong> If the <strong>SUM</strong> is negative (like −0.1, −0.7, or −10.0), <strong>ReLU</strong> <strong>ZEROS</strong> it, turning the <strong>SUM</strong> into <strong>0.0</strong>. Only the <strong>0.0</strong> passes through. So, −0.1 becomes 0.0, and −10.0 becomes 0.0.</li>
+          <li><strong>ZERO (The Negatives):</strong> If the <strong>SUM1</strong> is negative (like −0.1, −0.7, or −10.0), <strong>ReLU</strong> <strong>ZEROS</strong> it, turning the <strong>SUM1</strong> into <strong>0.0</strong>. Only the <strong>0.0</strong> passes through. So, −0.1 becomes 0.0, and −10.0 becomes 0.0.</li>
         </ul>
 
-        <p>In other words, <strong>ReLU</strong> takes in a <strong>SUM</strong>
-        and sends out the maximum of that <strong>SUM</strong> and <strong>0.0</strong>.</p>
+        <p>In other words, <strong>ReLU</strong> takes in a <strong>SUM1</strong>
+        and sends out the maximum of that <strong>SUM1</strong> and <strong>0.0</strong>.</p>
          <p>The <strong>ReLU</strong> formula:</p>
 
-        <p style="text-align: center;"><strong>ReLU = max(SUM, 0.0)</strong></p>
+        <p style="text-align: center;"><strong>ReLU = max(SUM1, 0.0)</strong></p>
 
         <p>Here is how we can write this "<strong>SAVE or ZERO</strong>" game in Python code:</p>
 
-        <p><strong>🟢 GAME 1: SAVE</strong> ✨ The positive SUM is SAVED</p>
+        <p><strong>🟢 GAME 1: SAVE</strong> ✨ The positive SUM1 is SAVED</p>
 
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input3" style="line-height: 1.2;">
-SUM = 0.1
-ACT = max(SUM, 0.0) # ReLU
+SUM1 = 0.1
+ACT1 = max(SUM1, 0.0) # ReLU
 
-print(f"OUTPUT = {ACT}")
+print(f"ACT1 = {ACT1}")
 </textarea>
           </div>
           <div class="code-row">
@@ -111,15 +111,15 @@ print(f"OUTPUT = {ACT}")
           <div id="output-window3">Ready for math!</div>
         </div>
 
-        <p><strong>🔵 GAME 2: ZERO</strong> 🪄 The negative SUM is turned into ZERO</p>
+        <p><strong>🔵 GAME 2: ZERO</strong> 🪄 The negative SUM1 is turned into ZERO</p>
 
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input4" style="line-height: 1.2;">
-SUM = -0.7
-ACT = max(SUM, 0.0) # ReLU
+SUM1 = -0.7
+ACT1 = max(SUM1, 0.0) # ReLU
 
-print(f"OUTPUT = {ACT}")
+print(f"ACT1 = {ACT1}")
 </textarea>
           </div>
           <div class="code-row">
@@ -147,21 +147,21 @@ print(f"OUTPUT = {ACT}")
     <div class="card">
       <div class="card-body">
 
-        <p>When the <strong>ACT</strong> is <strong>ReLU</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM</strong> on <strong>ACT</strong> is incredibly simple:</p>
+        <p>When the <strong>ACT</strong> is <strong>ReLU</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM1</strong> on <strong>ACT1</strong> is incredibly simple:</p>
 <ul class="prose-list">
-          <li><strong>When the SUM is positive:</strong> The <strong>ACT = SUM</strong>. Therefore, <strong>influence_SUM_ACT</strong> is <strong>1.0</strong>.</li>
+          <li><strong>When the SUM1 is positive:</strong> The <strong>ACT1 = 1SUM</strong>. Therefore, <strong>influence_SUM1_ACT1</strong> is <strong>1.0</strong>.</li>
 
-          <li><strong>When the SUM is negative:</strong> The <strong>ACT = 0.0</strong>. Therefore, <strong>influence_SUM_ACT</strong> is <strong>0.0</strong>.</li>
+          <li><strong>When the SUM1 is negative:</strong> The <strong>ACT1 = 0.0</strong>. Therefore, <strong>influence_SUM1_ACT1</strong> is <strong>0.0</strong>.</li>
         </ul>   
         
         <div class="diagram">
           <img src="relui.png" alt="relui" />
         </div>
         <br/>
-        <p>Therefore, when the <strong>ACT</strong> is <strong>ReLU</strong>:</p>
-        <p style="text-align: center;"><strong>influence_SUM_ACT = 1.0</strong> (when SUM > 0.0)</p>
-        <p style="text-align: center;"><strong>influence_SUM_ACT = 0.0</strong> (when SUM < 0.0)</p>
-        <p style="text-align: center;"><strong>influence_SUM_ACT = 0.0</strong> (when SUM = 0.0)</p>
+        <p>Therefore, when the <strong>ACT1</strong> is <strong>ReLU</strong>:</p>
+        <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 1.0</strong> (when SUM1 > 0.0)</p>
+        <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 0.0</strong> (when SUM1 < 0.0)</p>
+        <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 0.0</strong> (when SUM1 = 0.0)</p>
 
     <p>Very easy!</p>
          
@@ -189,10 +189,10 @@ print(f"OUTPUT = {ACT}")
 
         <p>Imagine <strong>SIGMOID</strong> is another math magician.
           Its favorite trick is a game called "<strong>BETWEEN ZERO AND ONE</strong>",
-          which it plays with every <strong>SUM</strong> that passes through it.</p>
+          which it plays with every <strong>SUM2</strong> that passes through it.</p>
 
-        <p>When a <strong>SUM</strong> arrives, <strong>SIGMOID</strong> doesn't ask questions.
-          Instead, it <strong>squeezes</strong> that <strong>SUM</strong> — no matter how big or small —
+        <p>When a <strong>SUM2</strong> arrives, <strong>SIGMOID</strong> doesn't ask questions.
+          Instead, it <strong>squeezes</strong> that <strong>SUM2</strong> — no matter how big or small —
           into a cozy new home <strong>between 0.0 and 1.0</strong>.</p>
 
         <ul class="prose-list">
@@ -201,26 +201,25 @@ print(f"OUTPUT = {ACT}")
           <li><strong>Zero (0.0)</strong> lands right in the middle — it becomes <strong>0.5</strong>.</li>
         </ul>
 
-        <p>In other words, <strong>SIGMOID</strong> takes in any <strong>SUM</strong>
+        <p>In other words, <strong>SIGMOID</strong> takes in any <strong>SUM2</strong>
         and sends out a number that is <strong>always between 0.0 and 1.0</strong>.</p>
         <p>The <strong>SIGMOID</strong> formula:</p>
 
-        <p style="text-align: center;"><strong>SIGMOID = 1 / (1 + 1/2.718<sup>SUM</sup>)</strong></p>
+        <p style="text-align: center;"><strong>SIGMOID = 1 / (1 + 1/2.718<sup>SUM2</sup>)</strong></p>
 
         <p><em>Don't worry about this fancy formula — just know it's a gentle squeeze!</em></p>
 
         <p>Here is how we can write this <strong>"ZERO TO ONE"</strong> game in Python code:</p>
 
-        <p><strong>🟢 GAME 1: Almost ONE</strong> ✨ A huge positive SUM gets squeezed close to 1.0</p> 
+        <p><strong>🟢 GAME 1: Almost ONE</strong> ✨ A huge positive SUM2 gets squeezed close to 1.0</p> 
 
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input5" style="line-height: 1.2;">
-SUM = 10.0
-ACT = 1 / (1 + 1/2.718**SUM)  # SIGMOID
-OUTPUT = ACT
+SUM2 = 10.0
+ACT2 = 1 / (1 + 1/2.718**SUM2)  # SIGMOID
 
-print(f"OUTPUT = {OUTPUT:.7f}")
+print(f"ACT2 = {ACT2:.7f}")
 </textarea>
           </div>
           <div class="code-row">
@@ -229,19 +228,18 @@ print(f"OUTPUT = {OUTPUT:.7f}")
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
           </div>
-          <div id="output-window5">Ready to execute!</div>
+          <div id="output-window5">Ready for math!</div>
         </div>
 
-        <p><strong>🔵 GAME 2: Almost ZERO</strong> 🪄 A huge negative SUM gets squeezed close to 0.0</p>
+        <p><strong>🔵 GAME 2: Almost ZERO</strong> 🪄 A huge negative SUM2 gets squeezed close to 0.0</p>
 
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input6" style="line-height: 1.2;">
-SUM = -10.0
-ACT = 1 / (1 + 1/2.718**SUM)  # SIGMOID
-OUTPUT = ACT
+SUM2 = -10.0
+ACT2 = 1 / (1 + 1/2.718**SUM2)  # SIGMOID
 
-print(f"OUTPUT = {OUTPUT:.7f}")
+print(f"ACT2 = {ACT2:.7f}")
 </textarea>
           </div>
           <div class="code-row">
@@ -250,7 +248,7 @@ print(f"OUTPUT = {OUTPUT:.7f}")
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
           </div>
-          <div id="output-window6">Ready to execute!</div>
+          <div id="output-window6">Ready for math!</div>
         </div>
 
         <p><strong>🟣 GAME 3: HALF</strong> 🎯 A zero SUM (0.0) lands right in the middle: 0.5</p>
@@ -258,11 +256,10 @@ print(f"OUTPUT = {OUTPUT:.7f}")
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input7" style="line-height: 1.2;">
-SUM = 0.0
-ACT = 1 / (1 + 1/2.718**SUM)  # SIGMOID
-OUTPUT = ACT
+SUM2 = 0.0
+ACT2 = 1 / (1 + 1/2.718**SUM2)  # SIGMOID
 
-print(f"OUTPUT = {OUTPUT:.7f}")
+print(f"ACT2 = {ACT2:.7f}")
 </textarea>
           </div>
           <div class="code-row">
@@ -271,7 +268,7 @@ print(f"OUTPUT = {OUTPUT:.7f}")
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
           </div>
-          <div id="output-window7">Ready to execute!</div>
+          <div id="output-window7">Ready for math!</div>
         </div>
 
 
@@ -290,9 +287,9 @@ print(f"OUTPUT = {OUTPUT:.7f}")
     <div class="card">
       <div class="card-body">
 
-        <p>When the <strong>ACT</strong> is <strong>SIGMOID</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM</strong> on <strong>ACT</strong> is also incredibly simple:</p>
+        <p>When the <strong>ACT2</strong> is <strong>SIGMOID</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM2</strong> on <strong>ACT2</strong> is also incredibly simple:</p>
 
-        <p style="text-align: center;"><strong>influence_SUM_ACT = ACT * (1 - ACT)</strong></p>
+        <p style="text-align: center;"><strong>influence_SUM2_ACT2 = ACT2 * (1 - ACT2)</strong></p>
         <p>Very easy!</p>
         <p>Some clever mathematicians figured out this super simple formula. 👍</p>
         <div class="diagram">
@@ -301,8 +298,8 @@ print(f"OUTPUT = {OUTPUT:.7f}")
 
         <br/>
         <ul class="prose-list">
-          <li><strong>When the SUM is near 0.0:</strong> <strong>influence_SUM_ACT</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM makes a noticeable change in the ACT.</li>
-          <li><strong>When the SUM is very positive or very negative:</strong> <strong>influence_SUM_ACT</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM barely affects the ACT — it's already squeezed to its limit!</li>
+          <li><strong>When the SUM2 is near 0.0:</strong> <strong>influence_SUM2_ACT2</strong> is at its <strong>highest</strong> — around <strong>0.25</strong>. That means a small change in the SUM2 makes a noticeable change in the ACT2.</li>
+          <li><strong>When the SUM is very positive or very negative:</strong> <strong>influence_SUM2_ACT2</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM2 barely affects the ACT2 — it's already squeezed to its limit!</li>
         </ul>
         
 
