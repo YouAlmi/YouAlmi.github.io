@@ -1118,21 +1118,14 @@ influence_BIAS2_SUM2       = 1.0
 influence_SUM2_ACT2        = ACT2 * (1.0 - ACT2)
 influence_ACT2_OUTPUT      = 1.0</pre>
           </div>
-<pre>
-# INFLUENCES:
-influence_WEIGHT1_PRODUCT1 = INPUT
-influence_PRODUCT1_SUM1    = 1.0
-influence_BIAS1_SUM1       = 1.0
-influence_SUM1_ACT1        = 1.0 if SUM1 > 0.0 else 0.0
 
-influence_ACT1_PRODUCT2    = WEIGHT2
-influence_WEIGHT2_PRODUCT2 = ACT1
-influence_PRODUCT2_SUM2    = 1.0
-influence_BIAS2_SUM2       = 1.0
-influence_SUM2_ACT2        = ACT2 * (1.0 - ACT2)
-influence_ACT2_OUTPUT      = 1.0
 
-# CHAIN OF INFLUENCES for WEIGHT1:
+
+
+
+
+<div class="influence-panel">
+<div class="influence-panel-label">CHAIN OF INFLUENCES for WEIGHT1:</div><pre>
 influence_WEIGHT1_OUTPUT = (
     influence_WEIGHT1_PRODUCT1
   * influence_PRODUCT1_SUM1
@@ -1141,9 +1134,11 @@ influence_WEIGHT1_OUTPUT = (
   * influence_PRODUCT2_SUM2
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
-)
+)</pre>
+</div>
 
-# CHAIN OF INFLUENCES for BIAS1:  
+<div class="influence-panel">
+<div class="influence-panel-label">CHAIN OF INFLUENCES for BIAS1</div><pre>
 influence_BIAS1_OUTPUT = (
     influence_BIAS1_SUM1
   * influence_SUM1_ACT1.T
@@ -1151,23 +1146,31 @@ influence_BIAS1_OUTPUT = (
   * influence_PRODUCT2_SUM2
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
-)
+)</pre>
+</div>
 
-# CHAIN OF INFLUENCES for WEIGHT2:
+<div class="influence-panel">
+<div class="influence-panel-label">CHAIN OF INFLUENCES for WEIGHT2</div><pre>
 influence_WEIGHT2_OUTPUT = (
     influence_WEIGHT2_PRODUCT2
   * influence_PRODUCT2_SUM2
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
-)
+)</pre>
+</div>
 
-# CHAIN OF INFLUENCES for BIAS2:
+<div class="influence-panel">
+<div class="influence-panel-label">CHAIN OF INFLUENCES for BIAS2</div><pre>
 influence_BIAS2_OUTPUT = (
     influence_BIAS2_SUM2
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
-)
-</pre>
+)</pre>
+</div>
+
+
+
+
           <div class="formula-block">
             <div class="formula-block-label">PARAMETER CHANGES</div>
             <span class="formula"><pre>WEIGHT1_change = ERROR * influence_WEIGHT1_OUTPUT * PACE</pre></span>
