@@ -57,37 +57,37 @@
     <p>What does an <strong>ACT</strong> do?</p> 
     <p>In a <strong>NEURON</strong>, an <strong>ACT</strong> takes in a <strong>SUM</strong> and transforms it into the final number — which becomes that <strong>NEURON'S</strong> official <strong>RESULT</strong>. Magic! ✨</p>
     <p>So every <strong>ACT</strong> is simply a formula that behaves in an interesting way and has its own <strong>superpower</strong>.</p>
-    <p>Today, we meet two famous <strong>ACTS</strong>: <strong>ReLU</strong> as <strong>ACT1</strong> and <strong>SIGMOID</strong> as <strong>ACT2</strong>.</p> 
+    <p>Today, we meet two famous <strong>ACTS</strong>: <strong>RELU</strong> as <strong>ACT1</strong> and <strong>SIGMOID</strong> as <strong>ACT2</strong>.</p> 
     <p>Let's dive in! 🚀</p>
   </div>
 </div>
 
-    <div class="section-label">ACT (ReLU)</div>
+    <div class="section-label">ACT (RELU)</div>
     <div class="card">
       <div class="card-body">
-        <p>Let's look at a famous <strong>ACT</strong> called <strong>ReLU</strong>.</p>
+        <p>Let's look at a famous <strong>ACT</strong> called <strong>RELU</strong>.</p>
 
-        <p><strong>ReLU</strong>'s behavior is known as "<strong>SAVE or ZERO</strong>".</p>
+        <p><strong>RELU</strong>'s behavior is known as "<strong>SAVE or ZERO</strong>".</p>
 
-        <p>Imagine <strong>ReLU</strong> is a special math magician.
+        <p>Imagine <strong>RELU</strong> is a special math magician.
           Its favorite trick is a game called "<strong>SAVE or ZERO</strong>",
           which it plays with every <strong>SUM1</strong> that passes through it.</p>
 
-        <p>When a <strong>SUM1</strong> enters <strong>ReLU</strong>,
+        <p>When a <strong>SUM1</strong> enters <strong>RELU</strong>,
           the magician asks one simple question:
           "<strong>Are you positive or negative?</strong>"</p>
 
         <ul class="prose-list">
-          <li><strong>SAVE (The Positives):</strong> If the <strong>SUM1</strong> is positive (like 0.1, 0.7, or 10.0), <strong>ReLU</strong> <strong>SAVES</strong> it. The <strong>SUM1</strong> passes through completely unchanged. So, 0.1 stays 0.1, and 10.0 stays 10.0.</li>
+          <li><strong>SAVE (The Positives):</strong> If the <strong>SUM1</strong> is positive (like 0.1, 0.7, or 10.0), <strong>RELU</strong> <strong>SAVES</strong> it. The <strong>SUM1</strong> passes through completely unchanged. So, 0.1 stays 0.1, and 10.0 stays 10.0.</li>
 
-          <li><strong>ZERO (The Negatives):</strong> If the <strong>SUM1</strong> is negative (like −0.1, −0.7, or −10.0), <strong>ReLU</strong> <strong>ZEROS</strong> it, turning the <strong>SUM1</strong> into <strong>0.0</strong>. Only the <strong>0.0</strong> passes through. So, −0.1 becomes 0.0, and −10.0 becomes 0.0.</li>
+          <li><strong>ZERO (The Negatives):</strong> If the <strong>SUM1</strong> is negative (like −0.1, −0.7, or −10.0), <strong>RELU</strong> <strong>ZEROS</strong> it, turning the <strong>SUM1</strong> into <strong>0.0</strong>. Only the <strong>0.0</strong> passes through. So, −0.1 becomes 0.0, and −10.0 becomes 0.0.</li>
         </ul>
 
-        <p>In other words, <strong>ReLU</strong> takes in a <strong>SUM1</strong>
+        <p>In other words, <strong>RELU</strong> takes in a <strong>SUM1</strong>
         and sends out the maximum of that <strong>SUM1</strong> and <strong>0.0</strong>.</p>
-         <p>The <strong>ReLU</strong> formula:</p>
+         <p>The <strong>RELU</strong> formula:</p>
 
-        <p style="text-align: center;"><strong>ReLU = max(SUM1, 0.0)</strong></p>
+        <p style="text-align: center;"><strong>RELU = max(SUM1, 0.0)</strong></p>
 
         <p>Here is how we can write this "<strong>SAVE or ZERO</strong>" game in Python code:</p>
 
@@ -97,7 +97,7 @@
           <div class="textarea-wrap">
 <textarea id="code-input3" style="line-height: 1.2;">
 SUM1 = 0.1
-ACT1 = max(SUM1, 0.0) # ReLU
+ACT1 = max(SUM1, 0.0) # RELU
 
 print(f"ACT1 = {ACT1}")
 </textarea>
@@ -117,7 +117,7 @@ print(f"ACT1 = {ACT1}")
           <div class="textarea-wrap">
 <textarea id="code-input4" style="line-height: 1.2;">
 SUM1 = -0.7
-ACT1 = max(SUM1, 0.0) # ReLU
+ACT1 = max(SUM1, 0.0) # RELU
 
 print(f"ACT1 = {ACT1}")
 </textarea>
@@ -136,18 +136,18 @@ print(f"ACT1 = {ACT1}")
           <img src="relu.png" alt="relu" />
         </div>
         <br/>
-        <p>So <strong>ReLU</strong> equals <strong>SUM</strong> — or becomes <strong>ZERO</strong>.</p>
+        <p>So <strong>RELU</strong> equals <strong>SUM</strong> — or becomes <strong>ZERO</strong>.</p>
         
       </div>
     </div>
 
 
-    <div class="section-label">INFLUENCE (ReLU)</div>
+    <div class="section-label">INFLUENCE (RELU)</div>
 
     <div class="card">
       <div class="card-body">
 
-        <p>When the <strong>ACT</strong> is <strong>ReLU</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM1</strong> on <strong>ACT1</strong> is incredibly simple:</p>
+        <p>When the <strong>ACT</strong> is <strong>RELU</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM1</strong> on <strong>ACT1</strong> is incredibly simple:</p>
 <ul class="prose-list">
           <li><strong>When the SUM1 is positive:</strong> The <strong>ACT1 = 1SUM</strong>. Therefore, <strong>influence_SUM1_ACT1</strong> is <strong>1.0</strong>.</li>
 
@@ -158,7 +158,7 @@ print(f"ACT1 = {ACT1}")
           <img src="relui.png" alt="relui" />
         </div>
         <br/>
-        <p>Therefore, when the <strong>ACT1</strong> is <strong>ReLU</strong>:</p>
+        <p>Therefore, when the <strong>ACT1</strong> is <strong>RELU</strong>:</p>
         <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 1.0</strong> (when SUM1 > 0.0)</p>
         <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 0.0</strong> (when SUM1 < 0.0)</p>
         <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 0.0</strong> (when SUM1 = 0.0)</p>
