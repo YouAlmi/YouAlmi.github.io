@@ -1104,18 +1104,20 @@ BIAS2 =
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
 <pre>
-# <strong>FORMULAS</strong>:
+# <strong>FORWARD PASS</strong>:
+
 # LAYER 1
-PRODUCT1 = INPUT * WEIGHT1           # Shape: (2, 3)
-SUM1 = PRODUCT1 + BIAS1              # Shape: (2, 1)
-ACT1 = SUM1 if SUM1 > 0.0 else 0.0   # Shape: (2, 1) [ReLU]
-ACT1 = ACT1.T                        # Shape: (1, 2)
+PRODUCT1 = INPUT * WEIGHT1
+SUM1 = PRODUCT1 + BIAS1
+ACT1 = SUM1 if SUM1 > 0.0 else 0.0   # RELU
 
 # LAYER 2
-PRODUCT2 = ACT1 * WEIGHT2            # Shape: (1, 2)
-SUM2 = PRODUCT2 + BIAS2              # Shape: (1, 1)
-ACT2 = 1.0 / (1.0 + 1/2.718**SUM2)   # Shape: (1, 1) [Sigmoid]
-OUTPUT = ACT2                        # Shape: (1, 1)
+PRODUCT2 = ACT1 * WEIGHT2
+SUM2 = PRODUCT2 + BIAS2
+ACT2 = 1.0 / (1.0 + 1/2.718**SUM2)   # Sigmoid
+OUTPUT = ACT2
+
+# <strong>BACKWARD PASS — BACKPROPAGATION</strong>:
 
 # <strong>INFLUENCES</strong>:
 influence_WEIGHT1_PRODUCT1 = INPUT
@@ -1159,7 +1161,7 @@ influence_WEIGHT2_OUTPUT = (
   * influence_ACT2_OUTPUT
 )
 
-# CHAIN OF INFLUENCES for BIAS1:
+# CHAIN OF INFLUENCES for BIAS2:
 influence_BIAS2_OUTPUT = (
     influence_BIAS2_SUM2
   * influence_SUM2_ACT2
