@@ -1104,24 +1104,6 @@ BIAS2 =
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
 <pre>
-
-# ALL FORNULAS:
-
-# FORWARD PASS:
-
-# LAYER 1
-PRODUCT1 = INPUT * WEIGHT1
-SUM1 = PRODUCT1 + BIAS1
-ACT1 = SUM1 if SUM1 > 0.0 else 0.0   # RELU
-
-# LAYER 2
-PRODUCT2 = ACT1 * WEIGHT2
-SUM2 = PRODUCT2 + BIAS2
-ACT2 = 1.0 / (1.0 + 1/2.718**SUM2)   # Sigmoid
-OUTPUT = ACT2
-
-# BACKWARD PASS — BACKPROPAGATION:
-
 # INFLUENCES:
 influence_WEIGHT1_PRODUCT1 = INPUT
 influence_PRODUCT1_SUM1    = 1.0
