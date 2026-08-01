@@ -1104,64 +1104,64 @@ BIAS2 =
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
 <pre>
-# INFLUENCES <br/>
-  influence_WEIGHT1_PRODUCT1 = INPUT                       # Shape: (3,)<br/>
-  influence_PRODUCT1_SUM1    = 1.0                         # Shape: (1, 1)<br/>
-  influence_BIAS1_SUM1       = 1.0                         # Shape: (1, 1)<br/>
-  influence_SUM1_ACT1        = (SUM1 > 0.0).float()        # Shape: (2, 1)<br/>
-  <br/>
-  influence_ACT1_PRODUCT2    = WEIGHT2                     # Shape: (1, 2)<br/>
-  influence_WEIGHT2_PRODUCT2 = ACT1                        # Shape: (1, 2)<br/>
-  influence_PRODUCT2_SUM2    = 1.0                         # Shape: (1, 1)<br/>
-  influence_BIAS2_SUM2       = 1.0                         # Shape: (1, 1)<br/>
-  influence_SUM2_ACT2        = ACT2 * (1.0 - ACT2)         # Shape: (1, 1)<br/>
-  influence_ACT2_OUTPUT      = 1.0                         # Shape: (1, 1)<br/>
-  <br/>
-  # CHAIN OF INFLUENCES <br/>
-  influence_WEIGHT1_OUTPUT = ( <br/>
-      influence_WEIGHT1_PRODUCT1  <br/>
-    * influence_PRODUCT1_SUM1  <br/>
-    * influence_SUM1_ACT1 <br/>
-    * influence_ACT1_PRODUCT2.T  <br/>
-    * influence_PRODUCT2_SUM2  <br/>
-    * influence_SUM2_ACT2  <br/>
-    * influence_ACT2_OUTPUT <br/>
-  )                                                         # Shape: (2, 3)<br/>
-  <br/>
-  influence_BIAS1_OUTPUT = ( <br/>
-      influence_BIAS1_SUM1  <br/>
-    * influence_SUM1_ACT1.T  <br/>
-    * influence_ACT1_PRODUCT2  <br/>
-    * influence_PRODUCT2_SUM2  <br/>
-    * influence_SUM2_ACT2  <br/>
-    * influence_ACT2_OUTPUT <br/>
-  )                                                         # Shape: (1, 2)<br/>
-  <br/>
-  influence_WEIGHT2_OUTPUT = ( <br/>
-      influence_WEIGHT2_PRODUCT2  <br/>
-    * influence_PRODUCT2_SUM2  <br/>
-    * influence_SUM2_ACT2  <br/>
-    * influence_ACT2_OUTPUT <br/>
-  )                                                         # Shape: (1, 2)<br/>
-  <br/>
-  influence_BIAS2_OUTPUT = ( <br/>
-      influence_BIAS2_SUM2  <br/>
-    * influence_SUM2_ACT2  <br/>
-    * influence_ACT2_OUTPUT <br/>
-  )                                                          # Shape: (1, 1)<br/>
-  <br/>
-  # PARAMETER UPDATES <br/>
-  WEIGHT1_change = ERROR * influence_WEIGHT1_OUTPUT * PACE   # Shape: (2, 3)<br/>
-  BIAS1_change   = ERROR * influence_BIAS1_OUTPUT.T * PACE   # Shape: (2, 1)<br/>
-  <br/>
-  WEIGHT2_change = ERROR * influence_WEIGHT2_OUTPUT * PACE   # Shape: (1, 2)<br/>
-  BIAS2_change   = ERROR * influence_BIAS2_OUTPUT   * PACE   # Shape: (1, 1)<br/>
-  <br/>
-  WEIGHT1 = WEIGHT1 + WEIGHT1_change                         # Shape: (2, 3)<br/>
-  BIAS1   = BIAS1   + BIAS1_change                           # Shape: (2, 1)<br/>
-  <br/>
-  WEIGHT2 = WEIGHT2 + WEIGHT2_change                         # Shape: (1, 2)<br/>
-  BIAS2   = BIAS2   + BIAS2_change                           # Shape: (1, 1)<br/>
+# INFLUENCES
+  influence_WEIGHT1_PRODUCT1 = INPUT                       # Shape: (3,)
+  influence_PRODUCT1_SUM1    = 1.0                         # Shape: (1, 1)
+  influence_BIAS1_SUM1       = 1.0                         # Shape: (1, 1)
+  influence_SUM1_ACT1        = (SUM1 > 0.0).float()        # Shape: (2, 1)
+
+  influence_ACT1_PRODUCT2    = WEIGHT2                     # Shape: (1, 2)
+  influence_WEIGHT2_PRODUCT2 = ACT1                        # Shape: (1, 2)
+  influence_PRODUCT2_SUM2    = 1.0                         # Shape: (1, 1)
+  influence_BIAS2_SUM2       = 1.0                         # Shape: (1, 1)
+  influence_SUM2_ACT2        = ACT2 * (1.0 - ACT2)         # Shape: (1, 1)
+  influence_ACT2_OUTPUT      = 1.0                         # Shape: (1, 1)
+
+  # CHAIN OF INFLUENCES
+  influence_WEIGHT1_OUTPUT = (
+      influence_WEIGHT1_PRODUCT1
+    * influence_PRODUCT1_SUM1
+    * influence_SUM1_ACT1
+    * influence_ACT1_PRODUCT2.T
+    * influence_PRODUCT2_SUM2
+    * influence_SUM2_ACT2
+    * influence_ACT2_OUTPUT
+  )                                                         # Shape: (2, 3)
+
+  influence_BIAS1_OUTPUT = (
+      influence_BIAS1_SUM1
+    * influence_SUM1_ACT1.T
+    * influence_ACT1_PRODUCT2
+    * influence_PRODUCT2_SUM2
+    * influence_SUM2_ACT2
+    * influence_ACT2_OUTPUT
+  )                                                         # Shape: (1, 2)
+
+  influence_WEIGHT2_OUTPUT = (
+      influence_WEIGHT2_PRODUCT2
+    * influence_PRODUCT2_SUM2
+    * influence_SUM2_ACT2
+    * influence_ACT2_OUTPUT
+  )                                                         # Shape: (1, 2)
+
+  influence_BIAS2_OUTPUT = (
+      influence_BIAS2_SUM2
+    * influence_SUM2_ACT2
+    * influence_ACT2_OUTPUT
+  )                                                         # Shape: (1, 1)
+
+  # PARAMETER UPDATES
+  WEIGHT1_change = ERROR * influence_WEIGHT1_OUTPUT * PACE   # Shape: (2, 3)
+  BIAS1_change   = ERROR * influence_BIAS1_OUTPUT.T * PACE   # Shape: (2, 1)
+
+  WEIGHT2_change = ERROR * influence_WEIGHT2_OUTPUT * PACE   # Shape: (1, 2)
+  BIAS2_change   = ERROR * influence_BIAS2_OUTPUT   * PACE   # Shape: (1, 1)
+
+  WEIGHT1 = WEIGHT1 + WEIGHT1_change                         # Shape: (2, 3)
+  BIAS1   = BIAS1   + BIAS1_change                           # Shape: (2, 1)
+
+  WEIGHT2 = WEIGHT2 + WEIGHT2_change                         # Shape: (1, 2)
+  BIAS2   = BIAS2   + BIAS2_change                           # Shape: (1, 1)
 </pre>
 
           <div class="formula-block">
