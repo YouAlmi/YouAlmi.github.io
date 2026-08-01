@@ -63,20 +63,25 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   margin: 14px 0; 
   font-weight: 700; 
   line-height: 1.85; 
-  font-family: 'Courier New', 'Courier', monospace;  /* ← alignment fix */
+  font-family: 'Courier New', 'Courier', monospace;  /* container = monospace */
 }
+.callout * { font-family: inherit; }  /* force every child to inherit monospace */
+
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
 .callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
 .callout-info    { background: var(--blue-lt);  border-left: 4px solid var(--blue); }
 .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
+
 .callout-title { 
   font-weight: 900; 
   letter-spacing: 0.08em; 
   text-transform: uppercase; 
   margin-bottom: 10px; 
-  font-family: 'Nunito', sans-serif;  /* ← preserve original style */
+  font-family: 'Nunito', sans-serif;  /* title back to Nunito */
 }
+.callout-title * { font-family: inherit; }  /* children of title inherit Nunito */
+
 .callout-neutral .callout-title { color: var(--gray); }
 .callout-success .callout-title { color: var(--green); }
 .callout-error .callout-title  { color: var(--red); }
@@ -91,15 +96,19 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   font-weight: 700; 
   line-height: 2; 
   border-left: 5px solid var(--green); 
-  font-family: 'Courier New', 'Courier', monospace;  /* ← alignment fix */
+  font-family: 'Courier New', 'Courier', monospace;  /* container = monospace */
 }
+.formula-block * { font-family: inherit; }  /* force every child to inherit monospace */
+
 .formula-block-label { 
   color: var(--green); 
   font-weight: 900; 
   letter-spacing: 0.1em; 
   margin-bottom: 10px; 
-  font-family: 'Nunito', sans-serif;  /* ← preserve original style */
+  font-family: 'Nunito', sans-serif;  /* label back to Nunito */
 }
+.formula-block-label * { font-family: inherit; }  /* children of label inherit Nunito */
+
 .formula { color: var(--yellow); font-weight: 900;}
 
 /* ── TABLES ── */
