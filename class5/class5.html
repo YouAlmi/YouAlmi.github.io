@@ -1105,18 +1105,18 @@ BIAS2 =
 
 <pre>
 <div class="influence-panel">
-            <div class="influence-panel-label">INFLUENCES</div>
-influence_WEIGHT1_PRODUCT1 = INPUT<br/>
-influence_PRODUCT1_SUM1    = 1.0<br/>
-influence_BIAS1_SUM1       = 1.0<br/>
-influence_SUM1_ACT1        = 1.0 if SUM1 > 0.0 else 0.0<br/>
-<br/>
-influence_ACT1_PRODUCT2    = WEIGHT2<br/>
-influence_WEIGHT2_PRODUCT2 = ACT1<br/>
-influence_PRODUCT2_SUM2    = 1.0<br/>
-influence_BIAS2_SUM2       = 1.0<br/>
-influence_SUM2_ACT2        = ACT2 * (1.0 - ACT2)<br/>
-influence_ACT2_OUTPUT      = 1.0<br/>
+            <div class="influence-panel-label">INFLUENCES</div><pre>
+influence_WEIGHT1_PRODUCT1 = INPUT
+influence_PRODUCT1_SUM1    = 1.0
+influence_BIAS1_SUM1       = 1.0
+influence_SUM1_ACT1        = 1.0 if SUM1 > 0.0 else 0.0
+
+influence_ACT1_PRODUCT2    = WEIGHT2
+influence_WEIGHT2_PRODUCT2 = ACT1
+influence_PRODUCT2_SUM2    = 1.0
+influence_BIAS2_SUM2       = 1.0
+influence_SUM2_ACT2        = ACT2 * (1.0 - ACT2)
+influence_ACT2_OUTPUT      = 1.0</pre>
           </div>
 
 # INFLUENCES:
