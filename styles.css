@@ -57,34 +57,22 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .card-body { padding: 20px 24px; }
 
 /* ── CALLOUTS & FORMULAS ── */
-pre {
-  font-family: 'Courier New', monospace;
-  font-size: 17px;
-  white-space: pre;
-  overflow-x: auto;
-  margin: 0;
-}
-
 .callout { 
   border-radius: 8px; 
   padding: 16px 20px; 
   margin: 14px 0; 
   font-weight: 700; 
   line-height: 1.85; 
-  font-family: 'Courier New', monospace; 
-  font-size: 17px; 
-  white-space: pre-wrap; 
-}
-.callout p {
-  font-family: inherit;
-  font-size: inherit;
+  font-family: 'Courier New', Consolas, Monaco, monospace; 
+  font-feature-settings: "tnum" 1, "zero" 1;
+  white-space: pre-wrap;
 }
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
 .callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
 .callout-info    { background: var(--blue-lt);  border-left: 4px solid var(--blue); }
 .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
-.callout-title { font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; font-family: 'Nunito', sans-serif; }
+.callout-title { font-family: 'Nunito', sans-serif; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
 .callout-neutral .callout-title { color: var(--gray); }
 .callout-success .callout-title { color: var(--green); }
 .callout-error .callout-title  { color: var(--red); }
@@ -99,16 +87,16 @@ pre {
   font-weight: 700; 
   line-height: 2; 
   border-left: 5px solid var(--green); 
-  font-family: 'Courier New', monospace; 
-  font-size: 17px; 
-  white-space: pre-wrap; 
+  font-family: 'Courier New', Consolas, Monaco, monospace;
+  font-feature-settings: "tnum" 1, "zero" 1;
+  white-space: pre-wrap;
 }
-.formula-block-label { color: var(--green); font-weight: 900; letter-spacing: 0.1em; margin-bottom: 10px; font-family: 'Nunito', sans-serif; }
-.formula { color: var(--yellow); font-weight: 900; font-family: 'Courier New', monospace;}
+.formula-block-label { font-family: 'Nunito', sans-serif; color: var(--green); font-weight: 900; letter-spacing: 0.1em; margin-bottom: 10px; }
+.formula { color: var(--yellow); font-weight: 900;}
 
 /* ── TABLES ── */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
-.doc-table, .data-table, .mapping-table { border-collapse: collapse; margin: 0 auto; font-weight: 700; }
+.doc-table, .data-table, .mapping-table { border-collapse: collapse; margin: 0 auto; font-weight: 700; font-feature-settings: "tnum" 1; }
 .doc-table td, .mapping-table td { border: 1px solid #aaaaaa; padding: 8px 14px; text-align: center; vertical-align: middle; }
 .doc-table .label-cell { border: none; text-align: left; color: var(--black); font-weight: 700; padding-left: 12px; white-space: nowrap; }
 .doc-table .table-title-row td, .data-table th { background: #111111; color: #ffffff; font-weight: 900; text-transform: uppercase; }
