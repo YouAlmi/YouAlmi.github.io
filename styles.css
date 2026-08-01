@@ -57,20 +57,49 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .card-body { padding: 20px 24px; }
 
 /* ── CALLOUTS & FORMULAS ── */
-.callout { border-radius: 8px; padding: 16px 20px; margin: 14px 0; font-weight: 700; line-height: 1.85; }
+.callout { 
+  border-radius: 8px; 
+  padding: 16px 20px; 
+  margin: 14px 0; 
+  font-weight: 700; 
+  line-height: 1.85; 
+  font-family: 'Courier New', 'Courier', monospace;  /* ← alignment fix */
+}
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
 .callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
 .callout-info    { background: var(--blue-lt);  border-left: 4px solid var(--blue); }
 .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
-.callout-title { font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+.callout-title { 
+  font-weight: 900; 
+  letter-spacing: 0.08em; 
+  text-transform: uppercase; 
+  margin-bottom: 10px; 
+  font-family: 'Nunito', sans-serif;  /* ← preserve original style */
+}
 .callout-neutral .callout-title { color: var(--gray); }
 .callout-success .callout-title { color: var(--green); }
 .callout-error .callout-title  { color: var(--red); }
 .callout-info .callout-title    { color: var(--blue); }
 
-.formula-block { background: #111111; color: #ffffff; border-radius: 8px; padding: 20px 24px; margin: 16px 0; font-weight: 700; line-height: 2; border-left: 5px solid var(--green); }
-.formula-block-label { color: var(--green); font-weight: 900; letter-spacing: 0.1em; margin-bottom: 10px; }
+.formula-block { 
+  background: #111111; 
+  color: #ffffff; 
+  border-radius: 8px; 
+  padding: 20px 24px; 
+  margin: 16px 0; 
+  font-weight: 700; 
+  line-height: 2; 
+  border-left: 5px solid var(--green); 
+  font-family: 'Courier New', 'Courier', monospace;  /* ← alignment fix */
+}
+.formula-block-label { 
+  color: var(--green); 
+  font-weight: 900; 
+  letter-spacing: 0.1em; 
+  margin-bottom: 10px; 
+  font-family: 'Nunito', sans-serif;  /* ← preserve original style */
+}
 .formula { color: var(--yellow); font-weight: 900;}
 
 /* ── TABLES ── */
@@ -218,4 +247,3 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .step-badge { background: var(--green); color: #ffffff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
 .teaser { background: #111111; color: #ffffff; border-radius: 10px; padding: 28px; text-align: center; margin: 36px 0 0; font-weight: 700; }
 .teaser-next { color: var(--yellow); font-weight: 900; font-size: 22px; margin: 8px 0; }
-
