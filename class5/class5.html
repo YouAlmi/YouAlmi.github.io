@@ -1647,7 +1647,7 @@ CHANGER = optim.SGD(PARAMETERS, lr=PACE)
 
 # TRAINING
 for EPOCH in range(EPOCHS):
-    MAE = 0.0
+    TOTAL_LOSS = 0.0
 
     for EXAMPLE in range(EXAMPLES):
         CHANGER.zero_grad()
@@ -1671,11 +1671,11 @@ for EPOCH in range(EPOCHS):
 
         CHANGER.step()
 
-        # MAE (MEAN ABSOLUTE ERROR)
-        ABS_ERROR = torch.abs(ERROR)
-        MAE = MAE + ABS_ERROR.item()/EXAMPLES
+        # MSE = 0.5 * ERROR**2
+        LOSS = 0.5 * torch.sum(ERROR**2)
+        TOTAL_LOSS = TOTAL_LOSS + LOSS.item()
 
-    print(f"EPOCH {EPOCH + 1}, MAE: {MAE:.4f}")
+    print(f"EPOCH {EPOCH + 1}, LOSS: {TOTAL_LOSS:.4f}")
 </textarea>
           </div>
           <div class="code-row">
