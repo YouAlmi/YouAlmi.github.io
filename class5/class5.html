@@ -16,7 +16,7 @@
   <style>
     /* ── code block heights ── */
     #code-input1  { height: 1800px; }
-    #code-input2  { height: 320px; }
+    #code-input2  { height: 700px; }
     #code-input3  { height: 155px; }
     #code-input4  { height: 140px; }
     #code-input5  { height: 155px; }
@@ -1691,39 +1691,73 @@ for EPOCH in range(EPOCHS):
 
     <div class="card">
       <div class="card-body">
-        <h3>2. TEST THE TRAINED NEURON 🌡️</h3>
-        <p>Now let's verify if the changed weights correctly estimate a new input.</p>
+        <h3>2. TEST THE BRAIN 🌡️</h3>
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input2" style="line-height: 1.2;">
-WEIGHT = 1.8
-BIAS   = 32.0
+# TEST DATA SET (AFTER TRAINING)
+INPUTS = torch.tensor([
+ # friend  dj  rain
+    [1.0, 1.0, 0.0],  # EXAMPLE 1
+    [1.0, 0.0, 0.0],  # EXAMPLE 2
+    [0.0, 1.0, 0.0],  # EXAMPLE 3
+    [1.0, 1.0, 1.0],  # EXAMPLE 4
+    [0.0, 1.0, 1.0],  # EXAMPLE 5
+    [1.0, 0.0, 1.0],  # EXAMPLE 6
+    [0.0, 0.0, 1.0],  # EXAMPLE 7
+    [0.0, 0.0, 1.0]   # EXAMPLE 8
+])
 
-# TEST DATA
-INPUT = 10.0
-TARGET = 50.0
+TARGETS = torch.tensor([
+    [0.0],  # GO
+    [0.0],  # GO
+    [0.0],  # GO
+    [0.0],  # GO
+    [1.0],  # STAY
+    [1.0],  # STAY
+    [1.0],  # STAY
+    [1.0]   # STAY
+])
 
-# Forward pass
-PRODUCT = INPUT * WEIGHT
-SUM = PRODUCT + BIAS
-OUTPUT = SUM
+EXAMPLES = 8
 
-ERROR = TARGET - OUTPUT
+print("\n ——— PREDICTIONS:")
+CORRECT = 0
 
-print("TEST RESULTS:")
-print(f"INPUT (°C): {INPUT}")
-print(f"OUTPUT (°F): {OUTPUT}")
-print(f"TARGET (°F): {TARGET}")
-print(f"ERROR: {ERROR}")
+with torch.no_grad():
+    for EXAMPLE in range(EXAMPLES):
+
+        INPUT = INPUTS[EXAMPLE]
+        TARGET = TARGETS[EXAMPLE]
+
+        SUM1 = LAYER1(INPUT)
+        ACT1 = ACTIVATION1(SUM1)
+        SUM2 = LAYER2(ACT1)
+        ACT2 = ACTIVATION2(SUM2).item()
+        OUTPUT = ACT2
+
+        PREDICTED_CLASS = 1 if OUTPUT >= 0.5 else 0
+        ACTUAL_CLASS = int(TARGET.item())
+
+        if PREDICTED_CLASS == ACTUAL_CLASS:
+            CORRECT += 1
+
+        print(f"Example {EXAMPLE + 1}: {INPUTS[EXAMPLE].tolist()}  →  "
+              f"Prob: {OUTPUT:.4f}  |  "
+              f"Predicted: {'STAY' if PREDICTED_CLASS == 1 else 'GO'}  |  "
+              f"Actual: {'STAY' if ACTUAL_CLASS == 1 else 'GO'}")
+
+ACCURACY = (CORRECT / EXAMPLES) * 100
+print(f"\nACCURACY: {ACCURACY:.2f}%\n")
 </textarea>
           </div>
           <div class="code-row">
-            <button onclick="runPython(2)"><strong>RUN TEST CODE</strong></button>
+            <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
             <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" data-tooltip="Copy code">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
           </div>
-          <div id="output-window2">Ready to test!</div>
+          <div id="output-window2">Ready for math!</div>
         </div>
       </div>
     </div>
