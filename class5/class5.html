@@ -15,7 +15,7 @@
 
   <style>
     /* ── code block heights ── */
-    #code-input1  { height: 2500px; }
+    #code-input1  { height: 1800px; }
     #code-input2  { height: 320px; }
     #code-input3  { height: 155px; }
     #code-input4  { height: 140px; }
@@ -1600,12 +1600,13 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-# Hyperparameters & Settings
+# HYPERPARAMETERS & SETTINGS
 SEED     = 3
 PACE     = 0.5
 EPOCHS   = 60
 EXAMPLES = 6
 
+# DATASET
 INPUTS = torch.tensor([
 #  friend  dj  rain
     [1.0, 1.0, 0.0],  # EXAMPLE 1
@@ -1631,7 +1632,7 @@ ACTIVATION1 = nn.ReLU()
 LAYER2      = nn.Linear(2, 1)
 ACTIVATION2 = nn.Sigmoid()
 
-# PARAMETERS Initialization
+# PARAMETERS (INITIALIZATION)
 torch.manual_seed(SEED)
 with torch.no_grad():
     LAYER1.weight.copy_(torch.randn(2, 3) * torch.sqrt(torch.tensor(2.0 / 3.0)))
@@ -1644,26 +1645,9 @@ PARAMETERS = list(LAYER1.parameters()) + list(LAYER2.parameters())
 # CHANGER that changes PARAMETERS
 CHANGER = optim.SGD(PARAMETERS, lr=PACE)
 
-# Set global tensor formatting to 2 decimal places
-torch.set_printoptions(precision=2, sci_mode=False)
-
-print("\n ——— INITIAL PARAMETERS:")
-print("LAYER1.weight:")
-print(LAYER1.weight.data)
-print("\nLAYER1.bias:")
-print(LAYER1.bias.data)
-print("\nLAYER2.weight:")
-print(LAYER2.weight.data)
-print("\nLAYER2.bias:")
-print(LAYER2.bias.data)
-
-print("\n ——— TRAINING:")
-
-CORRECT = 0
-
-# Training Loop using SUM2.backward()
+# TRAINING
 for EPOCH in range(EPOCHS):
-    TOTAL_LOSS = 0.0
+    MAE = 0.0
 
     for EXAMPLE in range(EXAMPLES):
         CHANGER.zero_grad()
@@ -1687,11 +1671,11 @@ for EPOCH in range(EPOCHS):
 
         CHANGER.step()
 
-        # Compute MSE Loss: 0.5 * (TARGET - OUTPUT)^2
-        LOSS = 0.5 * torch.sum(ERROR ** 2)
-        TOTAL_LOSS = TOTAL_LOSS + LOSS.item()
+        # MAE (MEAN ABSOLUTE ERROR)
+        ABS_ERROR = torch.abs(ERROR)
+        MAE = MAE + ABS_ERROR.item()/EXAMPLES
 
-    print(f"EPOCH {EPOCH + 1}, LOSS: {TOTAL_LOSS:.4f}")
+    print(f"EPOCH {EPOCH + 1}, MAE: {MAE:.4f}")
 </textarea>
           </div>
           <div class="code-row">
