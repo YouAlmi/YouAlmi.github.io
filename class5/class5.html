@@ -908,15 +908,22 @@ print(f"ACT2 = {ACT2:.7f}")
     <div class="card">
       <div class="card-body">
         <p>We're going to build a machine brain that can recommend whether 
-          you should go to a party or not.</p>
-          <p>In this scenario, each <strong>NEURON</strong> of <strong>LAYER1</strong> 
-        receives three <strong>INPUTS</strong> at once.<br/>
-        <p>These three <strong>INPUTS</strong> represents the three knowledges, and the <strong>OUTPUT</strong> represents the recommended action: <strong>GO</strong> or <strong>STAY</strong>.</p>
-        <p>If the <strong>OUTPUT</strong> is greater than <strong>0.5</strong>, it means <strong>GO</strong>. Otherwise, if the <strong>OUTPUT</strong> is less than <strong>0.5</strong>, it means <strong>STAY</strong>.</p>
-        <p>Let's call this brain the <strong>Party-Recommender</strong>.</p>
-        <p>As previously noted, it will have multimple <strong>PARAMETERS</strong>: <strong>WEIGHTS</strong> and <strong>BIASES</strong>.</p>
-        <p>The brain will be just a formula like this:</p>
-         <div class="callout callout-neutral"><strong>OUTPUT = INPUT1 * WEIGHT1 + INPUT2 * WEIGHT2 + INPUT3 * WEIGHT3 + BIAS</strong></div>
+you should go to a party or not.</p>
+
+<p>In this scenario, each <strong>NEURON</strong> of <strong>LAYER1</strong> 
+receives three <strong>INPUTS</strong> at once.</p>
+
+<p>These three <strong>INPUTS</strong> represent the three pieces of knowledge, and the <strong>OUTPUT</strong> represents the recommended action: <strong>GO</strong> or <strong>STAY</strong>.</p>
+
+<p>If the <strong>OUTPUT</strong> is greater than 0.5, it means <strong>GO</strong>. Otherwise, if the <strong>OUTPUT</strong> is 0.5 or less, it means <strong>STAY</strong>.</p>
+
+<p>Let's call this brain the <strong>Party-Recommender</strong>.</p>
+
+<p>As previously noted, it will have multiple <strong>PARAMETERS</strong>: <strong>WEIGHTS</strong> and <strong>BIASES</strong>.</p>
+
+<p>The brain will be just a formula.</p>
+
+<p>During inference, we'll round the <strong>OUTPUT</strong>.</p>
       </div>
     </div>
 
@@ -1564,7 +1571,7 @@ plus two new <strong>EXAMPLES</strong> it has never seen before.</p>
 <p>Since each <strong>OUTPUT</strong> always matches the <strong>TARGET</strong>, this brain works perfectly!</p>
 <p>It has learned what it must recommend.</p>
 <p>The <strong>Party-Recommender</strong> can now also solve problems it has never encountered before.</p>
-<p>Yet the brain is still just a formula.</p>
+<p>The brain is a formula.</p>
 </div>
 
       </div>
