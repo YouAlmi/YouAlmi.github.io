@@ -1671,6 +1671,7 @@ for EPOCH in range(EPOCHS):
         INPUT  = INPUTS[EXAMPLE]
         TARGET = TARGETS[EXAMPLE]
 
+        # FORWARD PASS
         SUM1   = LAYER1(INPUT)
         ACT1   = ACTIVATION1(SUM1)
         SUM2   = LAYER2(ACT1)
@@ -1679,11 +1680,9 @@ for EPOCH in range(EPOCHS):
 
         ERROR = TARGET - OUTPUT
 
-        # 3. Gradient of MSE Loss w.r.t. SUM2 (includes Sigmoid derivative)
-        # dL/d(SUM2) = -(TARGET - OUTPUT) * OUTPUT * (1 - OUTPUT)
+        # BACKWARD PASS — BACKPROPAGATION
         influence_SUM2_LOSS = -ERROR * OUTPUT * (1.0 - OUTPUT)
 
-        # 4. Backward call directly on SUM2
         SUM2.backward(gradient=influence_SUM2_LOSS)
 
         CHANGER.step()
