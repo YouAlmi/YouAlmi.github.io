@@ -1,794 +1,615 @@
-/* ── DESIGN TOKENS ── */
-:root {
-  /* Color Palette */
-  --COLOR_BLACK:        #111111;
-  --COLOR_GRAY:         #555555;
-  --COLOR_GRAY_LT:      #f2f2f2;
-  --COLOR_BORDER:       #dddddd;
-  --COLOR_BG:           #f7f5f0;
-  --COLOR_WHITE:        #ffffff;
-  --COLOR_YELLOW:       #ffd166;
-  --COLOR_GREEN:        #2d8a4e;
-  --COLOR_GREEN_LT_LT:  #00ff00;
-  --COLOR_GREEN_LT:     #eaf7ee;
-  --COLOR_BLUE:         #1a6fab;
-  --COLOR_BLUE_LT:      #e8f3fc;
-  --COLOR_ORANGE:       #e8610a;
-  --COLOR_ORANGE_LT:    #fff3eb;
-  --COLOR_RED:          #c0392b;
-  --COLOR_RED_LT:       #fdecea;
-
-  /* Legacy Variable Mapping */
-  --black:        var(--COLOR_BLACK);
-  --gray:         var(--COLOR_GRAY);
-  --gray-lt:      var(--COLOR_GRAY_LT);
-  --border:       var(--COLOR_BORDER);
-  --bg:           var(--COLOR_BG);
-  --white:        var(--COLOR_WHITE);
-  --yellow:       var(--COLOR_YELLOW);
-  --green:        var(--COLOR_GREEN);
-  --green-lt-lt:  var(--COLOR_GREEN_LT_LT);
-  --green-lt:     var(--COLOR_GREEN_LT);
-  --blue:         var(--COLOR_BLUE);
-  --blue-lt:      var(--COLOR_BLUE_LT);
-  --orange:       var(--COLOR_ORANGE);
-  --orange-lt:    var(--COLOR_ORANGE_LT);
-  --red:          var(--COLOR_RED);
-  --red-lt:       var(--COLOR_RED_LT);
-
-  /* Typography Scale */
-  --FONT_MAIN: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --FONT_MONO: 'Courier New', 'Courier', monospace;
-
-  /* Vertical Rhythm & Spacing Tokens */
-  --SPACE_2XS: 4px;
-  --SPACE_XS:  8px;
-  --SPACE_S:   12px;
-  --SPACE_M:   16px;
-  --SPACE_L:   24px;
-  --SPACE_XL:  36px;
-  --SPACE_2XL: 60px;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --COLOR_BLACK:     #f0ede8;
-    --COLOR_GRAY:      #aaaaaa;
-    --COLOR_GRAY_LT:   #2a2a2a;
-    --COLOR_BORDER:    #3a3a3a;
-    --COLOR_BG:        #1a1a1a;
-    --COLOR_WHITE:     #242424;
-    --COLOR_GREEN_LT:  #0e2718;
-    --COLOR_BLUE_LT:   #0b1e2e;
-    --COLOR_ORANGE_LT: #2a1500;
-    --COLOR_RED:       #e06c6c;
-    --COLOR_RED_LT:    #2a0a08;
-  }
-}
-
-/* ── RESET & BASE ── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 17px;
-  text-size-adjust: 100%;
-}
-
-body {
-  background: var(--COLOR_BG);
-  color: var(--COLOR_BLACK);
-  font-family: var(--FONT_MAIN);
-  font-size: 1rem;
-  line-height: 1.5;
-  padding-bottom: 80px;
-  -webkit-font-smoothing: antialiased;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: var(--SPACE_S);
-  line-height: 1.5;
-}
-
-p:last-child {
-  margin-bottom: 0;
-}
-
-strong { font-weight: 900; }
-em { font-style: italic; }
-
-/* Global Container Margin Trimming */
-.card-body > :first-child,
-.callout > :first-child,
-.formula-block > :first-child,
-.pricing-block > :first-child,
-.teaser > :first-child,
-.takeaway > :first-child,
-.influence-panel > :first-child {
-  margin-top: 0 !important;
-}
-
-.card-body > :last-child,
-.callout > :last-child,
-.formula-block > :last-child,
-.pricing-block > :last-child,
-.teaser > :last-child,
-.takeaway > :last-child,
-.influence-panel > :last-child {
-  margin-bottom: 0 !important;
-}
-
-/* ── HEADER ── */
-header {
-  background: #111111;
-  color: var(--COLOR_YELLOW);
-  padding: 40px var(--SPACE_L) var(--SPACE_L);
-  text-align: center;
-}
-
-.header-eyebrow, 
-.header-tag {
-  font-size: 22px;
-  color: var(--COLOR_GREEN);
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: var(--SPACE_XS);
-}
-
-.header-title {
-  font-size: 30px;
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: var(--SPACE_XS);
-  color: var(--COLOR_YELLOW);
-}
-
-.header-class {
-  font-size: 28px;
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: var(--SPACE_XS);
-  color: var(--COLOR_GREEN);
-}
-
-.header-subtitle {
-  font-size: 22px;
-  color: #aaaaaa;
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: var(--SPACE_XS);
-}
-
-.header-audience {
-  font-size: 22px;
-  color: #ffffff;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-/* ── LAYOUT ── */
-.page {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 10px;
-}
-
-.section-label {
-  display: inline-block;
-  background: #111111;
-  color: #ffffff;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 7px 18px;
-  border-radius: 4px;
-  margin: var(--SPACE_XL) 0 var(--SPACE_M);
-  line-height: 1.2;
-}
-
-.card {
-  background: var(--COLOR_WHITE);
-  border: 1.5px solid var(--COLOR_BORDER);
-  border-radius: 10px;
-  margin: var(--SPACE_M) 0;
-  overflow: hidden;
-}
-
-.card-header {
-  background: #111111;
-  color: #ffffff;
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  padding: 11px var(--SPACE_L);
-  line-height: 1.3;
-}
-
-.card-body {
-  padding: 20px var(--SPACE_L);
-}
-
-/* ── CALLOUTS & FORMULAS ── */
-.callout { 
-  border-radius: 8px; 
-  padding: var(--SPACE_M) var(--SPACE_L); 
-  margin: var(--SPACE_M) 0; 
-  font-weight: 700; 
-  line-height: 1.5; 
-  font-family: var(--FONT_MONO);
-}
-
-.callout * {
-  font-family: inherit;
-}
-
-.callout-neutral { background: var(--COLOR_GRAY_LT); border-left: 4px solid var(--COLOR_GRAY); }
-.callout-success { background: var(--COLOR_GREEN_LT); border-left: 4px solid var(--COLOR_GREEN); }
-.callout-error   { background: var(--COLOR_RED_LT); border-left: 4px solid var(--COLOR_RED); }
-.callout-info    { background: var(--COLOR_BLUE_LT); border-left: 4px solid var(--COLOR_BLUE); }
-.callout-warning { background: var(--COLOR_ORANGE_LT); border: 1px solid var(--COLOR_ORANGE); border-radius: 8px; }
-
-.callout-title { 
-  font-weight: 900; 
-  letter-spacing: 0.08em; 
-  text-transform: uppercase; 
-  margin-bottom: var(--SPACE_XS); 
-  line-height: 1.25;
-  font-family: var(--FONT_MAIN);
-}
-
-.callout-title * {
-  font-family: inherit;
-}
-
-.callout-neutral .callout-title { color: var(--COLOR_GRAY); }
-.callout-success .callout-title { color: var(--COLOR_GREEN); }
-.callout-error .callout-title   { color: var(--COLOR_RED); }
-.callout-info .callout-title     { color: var(--COLOR_BLUE); }
-
-.formula-block { 
-  background: #111111; 
-  color: #ffffff; 
-  border-radius: 8px; 
-  padding: 20px var(--SPACE_L); 
-  margin: var(--SPACE_M) 0; 
-  font-weight: 700; 
-  line-height: 1.5; 
-  border-left: 5px solid var(--COLOR_GREEN); 
-  font-family: var(--FONT_MONO);
-}
-
-.formula-block * {
-  font-family: inherit;
-}
-
-.formula-block-label { 
-  color: var(--COLOR_GREEN); 
-  font-weight: 900; 
-  letter-spacing: 0.1em; 
-  margin-bottom: var(--SPACE_XS); 
-  line-height: 1.25;
-  font-family: var(--FONT_MAIN);
-}
-
-.formula-block-label * {
-  font-family: inherit;
-}
-
-.formula {
-  color: var(--COLOR_YELLOW);
-  font-weight: 900;
-}
-
-/* ── TABLES ── */
-.table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin: var(--SPACE_M) 0;
-}
-
-.doc-table, 
-.data-table, 
-.mapping-table {
-  border-collapse: collapse;
-  margin: 0 auto;
-  font-weight: 700;
-  line-height: 1.4;
-  width: 100%;
-}
-
-.doc-table td, 
-.mapping-table td {
-  border: 1px solid #aaaaaa;
-  padding: var(--SPACE_XS) 14px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.doc-table .label-cell {
-  border: none;
-  text-align: left;
-  color: var(--COLOR_BLACK);
-  font-weight: 700;
-  padding-left: var(--SPACE_S);
-  white-space: nowrap;
-}
-
-.doc-table .table-title-row td, 
-.data-table th {
-  background: #111111;
-  color: #ffffff;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.doc-table .col-header td {
-  background: var(--COLOR_GRAY_LT);
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 15px;
-}
-
-.doc-table .total-row td {
-  background: #111111;
-  color: var(--COLOR_YELLOW);
-  font-weight: 900;
-}
-
-.doc-table .sum-row td {
-  background: var(--COLOR_GRAY_LT);
-  font-weight: 900;
-}
-
-.data-table {
-  width: auto;
-  margin-left: auto;
-  border-collapse: collapse;
-}
-
-.data-table th {
-  padding: var(--SPACE_XS) 14px;
-  text-align: left;
-}
-
-.data-table td {
-  padding: var(--SPACE_XS) 14px;
-  border-bottom: 1px solid var(--COLOR_BORDER);
-  font-weight: 700;
-}
-
-.data-table th:not(:first-child),
-.data-table td:not(:first-child) {
-  text-align: center;
-}
-
-.mapping-table tr:first-child td {
-  background: #111111;
-  color: #ffffff;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-/* ── CODE & INTERACTIVE ── */
-.pythoncode {
-  background-color: #1e1e1e;
-  color: #ffffff;
-  padding: var(--SPACE_M);
-  border-radius: 12px;
-  font-family: var(--FONT_MONO);
-  margin: var(--SPACE_M) 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.pythoncode h3 {
-  margin-top: 0;
-  margin-bottom: var(--SPACE_S);
-  color: #ffffff;
-  line-height: 1.25;
-}
-
-.pythoncode textarea {
-  width: 100%;
-  font-weight: bold;
-  border: 1px solid #444444;
-  padding: 15px;
-  font-size: 1rem;
-  line-height: 1.4;
-  border-radius: 5px;
-  outline: none;
-  resize: vertical;
-  background: #1e1e1e;
-  color: #ffffff;
-  font-family: var(--FONT_MONO);
-}
-
-.pythoncode div[id^="output-window"] {
-  background-color: #000000;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 15px;
-  margin-top: var(--SPACE_S);
-  border-radius: 5px;
-  white-space: pre-wrap;
-  border-left: 4px solid #00ff00;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  font-family: var(--FONT_MONO);
-}
-
-.pythoncode button {
-  margin-top: var(--SPACE_S);
-  background-color: #00ff00;
-  color: #000000;
-  border: none;
-  padding: 10px 25px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  line-height: 1.2;
-}
-
-/* ── COPY BUTTON ── */
-.copy_btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  padding: 0 !important;
-  margin: 0 !important;
-  background: #2a2a2a !important;
-  color: #aaaaaa !important;
-  border: 1px solid #555555 !important;
-  border-radius: 6px !important;
-  cursor: pointer !important;
-  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.copy_btn svg {
-  width: 18px;
-  height: 18px;
-  pointer-events: none;
-}
-
-.copy_btn:hover {
-  background: #3a3a3a !important;
-  color: #ffffff !important;
-}
-
-.copy_btn--copied {
-  background: #1a3a1a !important;
-  color: var(--COLOR_GREEN_LT_LT) !important;
-  border-color: #2d8a4e !important;
-}
-
-.code-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--SPACE_S);
-  margin: var(--SPACE_XS) 0;
-}
-
-.code-row > button:not(.copy_btn) {
-  margin-top: 0;
-}
-
-.copy_btn--inline {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.copy_btn::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: #ffffff;
-  color: #111111;
-  font-family: var(--FONT_MAIN);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.2;
-  white-space: nowrap;
-  padding: 6px 12px;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.12s ease;
-  z-index: 10;
-}
-
-.copy_btn:hover::after,
-.copy_btn--copied::after {
-  opacity: 1;
-}
-
-.textarea-wrap {
-  position: relative;
-}
-
-.textarea-wrap textarea {
-  display: block;
-  width: 100%;
-}
-
-/* ── TYPOGRAPHY & BLOCKS ── */
-.inner-heading {
-  font-weight: 900;
-  font-size: 19px;
-  line-height: 1.3;
-  margin-top: var(--SPACE_L);
-  margin-bottom: 10px;
-}
-
-.prose-list {
-  margin-top: 10px;
-  margin-bottom: var(--SPACE_M);
-  padding-left: var(--SPACE_L);
-}
-
-.prose-list li {
-  margin-bottom: var(--SPACE_XS);
-  line-height: 1.5;
-}
-
-.prose-list li:last-child {
-  margin-bottom: 0;
-}
-
-.img-block {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.img-block img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: inline-block;
-}
-
-@media (min-width: 768px) {
-  .img-block img {
-    max-width: 150px;
-  }
-}
-
-.neuron-emoji {
-  font-size: 60px;
-  text-align: center;
-  margin-top: var(--SPACE_M);
-  margin-bottom: var(--SPACE_XS);
-  line-height: 1;
-}
-
-.neuron-label {
-  text-align: center;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: var(--SPACE_M);
-  line-height: 1.3;
-}
-
-.pricing-block {
-  background: #111111;
-  color: #ffffff;
-  border-radius: 10px;
-  padding: 32px 28px;
-  text-align: center;
-  margin: 20px 0;
-}
-
-.pricing-title {
-  font-weight: 900;
-  font-size: 22px;
-  color: var(--COLOR_YELLOW);
-  letter-spacing: 0.1em;
-  line-height: 1.3;
-  margin-bottom: var(--SPACE_S);
-}
-
-.pricing-sub {
-  color: #cccccc;
-  font-weight: 700;
-  margin-bottom: 6px;
-  line-height: 1.4;
-}
-
-.pricing-price {
-  font-weight: 900;
-  color: var(--COLOR_YELLOW);
-  font-size: 20px;
-  margin-top: var(--SPACE_S);
-  line-height: 1.3;
-}
-
-.family { 
-  color: #cccccc; 
-  font-weight: 700; 
-  margin-top: 10px;
-  margin-bottom: 0; 
-  line-height: 1.4;
-}
-
-.price-pill {
-  display: inline-block;
-  background: green;
-  color: white;
-  font-weight: 900;
-  font-size: 17px;
-  padding: 12px 28px;
-  border-radius: 6px;
-  border: 4px solid #93c47d;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-}
-
-.divider {
-  border: none;
-  border-top: 2px dashed var(--COLOR_BORDER);
-  margin: var(--SPACE_L) 0;
-}
-
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--SPACE_2XL) 20px 40px;
-  gap: var(--SPACE_M);
-  border-top: 1px solid var(--COLOR_BORDER);
-  margin-top: var(--SPACE_2XL);
-}
-
-.footer-logo {
-  width: 128px;
-  height: auto;
-  opacity: 0.8;
-}
-
-.footer-copyright {
-  color: var(--COLOR_GRAY);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  line-height: 1.2;
-}
-
-/* ── CLASS SPECIFIC UTILS ── */
-.influence-panel {
-  background: var(--COLOR_WHITE);
-  border-left: 4px solid var(--COLOR_BLUE);
-  border-radius: 6px;
-  padding: 14px 18px;
-  margin: var(--SPACE_M) 0;
-  color: var(--COLOR_BLACK);
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.influence-panel-label {
-  color: var(--COLOR_BLUE);
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  margin-bottom: 6px;
-  line-height: 1.3;
-}
-
-.takeaway {
-  background: var(--COLOR_GRAY_LT);
-  border: 2px solid var(--COLOR_BLACK);
-  border-radius: 8px;
-  padding: var(--SPACE_M) var(--SPACE_L);
-  margin: var(--SPACE_M) 0;
-  font-weight: 900;
-  line-height: 1.5;
-}
-
-.takeaway-label {
-  color: var(--COLOR_GRAY);
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: var(--SPACE_XS);
-  line-height: 1.3;
-}
-
-.result-banner, 
-.completion-banner {
-  background: #111111;
-  color: var(--COLOR_YELLOW);
-  font-weight: 900;
-  text-align: center;
-  padding: 14px 20px;
-  border-radius: 8px;
-  margin: var(--SPACE_M) 0;
-  line-height: 1.3;
-}
-
-.success-callout {
-  background: var(--COLOR_GREEN_LT);
-  border: 2px solid var(--COLOR_GREEN);
-  border-radius: 8px;
-  padding: 14px 20px;
-  margin: var(--SPACE_M) 0;
-  font-weight: 800;
-  color: var(--COLOR_GREEN);
-  line-height: 1.5;
-}
-
-.error-chip {
-  display: inline-block;
-  background: var(--COLOR_RED_LT);
-  color: var(--COLOR_RED);
-  font-weight: 800;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin: 4px 0;
-  line-height: 1.25;
-}
-
-.diagram img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto;
-  border: 1.5px solid var(--COLOR_BORDER);
-}
-
-.step-heading {
-  display: flex;
-  align-items: center;
-  gap: var(--SPACE_S);
-  font-weight: 900;
-  margin-top: 28px;
-  margin-bottom: var(--SPACE_S);
-  line-height: 1.3;
-}
-
-.step-badge {
-  background: var(--COLOR_GREEN);
-  color: #ffffff;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.teaser {
-  background: #111111;
-  color: #ffffff;
-  border-radius: 10px;
-  padding: 28px;
-  text-align: center;
-  margin-top: var(--SPACE_XL);
-  margin-bottom: 0;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.teaser-next {
-  color: var(--COLOR_YELLOW);
-  font-weight: 900;
-  font-size: 22px;
-  margin: var(--SPACE_XS) 0;
-  line-height: 1.3;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOW MACHINES LEARN AND THINK</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ── index.html-specific overrides ── */
+    header {
+      padding: 40px 24px 0px;
+    }
+
+    .header-title {
+      font-size:     30px;
+      margin-bottom: 8px;
+      color:         var(--yellow);
+    }
+
+    .header-subtitle {
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 480px) {
+      .header-title { font-size: 22px; }
+    }
+
+    /* ── class1.html-specific textarea heights ── */
+    #code-input1  { height: 340px; }
+  
+  </style>
+
+</head>
+
+
+<body>
+
+  <header>
+    <div class="header-audience">
+      A unique opportunity for your family<br/>
+      to explore high‑tech together
+    </div>
+    <div class="header-eyebrow">✨ The Mind-Expanding Course:</div>
+    <div class="header-title">HOW MACHINES LEARN AND THINK</div>
+    <div class="header-subtitle">The Surprisingly Simple Math Behind Modern AI</div>
+    <div class="header-audience">For kids (10+) and adults — together</div>
+    
+    <div class="img-block">
+      <img src="MIS.png" alt="MIS"/>
+    </div>
+  </header>
+
+
+  <div class="page">
+    
+    <div class="card" style="margin-top:32px;">
+      <div class="card-body">
+        <p>Right now, the world is talking about AI — the most transformative technology of our era.</p>
+        <p>Yet very few people actually understand how it works. And this course changes that.</p>
+        <p>What makes this course special is that it's designed for complete beginners. So if you know that <strong>5 / 4 = 1.25</strong> and <strong>2 &minus; 3 = &minus;1</strong>, you&rsquo;re ready! 🎉</p>         
+        <p>You’ll discover how the most advanced AI systems — called <strong>Transformers</strong> (like ChatGPT, Claude, Gemini, or Grok) — actually work under the hood. 
+          Together as a family, you’ll uncover how they <strong>think</strong> and, most importantly, how they <strong>learn</strong>.</p>
+        <p>Use this knowledge for fun or as a foundation for a top‑tier career in today’s AI‑driven world.</p>
+        <p>While built for beginners, the course is fully detailed and technical. You’ll gain both a deep conceptual understanding of AI and hands‑on experience of building it.</p>
+        <p>What might otherwise take years — or even decades — of learning can be understood here in just hours.</p>
+        <p>👉 Try the <strong>TRIAL LESSON</strong> — experience a new way of learning AI.</p>
+      </div>
+    </div>
+
+
+   <br/><br/>
+    <div class="section-label" style="display: flex; justify-content: center; width: 100%;">🚀 THE TRIAL LESSON</div>
+
+    <div class="card">
+      <div class="card-body">
+        <p>Hey explorers! 🎉</p>
+        <p>We're going to dive into something amazing: the real secrets of how machines learn and think.</p>
+        <p>Ready? Let’s go!</p>
+      </div>
+    </div>
+
+
+    <div class="section-label">🧠 About Brains</div>
+
+    <div class="card">
+      <div class="card-body">
+        <p>Nowadays, there are two kinds of brains: <strong>biological brains</strong> and <strong>machine brains</strong>.</p>
+        <p>For example:</p>
+        <ul class="prose-list">
+          <li><strong>Biological brains</strong> are the brains of humans and animals.</li>
+          <li><strong>Machine brains</strong> are AI systems — the most powerful of which are <strong>Transformers</strong>, like ChatGPT, Claude, Gemini, or Grok.</li>
+        </ul>
+
+        <p>The main job of every brain — whether biological or machine — is to <strong>learn</strong> and <strong>think</strong>.</p>
+        <p>And here’s the surprise: at their core, learning and thinking are just doing math. Yes, really! 😯</p>
+        <p>Math happens in every kind of brain, whether biological or machine, though through different means.</p>
+        <p>Interestingly, when we build a machine brain, 
+          it learns on its own — 
+          so creating one feels less like assembling a LEGO house 
+          and more like training or nurturing a living thing.</p>
+
+        <div class="img-block">
+          <img src="wlogo.jpg" alt="wlogo"/>
+        </div>
+
+        <p>How is all this even possible?</p>
+        <p>In this course, you&rsquo;ll discover the answer.</p>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="section-label">The Building Blocks of Every Brain</div>
+
+    <div class="card">
+      <div class="card-body">
+
+        <p>Every brain is, in essence, a <strong>neural network</strong> — something like this:</p>
+
+        <div class="img-block">
+          <img src="nn.jpg" alt="nn" />
+        </div>
+
+        <p>It’s called <i>neural</i> because it’s made of <strong>NEURONS</strong>.</p>
+        <div class="neuron-emoji">😎</div>
+        <div class="neuron-label">NEURON</div>
+        <p>It’s called a <i>network</i> because <strong>NEURONS</strong> connect to each other and work together.</p>
+
+        <p>Think of each <strong>NEURON</strong> as a tiny, cool helper.</p>
+        <p>But what does each <strong>NEURON</strong> do?</p>
+          
+        <p>Actually, each <strong>NEURON</strong> takes in input <strong>SIGNALS</strong> and sends out one output <strong>SIGNAL</strong>.</p>
+        <p>For example, a <strong>NEURON</strong> might take in two input <strong>SIGNALS</strong> and send out one output <strong>SIGNAL</strong>.</p>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr>
+              <td style="color:var(--blue); border-right: 1px solid #ccc;">input <strong>SIGNAL</strong></td>
+              <td style="color:var(--green); border-left: 1px solid #ccc;">input <strong>SIGNAL</strong></td>
+            </tr>
+            <tr>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:60px; padding:10px;">😎</td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:22px; font-weight:900; border:none;">↓</td>
+            </tr>
+            <tr>
+              <td colspan="2">output <strong>SIGNAL</strong></td>
+            </tr>
+          </table>
+        </div>       
+
+        <p>What’s a <strong>SIGNAL</strong>? Simply put, it’s anything that can be measured or calculated and represented as a number — like 0.36 or 0.53.</p>
+        <p>In more detail, every <strong>NEURON</strong></p>
+        <ul class="prose-list">
+          <li>Takes in input <strong>SIGNALS</strong> (e.g., 0.36 and 0.53)</li>
+          <li>Does simple math to calculate its output <strong>SIGNAL</strong> (e.g., 0.79)</li>
+          <li>Sends out that output <strong>SIGNAL</strong></li>
+        </ul>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr>
+              <td><strong>0.36</strong></td>
+              <td><strong>0.53</strong></td>
+              <td class="label-cell">input <strong>SIGNALS</strong></td>
+            </tr>
+            <tr>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:60px; padding:10px;">😎</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-weight:900; font-size:19px;">0.79</td>
+              <td class="label-cell">output <strong>SIGNAL</strong></td>
+            </tr>
+          </table>
+        </div>
+
+        <p>For short:</p>
+        <ul class="prose-list">
+          <li>Input <strong>SIGNALS</strong> → <strong>INPUTS</strong></li>
+          <li>Output <strong>SIGNAL</strong> → <strong>OUTPUT</strong></li>
+        </ul>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr>
+              <td><strong>0.36</strong></td>
+              <td><strong>0.53</strong></td>
+              <td class="label-cell"><strong>INPUTS</strong></td>
+            </tr>
+            <tr>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:60px; padding:10px;">😎</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-size:22px; font-weight:900; border:none;">↓</td>
+              <td class="label-cell"></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="font-weight:900; font-size:19px;">0.79</td>
+              <td class="label-cell"><strong>OUTPUT</strong></td>
+            </tr>
+          </table>
+        </div>
+
+        <p>And here’s the key insight: 
+          an <strong>OUTPUT</strong> from one <strong>NEURON</strong> can become 
+          an <strong>INPUT</strong> for many other <strong>NEURONS</strong> 
+          in the next layer — connecting the whole team together!</p> 
+
+        <div class="img-block">
+          <img src="nn.jpg" alt="nn" />
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="section-label">Math Every Neuron Does</div>
+
+    <div class="card">
+      <div class="card-body">
+
+        <p>When a brain thinks, every <strong>NEURON</strong> does very simple math.</p>
+        <p>At its core, every <strong>NEURON</strong> works just like a <strong>store receipt</strong>.</p>
+
+        <p><strong>Analogy: RECEIPT</strong></p>
+
+        <p>Imagine buying donuts and cupcakes at a store:</p>
+
+
+
+
+        <div class="table-wrap">
+          <table class="doc-table" style="width:100%; max-width:480px;">
+            <tr class="table-title-row">
+             <td style="font-weight: 100;" colspan="4">RECEIPT</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;"></td>
+              <td><strong>UNITS</strong></td>
+              <td><strong>PRICE PER UNIT</strong></td>
+              <td><strong>AMOUNT</strong></td>
+            </tr>
+            <tr>
+              <td style="text-align:left; font-weight: 100;">donut</td>
+              <td>4</td>
+              <td>2.00</td>
+              <td>8.00</td>
+            </tr>
+            <tr>
+              <td style="text-align:left; font-weight: 100;">cupcake</td>
+              <td>2</td>
+              <td>3.00</td>
+              <td>6.00</td>
+            </tr>
+            
+            <tr>
+              <td style="text-align:left; font-weight:900;"><strong>DISCOUNT</strong></td>
+              <td colspan="2"></td>
+              <td>-0.50</td>
+            </tr>
+            <tr>
+              <td style="text-align:left; font-weight:900;"><strong>TOTAL</strong></td>
+              <td colspan="2"></td>
+              <td>13.50</td>
+            </tr>
+          </table>
+        </div>
+
+        <p>The math is straightforward:</p>
+        <div class="callout callout-neutral">
+          TOTAL = 4.00 * 2.00 + 2.00 * 3.00 + (-0.50)<br/>
+          TOTAL = 8.00 + 6.00 - 0.50<br/>
+          TOTAL = 13.50
+        </div>
+
+        <p>This math can also be represented this way:</p>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr><td>4.00</td><td>2.00</td><td class="label-cell"><strong>UNITS</strong></td></tr>
+            <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>PRICES</strong></td></tr>
+            <tr><td>8.00</td><td>6.00</td><td class="label-cell"><strong>AMOUNTS</strong></td></tr>
+            <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>DISCOUNT</strong></td></tr>
+            <tr><td colspan="2">13.50</td><td class="label-cell"><strong>TOTAL</strong></td></tr>
+          </table>
+        </div>
+
+        <p>At its core, every <strong>RECEIPT</strong> is just a <strong>formula</strong>:</p>
+        <div class="formula-block">
+          <span class="formula">TOTAL = UNITS1 * PRICE1 + UNITS2 * PRICE2 + DISCOUNT</span>
+        </div>
+        <div class="callout callout-neutral">
+          TOTAL = 4.00 * 2.00 + 2.00 * 3.00 + (-0.50)<br/>
+          TOTAL = 8.00 + 6.00 - 0.50<br/>
+          TOTAL = 13.50
+        </div>
+
+        <p>In terms of a <strong>NEURON</strong>, the same math can be represented this way:</p>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr><td>4.00</td><td>2.00</td><td class="label-cell"><strong>INPUTS</strong></td></tr>
+            <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>WEIGHTS</strong></td></tr>
+            <tr><td>8.00</td><td>6.00</td><td class="label-cell"><strong>PRODUCTS</strong></td></tr>
+            <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>BIAS</strong></td></tr>
+            <tr><td colspan="2">13.50</td><td class="label-cell"><strong>OUTPUT</strong></td></tr>
+          </table>
+        </div>
+
+        <p>At its core, every <strong>NEURON</strong> is also just a <strong>formula</strong> like this:</p>
+        <div class="formula-block">
+          <span class="formula">OUTPUT = INPUT1 * WEIGHT1 + INPUT2 * WEIGHT2 + BIAS</span>
+        </div>
+        <div class="callout callout-neutral">
+          OUTPUT = 4.00 * 2.00 + 2.00 * 3.00 + (-0.50)<br/>
+          OUTPUT = 8.00 + 6.00 - 0.50<br/>
+          OUTPUT = 13.50
+        </div>
+
+        <p>Ultra simple. No math changed. Only names changed.</p>
+
+        <p>Importantly, in the case of the <strong>RECEIPT</strong>, when <strong>UNITS</strong> change, the <strong>TOTAL</strong> changes too:</p>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr><td>3.00</td><td>5.00</td><td class="label-cell"><strong>UNITS</strong></td></tr>
+            <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>PRICES</strong></td></tr>
+            <tr><td>6.00</td><td>15.00</td><td class="label-cell"><strong>AMOUNTS</strong></td></tr>
+            <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>DISCOUNT</strong></td></tr>
+            <tr><td colspan="2">20.50</td><td class="label-cell"><strong>TOTAL</strong></td></tr>
+          </table>
+        </div>
+
+        <p>Similarly, in the case of the <strong>NEURON</strong>, when <strong>INPUTS</strong> change, the <strong>OUTPUT</strong> changes too:</p>
+
+        <div class="table-wrap">
+          <table class="doc-table">
+            <tr><td>3.00</td><td>5.00</td><td class="label-cell"><strong>INPUTS</strong></td></tr>
+            <tr><td>2.00</td><td>3.00</td><td class="label-cell"><strong>WEIGHTS</strong></td></tr>
+            <tr><td>6.00</td><td>15.00</td><td class="label-cell"><strong>PRODUCTS</strong></td></tr>
+            <tr><td colspan="2">-0.50</td><td class="label-cell"><strong>BIAS</strong></td></tr>
+            <tr><td colspan="2">20.50</td><td class="label-cell"><strong>OUTPUT</strong></td></tr>
+          </table>
+        </div>
+
+        <p>Again, no math changed. Only names changed.</p>
+        <p>The Python code below makes all the calculations instantly.</p>
+        <p>Just click <strong>RUN CODE</strong>.</p>
+        <h3>RUN THE AI NEURON 🧠</h3>
+
+        <div class="pythoncode">
+       
+
+          <div class="textarea-wrap">
+<textarea id="code-input1" style="line-height: 1.2;">
+INPUT1 = 3.00
+INPUT2 = 5.00
+
+WEIGHT1 = 2.00
+WEIGHT2 = 3.00
+
+BIAS = -0.50
+
+PRODUCT1 = INPUT1 * WEIGHT1
+PRODUCT2 = INPUT2 * WEIGHT2
+
+OUTPUT = PRODUCT1 + PRODUCT2 + BIAS 
+
+print(f"OUTPUT = {OUTPUT}")
+</textarea>
+          </div>
+          <div class="code-row">
+            <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
+            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" data-tooltip="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+
+          <div id="output-window1">Ready for math!</div>
+        </div>
+
+        <p>🎉 Congratulations! You’ve just run your very first AI <strong>NEURON</strong>.</p>
+        <p>Try changing <strong>INPUT1</strong> to <strong>10</strong> and <strong>INPUT2</strong> to <strong>20</strong>. Predict the <strong>OUTPUT</strong> before pressing <strong>RUN</strong>. 🤓</p>
+        <p>Hopefully, your prediction matches! 👍</p>
+        <p>The mapping:</p>
+
+        <div class="table-wrap"> 
+          <table class="mapping-table">
+            <tr>
+              <td><strong>RECEIPT</strong></td>
+              <td>&rarr;</td>
+              <td><strong>NEURON</strong></td>
+            </tr>
+            <tr><td><strong>UNITS</strong></td><td>&rarr;</td><td><strong>INPUTS</strong></td></tr>
+            <tr><td><strong>PRICES</strong></td><td>&rarr;</td><td><strong>WEIGHTS</strong></td></tr>
+            <tr><td><strong>AMOUNTS</strong></td><td>&rarr;</td><td><strong>PRODUCTS</strong></td></tr>
+            <tr><td><strong>DISCOUNT</strong></td><td>&rarr;</td><td><strong>BIAS</strong></td></tr>
+            <tr><td><strong>TOTAL</strong></td><td>&rarr;</td><td><strong>OUTPUT</strong></td></tr>
+          </table>
+        </div>
+
+        <p>A <strong>NEURON</strong> may have multiple <strong>WEIGHTS</strong>, but it always has only one <strong>BIAS</strong>.</p>
+        <p>Together, <strong>WEIGHTS</strong> and <strong>BIASES</strong> are called <strong>PARAMETERS</strong>.</p>
+        <p>If you understand this, you already understand a lot of AI.</p>
+        <p>By the way, every answer from ChatGPT ultimately comes from billions of tiny calculations that look surprisingly similar to the example above.</p>
+        <p>But the most exciting part is how <strong>NEURONS</strong> improve their <strong>PARAMETERS</strong> after making <strong>ERRORS</strong>. 
+          This process is called <strong>LEARNING</strong> or <strong>TRAINING</strong>.</p>
+
+      </div>
+    </div>
+
+
+
+    <div class="section-label">Scale: Billions and Trillions</div>
+
+  <div class="card">
+    <div class="card-body">
+    <p>Today's largest AI models may each have over 2 trillion <strong>PARAMETERS</strong>. 
+     Even so, the human brain is staggeringly more complex. It contains:</p>
+    <ul class="prose-list">
+      <li>~500 trillion connections (<strong>synapses</strong>)</li>
+      <li>~86 billion <strong>neurons</strong></li>
+    </ul>
+
+
+    <p>You can think of each <strong>synapse</strong> as playing the role of a <strong>WEIGHT</strong>, while each biological <strong>neuron</strong> also has properties that loosely resemble a <strong>BIAS</strong>.</p>
+    <p>Metaphorically, the human brain has around 500.86 trillion "<strong>parameters</strong>": 500 trillion "<strong>weights</strong>" + 86 billion "<strong>biases</strong>".</p>
+    <p>So while each individual <strong>NEURON</strong> is simple, a massive network of <strong>NEURONS</strong> can create remarkably intelligent behavior.</p>
+    </div>
+  </div>
+
+
+    <div class="section-label">🌺 Our Very First Machine Brain</div>
+
+    <div class="card">
+      <div class="card-body">
+        <p>To quickly understand the main idea of how machines learn and think, let’s start by building the simplest possible brain: a <strong>one-neuron brain</strong>. A single <strong>NEURON</strong>. That’s it.</p>
+        <p>Even better, this <strong>NEURON</strong> will only have one <strong>PARAMETER</strong>: a single <strong>WEIGHT</strong>. There will be no other <strong>WEIGHTS</strong> and no <strong>BIAS</strong>. Just one <strong>WEIGHT</strong>. That’s it.</p>
+        <p>This tiniest-ever brain will first learn from its own <strong>ERRORS</strong>. Then, after <strong>LEARNING</strong>, it will be able to think by solving new problems it has never seen before.</p>
+        <p>Indeed, that is the true power of any genuine brain: solving unfamiliar problems.</p>
+        <p>In Lesson 1, you’ll watch this <strong>NEURON</strong> start with the wrong <strong>WEIGHT</strong>, make <strong>ERRORS</strong>, and gradually improve itself — step by step.</p>
+        <p>The tiniest-ever brain is the perfect starting point.</p>
+        <p>Let’s see how it works!</p>
+      </div>
+    </div>
+
+
+    <div style="display: flex; justify-content: center; width: 100%; margin-top: 24px;">
+    <div class="pricing-block" style="width: 250px; text-align:center;">
+      <div class="pricing-title">HOW<br/>MACHINES<br/>LEARN AND<br/>THINK</div>
+      <div class="pricing-sub">Zero To Hero</div>
+   
+      <div class="pricing-title" style="color:white; margin-top:12px;">TRANSFORMERS</div>
+      <div style="color:#cccccc; font-weight:700; margin-top:4px;">
+        20 Lessons: <strong style="color:var(--yellow);">$10</strong> each
+      </div>
+      <div class="pricing-price">$199 total</div>
+      <div class="family">Per family or individual</div>
+    </div>
+  </div>
+
+
+
+
+
+  <p style="text-align:center; font-weight:700; margin:16px 0 8px;">Join</p>
+
+
+  <div style="text-align:center; margin-bottom:10px;">
+    <span class="price-pill">Lesson 1 for <strong style="color:var(--yellow);">$9</strong></span>
+  </div>
+
+  <p style="text-align:center; font-weight:700; margin:8px 0;">then the remaining</p>
+
+  <div style="text-align:center; margin-bottom:28px;">
+    <span class="price-pill">19 Lessons for <strong style="color:var(--yellow);">$190</strong></span>
+  </div>
+  
+    
+
+<div class="section-label">Syllabus</div>
+
+<div class="card">
+  <div class="card-body">
+
+    <p>This course covers the following topics:</p>
+    <ul class="prose-list">
+      <li><strong>NEURONS</strong></li>
+      <li><strong>INPUTS</strong></li>
+      <li><strong>WEIGHTS</strong></li>
+      <li><strong>BIASES</strong></li>
+      <li><strong>OUTPUTS</strong></li>
+      <li><strong>BACKPROPAGATION</strong></li>
+      <li><strong>PARAMETER UPDATE RULE</strong></li>
+      <li><strong>GRADIENT DESCENT</strong></li>
+      <li><strong>CHAIN RULE</strong></li>
+      <li><strong>ACTIVATION FUNCTIONS</strong></li>   
+      <li><strong>VECTORS</strong></li>   
+      <li><strong>NEURAL NETWORKS</strong></li>
+      <li><strong>TRANSFORMERS</strong></li>
+      <li><strong>TOKENIZATION</strong></li>
+      <li><strong>EMBEDDINGS</strong></li>
+      <li><strong>MATRICES</strong></li>
+      <li><strong>MATRIX MULTIPLICATION</strong></li>
+      <li><strong>ATTENTION</strong></li>
+      <li><strong>SELF-ATTENTION</strong></li>
+      <li><strong>MULTI-HEAD ATTENTION</strong></li>
+      <li><strong>POSITIONAL ENCODING</strong></li>
+      <li><strong>LAYER NORMALIZATION</strong></li>
+      <li><strong>RESIDUAL CONNECTIONS</strong></li>
+      <li><strong>FEED-FORWARD NETWORKS</strong></li>
+      <li><strong>OPTIMIZATION</strong></li>
+      <li><strong>SOFTMAX</strong></li>
+      <li><strong>TRANSFORMER BLOCKS</strong></li>
+      <li><strong>GENERALIZATION</strong></li>
+    </ul>
+
+    <p>The course builds your understanding gradually.</p>
+    <p>Together, we reinvent modern AI from scratch — step by step.</p>
+
+  </div>
+</div>
+    
+    <footer class="footer">
+      <img src="logo.jpg" alt="Machine Intelligence School Logo" class="footer-logo" />
+      <div class="footer-copyright">&copy; 2026 Machine Intelligence School</div>
+    </footer>
+
+
+  
+
+
+<div style="text-align: center; margin-top: 20px;">
+  <a href="../class1/class1.html" target="_blank" style="margin: 0 10px; display: block;">Class1</a>
+  <a href="../class2/class2.html" target="_blank" style="margin: 0 10px; display: block;">Class2</a>
+  <a href="../class3/class3.html" target="_blank" style="margin: 0 10px; display: block;">Class3</a>
+  <a href="../class4/class4.html" target="_blank" style="margin: 0 10px; display: block;">Class4</a>
+</div>
+
+
+<script>
+    function copyCode(id, btn) {
+      const text = document.getElementById(id).value;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('copy_btn--copied');
+        btn.setAttribute('data-tooltip', 'Copied!');
+        setTimeout(() => {
+          btn.classList.remove('copy_btn--copied');
+          btn.setAttribute('data-tooltip', 'Copy code');
+        }, 1800);
+      });
+    }
+
+    function outf(text, outputId) {
+      var mypre = document.getElementById(outputId);
+      mypre.innerHTML = mypre.innerHTML + text;
+    }
+
+    function runPython(block) {
+      const codeId   = "code-input1";
+      const outputId = "output-window1";
+
+      var code  = document.getElementById(codeId).value;
+      var mypre = document.getElementById(outputId);
+      mypre.innerHTML = '';
+
+      Sk.sysmodules = {};
+      Sk.pre = outputId;
+      Sk.configure({ output: (text) => outf(text, outputId) });
+
+      var myPromise = Sk.misceval.asyncToPromise(function () {
+        return Sk.importMainWithBody("<stdin>", false, code, true);
+      });
+
+      myPromise.then(
+        function (mod) { console.log('Success!'); },
+        function (err)  { mypre.innerHTML = err.toString(); }
+      );
+    }
+  </script>
+
+</body>
+</html>
