@@ -15,7 +15,7 @@
 
   <style>
     /* ── code block heights ── */
-    #code-input1  { height: 870px; }
+    #code-input1  { height: 1870px; }
     #code-input2  { height: 320px; }
     #code-input3  { height: 155px; }
     #code-input4  { height: 140px; }
@@ -1596,45 +1596,195 @@ So the <strong>TARGET</strong> here is 1.0 (<strong>STAY</strong>)</p>
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input1" style="line-height: 1.2;">
-WEIGHT = 0.0
-BIAS = 0.0
-PACE = 1.0
+import torch
+import torch.nn as nn
+import torch.optim as optim
 
-# DATASET
-INPUTS = [0.0, 1.0]
-TARGETS = [32.0, 33.8]
+# Hyperparameters & Settings
+SEED = 3
+PACE = 0.5
+EPOCHS = 60 # 60
+EXAMPLES = 6
 
-print("TRAINING STARTED:")
-print(f"Initial WEIGHT: {WEIGHT:.1f}, BIAS: {BIAS:.1f}\n")
+INPUTS = torch.tensor([
+#  friend  dj  rain
+    [1.0, 1.0, 0.0],  # EXAMPLE 1
+    [1.0, 0.0, 0.0],  # EXAMPLE 2
+    [0.0, 1.0, 0.0],  # EXAMPLE 3
+    [1.0, 1.0, 1.0],  # EXAMPLE 4
+    [0.0, 1.0, 1.0],  # EXAMPLE 5
+    [1.0, 0.0, 1.0]   # EXAMPLE 6
+])
 
-# Run for 2 Epochs
-for EPOCH in range(1, 3):
-    print(f"--- EPOCH {EPOCH} ---")
-    for STEP in range(2):
-        INPUT = INPUTS[STEP]
-        TARGET = TARGETS[STEP]
-        
-        # Forward pass
-        PRODUCT = INPUT * WEIGHT
-        SUM = PRODUCT + BIAS
-        OUTPUT = SUM
-        
-        # Calculate error
+TARGETS = torch.tensor([
+    [0.0],  # GO
+    [0.0],  # GO
+    [0.0],  # GO
+    [0.0],  # GO
+    [1.0],  # STAY
+    [1.0]   # STAY
+])
+
+# MODEL
+LAYER1 = nn.Linear(3, 2)
+ACTIVATION1 = nn.ReLU()
+LAYER2 = nn.Linear(2, 1)
+ACTIVATION2 = nn.Sigmoid()
+
+# PARAMETERS Initialization
+torch.manual_seed(SEED)
+with torch.no_grad():
+    LAYER1.weight.copy_(torch.randn(2, 3) * torch.sqrt(torch.tensor(2.0 / 3.0)))
+    LAYER1.bias.zero_()
+    LAYER2.weight.copy_(torch.randn(1, 2) * torch.sqrt(torch.tensor(2.0 / 2.0)))
+    LAYER2.bias.zero_()
+
+PARAMETERS = list(LAYER1.parameters()) + list(LAYER2.parameters())
+
+# CHANGER that changes PARAMETERS
+CHANGER = optim.SGD(PARAMETERS, lr=PACE)
+
+# Set global tensor formatting to 2 decimal places
+torch.set_printoptions(precision=2, sci_mode=False)
+
+print("\n ——— INITIAL PARAMETERS:")
+print("LAYER1.weight:")
+print(LAYER1.weight.data)
+print("\nLAYER1.bias:")
+print(LAYER1.bias.data)
+print("\nLAYER2.weight:")
+print(LAYER2.weight.data)
+print("\nLAYER2.bias:")
+print(LAYER2.bias.data)
+
+print("\n ——— TRAINING:")
+
+CORRECT = 0
+
+# Training Loop using SUM2.backward()
+for EPOCH in range(EPOCHS):
+    TOTAL_LOSS = 0.0
+
+    for EXAMPLE in range(EXAMPLES):
+        CHANGER.zero_grad()
+
+        INPUT = INPUTS[EXAMPLE]
+        TARGET = TARGETS[EXAMPLE]
+
+        SUM1 = LAYER1(INPUT)
+        ACT1 = ACTIVATION1(SUM1)
+        SUM2 = LAYER2(ACT1)
+        ACT2 = ACTIVATION2(SUM2).item()
+        OUTPUT = ACT2
+
         ERROR = TARGET - OUTPUT
-        
-        # Backward pass - backpropagation
-        influence_WEIGHT_OUTPUT = INPUT * 1.0 * 1.0
-        influence_BIAS_OUTPUT = 1.0 * 1.0
-        
-        WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE
-        BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE
-        
-        WEIGHT = WEIGHT + WEIGHT_change
-        BIAS = BIAS + BIAS_change
-        
-        print(f"Step {STEP+1} | INPUT: {INPUT:.1f} -> TARGET: {TARGET:.1f}")
-        print(f"       | OUTPUT: {OUTPUT:.1f} | ERROR: {ERROR:.1f}")
-        print(f"       | Changed WEIGHT: {WEIGHT:.2f}, BIAS: {BIAS:.2f}\n")
+
+        # 3. Gradient of MSE Loss w.r.t. SUM2 (includes Sigmoid derivative)
+        # dL/d(SUM2) = -(TARGET - OUTPUT) * OUTPUT * (1 - OUTPUT)
+        influence_SUM2_LOSS = -ERROR * OUTPUT * (1.0 - OUTPUT)
+
+        # 4. Backward call directly on SUM2
+        SUM2.backward(gradient=influence_SUM2_LOSS)
+
+        CHANGER.step()
+
+        # Compute MSE Loss: 0.5 * (TARGET - OUTPUT)^2
+        LOSS = 0.5 * torch.sum(ERROR ** 2)
+        TOTAL_LOSS = TOTAL_LOSS + LOSS.item()
+
+    print(f"EPOCH {EPOCH + 1}, LOSS: {TOTAL_LOSS:.4f}")
+    if EPOCH == 0:
+        with torch.no_grad():
+            for EXAMPLE in range(EXAMPLES):
+
+                INPUT = INPUTS[EXAMPLE]
+                TARGET = TARGETS[EXAMPLE]
+
+                SUM1 = LAYER1(INPUT)
+                ACT1 = ACTIVATION1(SUM1)
+                SUM2 = LAYER2(ACT1)
+                ACT2 = ACTIVATION2(SUM2).item()
+                OUTPUT = ACT2
+
+                PREDICTED_CLASS = 1 if OUTPUT >= 0.5 else 0
+                ACTUAL_CLASS = int(TARGET.item())
+
+                if PREDICTED_CLASS == ACTUAL_CLASS:
+                    CORRECT += 1
+
+                print(f"Example {EXAMPLE + 1}: {INPUTS[EXAMPLE].tolist()}  →  "
+                    f"Prob: {OUTPUT:.4f}  |  "
+                    f"Predicted: {'STAY' if PREDICTED_CLASS == 1 else 'GO'}  |  "
+                    f"Actual: {'STAY' if ACTUAL_CLASS == 1 else 'GO'}")
+
+        ACCURACY = (CORRECT / EXAMPLES) * 100
+        print(f"\nACCURACY: {ACCURACY:.2f}%\n")
+
+
+print("\n ——— LEARNED PARAMETERS:")
+print("LAYER1.weight:")
+print(LAYER1.weight.data)
+print("\nLAYER1.bias:")
+print(LAYER1.bias.data)
+print("\nLAYER2.weight:")
+print(LAYER2.weight.data)
+print("\nLAYER2.bias:")
+print(LAYER2.bias.data)
+
+# TEST DATA SET (AFTER TRAINING)
+INPUTS = torch.tensor([
+ # friend  dj  rain
+    [1.0, 1.0, 0.0],  # EXAMPLE 1
+    [1.0, 0.0, 0.0],  # EXAMPLE 2
+    [0.0, 1.0, 0.0],  # EXAMPLE 3
+    [1.0, 1.0, 1.0],  # EXAMPLE 4
+    [0.0, 1.0, 1.0],  # EXAMPLE 5
+    [1.0, 0.0, 1.0],  # EXAMPLE 6
+    [0.0, 0.0, 1.0],  # EXAMPLE 7
+    [0.0, 0.0, 1.0]   # EXAMPLE 8
+])
+
+TARGETS = torch.tensor([
+    [0.0],  # GO
+    [0.0],  # GO
+    [0.0],  # GO
+    [0.0],  # GO
+    [1.0],  # STAY
+    [1.0],  # STAY
+    [1.0],  # STAY
+    [1.0]   # STAY
+])
+
+EXAMPLES = 8
+
+print("\n ——— PREDICTIONS:")
+CORRECT = 0
+
+with torch.no_grad():
+    for EXAMPLE in range(EXAMPLES):
+
+        INPUT = INPUTS[EXAMPLE]
+        TARGET = TARGETS[EXAMPLE]
+
+        SUM1 = LAYER1(INPUT)
+        ACT1 = ACTIVATION1(SUM1)
+        SUM2 = LAYER2(ACT1)
+        ACT2 = ACTIVATION2(SUM2).item()
+        OUTPUT = ACT2
+
+        PREDICTED_CLASS = 1 if OUTPUT >= 0.5 else 0
+        ACTUAL_CLASS = int(TARGET.item())
+
+        if PREDICTED_CLASS == ACTUAL_CLASS:
+            CORRECT += 1
+
+        print(f"Example {EXAMPLE + 1}: {INPUTS[EXAMPLE].tolist()}  →  "
+              f"Prob: {OUTPUT:.4f}  |  "
+              f"Predicted: {'STAY' if PREDICTED_CLASS == 1 else 'GO'}  |  "
+              f"Actual: {'STAY' if ACTUAL_CLASS == 1 else 'GO'}")
+
+ACCURACY = (CORRECT / EXAMPLES) * 100
+print(f"\nACCURACY: {ACCURACY:.2f}%\n")
 </textarea>
           </div>
           <div class="code-row">
