@@ -15,7 +15,7 @@
 
   <style>
     /* ── code block heights ── */
-    #code-input1  { height: 3750px; }
+    #code-input1  { height: 2500px; }
     #code-input2  { height: 320px; }
     #code-input3  { height: 155px; }
     #code-input4  { height: 140px; }
@@ -1601,9 +1601,9 @@ import torch.nn as nn
 import torch.optim as optim
 
 # Hyperparameters & Settings
-SEED = 3
-PACE = 0.5
-EPOCHS = 60 # 60
+SEED     = 3
+PACE     = 0.5
+EPOCHS   = 60
 EXAMPLES = 6
 
 INPUTS = torch.tensor([
@@ -1626,9 +1626,9 @@ TARGETS = torch.tensor([
 ])
 
 # MODEL
-LAYER1 = nn.Linear(3, 2)
+LAYER1      = nn.Linear(3, 2)
 ACTIVATION1 = nn.ReLU()
-LAYER2 = nn.Linear(2, 1)
+LAYER2      = nn.Linear(2, 1)
 ACTIVATION2 = nn.Sigmoid()
 
 # PARAMETERS Initialization
@@ -1668,13 +1668,13 @@ for EPOCH in range(EPOCHS):
     for EXAMPLE in range(EXAMPLES):
         CHANGER.zero_grad()
 
-        INPUT = INPUTS[EXAMPLE]
+        INPUT  = INPUTS[EXAMPLE]
         TARGET = TARGETS[EXAMPLE]
 
-        SUM1 = LAYER1(INPUT)
-        ACT1 = ACTIVATION1(SUM1)
-        SUM2 = LAYER2(ACT1)
-        ACT2 = ACTIVATION2(SUM2).item()
+        SUM1   = LAYER1(INPUT)
+        ACT1   = ACTIVATION1(SUM1)
+        SUM2   = LAYER2(ACT1)
+        ACT2   = ACTIVATION2(SUM2).item()
         OUTPUT = ACT2
 
         ERROR = TARGET - OUTPUT
@@ -1693,32 +1693,6 @@ for EPOCH in range(EPOCHS):
         TOTAL_LOSS = TOTAL_LOSS + LOSS.item()
 
     print(f"EPOCH {EPOCH + 1}, LOSS: {TOTAL_LOSS:.4f}")
-    if EPOCH == 0:
-        with torch.no_grad():
-            for EXAMPLE in range(EXAMPLES):
-
-                INPUT = INPUTS[EXAMPLE]
-                TARGET = TARGETS[EXAMPLE]
-
-                SUM1 = LAYER1(INPUT)
-                ACT1 = ACTIVATION1(SUM1)
-                SUM2 = LAYER2(ACT1)
-                ACT2 = ACTIVATION2(SUM2).item()
-                OUTPUT = ACT2
-
-                PREDICTED_CLASS = 1 if OUTPUT >= 0.5 else 0
-                ACTUAL_CLASS = int(TARGET.item())
-
-                if PREDICTED_CLASS == ACTUAL_CLASS:
-                    CORRECT += 1
-
-                print(f"Example {EXAMPLE + 1}: {INPUTS[EXAMPLE].tolist()}  →  "
-                    f"Prob: {OUTPUT:.4f}  |  "
-                    f"Predicted: {'STAY' if PREDICTED_CLASS == 1 else 'GO'}  |  "
-                    f"Actual: {'STAY' if ACTUAL_CLASS == 1 else 'GO'}")
-
-        ACCURACY = (CORRECT / EXAMPLES) * 100
-        print(f"\nACCURACY: {ACCURACY:.2f}%\n")
 </textarea>
           </div>
           <div class="code-row">
