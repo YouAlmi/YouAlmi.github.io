@@ -41,7 +41,7 @@
         <p>Here, we add <strong>BIAS</strong> to the <strong>NEURON</strong>. 
         So the brain will have two <strong>PARAMETERS</strong>: <strong>WEIGHT</strong> and <strong>BIAS</strong>.</p>
         <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, these <strong>PARAMETERS</strong> will compete over which gets changed more. 
-          The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — receives a larger change.</p>
+          The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — namely, <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — receives a larger change.</p>
         <p>To see this competition more clearly, let's set <strong>PACE</strong> to <strong>1.0</strong>:</p>
         <div class="callout callout-neutral">PACE = <strong>1.0</strong></div>
       </div>
@@ -844,7 +844,7 @@ print(f"TESTING complete: ERROR = {ERROR:.1f}")
     <div class="card">
       <div class="card-body">
         <p>Crucially, <strong>BIAS</strong> adds capability to the <strong>NEURON</strong>. Without <strong>BIAS</strong>, the brain would not even be able to solve a problem as simple as converting Celsius to Fahrenheit (because 0°C is 32°F, which requires adding an additional number).</p>
-        <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, all <strong>PARAMETERS</strong> compete over which gets changed more. The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — receives a larger change.</p>
+        <p>During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, all <strong>PARAMETERS</strong> compete over which gets changed more. The <strong>PARAMETER</strong> that gets a larger product of <strong>ERROR</strong> and <strong>INFLUENCE</strong> — namely, <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — receives a larger change.</p>
         
         <div class="formula-block">
           <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for PARAMETER</div>
