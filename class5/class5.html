@@ -778,6 +778,36 @@ print(f"ACT2 = {ACT2:.7f}")
         <p>So let's translate these words into numbers.</p>
         <p>We can simply think up this mapping:</p>
 
+
+
+  <div class="table-wrap">
+  <table class="mapping-table">
+    <tr>
+      <td style="background: inherit !important; color: inherit !important; font-weight: normal !important;"><strong>YES</strong></td>
+      <td style="background: inherit !important; color: inherit !important; font-weight: normal !important;">&rarr;</td>
+      <td style="background: inherit !important; color: inherit !important; font-weight: normal !important;"><strong>1.0</strong></td>
+    </tr>
+    <tr>
+      <td><strong>NO</strong></td>
+      <td>&rarr;</td>
+      <td><strong>0.0</strong></td>
+    </tr>
+    <tr>
+      <td><strong>GO</strong></td>
+      <td>&rarr;</td>
+      <td><strong>1.0</strong></td>
+    </tr>
+    <tr>
+      <td><strong>STAY</strong></td>
+      <td>&rarr;</td>
+      <td><strong>0.0</strong></td>
+    </tr>
+  </table>
+</div>
+
+
+
+
   <div class="table-wrap">
   <table class="mapping-table">
     <tr>
@@ -793,16 +823,16 @@ print(f"ACT2 = {ACT2:.7f}")
     <tr>
       <td><strong>GO</strong></td>
       <td>&rarr;</td>
-      <td><strong>0.0</strong></td>
+      <td><strong>1.0</strong></td>
     </tr>
     <tr>
       <td><strong>STAY</strong></td>
       <td>&rarr;</td>
-      <td><strong>1.0</strong></td>
+      <td><strong>0.0</strong></td>
     </tr>
   </table>
 </div>
-        <!-- YES/NO → 1.0/0.0 TABLE -->
+    
 
   
 
@@ -835,7 +865,7 @@ print(f"ACT2 = {ACT2:.7f}")
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
     </tr>
     <!-- EXAMPLE2  -->
     <tr>
@@ -843,7 +873,7 @@ print(f"ACT2 = {ACT2:.7f}")
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
     </tr>
 
     <!-- EXAMPLE3  -->
@@ -852,7 +882,7 @@ print(f"ACT2 = {ACT2:.7f}")
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
     </tr>
     
     <!-- EXAMPLE4  -->
@@ -861,7 +891,7 @@ print(f"ACT2 = {ACT2:.7f}")
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
     </tr>
     <!-- EXAMPLE5  -->
     <tr>
@@ -869,7 +899,7 @@ print(f"ACT2 = {ACT2:.7f}")
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
     </tr>
 
     <!-- EXAMPLE6  -->
@@ -878,7 +908,7 @@ print(f"ACT2 = {ACT2:.7f}")
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
     </tr>
 
 
@@ -996,7 +1026,7 @@ BIAS2
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
     </tr>
     <!-- EXAMPLE2  -->
     <tr>
@@ -1004,7 +1034,7 @@ BIAS2
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
     </tr>
 
     <!-- EXAMPLE3  -->
@@ -1013,7 +1043,7 @@ BIAS2
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
     </tr>
     
     <!-- EXAMPLE4  -->
@@ -1022,7 +1052,7 @@ BIAS2
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
     </tr>
     <!-- EXAMPLE5  -->
     <tr>
@@ -1030,7 +1060,7 @@ BIAS2
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
     </tr>
 
     <!-- EXAMPLE6  -->
@@ -1039,7 +1069,7 @@ BIAS2
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
       <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
-      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>1.0</strong></div></td>
+      <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>0.0</strong></div></td>
     </tr>
 
 
