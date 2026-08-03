@@ -1227,11 +1227,11 @@ ACT1 = max(SUM1, 0.0)
 influence_SUM1_ACT1        = 1.0 if SUM1 > 0.0 else 0.0
 influence_SUM1_ACT1        =  0.80   0.00
 
-WEIGHT2                    =  0.34  1.01
+WEIGHT2                    =  0.34   1.01
 
 PRODUCT2                   = ACT1 * WEIGHT2
 influence_ACT1_PRODUCT2    = WEIGHT2
-influence_ACT1_PRODUCT2    =  0.34  1.01
+influence_ACT1_PRODUCT2    =  0.34   1.01
 
 ACT1                       =  0.80   0.00
 
@@ -1254,15 +1254,30 @@ influence_ACT2_OUTPUT      = 1.0</pre>
 
 <div class="influence-panel">
 <div class="influence-panel-label">CHAIN of INFLUENCES for WEIGHT1:</div><pre>
+influence_WEIGHT1_OUTPUT = (          influence_WEIGHT1_OUTPUT = (
+    influence_WEIGHT1_PRODUCT1            ( 1.00   1.00   0.00)
+  * influence_PRODUCT1_SUM1             *  1.0
+  * influence_SUM1_ACT1                 * ( 0.80   0.00)
+  * influence_ACT1_PRODUCT2             * ( 0.34   1.01)
+  * influence_PRODUCT2_SUM2             *  1.0
+  * influence_SUM2_ACT2                 *  0.25
+  * influence_ACT2_OUTPUT               *  1.0
+)
+
 influence_WEIGHT1_OUTPUT = (
-    influence_WEIGHT1_PRODUCT1
-  * influence_PRODUCT1_SUM1
+    (1.00   1.00   0.00)
+  * 1.0
   * influence_SUM1_ACT1
   * influence_ACT1_PRODUCT2
   * influence_PRODUCT2_SUM2
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
-)</pre>
+)
+
+
+
+
+</pre>
 </div>
 
 <div class="influence-panel">
