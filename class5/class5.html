@@ -1114,6 +1114,20 @@ BIAS2
 
 <div class="callout-title">Backward Pass — Backpropagation — <span style="color: #2e7d32;">CONCEPTION</span></div>
 
+<div class="success-callout">
+<p>In each <strong>LESSON</strong>, 
+all the <strong>PARAMETERS</strong> are competing 
+over which one gets changed the most. 
+The <strong>PARAMETERS</strong> with the largest product 
+of <strong>ERROR</strong> and <strong>INFLUENCE</strong> 
+— namely, <strong>ERROR * influence_PARAMETER_OUTPUT</strong> —
+receive the largest changes because changing them has 
+a greater effect on changing the <strong>OUTPUT</strong> 
+and reducing the <strong>ERROR</strong>.</p>
+<p>The core logic is simple:</p>
+<p> high <strong>ERROR</strong> + high <strong>INFLUENCE</strong> = 
+  larger <strong>CHANGE</strong></p>
+</div>
 
 <div class="influence-panel">
             <div class="influence-panel-label">INFLUENCES</div><pre>
@@ -1293,18 +1307,19 @@ BIAS2
 </div>
 
 <div class="success-callout">
-          <p>In each <strong>LESSON</strong>, 
-            all the <strong>PARAMETERS</strong> are competing 
-            over which one gets changed the most. 
-            The <strong>PARAMETERS</strong> with the largest product 
-            of <strong>ERROR</strong> and <strong>INFLUENCE</strong> 
-            — namely, <strong>ERROR * influence_PARAMETER_OUTPUT</strong> —
-            receive the largest changes because changing them has 
-            a greater effect on changing the <strong>OUTPUT</strong> 
-            and reducing the <strong>ERROR</strong>.</p>
-            <p>The core logic is simple:</p>
-            <p> high <strong>ERROR</strong> + high <strong>INFLUENCE</strong> = larger <strong>CHANGE</strong></p>
-        </div>
+<p>In each <strong>LESSON</strong>, 
+all the <strong>PARAMETERS</strong> are competing 
+over which one gets changed the most. 
+The <strong>PARAMETERS</strong> with the largest product 
+of <strong>ERROR</strong> and <strong>INFLUENCE</strong> 
+— namely, <strong>ERROR * influence_PARAMETER_OUTPUT</strong> —
+receive the largest changes because changing them has 
+a greater effect on changing the <strong>OUTPUT</strong> 
+and reducing the <strong>ERROR</strong>.</p>
+<p>The core logic is simple:</p>
+<p> high <strong>ERROR</strong> + high <strong>INFLUENCE</strong> = 
+  larger <strong>CHANGE</strong></p>
+</div>
 
         <p><strong>LESSON 1</strong> ends here.</p>
       </div>
