@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    /* ── code block heights ── */
-    #code-input1  { height: 1800px; }
+    /* ── code block heights ── 1800px */
+    #code-input1  { height: 5400px; }
     #code-input2  { height: 1230px; }
     #code-input3  { height: 155px; }
     #code-input4  { height: 140px; }
@@ -1727,86 +1727,236 @@ So the <strong>TARGET</strong> here is 1.0 (<strong>STAY</strong>)</p>
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input1" style="line-height: 1.2;">
-import torch
-import torch.nn as nn
-import torch.optim as optim
+import math
 
-# HYPERPARAMETERS & SETTINGS
-SEED     = 3
-PACE     = 0.5
-EPOCHS   = 60
+# ==============================================================================
+# 1. SETUP DATA AND PARAMETERS
+# ==============================================================================
+
+EPOCHS = 60
+PACE = 0.5
 EXAMPLES = 6
 
-# DATASET
-INPUTS = torch.tensor([
-#  friend  dj  rain
+LESSON = 0
+
+INPUTS = [
+    # friend  dj  rain
     [1.0, 1.0, 0.0],  # EXAMPLE 1
     [1.0, 0.0, 0.0],  # EXAMPLE 2
     [0.0, 1.0, 0.0],  # EXAMPLE 3
     [1.0, 1.0, 1.0],  # EXAMPLE 4
     [0.0, 1.0, 1.0],  # EXAMPLE 5
     [1.0, 0.0, 1.0]   # EXAMPLE 6
-])
+]
 
-TARGETS = torch.tensor([
-    [0.0],  # GO
-    [0.0],  # GO
-    [0.0],  # GO
-    [0.0],  # GO
-    [1.0],  # STAY
-    [1.0]   # STAY
-])
+TARGETS = [
+    0,  # GO
+    0,  # GO
+    0,  # GO
+    0,  # GO
+    1,  # STAY
+    1   # STAY
+]
 
-# MODEL
-LAYER1      = nn.Linear(3, 2)
-ACTIVATION1 = nn.ReLU()
-LAYER2      = nn.Linear(2, 1)
-ACTIVATION2 = nn.Sigmoid()
+WEIGHT1 = [
+    [0.6559, 0.1428, 0.0727],
+    [-0.5011, 0.0377, -1.1172]
+]
 
-# PARAMETERS (INITIALIZATION)
-torch.manual_seed(SEED)
-with torch.no_grad():
-    LAYER1.weight.copy_(torch.randn(2, 3) * torch.sqrt(torch.tensor(2.0 / 3.0)))
-    LAYER1.bias.zero_()
-    LAYER2.weight.copy_(torch.randn(1, 2) * torch.sqrt(torch.tensor(2.0 / 2.0)))
-    LAYER2.bias.zero_()
+BIAS1 = [
+    [0.0],
+    [0.0]
+]
 
-PARAMETERS = list(LAYER1.parameters()) + list(LAYER2.parameters())
+WEIGHT2 = [
+    [0.3375, 1.0111]
+]
 
-# CHANGER that changes PARAMETERS
-CHANGER = optim.SGD(PARAMETERS, lr=PACE)
+BIAS2 = [
+    [0.0]
+]
 
-# TRAINING
+# ==============================================================================
+# 3. FORWARD PASS
+# ==============================================================================
+
 for EPOCH in range(EPOCHS):
     TOTAL_LOSS = 0.0
-
     for EXAMPLE in range(EXAMPLES):
-        CHANGER.zero_grad()
+        LESSON = LESSON + 1
 
-        INPUT  = INPUTS[EXAMPLE]
-        TARGET = TARGETS[EXAMPLE]
+        INPUT = INPUTS[EXAMPLE]            # Shape: (3,)
+        TARGET = TARGETS[EXAMPLE]          # Scalar
 
-        # FORWARD PASS
-        SUM1   = LAYER1(INPUT)
-        ACT1   = ACTIVATION1(SUM1)
-        SUM2   = LAYER2(ACT1)
-        ACT2   = ACTIVATION2(SUM2).item()
-        OUTPUT = ACT2
+        # LAYER 1
+        # PRODUCT1: Shape (2, 3)
+        PRODUCT1 = [
+            [INPUT[j] * WEIGHT1[i][j] for j in range(3)]
+            for i in range(2)
+        ]
 
-        ERROR = TARGET - OUTPUT
+        # SUM1: Shape (2, 1)
+        SUM1 = [
+            [sum(PRODUCT1[i]) + BIAS1[i][0]]
+            for i in range(2)
+        ]
 
-        # BACKWARD PASS — BACKPROPAGATION
-        influence_SUM2_LOSS = -ERROR * OUTPUT * (1.0 - OUTPUT)
+        # ACT1 (ReLU): Shape (2, 1)
+        ACT1_col = [
+            [max(0.0, SUM1[i][0])]
+            for i in range(2)
+        ]
 
-        SUM2.backward(gradient=influence_SUM2_LOSS)
+        # ACT1 Transposed: Shape (1, 2)
+        ACT1 = [[ACT1_col[0][0], ACT1_col[1][0]]]
 
-        CHANGER.step()
+        # LAYER 2
+        # PRODUCT2: Shape (1, 2)
+        PRODUCT2 = [
+            [ACT1[0][j] * WEIGHT2[0][j] for j in range(2)]
+        ]
 
-        # MSE = 0.5 * ERROR**2
-        LOSS = 0.5 * torch.sum(ERROR**2)
-        TOTAL_LOSS = TOTAL_LOSS + LOSS.item()
+        # SUM2: Shape (1, 1)
+        SUM2 = [
+            [sum(PRODUCT2[0]) + BIAS2[0][0]]
+        ]
 
-    print(f"EPOCH {EPOCH + 1}, LOSS: {TOTAL_LOSS:.4f}")
+        # ACT2 (Sigmoid): Shape (1, 1)
+        ACT2 = [
+            [1.0 / (1.0 + math.exp(-SUM2[0][0]))]
+        ]
+        OUTPUT = ACT2                      # Shape: (1, 1)
+
+        ERROR = TARGET - OUTPUT[0][0]      # Scalar
+        LOSS = 0.5 * (ERROR ** 2)
+        TOTAL_LOSS += LOSS
+
+        if EPOCH == 0 and EXAMPLE < 5:
+            print(f"WEIGHT1 {WEIGHT1}\n")
+            print(f"BIAS1 {BIAS1}\n")
+            print(f"WEIGHT2 {WEIGHT2}\n")
+            print(f"BIAS2 {BIAS2}\n")
+
+            print(f"INPUTS {INPUT}")
+            print(f"TARGET {TARGET}")
+
+            print(f"PRODUCT1 {PRODUCT1}\n")
+            print(f"SUM1 {SUM1}\n")
+            print(f"ACT1 {ACT1}\n")
+            print(f"PRODUCT2 {PRODUCT2}\n")
+            print(f"SUM2 {SUM2}\n")
+            print(f"ACT2 {ACT2}\n")
+            print(f"OUTPUT {OUTPUT}\n")
+
+        # ==============================================================================
+        # 4. BACKWARD PASS
+        # ==============================================================================
+
+        # INFLUENCES
+        influence_WEIGHT1_PRODUCT1 = INPUT                               # Shape: (3,)
+        influence_PRODUCT1_SUM1 = 1.0                                    # Scalar
+        influence_BIAS1_SUM1 = 1.0                                       # Scalar
+        influence_SUM1_ACT1 = [
+            [1.0 if SUM1[i][0] > 0.0 else 0.0] for i in range(2)
+        ]                                                                # Shape: (2, 1)
+
+        influence_ACT1_PRODUCT2 = WEIGHT2                                # Shape: (1, 2)
+        influence_WEIGHT2_PRODUCT2 = ACT1                                # Shape: (1, 2)
+        influence_PRODUCT2_SUM2 = 1.0                                    # Scalar
+        influence_BIAS2_SUM2 = 1.0                                       # Scalar
+        influence_SUM2_ACT2 = [
+            [ACT2[0][0] * (1.0 - ACT2[0][0])]
+        ]                                                                # Shape: (1, 1)
+        influence_ACT2_OUTPUT = 1.0                                      # Scalar
+
+        # CHAIN OF INFLUENCES
+        
+        # influence_WEIGHT1_OUTPUT: Shape (2, 3)
+        influence_WEIGHT1_OUTPUT = [
+            [
+                influence_WEIGHT1_PRODUCT1[j]
+                * influence_PRODUCT1_SUM1
+                * influence_SUM1_ACT1[i][0]
+                * influence_ACT1_PRODUCT2[0][i]
+                * influence_PRODUCT2_SUM2
+                * influence_SUM2_ACT2[0][0]
+                * influence_ACT2_OUTPUT
+                for j in range(3)
+            ]
+            for i in range(2)
+        ]
+
+        print(f" influence_WEIGHT1_OUTPUT {influence_WEIGHT1_OUTPUT}")
+
+        # influence_BIAS1_OUTPUT: Shape (1, 2)
+        influence_BIAS1_OUTPUT = [
+            [
+                influence_BIAS1_SUM1
+                * influence_SUM1_ACT1[i][0]
+                * influence_ACT1_PRODUCT2[0][i]
+                * influence_PRODUCT2_SUM2
+                * influence_SUM2_ACT2[0][0]
+                * influence_ACT2_OUTPUT
+                for i in range(2)
+            ]
+        ]
+
+        # influence_WEIGHT2_OUTPUT: Shape (1, 2)
+        influence_WEIGHT2_OUTPUT = [
+            [
+                influence_WEIGHT2_PRODUCT2[0][j]
+                * influence_PRODUCT2_SUM2
+                * influence_SUM2_ACT2[0][0]
+                * influence_ACT2_OUTPUT
+                for j in range(2)
+            ]
+        ]
+
+        # influence_BIAS2_OUTPUT: Shape (1, 1)
+        influence_BIAS2_OUTPUT = [
+            [
+                influence_BIAS2_SUM2
+                * influence_SUM2_ACT2[0][0]
+                * influence_ACT2_OUTPUT
+            ]
+        ]
+
+        # PARAMETER UPDATES
+        WEIGHT1_change = [
+            [ERROR * influence_WEIGHT1_OUTPUT[i][j] * PACE for j in range(3)]
+            for i in range(2)
+        ]
+        BIAS1_change = [
+            [ERROR * influence_BIAS1_OUTPUT[0][i] * PACE]
+            for i in range(2)
+        ]
+
+        WEIGHT2_change = [
+            [ERROR * influence_WEIGHT2_OUTPUT[0][j] * PACE for j in range(2)]
+        ]
+        BIAS2_change = [
+            [ERROR * influence_BIAS2_OUTPUT[0][0] * PACE]
+        ]
+
+        WEIGHT1 = [
+            [WEIGHT1[i][j] + WEIGHT1_change[i][j] for j in range(3)]
+            for i in range(2)
+        ]
+        BIAS1 = [
+            [BIAS1[i][0] + BIAS1_change[i][0]]
+            for i in range(2)
+        ]
+
+        WEIGHT2 = [
+            [WEIGHT2[0][j] + WEIGHT2_change[0][j] for j in range(2)]
+        ]
+        BIAS2 = [
+            [BIAS2[0][0] + BIAS2_change[0][0]]
+        ]
+
+    print(f'EPOCH {EPOCH + 1}, LOSS: {TOTAL_LOSS:.4f}')
+
+print()
 </textarea>
           </div>
           <div class="code-row">
