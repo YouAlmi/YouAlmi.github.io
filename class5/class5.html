@@ -1145,7 +1145,7 @@ and reducing the <strong>ERROR</strong>.</p>
   <span class="formula"><pre>BIAS2   = BIAS2   + BIAS2_change</pre></span>
 </div>
 
-<div class="influence-panel">
+
             <div class="influence-panel-label">INFLUENCES</div><pre>
 influence_WEIGHT1_PRODUCT1 = INPUT
 influence_PRODUCT1_SUM1    = 1.0
@@ -1158,9 +1158,9 @@ influence_PRODUCT2_SUM2    = 1.0
 influence_BIAS2_SUM2       = 1.0
 influence_SUM2_ACT2        = ACT2 * (1.0 - ACT2)
 influence_ACT2_OUTPUT      = 1.0</pre>
-</div>
 
-<div class="influence-panel">
+
+
 <div class="influence-panel-label">CHAIN of INFLUENCES for WEIGHT1:</div><pre>
 influence_WEIGHT1_OUTPUT = (
     influence_WEIGHT1_PRODUCT1
@@ -1171,7 +1171,7 @@ influence_WEIGHT1_OUTPUT = (
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
 )</pre>
-</div>
+
 
 <div class="influence-panel">
 <div class="influence-panel-label">CHAIN of INFLUENCES for BIAS1</div><pre>
