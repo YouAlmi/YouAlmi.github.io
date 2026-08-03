@@ -1204,100 +1204,6 @@ influence_BIAS2_OUTPUT = (
 )</pre>
 </div>
 
-<hr class="divider"/>
-
-<div class="callout-title">Backward Pass — Backpropagation — <span style="color: #2e7d32;">CALCULATION</span></div>
-
-<div class="influence-panel">
-            <div class="influence-panel-label">INFLUENCES</div><pre>
-
-INPUT                      =  1.00   1.00   0.00
-
-PRODUCT1                   = INPUT * WEIGHT1              
-influence_WEIGHT1_PRODUCT1 = INPUT
-influence_WEIGHT1_PRODUCT1 =  1.00   1.00   0.00
-
-SUM1 = PRODUCT1 + BIAS1
-influence_PRODUCT1_SUM1    = 1.0
-influence_BIAS1_SUM1       = 1.0
-
-SUM1                       =  0.80  -0.46
-
-ACT1 = max(SUM1, 0.0)
-influence_SUM1_ACT1        = 1.0 if SUM1 > 0.0 else 0.0
-influence_SUM1_ACT1        =  0.80   0.00
-
-WEIGHT2                    =  0.34   1.01
-
-PRODUCT2                   = ACT1 * WEIGHT2
-influence_ACT1_PRODUCT2    = WEIGHT2
-influence_ACT1_PRODUCT2    =  0.34   1.01
-
-ACT1                       =  0.80   0.00
-
-PRODUCT2                   = ACT1 * WEIGHT2
-influence_WEIGHT2_PRODUCT2 = ACT1
-influence_WEIGHT2_PRODUCT2 = 0.80   0.00
-
-SUM2 = PRODUCT2 + BIAS2
-influence_PRODUCT2_SUM2    = 1.0
-influence_BIAS2_SUM2       = 1.0
-
-ACT2                       = 0.57
-
-influence_SUM2_ACT2        = ACT2 * (1.0 - ACT2)
-influence_SUM2_ACT2        = 0.57 * (1.0 - 0.57)
-influence_SUM2_ACT2        = 0.25
-
-influence_ACT2_OUTPUT      = 1.0</pre>
-</div>
-
-<div class="influence-panel">
-<div class="influence-panel-label">CHAIN of INFLUENCES for WEIGHT1:</div>
-<pre>
-influence_WEIGHT1_OUTPUT = (      influence_WEIGHT1_OUTPUT = (
-    influence_WEIGHT1_PRODUCT1        ( 1.00   1.00   0.00)
-  * influence_PRODUCT1_SUM1         *  1.0
-  * influence_SUM1_ACT1             * ( 0.80   0.00)
-  * influence_ACT1_PRODUCT2         * ( 0.34   1.01)
-  * influence_PRODUCT2_SUM2         *  1.0
-  * influence_SUM2_ACT2             *  0.25
-  * influence_ACT2_OUTPUT           *  1.0
-)                                   )
-
-</pre>
-</div>
-
-<div class="influence-panel">
-<div class="influence-panel-label">CHAIN of INFLUENCES for BIAS1</div><pre>
-influence_BIAS1_OUTPUT = (
-    influence_BIAS1_SUM1
-  * influence_SUM1_ACT1
-  * influence_ACT1_PRODUCT2
-  * influence_PRODUCT2_SUM2
-  * influence_SUM2_ACT2
-  * influence_ACT2_OUTPUT
-)</pre>
-</div>
-
-<div class="influence-panel">
-<div class="influence-panel-label">CHAIN of INFLUENCES for WEIGHT2</div><pre>
-influence_WEIGHT2_OUTPUT = (
-    influence_WEIGHT2_PRODUCT2
-  * influence_PRODUCT2_SUM2
-  * influence_SUM2_ACT2
-  * influence_ACT2_OUTPUT
-)</pre>
-</div>
-
-<div class="influence-panel">
-<div class="influence-panel-label">CHAIN of INFLUENCES for BIAS2</div><pre>
-influence_BIAS2_OUTPUT = (
-    influence_BIAS2_SUM2
-  * influence_SUM2_ACT2
-  * influence_ACT2_OUTPUT
-)</pre>
-</div>
 
 
 
@@ -1322,20 +1228,6 @@ BIAS2
 </pre>
 </div>
 
-<div class="success-callout">
-<p>In each <strong>LESSON</strong>, 
-all the <strong>PARAMETERS</strong> are competing 
-over which one gets changed the most. 
-The <strong>PARAMETERS</strong> with the largest product 
-of <strong>ERROR</strong> and <strong>INFLUENCE</strong> 
-— namely, <strong>ERROR * influence_PARAMETER_OUTPUT</strong> —
-receive the largest changes because changing them has 
-a greater effect on changing the <strong>OUTPUT</strong> 
-and reducing the <strong>ERROR</strong>.</p>
-<p>The core logic is simple:</p>
-<p> high <strong>ERROR</strong> + high <strong>INFLUENCE</strong> = 
-  larger <strong>CHANGE</strong></p>
-</div>
 
         <p><strong>LESSON 1</strong> ends here.</p>
       </div>
