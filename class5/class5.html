@@ -1208,7 +1208,8 @@ influence_BIAS2_OUTPUT = (
 
 <div class="callout-title">Backward Pass — Backpropagation — <span style="color: #2e7d32;">CALCULATION</span></div>
 
-<div class="influence-panel-label">INFLUENCES</div><pre>
+<div class="influence-panel">
+            <div class="influence-panel-label">INFLUENCES</div><pre>
 
 INPUT                      =  1.00   1.00   0.00
 
@@ -1252,7 +1253,7 @@ influence_SUM2_ACT2        = 0.25
 influence_ACT2_OUTPUT      = 1.0</pre>
 
 
-
+<div class="influence-panel">
 <div class="influence-panel-label">CHAIN of INFLUENCES for WEIGHT1:</div><pre>
 influence_WEIGHT1_OUTPUT = (
     influence_WEIGHT1_PRODUCT1
@@ -1263,9 +1264,9 @@ influence_WEIGHT1_OUTPUT = (
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
 )</pre>
+</div>
 
-
-
+<div class="influence-panel">
 <div class="influence-panel-label">CHAIN of INFLUENCES for BIAS1</div><pre>
 influence_BIAS1_OUTPUT = (
     influence_BIAS1_SUM1
@@ -1275,7 +1276,7 @@ influence_BIAS1_OUTPUT = (
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
 )</pre>
-
+</div>
 
 <div class="influence-panel">
 <div class="influence-panel-label">CHAIN of INFLUENCES for WEIGHT2</div><pre>
