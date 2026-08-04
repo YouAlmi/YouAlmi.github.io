@@ -16,7 +16,7 @@
   <style>
     /* ── code block heights ── */
     #code-input1  { height: 5000px; }
-    #code-input2  { height: 1230px; }
+    #code-input2  { height: 1400px; }
     #code-input3  { height: 155px; }
     #code-input4  { height: 140px; }
     #code-input5  { height: 155px; }
@@ -1769,9 +1769,11 @@ print()
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input2" style="line-height: 1.2;">
-# TEST DATA SET (AFTER TRAINING)
-INPUTS = torch.tensor([
- # friend  dj  rain
+# ===================================
+# SETUP TEST DATA AND PARAMETERS
+# ===================================
+
+TEST_INPUTS = [
     [1.0, 1.0, 0.0],  # EXAMPLE 1
     [1.0, 0.0, 0.0],  # EXAMPLE 2
     [0.0, 1.0, 0.0],  # EXAMPLE 3
@@ -1779,50 +1781,93 @@ INPUTS = torch.tensor([
     [0.0, 1.0, 1.0],  # EXAMPLE 5
     [1.0, 0.0, 1.0],  # EXAMPLE 6
     [0.0, 0.0, 1.0],  # EXAMPLE 7
-    [0.0, 0.0, 1.0]   # EXAMPLE 8
-])
+    [0.0, 0.0, 0.0]   # EXAMPLE 8
+]
 
-TARGETS = torch.tensor([
-    [0.0],  # GO
-    [0.0],  # GO
-    [0.0],  # GO
-    [0.0],  # GO
-    [1.0],  # STAY
-    [1.0],  # STAY
-    [1.0],  # STAY
-    [1.0]   # STAY
-])
+TEST_TARGETS = [
+    1,  # GO
+    1,  # GO
+    1,  # GO
+    1,  # GO
+    0,  # STAY
+    0,  # STAY
+    0,  # STAY
+    0   # STAY
+]
 
-EXAMPLES = 8
+WEIGHT1 = [
+    [0.2362, 0.0137, -0.0468],
+    [1.4361, 1.4157, -1.8434]
+]
 
-print("\n ——— PREDICTIONS:")
-CORRECT = 0
+BIAS1 = [
+    [-0.3038],
+    [0.3839]
+]
 
-with torch.no_grad():
-    for EXAMPLE in range(EXAMPLES):
+WEIGHT2 = [
+    [-1.4281, 2.5129]
+]
 
-        INPUT = INPUTS[EXAMPLE]
-        TARGET = TARGETS[EXAMPLE]
+BIAS2 = [
+    [-1.4859]
+]
 
-        SUM1 = LAYER1(INPUT)
-        ACT1 = ACTIVATION1(SUM1)
-        SUM2 = LAYER2(ACT1)
-        ACT2 = ACTIVATION2(SUM2).item()
-        OUTPUT = ACT2
+# ===================================
+# TESTING / INFERENCE PASS
+# ===================================
 
-        PREDICTED_CLASS = 1 if OUTPUT >= 0.5 else 0
-        ACTUAL_CLASS = int(TARGET.item())
+CORRECT_PREDICTIONS = 0
+NUM_EXAMPLES = len(TEST_INPUTS)
 
-        if PREDICTED_CLASS == ACTUAL_CLASS:
-            CORRECT += 1
+print(" ——— PREDICTIONS:")
 
-        print(f"Example {EXAMPLE + 1}: {INPUTS[EXAMPLE].tolist()}  →  "
-              f"Prob: {OUTPUT:.4f}  |  "
-              f"Predicted: {'STAY' if PREDICTED_CLASS == 1 else 'GO'}  |  "
-              f"Actual: {'STAY' if ACTUAL_CLASS == 1 else 'GO'}")
+for EXAMPLE in range(NUM_EXAMPLES):
+    INPUT = TEST_INPUTS[EXAMPLE]
+    TARGET = TEST_TARGETS[EXAMPLE]
 
-ACCURACY = (CORRECT / EXAMPLES) * 100
-print(f"\nACCURACY: {ACCURACY:.2f}%\n")
+    # LAYER 1
+    PRODUCT1 = [
+        [INPUT[j] * WEIGHT1[i][j] for j in range(3)]
+        for i in range(2)
+    ]
+
+    SUM1 = [
+        [sum(PRODUCT1[i]) + BIAS1[i][0]]
+        for i in range(2)
+    ]
+
+    ACT1_col = [
+        [max(0.0, SUM1[i][0])]
+        for i in range(2)
+    ]
+
+    ACT1 = [[ACT1_col[0][0], ACT1_col[1][0]]]
+
+    # LAYER 2
+    PRODUCT2 = [
+        [ACT1[0][j] * WEIGHT2[0][j] for j in range(2)]
+    ]
+
+    SUM2 = [
+        [sum(PRODUCT2[0]) + BIAS2[0][0]]
+    ]
+
+    ACT2 = [
+        [1.0 / (1.0 + 1 / 2.71828 ** (SUM2[0][0]))]
+    ]
+
+    PROB = ACT2[0][0]
+    PREDICTED_CLASS = "GO" if PROB >= 0.5 else "STAY"
+    ACTUAL_CLASS = "GO" if TARGET == 1 else "STAY"
+
+    if (PREDICTED_CLASS == "GO" and TARGET == 1) or (PREDICTED_CLASS == "STAY" and TARGET == 0):
+        CORRECT_PREDICTIONS += 1
+
+    print(f"Example {EXAMPLE + 1}: {INPUT}  →  Prob: {PROB:.4f}  |  Predicted: {PREDICTED_CLASS}  |  Actual: {ACTUAL_CLASS}")
+
+ACCURACY = (CORRECT_PREDICTIONS / NUM_EXAMPLES) * 100
+print(f"\nACCURACY: {ACCURACY:.2f}%")
 </textarea>
           </div>
           <div class="code-row">
