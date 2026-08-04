@@ -64,11 +64,11 @@
     <div class="section-label">ACT ( Rena)</div>
     <div class="card">
       <div class="card-body">
-        <p>Let's look at one famous <strong>ACT</strong> named <strong> Rena</strong>.</p>
+        <p>Let's begin with our first figure, <strong> Rena</strong>.</p>
 
-        <p><strong> Rena</strong>'s superpower is known as "<strong>SAVE or ZERO IT</strong>".</p>
+        <p><strong> Rena</strong>'s superpower is known as "<strong>SAVE or ZERO</strong>".</p>
 
-        <p>Imagine <strong> Rena</strong> is a magician.
+        <p>Imagine <strong> Rena</strong> is a math magician.
           Its favorite trick is a game called "<strong>SAVE or ZERO</strong>",
           which it plays with every <strong>SUM1</strong> that passes through it.</p>
 
@@ -192,7 +192,7 @@ which it plays with every <strong>SUM2</strong> that passes through it.</p>
 
         <p>When a <strong>SUM2</strong> arrives, <strong>Sigi</strong> doesn't ask questions.
           Instead, it <strong>squeezes</strong> that <strong>SUM2</strong> — no matter how big or small —
-          into a cozy new home <strong>between 0.0 and 1.0</strong>.</p>
+          into a tiny living room<strong>between 0.0 and 1.0</strong>.</p>
 
         <ul class="prose-list">
           <li><strong>Huge positive numbers</strong> (like 10.0 or 100.0) get squeezed <strong>very close to 1.0</strong> — but never quite reach it.</li>
@@ -204,7 +204,7 @@ which it plays with every <strong>SUM2</strong> that passes through it.</p>
         and sends out a number that is <strong>always between 0.0 and 1.0</strong>.</p>
         <p>The <strong>Sigi</strong> formula:</p>
 
-        <p style="text-align: center;"><strong>Sigi = 1 / (1 + 1/2.718<sup>SUM2</sup>)</strong></p>
+        <p style="text-align: center;"><strong>Sigi = 1 / (1 + 1/2.71828<sup>SUM2</sup>)</strong></p>
 
         <p><em>Don't worry about this fancy formula — just know it's a gentle squeeze!</em></p>
 
@@ -216,7 +216,7 @@ which it plays with every <strong>SUM2</strong> that passes through it.</p>
           <div class="textarea-wrap">
 <textarea id="code-input5" style="line-height: 1.2;">
 SUM2 = 10.0
-ACT2 = 1 / (1 + 1/2.718**SUM2)  # Sigi
+ACT2 = 1 / (1 + 1/2.71828**SUM2)  # Sigi
 
 print(f"ACT2 = {ACT2:.7f}")
 </textarea>
@@ -236,7 +236,7 @@ print(f"ACT2 = {ACT2:.7f}")
           <div class="textarea-wrap">
 <textarea id="code-input6" style="line-height: 1.2;">
 SUM2 = -10.0
-ACT2 = 1 / (1 + 1/2.718**SUM2)  # Sigi
+ACT2 = 1 / (1 + 1/2.71828**SUM2)  # Sigi
 
 print(f"ACT2 = {ACT2:.7f}")
 </textarea>
@@ -256,7 +256,7 @@ print(f"ACT2 = {ACT2:.7f}")
           <div class="textarea-wrap">
 <textarea id="code-input7" style="line-height: 1.2;">
 SUM2 = 0.0
-ACT2 = 1 / (1 + 1/2.718**SUM2)  # Sigi
+ACT2 = 1 / (1 + 1/2.71828**SUM2)  # Sigi
 
 print(f"ACT2 = {ACT2:.7f}")
 </textarea>
@@ -1146,14 +1146,14 @@ and reducing the <strong>ERROR</strong>.</p>
 <div class="success-callout">
 <div class="influence-panel-label">For Reference</div><pre>
 PRODUCT1 = INPUT * WEIGHT1
-SUM1 = PRODUCT1 + BIAS1
-ACT1 = max(SUM1, 0.0) 
-ACT1 = ACT1
+SUM1     = PRODUCT1 + BIAS1
+ACT1     = max(SUM1, 0.0) 
+ACT1     = ACT1
 
 PRODUCT2 = ACT1 * WEIGHT2
-SUM2 = PRODUCT2 + BIAS2
-ACT2 = 1 / (1 + 1/2.72**SUM2)
-OUTPUT = ACT2</pre>
+SUM2     = PRODUCT2 + BIAS2
+ACT2     = 1 / (1 + 1/2.72**SUM2)
+OUTPUT   = ACT2</pre>
 
 </div>
 
@@ -1516,12 +1516,12 @@ INPUTS = [
 ]
 
 TARGETS = [
-    0,  # GO
-    0,  # GO
-    0,  # GO
-    0,  # GO
-    1,  # STAY
-    1   # STAY
+    1,  # GO
+    1,  # GO
+    1,  # GO
+    1,  # GO
+    0,  # STAY
+    0   # STAY
 ]
 
 WEIGHT1 = [
