@@ -16,7 +16,7 @@
   <style>
     /* ── code block heights ── */
     #code-input1  { height: 5000px; }
-    #code-input2  { height: 1400px; }
+    #code-input2  { height: 1800px; }
     #code-input3  { height: 155px; }
     #code-input4  { height: 140px; }
     #code-input5  { height: 155px; }
@@ -1821,7 +1821,7 @@ BIAS2 = [
 CORRECT_PREDICTIONS = 0
 NUM_EXAMPLES = len(TEST_INPUTS)
 
-print(" ——— PREDICTIONS:")
+print(" ——— RECOMMENDATIONS:\n")
 
 for EXAMPLE in range(NUM_EXAMPLES):
     INPUT = TEST_INPUTS[EXAMPLE]
@@ -1858,14 +1858,14 @@ for EXAMPLE in range(NUM_EXAMPLES):
         [1.0 / (1.0 + 1 / 2.71828 ** (SUM2[0][0]))]
     ]
 
-    PROB = ACT2[0][0]
-    PREDICTED_CLASS = "GO" if PROB >= 0.5 else "STAY"
+    OUTPUT = ACT2[0][0]
+    PREDICTED_CLASS = "GO" if OUTPUT >= 0.5 else "STAY"
     ACTUAL_CLASS = "GO" if TARGET == 1 else "STAY"
 
     if (PREDICTED_CLASS == "GO" and TARGET == 1) or (PREDICTED_CLASS == "STAY" and TARGET == 0):
         CORRECT_PREDICTIONS += 1
 
-    print(f"Example {EXAMPLE + 1}: {INPUT}  →  Prob: {PROB:.4f}  |  Predicted: {PREDICTED_CLASS}  |  Actual: {ACTUAL_CLASS}")
+    print(f"EXAMPLE {EXAMPLE + 1}: {INPUT} -> {OUTPUT:.4f} -> {PREDICTED_CLASS} | Actual: {ACTUAL_CLASS}")
 
 ACCURACY = (CORRECT_PREDICTIONS / NUM_EXAMPLES) * 100
 print(f"\nACCURACY: {ACCURACY:.2f}%")
