@@ -1633,25 +1633,29 @@ BIAS2 = [
     [0.0]
 ]
 
+print(" ——— INITIAL PARAMETERS:\n")
+
 print("WEIGHT1:")
 for ROW in WEIGHT1:
-    print([round(VAL, 2) for VAL in ROW])
+    print([round(VAL, 4) for VAL in ROW])
 print()
 
 print("BIAS1:")
 for ROW in BIAS1:
-    print([round(VAL, 2) for VAL in ROW])
+    print([round(VAL, 4) for VAL in ROW])
 print()
 
 print("WEIGHT2:")
 for ROW in WEIGHT2:
-    print([round(VAL, 2) for VAL in ROW])
+    print([round(VAL, 4) for VAL in ROW])
 print()
 
 print("BIAS2:")
 for ROW in BIAS2:
-    print([round(VAL, 2) for VAL in ROW])
+    print([round(VAL, 4) for VAL in ROW])
 print()
+
+print(" ——— TRAINING:\n")
 
 # ===================================
 # 3. FORWARD PASS
@@ -1803,24 +1807,26 @@ for EPOCH in range(EPOCHS):
 
     print(f'EPOCH {EPOCH + 1}, LOSS: {(TOTAL_LOSS / EXAMPLES):.4f}')
 
-print("\nWEIGHT1:")
+print("\n ——— FINAL PARAMETERS:\n")
+
+print("WEIGHT1:")
 for ROW in WEIGHT1:
-    print([round(VAL, 2) for VAL in ROW])
+    print([round(VAL, 4) for VAL in ROW])
 print()
 
 print("BIAS1:")
 for ROW in BIAS1:
-    print([round(VAL, 2) for VAL in ROW])
+    print([round(VAL, 4) for VAL in ROW])
 print()
 
 print("WEIGHT2:")
 for ROW in WEIGHT2:
-    print([round(VAL, 2) for VAL in ROW])
+    print([round(VAL, 4) for VAL in ROW])
 print()
 
 print("BIAS2:")
 for ROW in BIAS2:
-    print([round(VAL, 2) for VAL in ROW])
+    print([round(VAL, 4) for VAL in ROW])
 print()
 </textarea>
           </div>
@@ -1931,13 +1937,13 @@ for EXAMPLE in range(NUM_EXAMPLES):
     ]
 
     OUTPUT = ACT2[0][0]
-    PREDICTED_CLASS = "GO" if OUTPUT >= 0.5 else "STAY"
+    PREDICTED_CLASS = "GO  " if OUTPUT >= 0.5 else "STAY"
     ACTUAL_CLASS = "GO" if TARGET == 1 else "STAY"
 
-    if (PREDICTED_CLASS == "GO" and TARGET == 1) or (PREDICTED_CLASS == "STAY" and TARGET == 0):
+    if (PREDICTED_CLASS == "GO  " and TARGET == 1) or (PREDICTED_CLASS == "STAY" and TARGET == 0):
         CORRECT_PREDICTIONS += 1
 
-    print(f"EXAMPLE {EXAMPLE + 1}: {INPUT} -> {OUTPUT:.4f} -> {PREDICTED_CLASS} | Actual: {ACTUAL_CLASS}")
+    print(f"EXAMPLE {EXAMPLE + 1}: {INPUT} -> {OUTPUT:.4f} -> {PREDICTED_CLASS}  |  TARGET: {ACTUAL_CLASS}")
 
 ACCURACY = (CORRECT_PREDICTIONS / NUM_EXAMPLES) * 100
 print(f"\nACCURACY: {ACCURACY:.2f}%")
