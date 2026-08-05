@@ -857,7 +857,6 @@ The <strong>PARAMETER</strong> with the largest <strong>ERROR</strong> and <stro
 — calculated as <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — 
 receives the largest <strong>CHANGE</strong> because changing it has the greatest effect on both 
 changing the <strong>OUTPUT</strong> and reducing the <strong>ERROR</strong>.</p>
-
 <p>The core logic is simple:</p>
 <p>high <strong>ERROR</strong> * high <strong>INFLUENCE</strong> = larger <strong>CHANGE</strong></p>
 
@@ -874,6 +873,8 @@ changing the <strong>OUTPUT</strong> and reducing the <strong>ERROR</strong>.</p
         <p><strong>influence_PARAMETER_OUTPUT</strong> — The INFLUENCE of the PARAMETER on the OUTPUT.</p>
         <p><strong>PACE</strong> — A number that keeps each change from being both too big and too small.</p>  
       </div>
+      <p> Because <strong>PACE</strong> affects all <strong>PARAMETERS</strong> by the exact same multiplier, 
+  it does not affect their competition.</p>
     </div>
     
     
