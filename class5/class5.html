@@ -1666,7 +1666,8 @@ print(" ——— TRAINING:\n")
 # ===================================
 
 for EPOCH in range(EPOCHS):
-    total_LOSS = 0.0
+    average_LOSS = 0.0
+
     for EXAMPLE in range(EXAMPLES):
         LESSON = LESSON + 1
 
@@ -1707,8 +1708,8 @@ for EPOCH in range(EPOCHS):
 
         ERROR = TARGET - OUTPUT[0][0]
 
-        LOSS = abs(ERROR) / EXAMPLES
-        total_LOSS += LOSS
+        LOSS = abs(ERROR) / EXAMPLES       # contribution to average_LOSS
+        average_LOSS = average_LOSS + LOSS
 
         # ===================================
         # 4. BACKWARD PASS
@@ -1810,7 +1811,7 @@ for EPOCH in range(EPOCHS):
             [BIAS2[0][0] + BIAS2_change[0][0]]
         ]
 
-    print(f'EPOCH {EPOCH + 1}:  total_LOSS: {total_LOSS:.4f}')
+    print(f'EPOCH {EPOCH + 1}:  average_LOSS: {average_LOSS:.4f}')
 
 print("\n ——— FINAL PARAMETERS:\n")
 
