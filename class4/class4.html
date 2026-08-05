@@ -193,6 +193,17 @@
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
+           <p>In this <strong>LESSON</strong>, two <strong>PARAMETERS</strong> 
+  compete to receive the largest <strong>CHANGE</strong>. 
+The <strong>PARAMETER</strong> with the largest <strong>ERROR</strong> and <strong>INFLUENCE</strong> 
+— calculated as <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — 
+receives the largest <strong>CHANGE</strong> because changing it has the greatest effect on both 
+changing the <strong>OUTPUT</strong> and reducing the <strong>ERROR</strong>.</p>
+<p>The core logic is simple:</p>
+<p>high <strong>ERROR</strong> * high <strong>INFLUENCE</strong> = larger <strong>CHANGE</strong></p>
+
+<p>The <strong>PARAMETER_change</strong> is calculated exactly this way.</p>
+
           <div class="formula-block">
             <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
             <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
@@ -849,8 +860,7 @@ print(f"TESTING complete: ERROR = {ERROR:.1f}")
   Without <strong>BIAS</strong>, the brain would not even be able to solve a problem 
   as simple as converting Celsius to Fahrenheit — 
   because 0°C is 32°F, which requires adding the <strong>BIAS</strong>.</p>
-    <p>During <strong>TRAINING</strong>, 
-  in each <strong>LESSON</strong>, all <strong>PARAMETERS</strong> 
+    <p>In each <strong>LESSON</strong>, all <strong>PARAMETERS</strong> 
   compete to receive the largest <strong>CHANGE</strong>. 
 The <strong>PARAMETER</strong> with the largest <strong>ERROR</strong> and <strong>INFLUENCE</strong> 
 — calculated as <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — 
