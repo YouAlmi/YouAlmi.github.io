@@ -1708,8 +1708,10 @@ for EPOCH in range(EPOCHS):
 
         ERROR = TARGET - OUTPUT[0][0]
 
-        LOSS = abs(ERROR) / EXAMPLES       # contribution to average_LOSS
-        average_LOSS = average_LOSS + LOSS
+        LOSS = abs(ERROR)
+
+        LOSS_contributed = LOSS / EXAMPLES
+        average_LOSS = average_LOSS + LOSS_contributed
 
         # ===================================
         # 4. BACKWARD PASS
