@@ -1594,9 +1594,9 @@ making coding much simpler and way more fun!</p>
 # 1. SETUP DATA AND PARAMETERS
 # ===================================
 
+EXAMPLES = 6
 EPOCHS = 60
 PACE = 0.5
-EXAMPLES = 6
 
 LESSON = 0
 
@@ -1666,7 +1666,7 @@ print(" ——— TRAINING:\n")
 # ===================================
 
 for EPOCH in range(EPOCHS):
-    TOTAL_LOSS = 0.0
+    total_LOSS = 0.0
     for EXAMPLE in range(EXAMPLES):
         LESSON = LESSON + 1
 
@@ -1706,8 +1706,9 @@ for EPOCH in range(EPOCHS):
         OUTPUT = ACT2
 
         ERROR = TARGET - OUTPUT[0][0]
-        LOSS = abs(ERROR)
-        TOTAL_LOSS += LOSS
+
+        LOSS = abs(ERROR) / EXAMPLES
+        total_LOSS += LOSS
 
         # ===================================
         # 4. BACKWARD PASS
@@ -1809,7 +1810,7 @@ for EPOCH in range(EPOCHS):
             [BIAS2[0][0] + BIAS2_change[0][0]]
         ]
 
-    print(f'EPOCH {EPOCH + 1}, LOSS: {(TOTAL_LOSS / EXAMPLES):.4f}')
+    print(f'EPOCH {EPOCH + 1}:  total_LOSS: {total_LOSS:.4f}')
 
 print("\n ——— FINAL PARAMETERS:\n")
 
