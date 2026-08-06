@@ -29,9 +29,7 @@
     <div class="header-class">Lesson 1</div>
     <div class="header-subtitle class-subtitle">Our Very First Machine Brain</div>
   </header>
-
-
-  <div class="page">
+<div class="page">
 
     <!-- INTRODUCTION -->
     <div class="section-label">Introduction</div>
@@ -53,8 +51,8 @@
         <p>Let's call this brain the <strong>Multiplier-by-Five</strong>.</p>
         <p>It will have a single <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
         <p>The brain will be a simple formula like this:</p>
-        <div class="callout callout-neutral">
-          <strong>OUTPUT = INPUT * WEIGHT</strong>
+        <div class="callout callout-neutral"><pre>
+OUTPUT = INPUT * WEIGHT</pre>
         </div>
         <p>We need to find the correct <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
       </div>
@@ -66,7 +64,9 @@
     <div class="card">
       <div class="card-body">
         <p>Suppose we don't yet know what the <strong>PARAMETER</strong> should be, so let's start by setting it to <strong>zero</strong>:</p>
-        <div class="callout callout-neutral">WEIGHT = <strong>0.0</strong></div>
+        <div class="callout callout-neutral"><pre>
+WEIGHT = 0.0</pre>
+        </div>
         <p>At first, the brain will generate nonsense, since with any <strong>INPUT</strong> the <strong>OUTPUT</strong> is <strong>zero</strong>.</p>
       </div>
     </div>
@@ -121,20 +121,20 @@
         <p>The brain <strong>changes</strong> the <strong>PARAMETER</strong> using this <strong>CHANGE RULE</strong>:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">SIMPLEST CHANGE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_change = ERROR</span><br/>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span>
+          <div class="formula-block-label">SIMPLEST CHANGE RULE for PARAMETER</div><pre>
+<span class="formula">PARAMETER_change = ERROR</span>
+<span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span></pre>
         </div>
 
-        <p>Because the brain has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
+        <p>Because the brain has just one <strong>PARAMETER</strong>  —  <strong>WEIGHT</strong>  —  we obtain:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div>
-          <span class="formula">WEIGHT_change = ERROR</span><br/>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>          
+          <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div><pre>
+<span class="formula">WEIGHT_change = ERROR</span>
+<span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></pre>
         </div>
 
-        <p>Don't worry — each step is simple. Just follow the calculations below.</p>
+        <p>Don't worry  —  each step is simple. Just follow the calculations below.</p>
       </div>
     </div>
 
@@ -148,23 +148,30 @@
       <div class="card-header"><strong style="color:#F0ABFC;">LESSON 1</strong></div>
       <div class="card-body">
 
-        <div class="callout callout-neutral">WEIGHT = <strong>0.0</strong></div>
+        <div class="callout callout-neutral"><pre>
+EXAMPLES = 2
+EPOCHS   = 1</pre>
+        </div>
+
+        <div class="callout callout-neutral"><pre>
+WEIGHT = 0.0</pre>
+        </div>
 
         <p><strong>EXAMPLE 1</strong>:</p>
-        <div class="callout callout-neutral">
-          INPUT = <strong>0.6</strong><br/>
-          TARGET = <strong>3.0</strong>
+        <div class="callout callout-neutral"><pre>
+INPUT  = 0.6
+TARGET = 3.0</pre>
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT * WEIGHT = 0.6 * 0.0 = <strong>0.0</strong><br/>
-          OUTPUT = PRODUCT = <strong>0.0</strong><br/>
+          <div class="callout-title">Forward Pass</div><pre>
+PRODUCT = INPUT * WEIGHT = 0.6 * 0.0 = 0.0
+OUTPUT = PRODUCT = 0.0</pre>
         </div>
-        
+
         <div class="callout callout-error">
-          <div class="callout-title">Error</div>
-          <p>ERROR = TARGET − OUTPUT = 3.0 − 0.0 = <strong>3.0</strong></p>
+          <div class="callout-title">Error</div><pre>
+ERROR = TARGET − OUTPUT = 3.0 − 0.0 = 3.0</pre>
           The <strong>ERROR</strong> tells us how far the <strong>OUTPUT</strong> is from the <strong>TARGET</strong>.
         </div>
 
@@ -182,24 +189,29 @@
           <p><strong>And that's exactly what the CHANGE RULE tells us to do:</strong></p>
 
           <div class="formula-block">
-            <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_change = ERROR</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span> 
-          </div>
-          WEIGHT = <strong>0.0</strong><br/>
-          ERROR  = <strong>3.0</strong><br/>
-          WEIGHT_change = ERROR = <strong>3.0</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_change = 0.0 + 3.0 = <strong>3.0</strong><br/><br/>
+            <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div><pre>
+<span class="formula">WEIGHT_change = ERROR</span>
+<span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></pre>
+          </div><pre>
+WEIGHT = 0.0
+ERROR  = 3.0
+
+WEIGHT_change = ERROR = 3.0
+
+WEIGHT = WEIGHT + WEIGHT_change = 0.0 + 3.0 = 3.0</pre>
+
           So the <strong>WEIGHT</strong> becomes <strong>3.0</strong>.
         </div>
 
-        <div class="result-banner">WEIGHT = 3.0</div>
+        <div class="result-banner"><pre>
+WEIGHT = 3.0</pre>
+        </div>
 
         <div class="callout callout-warning">
-          <strong>What just happened?</strong><br/>
+          <strong>What just happened?</strong>
           <p>The brain has just improved itself.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>0.6</strong>, 
-            the <strong>OUTPUT</strong> becomes <strong>1.8</strong> (0.6 * 3.0) — 
+            the <strong>OUTPUT</strong> becomes <strong>1.8</strong> (0.6 * 3.0)  —  
             which is closer to the <strong>TARGET</strong> (<strong>3.0</strong>) 
             than the previous <strong>OUTPUT</strong> (<strong>0.0</strong>) was.</p>
           <p>The <strong>ERROR</strong> becomes smaller:</p>
@@ -220,23 +232,30 @@
       <div class="card-header"><strong style="color:#F0ABFC;">LESSON 2</strong></div>
       <div class="card-body">
 
-        <div class="callout callout-neutral">WEIGHT = <strong>3.0</strong></div>
+        <div class="callout callout-neutral"><pre>
+EXAMPLES = 2
+EPOCHS   = 1</pre>
+        </div>
+
+        <div class="callout callout-neutral"><pre>
+WEIGHT = 3.0</pre>
+        </div>
 
         <p><strong>EXAMPLE 2</strong>:</p>
-        <div class="callout callout-neutral">
-          INPUT = <strong>1.0</strong><br/>
-          TARGET = <strong>5.0</strong>
+        <div class="callout callout-neutral"><pre>
+INPUT  = 1.0
+TARGET = 5.0</pre>
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT * WEIGHT = 1.0 * 3.0 = <strong>3.0</strong><br/>
-          OUTPUT = PRODUCT = <strong>3.0</strong><br/>
+          <div class="callout-title">Forward Pass</div><pre>
+PRODUCT = INPUT * WEIGHT = 1.0 * 3.0 = 3.0
+OUTPUT = PRODUCT = 3.0</pre>
         </div>
 
         <div class="callout callout-error">
-          <div class="callout-title">Error</div>
-          ERROR = TARGET − OUTPUT = 5.0 − 3.0 = <strong>2.0</strong>
+          <div class="callout-title">Error</div><pre>
+ERROR = TARGET − OUTPUT = 5.0 − 3.0 = 2.0</pre>
           The <strong>ERROR</strong> tells us how far the <strong>OUTPUT</strong> is from the <strong>TARGET</strong>.
         </div>
 
@@ -254,31 +273,36 @@
           <p><strong>And that's exactly what the CHANGE RULE tells us to do:</strong></p>
 
           <div class="formula-block">
-            <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_change = ERROR</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span> 
-          </div>
-          WEIGHT = <strong>3.0</strong><br/>
-          ERROR  = <strong>2.0</strong><br/>
-          WEIGHT_change = ERROR = <strong>2.0</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_change = 3.0 + 2.0 = <strong>5.0</strong><br/><br/>
+            <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div><pre>
+<span class="formula">WEIGHT_change = ERROR</span>
+<span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></pre>
+          </div><pre>
+WEIGHT = 3.0
+ERROR  = 2.0
+
+WEIGHT_change = ERROR = 2.0
+
+WEIGHT = WEIGHT + WEIGHT_change = 3.0 + 2.0 = 5.0</pre>
+
           So the <strong>WEIGHT</strong> becomes <strong>5.0</strong>.
         </div>
 
-        <div class="result-banner">WEIGHT = 5.0</div>
+        <div class="result-banner"><pre>
+WEIGHT = 5.0</pre>
+        </div>
 
         <div class="callout callout-warning">
-          <strong>What just happened?</strong><br/>
+          <strong>What just happened?</strong>
           <p>The brain has just improved itself again.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>1.0</strong>, 
-            the <strong>OUTPUT</strong> becomes <strong>5.0</strong> (1.0 * 5.0) — 
+            the <strong>OUTPUT</strong> becomes <strong>5.0</strong> (1.0 * 5.0)  —  
             which is closer to the <strong>TARGET</strong> (<strong>5.0</strong>) 
             than the previous <strong>OUTPUT</strong> (<strong>3.0</strong>) was.</p>
         </div>
 
         <div class="success-callout">
-          <p>Wait — it's not just closer. It's exact!</p>
-          <p>The <strong>OUTPUT</strong> is now 5.0 — exactly the same as the <strong>TARGET</strong>.</p>
+          <p>Wait  —  it's not just closer. It's exact!</p>
+          <p>The <strong>OUTPUT</strong> is now 5.0  —  exactly the same as the <strong>TARGET</strong>.</p>
           <p>The <strong>ERROR</strong> becomes <strong>zero</strong>:</p>
           <span class="error-chip">ERROR = 0.0</span>
         </div>
@@ -302,23 +326,26 @@
 
         <p>To <strong>test</strong> the brain, we give it a new <strong>EXAMPLE</strong> it has never seen before.</p>
 
-        <div class="callout callout-neutral">WEIGHT = <strong>5.0</strong></div>
+        <div class="callout callout-neutral"><pre>
+WEIGHT = 5.0</pre>
+        </div>
+
         <p><strong>EXAMPLE</strong> for <strong>TESTING</strong>:</p>
 
-        <div class="callout callout-neutral">
-          INPUT = <strong>10.0</strong><br/>
-          TARGET = <strong>50.0</strong>
+        <div class="callout callout-neutral"><pre>
+INPUT  = 10.0
+TARGET = 50.0</pre>
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT * WEIGHT = 10.0 * 5.0 = <strong>50.0</strong><br/>
-          OUTPUT = PRODUCT = <strong>50.0</strong><br/>
+          <div class="callout-title">Forward Pass</div><pre>
+PRODUCT = INPUT * WEIGHT = 10.0 * 5.0 = 50.0
+OUTPUT = PRODUCT = 50.0</pre>
         </div>
 
         <div class="callout callout-error">
-          <div class="callout-title">Error</div>
-          ERROR = TARGET − OUTPUT = 50.0 − 50.0 = <strong>0.0</strong>
+          <div class="callout-title">Error</div><pre>
+ERROR = TARGET − OUTPUT = 50.0 − 50.0 = 0.0</pre>
         </div>
 
         <div class="diagram">
@@ -330,13 +357,16 @@
           <p>It has learned the rule: <strong>multiply any number by 5.0</strong>.</p>
           <p>The <strong>Multiplier-by-Five</strong> can now solve problems it has never encountered before.</p>
           <p>The brain is now just this formula:</p>
-          <div class="callout callout-neutral"><strong>OUTPUT = INPUT * 5.0</strong></div>
+          <div class="callout callout-neutral"><pre>
+OUTPUT = INPUT * 5.0</pre>
+          </div>
         </div>
 
       </div>
     </div>
+  </div>
 
-
+  
     <!-- CODE -->
     <div class="section-label">Code</div>
 
