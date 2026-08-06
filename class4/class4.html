@@ -162,9 +162,14 @@
       <div class="card-body">
 
         <div class="callout callout-neutral">
+          EXAMPLES = 2
+          EPOCHS   = 2
+          PACE     = 1.0
+        </div>
+
+        <div class="callout callout-neutral">
           WEIGHT = <strong>0.0</strong><br/>
           BIAS = <strong>0.0</strong><br/>
-          PACE = <strong>1.0</strong>
         </div>
           
 
@@ -186,19 +191,32 @@
           ERROR = TARGET − OUTPUT = 32.0 − 0.0 = <strong>32.0</strong>
         </div>
 
-         <div class="callout callout-error">
+        <div class="diagram">
+          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before change" />
+        </div>
+
+
+ <div class="callout callout-error">
           <div class="callout-title">LOSS</div>
           LOSS = abs(ERROR) = abs(32.0) = <strong>32.0</strong>
         </div>
 
-        <p>The <strong>LOSS</strong> — abs(ERROR) — turns every <strong>ERROR</strong> into a positive number. That way, 
-            when we add up all the <strong>ERRORS</strong> across a full EPOCH, 
-            two ERRORS like -2.0 and +2.0 (-2.0 + 2.0 = 0.0) don't cancel each other out to make 
-            it look like zero <strong>ERRORS</strong> were made.</p>
+        <p>The <strong>LOSS</strong> — abs(ERROR) — turns every <strong>ERROR</strong> 
+          into a positive number. That way, 
+          when we add up all the <strong>ERRORS</strong> across a full EPOCH, 
+          two ERRORS like -2.0 and +2.0 (-2.0 + 2.0 = 0.0) don't cancel each other out to make 
+          it look like zero <strong>ERRORS</strong> were made.</p>
 
-        <div class="diagram">
-          <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before change" />
+
+ <div class="callout callout-error">
+          <div class="callout-title">average_LOSS </div>
+          average_LOSS = <strong>0.0</strong>
+          
+          LOSS_contributed = LOSS / EXAMPLES = 32.0 / 6 = 5.33
+          average_LOSS = average_LOSS + LOSS_contributed = 0.0 + 5.33 = 5.33
         </div>
+
+
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
