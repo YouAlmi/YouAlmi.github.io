@@ -243,8 +243,12 @@ ERROR  = 32.0
 PACE   = 1.0</pre>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">CHAIN of INFLUENCES</div><pre>
-influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT</pre>
+            <div class="influence-panel-label">CHAIN of INFLUENCES:</div><pre>
+influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_SUM
+  * influence_SUM_OUTPUT
+)</pre>
           </div>
 
           <div class="influence-panel">
@@ -273,9 +277,17 @@ influence_PRODUCT_SUM = 1.0</pre>
           </div><pre>
 influence_SUM_OUTPUT = 1.0
 
-influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 0.0 * 1.0 * 1.0 = 0.0
+influence_WEIGHT_OUTPUT = (
+    0.0
+  * 1.0
+  * 1.0
+) = 0.0
 
-WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = 32.0 * 0.0 * 1.0 = 0.0
+WEIGHT_change = (
+    32.0
+  * 0.0
+  * 1.0
+) = 0.0
 
 WEIGHT = WEIGHT + WEIGHT_change = 0.0 + 0.0 = 0.0</pre>
           
@@ -289,8 +301,11 @@ ERROR = 32.0
 PACE  = 1.0</pre>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">CHAIN of INFLUENCES</div><pre>
-influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT</pre>
+            <div class="influence-panel-label">CHAIN of INFLUENCES:</div><pre>
+influence_BIAS_OUTPUT = (
+    influence_BIAS_SUM
+  * influence_SUM_OUTPUT
+)</pre>
           </div>
           
           <div class="influence-panel">
@@ -311,9 +326,16 @@ influence_BIAS_SUM = 1.0</pre>
           </div><pre>
 influence_SUM_OUTPUT = 1.0
 
-influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = 1.0
+influence_BIAS_OUTPUT = (
+    1.0
+  * 1.0
+) = 1.0
 
-BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE = 32.0 * 1.0 * 1.0 = 32.0
+BIAS_change = (
+    32.0
+  * 1.0
+  * 1.0
+) = 32.0
 
 BIAS = BIAS + BIAS_change = 0.0 + 32.0 = 32.0</pre>
 
@@ -336,15 +358,10 @@ BIAS   = 32.0</pre>
       <div class="card-body">
 
         <div class="callout callout-neutral"><pre>
-EXAMPLES   = 2
-EPOCHS     = 2
+WEIGHT     = 0.0
+BIAS       = 32.0
 PACE       = 1.0
 total_LOSS = 16.0</pre>
-        </div>
-
-        <div class="callout callout-neutral"><pre>
-WEIGHT = 0.0
-BIAS   = 32.0</pre>
         </div>
 
         <p><strong>EXAMPLE 2</strong>:</p>
@@ -393,8 +410,12 @@ ERROR  = 1.8
 PACE   = 1.0</pre>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">CHAIN of INFLUENCES</div><pre>
-influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT</pre>
+            <div class="influence-panel-label">CHAIN of INFLUENCES:</div><pre>
+influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_SUM
+  * influence_SUM_OUTPUT
+)</pre>
           </div>
 
           <div class="influence-panel">
@@ -423,9 +444,17 @@ influence_PRODUCT_SUM = 1.0</pre>
           </div><pre>
 influence_SUM_OUTPUT = 1.0
 
-influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 * 1.0 = 1.0
+influence_WEIGHT_OUTPUT = (
+    1.0
+  * 1.0
+  * 1.0
+) = 1.0
 
-WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = 1.8 * 1.0 * 1.0 = 1.8
+WEIGHT_change = (
+    1.8
+  * 1.0
+  * 1.0
+) = 1.8
 
 WEIGHT = WEIGHT + WEIGHT_change = 0.0 + 1.8 = 1.8</pre>
           
@@ -439,8 +468,11 @@ ERROR = 1.8
 PACE  = 1.0</pre>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">CHAIN of INFLUENCES</div><pre>
-influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT</pre>
+            <div class="influence-panel-label">CHAIN of INFLUENCES:</div><pre>
+influence_BIAS_OUTPUT = (
+    influence_BIAS_SUM
+  * influence_SUM_OUTPUT
+)</pre>
           </div>
 
           <div class="influence-panel">
@@ -461,9 +493,16 @@ influence_BIAS_SUM = 1.0</pre>
           </div><pre>
 influence_SUM_OUTPUT = 1.0
 
-influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = 1.0
+influence_BIAS_OUTPUT = (
+    1.0
+  * 1.0
+) = 1.0
 
-BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE = 1.8 * 1.0 * 1.0 = 1.8
+BIAS_change = (
+    1.8
+  * 1.0
+  * 1.0
+) = 1.8
 
 BIAS = BIAS + BIAS_change = 32.0 + 1.8 = 33.8</pre>
 
@@ -486,15 +525,10 @@ BIAS   = 33.8</pre>
       <div class="card-body">
 
         <div class="callout callout-neutral"><pre>
-EXAMPLES   = 2
-EPOCHS     = 2
+WEIGHT     = 1.8
+BIAS       = 33.8
 PACE       = 1.0
 total_LOSS = 0.0</pre>
-        </div>
-
-        <div class="callout callout-neutral"><pre>
-WEIGHT = 1.8
-BIAS   = 33.8</pre>
         </div>
 
         <p><strong>EXAMPLE 1</strong>:</p>
@@ -543,8 +577,12 @@ ERROR  = -1.8
 PACE   = 1.0</pre>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">CHAIN of INFLUENCES</div><pre>
-influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT</pre>
+            <div class="influence-panel-label">CHAIN of INFLUENCES:</div><pre>
+influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_SUM
+  * influence_SUM_OUTPUT
+)</pre>
           </div>
 
           <div class="influence-panel">
@@ -573,9 +611,17 @@ influence_PRODUCT_SUM = 1.0</pre>
           </div><pre>
 influence_SUM_OUTPUT = 1.0
 
-influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 0.0 * 1.0 * 1.0 = 0.0
+influence_WEIGHT_OUTPUT = (
+    0.0
+  * 1.0
+  * 1.0
+) = 0.0
 
-WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = -1.8 * 0.0 * 1.0 = 0.0
+WEIGHT_change = (
+    -1.8
+  * 0.0
+  * 1.0
+) = 0.0
 
 WEIGHT = WEIGHT + WEIGHT_change = 1.8 + 0.0 = 1.8</pre>
           
@@ -589,8 +635,11 @@ ERROR = -1.8
 PACE  = 1.0</pre>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">CHAIN of INFLUENCES</div><pre>
-influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT</pre>
+            <div class="influence-panel-label">CHAIN of INFLUENCES:</div><pre>
+influence_BIAS_OUTPUT = (
+    influence_BIAS_SUM
+  * influence_SUM_OUTPUT
+)</pre>
           </div>
 
           <div class="influence-panel">
@@ -611,9 +660,16 @@ influence_BIAS_SUM = 1.0</pre>
           </div><pre>
 influence_SUM_OUTPUT = 1.0
 
-influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = 1.0
+influence_BIAS_OUTPUT = (
+    1.0
+  * 1.0
+) = 1.0
 
-BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE = -1.8 * 1.0 * 1.0 = -1.8
+BIAS_change = (
+    -1.8
+  * 1.0
+  * 1.0
+) = -1.8
 
 BIAS = BIAS + BIAS_change = 33.8 + (-1.8) = 32.0</pre>
 
@@ -636,15 +692,10 @@ BIAS   = 32.0</pre>
       <div class="card-body">
 
         <div class="callout callout-neutral"><pre>
-EXAMPLES   = 2
-EPOCHS     = 2
+WEIGHT     = 1.8
+BIAS       = 32.0
 PACE       = 1.0
 total_LOSS = 0.9</pre>
-        </div>
-
-        <div class="callout callout-neutral"><pre>
-WEIGHT = 1.8
-BIAS   = 32.0</pre>
         </div>
 
         <p><strong>EXAMPLE 2</strong>:</p>
@@ -693,8 +744,12 @@ ERROR  = 0.0
 PACE   = 1.0</pre>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">CHAIN of INFLUENCES</div><pre>
-influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT</pre>
+            <div class="influence-panel-label">CHAIN of INFLUENCES:</div><pre>
+influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_SUM
+  * influence_SUM_OUTPUT
+)</pre>
           </div>
 
           <div class="influence-panel">
@@ -723,9 +778,17 @@ influence_PRODUCT_SUM = 1.0</pre>
           </div><pre>
 influence_SUM_OUTPUT = 1.0
 
-influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 * 1.0 = 1.0
+influence_WEIGHT_OUTPUT = (
+    1.0
+  * 1.0
+  * 1.0
+) = 1.0
 
-WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = 0.0 * 1.0 * 1.0 = 0.0
+WEIGHT_change = (
+    0.0
+  * 1.0
+  * 1.0
+) = 0.0
 
 WEIGHT = WEIGHT + WEIGHT_change = 1.8 + 0.0 = 1.8</pre>
           
@@ -739,8 +802,11 @@ ERROR = 0.0
 PACE  = 1.0</pre>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">CHAIN of INFLUENCES</div><pre>
-influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT</pre>
+            <div class="influence-panel-label">CHAIN of INFLUENCES:</div><pre>
+influence_BIAS_OUTPUT = (
+    influence_BIAS_SUM
+  * influence_SUM_OUTPUT
+)</pre>
           </div>
 
           <div class="influence-panel">
@@ -761,9 +827,16 @@ influence_BIAS_SUM = 1.0</pre>
           </div><pre>
 influence_SUM_OUTPUT = 1.0
 
-influence_BIAS_OUTPUT = influence_BIAS_SUM * influence_SUM_OUTPUT = 1.0 * 1.0 = 1.0
+influence_BIAS_OUTPUT = (
+    1.0
+  * 1.0
+) = 1.0
 
-BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE = 0.0 * 1.0 * 1.0 = 0.0
+BIAS_change = (
+    0.0
+  * 1.0
+  * 1.0
+) = 0.0
 
 BIAS = BIAS + BIAS_change = 32.0 + 0.0 = 32.0</pre>
 
