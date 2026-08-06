@@ -32,8 +32,7 @@
 
   <div class="page">
 
-
-    <!-- INTRODUCTION -->
+<!-- INTRODUCTION -->
     <div class="section-label">Introduction</div>
 
     <div class="card">
@@ -45,8 +44,7 @@
     </div>
 
 
-
-<!-- INFLUENCE -->
+    <!-- INFLUENCE -->
     <div class="section-label">INFLUENCE</div>
 
     <div class="card">
@@ -140,9 +138,9 @@ influence_PARAMETER_RESULT = -3.0</pre>
         </div>
 
 
-      <hr class="divider"/>
+        <hr class="divider"/>
 
-      <!-- EXAMPLE 3 -->
+        <!-- EXAMPLE 3 -->
         <div class="step-heading">
           <div class="step-badge">3</div>
           <span>Example 3</span>
@@ -200,40 +198,38 @@ influence_PARAMETER_RESULT = 1.0</pre>
     </div>
 
 
+    <!-- CHAIN of INFLUENCES -->
+    <div class="section-label">CHAIN of INFLUENCES</div>
 
+    <div class="card">
+      <div class="card-body">
 
-<!-- CHAIN of INFLUENCES -->
-<div class="section-label">CHAIN of INFLUENCES</div>
+        <p>Now, consider the <strong>CHAIN of INFLUENCES</strong>.</p>
+        <p>To understand this simple concept, let's look at two examples, each with simple formulas.</p>
 
-<div class="card">
-  <div class="card-body">
+        <hr class="divider"/>
 
-    <p>Now, consider the <strong>CHAIN of INFLUENCES</strong>.</p>
-    <p>To understand this simple concept, let's look at two examples, each with simple formulas.</p>
+        <!-- EXAMPLE 1 -->
+        <div class="step-heading">
+          <div class="step-badge">1</div>
+          <span>Example 1</span>
+        </div>
 
-    <hr class="divider"/>
-
-    <!-- EXAMPLE 1 -->
-    <div class="step-heading">
-      <div class="step-badge">1</div>
-      <span>Example 1</span>
-    </div>
-
-    <p>The simple formulas:</p>
-    <div class="formula-block"><pre>
+        <p>The simple formulas:</p>
+        <div class="formula-block"><pre>
 <span class="formula">B = 0.8 * C</span>
 <span class="formula">A = 0.5 * B</span></pre>
-    </div>
+        </div>
 
-    <p>The INFLUENCE of C on B is <strong>0.8</strong>:</p><pre>
+        <p>The INFLUENCE of C on B is <strong>0.8</strong>:</p><pre>
 influence_C_B = 0.8</pre>
 
-    <p>The INFLUENCE of B on A is <strong>0.5</strong>:</p><pre>
+        <p>The INFLUENCE of B on A is <strong>0.5</strong>:</p><pre>
 influence_B_A = 0.5</pre>
     
-    <p>But what is the INFLUENCE of C on A?</p>
-    <p>It is simply the product of the influences along the chain:</p>
-    <p><strong>CHAIN of INFLUENCES</strong>:</p><pre>
+        <p>But what is the INFLUENCE of C on A?</p>
+        <p>It is simply the product of the influences along the chain:</p>
+        <p><strong>CHAIN of INFLUENCES</strong>:</p><pre>
 influence_C_A = (
     influence_C_B
   * influence_B_A
@@ -242,37 +238,37 @@ influence_C_A = (
   * 0.5
 ) = 0.4</pre>
     
-    <div class="takeaway">
-      <div class="takeaway-label">Takeaway</div>
-      To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> (<strong>C</strong>) on the <strong>RESULT</strong> (<strong>A</strong>)  —  implying when we tweak the initial <strong>ELEMENT</strong>  —  we multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
-    </div>
-    <hr class="divider"/>
+        <div class="takeaway">
+          <div class="takeaway-label">Takeaway</div>
+          To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> (<strong>C</strong>) on the <strong>RESULT</strong> (<strong>A</strong>)  —  implying when we tweak the initial <strong>ELEMENT</strong>  —  we multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
+        </div>
+        <hr class="divider"/>
 
-    <!-- EXAMPLE 2 -->
-    <div class="step-heading">
-      <div class="step-badge">2</div>
-      <span>Example 2</span>
-    </div>
+        <!-- EXAMPLE 2 -->
+        <div class="step-heading">
+          <div class="step-badge">2</div>
+          <span>Example 2</span>
+        </div>
 
-    <p>The simple formulas:</p>
-    <div class="formula-block"><pre>
+        <p>The simple formulas:</p>
+        <div class="formula-block"><pre>
 <span class="formula">C = -0.9 * D</span>
 <span class="formula">B = 0.8 * C</span>
 <span class="formula">A = 0.5 * B</span></pre>
-    </div>
+        </div>
 
-    <p>The INFLUENCE of D on C is <strong>-0.9</strong>:</p><pre>
+        <p>The INFLUENCE of D on C is <strong>-0.9</strong>:</p><pre>
 influence_D_C = -0.9</pre>
 
-    <p>The INFLUENCE of C on B is <strong>0.8</strong>:</p><pre>
+        <p>The INFLUENCE of C on B is <strong>0.8</strong>:</p><pre>
 influence_C_B = 0.8</pre>
 
-    <p>The INFLUENCE of B on A is <strong>0.5</strong>:</p><pre>
+        <p>The INFLUENCE of B on A is <strong>0.5</strong>:</p><pre>
 influence_B_A = 0.5</pre>
     
-    <p>But what is the INFLUENCE of D on A?</p>
-    <p>Again, it is the product of the influences along the chain:</p>
-    <p><strong>CHAIN of INFLUENCES</strong>:</p><pre>
+        <p>But what is the INFLUENCE of D on A?</p>
+        <p>Again, it is the product of the influences along the chain:</p>
+        <p><strong>CHAIN of INFLUENCES</strong>:</p><pre>
 influence_D_A = (
     influence_D_C
   * influence_C_B
@@ -283,20 +279,20 @@ influence_D_A = (
   * 0.5
 ) = -0.36</pre>
 
-    <div class="takeaway">
-      <div class="takeaway-label">Takeaway</div>
-      To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> (<strong>D</strong>) on the <strong>RESULT</strong> (<strong>A</strong>)  —  implying when we tweak the initial <strong>ELEMENT</strong>  —  we multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
-    </div>
-    <hr class="divider"/>
+        <div class="takeaway">
+          <div class="takeaway-label">Takeaway</div>
+          To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> (<strong>D</strong>) on the <strong>RESULT</strong> (<strong>A</strong>)  —  implying when we tweak the initial <strong>ELEMENT</strong>  —  we multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
+        </div>
+        <hr class="divider"/>
 
-    <!-- UNIVERSAL TAKEAWAY -->
-    <div class="takeaway">
-      <div class="takeaway-label">The Universal Takeaway</div>
-      To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> on the <strong>RESULT</strong>  —  implying when we tweak the initial <strong>ELEMENT</strong>  —  we multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
-    </div>
+        <!-- UNIVERSAL TAKEAWAY -->
+        <div class="takeaway">
+          <div class="takeaway-label">The Universal Takeaway</div>
+          To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> on the <strong>RESULT</strong>  —  implying when we tweak the initial <strong>ELEMENT</strong>  —  we multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
+        </div>
 
-  </div>
-</div>
+      </div>
+    </div>
 
 
     <!-- THE MIND -->
@@ -307,8 +303,8 @@ influence_D_A = (
         <p>Let's call this mind the <strong>Multiplier-by-Five</strong>.</p>
         <p>It will have a single <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
         <p>The mind will be a simple formula like this:</p>
-        <div class="callout callout-neutral">
-          <strong>OUTPUT = INPUT * WEIGHT</strong>
+        <div class="callout callout-neutral"><pre>
+OUTPUT = INPUT * WEIGHT</pre>
         </div>
         <p>We need to find the correct <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
       </div>
@@ -320,7 +316,9 @@ influence_D_A = (
     <div class="card">
       <div class="card-body">
         <p>Suppose we don't yet know what the <strong>PARAMETER</strong> should be, so let's start by setting it to <strong>zero</strong>:</p>
-        <div class="callout callout-neutral">WEIGHT = <strong>0.00</strong></div>
+        <div class="callout callout-neutral"><pre>
+WEIGHT = 0.00</pre>
+        </div>
         <p>At first, the mind will generate nonsense, since with any <strong>INPUT</strong> the <strong>OUTPUT</strong> is <strong>zero</strong>.</p>
       </div>
     </div>
@@ -367,20 +365,6 @@ influence_D_A = (
     </div>
 
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
     <!-- THE SIMPLIFIED CHANGE RULE -->
     <div class="section-label">Change Rule</div>
 
@@ -390,20 +374,20 @@ influence_D_A = (
         <p>The mind <strong>changes</strong> the <strong>PARAMETER</strong> using this <strong>CHANGE RULE</strong>:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">SIMPLIFIED CHANGE RULE for PARAMETER</div>
-          <span class="formula">PARAMETER_change = ERROR * influence_PARAMETER_OUTPUT</span><br/>
-          <span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span>
+          <div class="formula-block-label">SIMPLIFIED CHANGE RULE for PARAMETER</div><pre>
+<span class="formula">PARAMETER_change = ERROR * influence_PARAMETER_OUTPUT</span>
+<span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span></pre>
         </div>
 
-        <p>Because the mind has just one <strong>PARAMETER</strong> — <strong>WEIGHT</strong> — we obtain:</p>
+        <p>Because the mind has just one <strong>PARAMETER</strong>  —  <strong>WEIGHT</strong>  —  we obtain:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">SIMPLIFIED CHANGE RULE for WEIGHT</div>
-          <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT</span><br/>
-          <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
+          <div class="formula-block-label">SIMPLIFIED CHANGE RULE for WEIGHT</div><pre>
+<span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT</span>
+<span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></pre>
         </div>
 
-        <p>Don't worry — each step is simple. Just follow the calculations below.</p>
+        <p>Don't worry  —  each step is simple. Just follow the calculations below.</p>
       </div>
     </div>
 
@@ -411,7 +395,7 @@ influence_D_A = (
     <!-- TRAINING -->
     <div class="section-label">Training</div>
 
-<!-- LESSON 1 -->
+    <!-- LESSON 1 -->
     <div class="card">
       <div class="card-header"><strong style="color:#F0ABFC;">LESSON 1</strong></div>
       <div class="card-body">
@@ -658,23 +642,25 @@ WEIGHT = 5.00</pre>
 
         <p>To <strong>test</strong> the mind, we give it a new <strong>EXAMPLE</strong> it has never seen before.</p>
 
-        <div class="callout callout-neutral">WEIGHT = <strong>5.00</strong></div>
+        <div class="callout callout-neutral"><pre>
+WEIGHT = 5.00</pre>
+        </div>
         <p><strong>EXAMPLE</strong> FOR <strong>TESTING</strong>:</p>
 
-        <div class="callout callout-neutral">
-          INPUT = <strong>10.00</strong><br/>
-          TARGET = <strong>50.00</strong>
+        <div class="callout callout-neutral"><pre>
+INPUT  = 10.00
+TARGET = 50.00</pre>
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT * WEIGHT = 10.00 * 5.00 = <strong>50.00</strong><br/>
-          OUTPUT = PRODUCT = <strong>50.00</strong><br/>
+          <div class="callout-title">Forward Pass</div><pre>
+PRODUCT = INPUT * WEIGHT = 10.00 * 5.00 = 50.00
+OUTPUT = PRODUCT = 50.00</pre>
         </div>
 
         <div class="callout callout-error">
-          <div class="callout-title">Error</div>
-          ERROR = TARGET − OUTPUT = 50.00 − 50.00 = <strong>0.00</strong>
+          <div class="callout-title">Error</div><pre>
+ERROR = TARGET − OUTPUT = 50.00 − 50.00 = 0.00</pre>
         </div>
 
         <div class="diagram">
@@ -686,13 +672,13 @@ WEIGHT = 5.00</pre>
           <p>It has learned the rule: <strong>multiply any number by 5.0</strong>.</p>
           <p>The <strong>Multiplier-by-Five</strong> can now solve problems it has never encountered before.</p>
           <p>The mind is now just this formula:</p>
-          <div class="callout callout-neutral"><strong>OUTPUT = INPUT * 5.00</strong></div>
+          <div class="callout callout-neutral"><pre>
+OUTPUT = INPUT * 5.00</pre>
+          </div>
         </div>
 
       </div>
     </div>
-
-
     <!-- CODE -->
     <div class="section-label">Code</div>
 
