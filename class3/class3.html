@@ -151,24 +151,31 @@
       <div class="card-header"><strong style="color:#F0ABFC;">LESSON 1</strong></div>
       <div class="card-body">
 
-        <div class="callout callout-neutral">WEIGHT = <strong>0.0000</strong><br/>
-          PACE = <strong>0.0100</strong></div>
+        <div class="callout callout-neutral"><pre>
+EXAMPLES = 2
+EPOCHS   = 1
+PACE     = 0.0100</pre>
+        </div>
 
-        <p>EXAMPLE 1:</p>
-        <div class="callout callout-neutral">
-          INPUT = <strong>0.6000</strong><br/>
-          TARGET = <strong>3.0000</strong>
+        <div class="callout callout-neutral"><pre>
+WEIGHT = 0.0000</pre>
+        </div>
+
+        <p><strong>EXAMPLE 1</strong>:</p>
+        <div class="callout callout-neutral"><pre>
+INPUT  = 0.6000
+TARGET = 3.0000</pre>
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT * WEIGHT = 0.6000 * 0.0000 = <strong>0.0000</strong><br/>
-          OUTPUT = PRODUCT = <strong>0.0000</strong><br/>
+          <div class="callout-title">Forward Pass</div><pre>
+PRODUCT = INPUT * WEIGHT = 0.6000 * 0.0000 = 0.0000
+OUTPUT = PRODUCT = 0.0000</pre>
         </div>
 
         <div class="callout callout-error">
-          <div class="callout-title">Error</div>
-          ERROR = TARGET − OUTPUT = 3.0000 − 0.0000 = <strong>3.0000</strong>
+          <div class="callout-title">Error</div><pre>
+ERROR = TARGET − OUTPUT = 3.0000 − 0.0000 = 3.0000</pre>
         </div>
 
         <div class="diagram">
@@ -179,23 +186,20 @@
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
-          </div>
-
-          WEIGHT = <strong>0.0000</strong><br/>
-          ERROR  = <strong>3.0000</strong><br/>
-          PACE   = <strong>0.0100</strong><br/>
-
-          
-
-
-
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div><pre>
+<span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span>
+<span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></pre>
+          </div><pre>
+WEIGHT = 0.0000
+ERROR  = 3.0000
+PACE   = 0.0100</pre>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT
+            <div class="influence-panel-label">CHAIN of INFLUENCES:</div><pre>
+influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_OUTPUT
+)</pre>
           </div>
 
           <div class="influence-panel">
@@ -203,8 +207,8 @@
             The formula is: <strong>PRODUCT = INPUT * WEIGHT</strong><br/>
             The number that multiplies the <strong>WEIGHT</strong> is the <strong>INPUT</strong>.<br/>
             Therefore: <strong>influence_WEIGHT_PRODUCT = INPUT</strong>
-          </div>
-          influence_WEIGHT_PRODUCT = INPUT = <strong>0.6000</strong><br/>
+          </div><pre>
+influence_WEIGHT_PRODUCT = INPUT = 0.6000</pre>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_PRODUCT_OUTPUT here?</div>
@@ -212,23 +216,40 @@
             We can re-write it this way: <strong>OUTPUT = 1.0000 * PRODUCT</strong><br/>
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0000</strong>.<br/>
             Therefore: <strong>influence_PRODUCT_OUTPUT = 1.0000</strong>
-          </div>
-          influence_PRODUCT_OUTPUT = <strong>1.0000</strong><br/><br/>
+          </div><pre>
+influence_PRODUCT_OUTPUT = 1.0000
 
-          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT = 0.6000 * 1.0000 = <strong>0.6000</strong><br/><br/>
-         
-          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = 3.0000 * 0.6000 * 0.0100 = <strong>0.0180</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_change = 0.0000 + 0.0180 = <strong>0.0180</strong><br/>
+influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_OUTPUT
+) = (
+    0.6000
+  * 1.0000
+) = 0.6000
+
+WEIGHT_change = (
+    ERROR
+  * influence_WEIGHT_OUTPUT
+  * PACE
+) = (
+    3.0000
+  * 0.6000
+  * 0.0100
+) = 0.0180
+
+WEIGHT = WEIGHT + WEIGHT_change = 0.0000 + 0.0180 = 0.0180</pre>
 
         </div>
 
-        <div class="result-banner">WEIGHT = 0.0180</div>
+        <div class="result-banner"><pre>
+WEIGHT = 0.0180</pre>
+        </div>
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong>
           <p>The brain has just improved itself.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>0.6000</strong>,
-          the <strong>OUTPUT</strong> becomes <strong>0.0108</strong> (0.6000 * 0.0180) — which is closer to the
+          the <strong>OUTPUT</strong> becomes <strong>0.0108</strong> (0.6000 * 0.0180)  —  which is closer to the
           <strong>TARGET</strong> (<strong>3.0000</strong>) than the previous <strong>OUTPUT</strong> (<strong>0.0000</strong>) was.</p>
           <p>The <strong>ERROR</strong> becomes smaller:</p>
           <span class="error-chip">ERROR = 2.9892</span>
@@ -238,7 +259,7 @@
           <img src="graph_L1_after.png" alt="Neuron diagram — Lesson 1 after change" />
         </div>
 
-         <p><br/><strong>LESSON 1</strong> ends here.</p>
+        <p><br/><strong>LESSON 1</strong> ends here.</p>
 
       </div>
     </div>
@@ -249,24 +270,31 @@
       <div class="card-header"><strong style="color:#F0ABFC;">LESSON 2</strong></div>
       <div class="card-body">
 
-        <div class="callout callout-neutral">WEIGHT = <strong>0.0180</strong><br/>
-          PACE = <strong>0.0100</strong></div>
+        <div class="callout callout-neutral"><pre>
+EXAMPLES = 2
+EPOCHS   = 1
+PACE     = 0.0100</pre>
+        </div>
 
-        <p>EXAMPLE 2:</p>
-        <div class="callout callout-neutral">
-          INPUT = <strong>-10.0000</strong><br/>
-          TARGET = <strong>-50.0000</strong><br/>
+        <div class="callout callout-neutral"><pre>
+WEIGHT = 0.0180</pre>
+        </div>
+
+        <p><strong>EXAMPLE 2</strong>:</p>
+        <div class="callout callout-neutral"><pre>
+INPUT  = -10.0000
+TARGET = -50.0000</pre>
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div>
-          PRODUCT = INPUT * WEIGHT = -10.0000 * 0.0180 = <strong>-0.1800</strong><br/>
-          OUTPUT = PRODUCT = <strong>-0.1800</strong><br/>
+          <div class="callout-title">Forward Pass</div><pre>
+PRODUCT = INPUT * WEIGHT = -10.0000 * 0.0180 = -0.1800
+OUTPUT = PRODUCT = -0.1800</pre>
         </div>
 
         <div class="callout callout-error">
-          <div class="callout-title">Error</div>
-          ERROR = TARGET − OUTPUT = -50.0000 − (−0.1800) = <strong>-49.8200</strong>
+          <div class="callout-title">Error</div><pre>
+ERROR = TARGET − OUTPUT = -50.0000 − (−0.1800) = -49.8200</pre>
         </div>
 
         <div class="diagram">
@@ -277,23 +305,20 @@
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
           <div class="formula-block">
-            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div>
-            <span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span><br/>
-            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
-          </div>
-
-          WEIGHT = <strong>0.0180</strong><br/>
-          ERROR  = <strong>−49.8200</strong><br/>
-          PACE  = <strong>0.0100</strong><br/>
-
-
-
-
-
+            <div class="formula-block-label">FUNDAMENTAL CHANGE RULE for WEIGHT</div><pre>
+<span class="formula">WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE</span>
+<span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></pre>
+          </div><pre>
+WEIGHT = 0.0180
+ERROR  = -49.8200
+PACE   = 0.0100</pre>
 
           <div class="influence-panel">
-            <div class="influence-panel-label">CHAIN of INFLUENCES</div>
-            influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT
+            <div class="influence-panel-label">CHAIN of INFLUENCES:</div><pre>
+influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_OUTPUT
+)</pre>
           </div>
 
           <div class="influence-panel">
@@ -301,8 +326,8 @@
             The formula is: <strong>PRODUCT = INPUT * WEIGHT</strong><br/>
             The number that multiplies the <strong>WEIGHT</strong> is the <strong>INPUT</strong>.<br/>
             Therefore: <strong>influence_WEIGHT_PRODUCT = INPUT</strong>
-          </div>
-          influence_WEIGHT_PRODUCT = INPUT = <strong>-10.0000</strong><br/>
+          </div><pre>
+influence_WEIGHT_PRODUCT = INPUT = -10.0000</pre>
 
           <div class="influence-panel">
             <div class="influence-panel-label">What is influence_PRODUCT_OUTPUT here?</div>
@@ -310,31 +335,46 @@
             We can re-write it this way: <strong>OUTPUT = 1.0000 * PRODUCT</strong><br/>
             The number that multiplies the <strong>PRODUCT</strong> is <strong>1.0000</strong>.<br/>
             Therefore: <strong>influence_PRODUCT_OUTPUT = 1.0000</strong>
-          </div>
-          influence_PRODUCT_OUTPUT = <strong>1.0000</strong><br/><br/>
+          </div><pre>
+influence_PRODUCT_OUTPUT = 1.0000
 
-          influence_WEIGHT_OUTPUT = influence_WEIGHT_PRODUCT * influence_PRODUCT_OUTPUT = -10.0000 * 1.0000 = <strong>-10.0000</strong><br/><br/>
-         
-          WEIGHT_change = ERROR * influence_WEIGHT_OUTPUT * PACE = −49.8200 * (-10.0000) * 0.0100 = <strong>4.9820</strong><br/>
-          WEIGHT = WEIGHT + WEIGHT_change = 0.0180 + 4.9820 = <strong>5.0000</strong><br/>
+influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_OUTPUT
+) = (
+    -10.0000
+  * 1.0000
+) = -10.0000
 
+WEIGHT_change = (
+    ERROR
+  * influence_WEIGHT_OUTPUT
+  * PACE
+) = (
+    -49.8200
+  * -10.0000
+  * 0.0100
+) = 4.9820
 
+WEIGHT = WEIGHT + WEIGHT_change = 0.0180 + 4.9820 = 5.0000</pre>
 
         </div>
 
-        <div class="result-banner">WEIGHT = 5.0000</div>
+        <div class="result-banner"><pre>
+WEIGHT = 5.0000</pre>
+        </div>
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong>
           <p>The brain has just improved itself again.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>−10.0000</strong>,
-          the <strong>OUTPUT</strong> becomes <strong>−50.0000</strong> (−10.0000 * 5.0000) — which is closer to the
+          the <strong>OUTPUT</strong> becomes <strong>−50.0000</strong> (−10.0000 * 5.0000)  —  which is closer to the
           <strong>TARGET</strong> (<strong>−50.0000</strong>) than the previous <strong>OUTPUT</strong> (<strong>-0.1800</strong>) was.</p>
         </div>
 
-         <div class="success-callout">
-          <p>Wait — it's not just closer. It's exact!</p>
-          <p>The <strong>OUTPUT</strong> is now -50.0000 — exactly the same as the <strong>TARGET</strong>.</p>
+        <div class="success-callout">
+          <p>Wait  —  it's not just closer. It's exact!</p>
+          <p>The <strong>OUTPUT</strong> is now -50.0000  —  exactly the same as the <strong>TARGET</strong>.</p>
           <p>The <strong>ERROR</strong> becomes <strong>zero</strong>:</p>
           <span class="error-chip">ERROR = 0.0000</span>
         </div>
@@ -343,12 +383,13 @@
           <img src="graph_L2_after.png" alt="Neuron diagram — Lesson 2 after change" />
         </div>
 
-         <p><br/><strong>LESSON 2</strong> ends here.</p>
+        <p><br/><strong>LESSON 2</strong> ends here.</p>
 
       </div>
     </div>
 
 
+    
     <div class="completion-banner">✓ &nbsp; DONE &nbsp; ✓</div>
 
 
