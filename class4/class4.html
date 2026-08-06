@@ -278,12 +278,20 @@ influence_PRODUCT_SUM = 1.0</pre>
 influence_SUM_OUTPUT = 1.0
 
 influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_SUM
+  * influence_SUM_OUTPUT
+) = (
     0.0
   * 1.0
   * 1.0
 ) = 0.0
 
 WEIGHT_change = (
+    ERROR
+  * influence_WEIGHT_OUTPUT
+  * PACE
+) = (
     32.0
   * 0.0
   * 1.0
@@ -327,11 +335,18 @@ influence_BIAS_SUM = 1.0</pre>
 influence_SUM_OUTPUT = 1.0
 
 influence_BIAS_OUTPUT = (
+    influence_BIAS_SUM
+  * influence_SUM_OUTPUT
+) = (
     1.0
   * 1.0
 ) = 1.0
 
 BIAS_change = (
+    ERROR
+  * influence_BIAS_OUTPUT
+  * PACE
+) = (
     32.0
   * 1.0
   * 1.0
@@ -445,12 +460,20 @@ influence_PRODUCT_SUM = 1.0</pre>
 influence_SUM_OUTPUT = 1.0
 
 influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_SUM
+  * influence_SUM_OUTPUT
+) = (
     1.0
   * 1.0
   * 1.0
 ) = 1.0
 
 WEIGHT_change = (
+    ERROR
+  * influence_WEIGHT_OUTPUT
+  * PACE
+) = (
     1.8
   * 1.0
   * 1.0
@@ -494,11 +517,18 @@ influence_BIAS_SUM = 1.0</pre>
 influence_SUM_OUTPUT = 1.0
 
 influence_BIAS_OUTPUT = (
+    influence_BIAS_SUM
+  * influence_SUM_OUTPUT
+) = (
     1.0
   * 1.0
 ) = 1.0
 
 BIAS_change = (
+    ERROR
+  * influence_BIAS_OUTPUT
+  * PACE
+) = (
     1.8
   * 1.0
   * 1.0
@@ -612,12 +642,20 @@ influence_PRODUCT_SUM = 1.0</pre>
 influence_SUM_OUTPUT = 1.0
 
 influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_SUM
+  * influence_SUM_OUTPUT
+) = (
     0.0
   * 1.0
   * 1.0
 ) = 0.0
 
 WEIGHT_change = (
+    ERROR
+  * influence_WEIGHT_OUTPUT
+  * PACE
+) = (
     -1.8
   * 0.0
   * 1.0
@@ -661,11 +699,18 @@ influence_BIAS_SUM = 1.0</pre>
 influence_SUM_OUTPUT = 1.0
 
 influence_BIAS_OUTPUT = (
+    influence_BIAS_SUM
+  * influence_SUM_OUTPUT
+) = (
     1.0
   * 1.0
 ) = 1.0
 
 BIAS_change = (
+    ERROR
+  * influence_BIAS_OUTPUT
+  * PACE
+) = (
     -1.8
   * 1.0
   * 1.0
@@ -779,12 +824,20 @@ influence_PRODUCT_SUM = 1.0</pre>
 influence_SUM_OUTPUT = 1.0
 
 influence_WEIGHT_OUTPUT = (
+    influence_WEIGHT_PRODUCT
+  * influence_PRODUCT_SUM
+  * influence_SUM_OUTPUT
+) = (
     1.0
   * 1.0
   * 1.0
 ) = 1.0
 
 WEIGHT_change = (
+    ERROR
+  * influence_WEIGHT_OUTPUT
+  * PACE
+) = (
     0.0
   * 1.0
   * 1.0
@@ -828,11 +881,18 @@ influence_BIAS_SUM = 1.0</pre>
 influence_SUM_OUTPUT = 1.0
 
 influence_BIAS_OUTPUT = (
+    influence_BIAS_SUM
+  * influence_SUM_OUTPUT
+) = (
     1.0
   * 1.0
 ) = 1.0
 
 BIAS_change = (
+    ERROR
+  * influence_BIAS_OUTPUT
+  * PACE
+) = (
     0.0
   * 1.0
   * 1.0
