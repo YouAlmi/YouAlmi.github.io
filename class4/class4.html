@@ -162,20 +162,21 @@
       <div class="card-body">
 
         <div class="callout callout-neutral">
-          EXAMPLES = 2
-          EPOCHS   = 2
-          PACE     = 1.0
+          EXAMPLES   = 2
+          EPOCHS     = 2
+          PACE       = 1.0
+          total_LOSS = 0.0
         </div>
 
         <div class="callout callout-neutral">
           WEIGHT = <strong>0.0</strong><br/>
-          BIAS = <strong>0.0</strong><br/>
+          BIAS   = <strong>0.0</strong><br/>
         </div>
           
 
         <p><strong>EXAMPLE 1</strong>:</p>
         <div class="callout callout-neutral">
-          INPUT = <strong>0.0</strong><br/>
+          INPUT  = <strong>0.0</strong><br/>
           TARGET = <strong>32.0</strong>
         </div>
 
@@ -209,19 +210,21 @@
 
 
 <div class="callout callout-error">
-  <div class="callout-title">average_LOSS</div>
-  average_LOSS = <strong>0.0</strong><br/><br/>
+  <div class="callout-title">total_LOSS</div>
 
   LOSS_contribution = LOSS / EXAMPLES = 32.0 / 6 = 5.33<br/>
-  average_LOSS = average_LOSS + LOSS_contribution = 0.0 + 5.33 = 5.33<br/>
+  total_LOSS = total_LOSS + LOSS_contribution = 0.0 + 5.33 = 5.33<br/>
 </div>
 
 <p>
   The <strong>LOSS_contribution</strong> is how much the <strong>LOSS</strong> from 
-  this <strong>EXAMPLE</strong> adds to the <strong>average_LOSS</strong> for the <strong>EPOCH</strong>.
+  this <strong>EXAMPLE</strong> adds to the <strong>total_LOSS</strong> for the <strong>EPOCH</strong>.
 </p>
-<p>The concept of <strong>LOSS</strong> is used for monitoring how well the <strong>TRAINING</strong> is going. 
-  In a good <strong>TRAININ</strong>, the <strong>average_LOSS</strong> should decrease over the full <strong>TRAINING</strong>.</p>
+
+<p>
+  The concept of <strong>LOSS</strong> is used for monitoring how well the <strong>TRAINING</strong> is going. 
+  In a good <strong>TRAINING</strong>, the <strong>average_LOSS</strong> should decrease over the full <strong>TRAINING</strong>.
+</p>
 
 
 
