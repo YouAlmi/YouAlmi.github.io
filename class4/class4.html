@@ -189,11 +189,12 @@
          <div class="callout callout-error">
           <div class="callout-title">LOSS</div>
           LOSS = abs(ERROR) = abs(32.0) = <strong>32.0</strong>
-          <p>The <strong>LOSS</strong> — abs(ERROR) — turns every ERROR into a positive number. That way, 
+        </div>
+
+        <p>The <strong>LOSS</strong> — abs(ERROR) — turns every ERROR into a positive number. That way, 
             when we add up all the <strong>ERRORS</strong> across a full EPOCH, 
             two ERRORS like -2.0 and +2.0 (-2.0 + 2.0 = 0.0) don't cancel each other out to make 
             it look like zero <strong>ERRORS</strong> were made.</p>
-        </div>
 
         <div class="diagram">
           <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before change" />
