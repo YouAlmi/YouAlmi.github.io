@@ -980,12 +980,16 @@ BIAS   = 32.0</pre>
           <!-- textarea-wrap -->
           <div class="textarea-wrap">
 <textarea id="code-input1" style="line-height: 1.2;">
+# CONSTANTS
 EXAMPLES = 2
 EPOCHS   = 2
-WEIGHT   = 0.0
-BIAS     = 0.0
 PACE     = 1.0
 
+# MODEL
+WEIGHT   = 0.0
+BIAS     = 0.0
+
+# PARAMETERS
 INPUTS  = [0.0, 
            1.0]
 
@@ -999,7 +1003,7 @@ BIAS   = {BIAS:.1f}\n""")
 print(f" ——— TRAINING:")
 
 for EPOCH in range(EPOCHS):
-    average_LOSS = 0.0
+    total_LOSS = 0.0
 
     for EXAMPLE in range(EXAMPLES):
 
@@ -1014,8 +1018,8 @@ for EPOCH in range(EPOCHS):
 
         LOSS = abs(ERROR)
 
-        LOSS_contributed = LOSS / EXAMPLES
-        average_LOSS = average_LOSS + LOSS_contributed
+        LOSS_contribution = LOSS / EXAMPLES
+        total_LOSS = total_LOSS + LOSS_contribution
 
         influence_WEIGHT_OUTPUT = INPUT
         influence_BIAS_OUTPUT = 1.0
@@ -1028,11 +1032,11 @@ for EPOCH in range(EPOCHS):
         BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE      
         BIAS = BIAS + BIAS_change
     
-    print(f'EPOCH {EPOCH + 1}:  average_LOSS: {average_LOSS:.4f}')
+    print(f'EPOCH {EPOCH + 1}:  total_LOSS: {total_LOSS:.4f}')
 
 print(f"\n ——— AFTER TRAINING:")
 
-average_LOSS = 0.0
+total_LOSS = 0.0
 
 for EXAMPLE in range(EXAMPLES):
 
@@ -1047,12 +1051,12 @@ for EXAMPLE in range(EXAMPLES):
 
         LOSS = abs(ERROR)
 
-        # Contribution to average_LOSS
-        LOSS_contributed = LOSS / EXAMPLES
+        # Contribution to total_LOSS
+        LOSS_contribution = LOSS / EXAMPLES
 
-        average_LOSS = average_LOSS + LOSS_contributed
+        total_LOSS = total_LOSS + LOSS_contribution
 
-print(f'          average_LOSS: {average_LOSS:.4f}\n')
+print(f'          total_LOSS: {total_LOSS:.4f}\n')
 
 print(f""" ——— FINAL PARAMETERS:
 WEIGHT = {WEIGHT:.1f}
