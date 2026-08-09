@@ -194,6 +194,36 @@ ERROR = TARGET − OUTPUT = 32.0 − 0.0 = 32.0</pre>
           <img src="graph_L1_before.png" alt="Neuron diagram — Lesson 1 before change" />
         </div>
 
+ <div class="callout callout-error">
+          <div class="callout-title">LOSS</div><pre>
+LOSS = abs(ERROR) = abs(32.0) = 32.0</pre>
+        </div>
+
+        <p>The <strong>LOSS</strong>  —  abs(ERROR)  —  turns every <strong>ERROR</strong> 
+          into a positive number. That way, 
+          when we add up all the <strong>ERRORS</strong> across a full <strong>EPOCH</strong>, 
+          two <strong>ERRORS</strong> like -2.0 and +2.0 don't cancel each other out to make 
+          it look like zero <strong>ERRORS</strong> were made.</p>
+
+        <div class="callout callout-error">
+          <div class="callout-title">total_LOSS</div><pre>
+LOSS_contribution = LOSS / EXAMPLES = 32.0 / 2 = 16.0
+total_LOSS = total_LOSS + LOSS_contribution = 0.0 + 16.0 = 16.0</pre>
+        </div>
+
+        <p>
+          The <strong>LOSS_contribution</strong> is how much the <strong>LOSS</strong> from 
+          this <strong>EXAMPLE</strong> adds to the <strong>total_LOSS</strong> for the <strong>EPOCH</strong>.
+        </p>
+
+        <p>The concept of <strong>LOSS</strong> is used for monitoring how well the <strong>TRAINING</strong> is going. 
+          In a good <strong>TRAINING</strong>, the <strong>total_LOSS</strong> should decrease over the full <strong>TRAINING</strong>.</p>
+
+
+
+
+
+
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
 
