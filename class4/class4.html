@@ -199,7 +199,7 @@ ERROR = TARGET − OUTPUT = 32.0 − 0.0 = 32.0</pre>
 LOSS = abs(ERROR) = abs(32.0) = 32.0</pre>
         </div>
 
-        <p>The <strong>LOSS</strong>  —  abs(ERROR)  —  turns every <strong>ERROR</strong> 
+        <p>Generally, the <strong>LOSS</strong>  —  abs(ERROR)  —  turns every <strong>ERROR</strong> 
           into a positive number. That way, 
           when we add up all the <strong>ERRORS</strong> across a full <strong>EPOCH</strong>, 
           two <strong>ERRORS</strong> like <strong>-2.0</strong> and <strong>+2.0</strong> don't cancel each other out to make 
@@ -213,7 +213,7 @@ total_LOSS = total_LOSS + LOSS_contribution = 0.0 + 16.0 = 16.0</pre>
 
         <p>
           The <strong>LOSS_contribution</strong> is how much the <strong>LOSS</strong> from 
-          this <strong>EXAMPLE</strong> adds to the <strong>total_LOSS</strong> for the <strong>EPOCH</strong>.
+          this <strong>EXAMPLE</strong> adds to the <strong>total_LOSS</strong> for this <strong>EPOCH</strong>.
         </p>
 
         <p>The concept of <strong>LOSS</strong> is used for monitoring how well the <strong>TRAINING</strong> is going. 
@@ -595,7 +595,9 @@ ERROR = TARGET − OUTPUT = 32.0 − 33.8 = -1.8</pre>
           <div class="callout-title">LOSS</div><pre>
 LOSS = abs(ERROR) = abs(-1.8) = 1.8</pre>
         </div>
-
+<p>Here, the <strong>LOSS</strong>  —  abs(ERROR)  —  
+  turns the negative <strong>ERROR</strong> (<strong>-1.8</strong>)
+          into the positive number (<strong>1.8</strong>).
         <div class="callout callout-error">
           <div class="callout-title">total_LOSS</div><pre>
 LOSS_contribution = LOSS / EXAMPLES = 1.8 / 2 = 0.9
