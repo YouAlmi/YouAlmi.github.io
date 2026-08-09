@@ -776,7 +776,7 @@ ERROR = TARGET − OUTPUT = 33.8 − 33.8 = 0.0</pre>
         </div>
 
 
-        
+
         <div class="callout callout-error">
           <div class="callout-title">LOSS</div><pre>
 LOSS = abs(ERROR) = abs(0.0) = 0.0</pre>
@@ -995,12 +995,16 @@ OUTPUT = INPUT * 1.8 + 32.0</pre>
           <!-- textarea-wrap -->
           <div class="textarea-wrap">
 <textarea id="code-input1" style="line-height: 1.2;">
+# CONSTANTS
 EXAMPLES = 2
 EPOCHS   = 2
-WEIGHT   = 0.0
-BIAS     = 0.0
 PACE     = 1.0
 
+# MODEL
+WEIGHT   = 0.0
+BIAS     = 0.0
+
+# PARAMETERS
 INPUTS  = [0.0, 
            1.0]
 
@@ -1014,7 +1018,7 @@ BIAS   = {BIAS:.1f}\n""")
 print(f" ——— TRAINING:")
 
 for EPOCH in range(EPOCHS):
-    average_LOSS = 0.0
+    total_LOSS = 0.0
 
     for EXAMPLE in range(EXAMPLES):
 
@@ -1029,8 +1033,8 @@ for EPOCH in range(EPOCHS):
 
         LOSS = abs(ERROR)
 
-        LOSS_contributed = LOSS / EXAMPLES
-        average_LOSS = average_LOSS + LOSS_contributed
+        LOSS_contribution = LOSS / EXAMPLES
+        total_LOSS = total_LOSS + LOSS_contribution
 
         influence_WEIGHT_OUTPUT = INPUT
         influence_BIAS_OUTPUT = 1.0
@@ -1043,33 +1047,9 @@ for EPOCH in range(EPOCHS):
         BIAS_change = ERROR * influence_BIAS_OUTPUT * PACE      
         BIAS = BIAS + BIAS_change
     
-    print(f'EPOCH {EPOCH + 1}:  average_LOSS: {average_LOSS:.4f}')
+    print(f'EPOCH {EPOCH + 1}:  total_LOSS: {total_LOSS:.4f}')
 
-print(f"\n ——— AFTER TRAINING:")
-
-average_LOSS = 0.0
-
-for EXAMPLE in range(EXAMPLES):
-
-        INPUT  = INPUTS[EXAMPLE]
-        TARGET = TARGETS[EXAMPLE]
-
-        PRODUCT = INPUT * WEIGHT
-        SUM = PRODUCT + BIAS
-        OUTPUT = SUM
-
-        ERROR = TARGET - OUTPUT
-
-        LOSS = abs(ERROR)
-
-        # Contribution to average_LOSS
-        LOSS_contributed = LOSS / EXAMPLES
-
-        average_LOSS = average_LOSS + LOSS_contributed
-
-print(f'          average_LOSS: {average_LOSS:.4f}\n')
-
-print(f""" ——— FINAL PARAMETERS:
+print(f"""\n ——— FINAL PARAMETERS:
 WEIGHT = {WEIGHT:.1f}
 BIAS   = {BIAS:.1f}\n""")
 </textarea>
