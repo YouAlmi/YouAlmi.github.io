@@ -1012,62 +1012,74 @@ WEIGHT2 = [
     </div>
   </div>
 
-  <div class="section-label">Training</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div>EPOCH 1</div>
-      <div style="color:#F0ABFC;">LESSON 1</div>
-    </div>
-    <div class="card-body">
 
-      <div class="callout callout-success">
-        <div class="callout-title">Forward Pass</div>
-        <p><strong>EXAMPLE 1</strong>:</p>
+
+
+
+  
+<div class="section-label">Training</div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <div>EPOCH 60</div>
+        <div style="color:#F0ABFC;">LESSON 360</div>
       </div>
- 
-      <div class="diagram">
-        <img src="l1.png" alt="Neuron diagram — Lesson 1" />
-      </div>
+      <div class="card-body">
 
-      <div class="callout callout-info">
-        <div class="callout-title">Backward Pass — Backpropagation — <span style="color: #2e7d32;">CONCEPT</span></div>
 
-        <p>In this <strong>LESSON</strong>, 
-        all <strong>PARAMETERS</strong> compete for the largest <strong>CHANGES</strong>. 
-        The <strong>PARAMETERS</strong> with the largest <strong>ERROR</strong> and <strong>INFLUENCE</strong> 
-        — calculated as <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — 
-        receive the largest <strong>CHANGES</strong> because changing them has the greatest effect on both
-        changing the <strong>OUTPUT</strong> 
-        and reducing the <strong>ERROR</strong>.</p>
+        <div class="callout callout-success">
+          <div class="callout-title">Forward Pass</div>
+          <p><strong>EXAMPLE 6</strong>:</p>
 
-        <p>Because <strong>PACE</strong> affects all <strong>PARAMETERS</strong> by the exact same multiplier, it does not affect their competition.</p>
-
-        <p>The core logic is simple:</p>
-        <p>high <strong>ERROR</strong> * high <strong>INFLUENCE</strong> = larger <strong>CHANGE</strong></p>
-
-        <p>All <strong>PARAMETER CHANGES</strong> are calculated exactly this way.</p>
-
-        <div class="formula-block">
-          <div class="formula-block-label">PARAMETER CHANGES</div><pre>
-<span class="formula">WEIGHT1_change = ERROR * influence_WEIGHT1_OUTPUT * PACE</span>
-<span class="formula">BIAS1_change   = ERROR * influence_BIAS1_OUTPUT   * PACE</span>
-
-<span class="formula">WEIGHT2_change = ERROR * influence_WEIGHT2_OUTPUT * PACE</span>
-<span class="formula">BIAS2_change   = ERROR * influence_BIAS2_OUTPUT   * PACE</span></pre>
+       
+        </div>
+   
+        <div class="diagram">
+          <img src="l360.png"/>
         </div>
 
+<div class="callout callout-info">
+
+<div class="callout-title">Backward Pass — Backpropagation — <span style="color: #2e7d32;">CONCEPTION</span></div>
+
+
+<p>In this <strong>LESSON</strong>, 
+all <strong>PARAMETERS</strong> compete to receive the largest <strong>CHANGES</strong>. 
+The <strong>PARAMETERS</strong> with the largest <strong>ERROR</strong> and <strong>INFLUENCE</strong> 
+— calculated as <strong>ERROR * influence_PARAMETER_OUTPUT</strong> — 
+receive the largest <strong>CHANGES</strong> because changing them has the greatest effect on 
+changing the <strong>OUTPUT</strong> 
+and reducing the <strong>ERROR</strong>.</p>
+
+<p> Because <strong>PACE</strong> affects all <strong>PARAMETERS</strong> by the exact same multiplier, it does not affect their competition.</p>
+
+<p>The core logic is simple:</p>
+<p>high <strong>ERROR</strong> * high <strong>INFLUENCE</strong> = larger <strong>CHANGE</strong></p>
+
+<p>All <strong>PARAMETER CHANGES</strong> are calculated exactly this way.</p>
+
+
+<div class="formula-block">
+  <div class="formula-block-label">PARAMETER CHANGES</div>
+  <span class="formula"><pre>WEIGHT1_change = ERROR * influence_WEIGHT1_OUTPUT * PACE</pre></span>
+  <span class="formula"><pre>BIAS1_change   = ERROR * influence_BIAS1_OUTPUT   * PACE</pre></span><br/>
+  <span class="formula"><pre>WEIGHT2_change = ERROR * influence_WEIGHT2_OUTPUT * PACE</pre></span>
+  <span class="formula"><pre>BIAS2_change   = ERROR * influence_BIAS2_OUTPUT   * PACE</pre></span>
+</div>
+
         <div class="formula-block">
-          <div class="formula-block-label">CHANGING THE PARAMETERS</div><pre>
-<span class="formula">WEIGHT1 = WEIGHT1 + WEIGHT1_change</span>
-<span class="formula">BIAS1   = BIAS1   + BIAS1_change</span>
+  <div class="formula-block-label">CHANGING THE PARAMETERS</div>
+  <span class="formula"><pre>WEIGHT1 = WEIGHT1 + WEIGHT1_change</pre></span>
+  <span class="formula"><pre>BIAS1   = BIAS1   + BIAS1_change</pre></span><br/>
+  <span class="formula"><pre>WEIGHT2 = WEIGHT2 + WEIGHT2_change</pre></span>
+  <span class="formula"><pre>BIAS2   = BIAS2   + BIAS2_change</pre></span>
+</div>
 
-<span class="formula">WEIGHT2 = WEIGHT2 + WEIGHT2_change</span>
-<span class="formula">BIAS2   = BIAS2   + BIAS2_change</span></pre>
-        </div>
 
-        <div class="success-callout">
-          <div class="influence-panel-label">For Reference</div><pre>
+<div class="success-callout">
+<div class="influence-panel-label">For Reference</div><pre>
 PRODUCT1 = INPUT * WEIGHT1
 SUM1     = PRODUCT1 + BIAS1
 ACT1     = max(SUM1, 0.0) 
@@ -1077,10 +1089,13 @@ PRODUCT2 = ACT1 * WEIGHT2
 SUM2     = PRODUCT2 + BIAS2
 ACT2     = 1 / (1 + 1/2.72**SUM2)
 OUTPUT   = ACT2</pre>
-        </div>
 
-        <div class="influence-panel">
-          <div class="influence-panel-label">INFLUENCES</div><pre>
+</div>
+
+
+
+<div class="influence-panel">
+            <div class="influence-panel-label">INFLUENCES</div><pre>
 influence_WEIGHT1_PRODUCT1 = INPUT
 influence_PRODUCT1_SUM1    = 1.0
 influence_BIAS1_SUM1       = 1.0
@@ -1092,10 +1107,10 @@ influence_PRODUCT2_SUM2    = 1.0
 influence_BIAS2_SUM2       = 1.0
 influence_SUM2_ACT2        = ACT2 * (1.0 - ACT2)
 influence_ACT2_OUTPUT      = 1.0</pre>
-        </div>
+</div>
 
-        <div class="influence-panel">
-          <div class="influence-panel-label">CHAIN of INFLUENCES for WEIGHT1:</div><pre>
+<div class="influence-panel">
+<div class="influence-panel-label">CHAIN of INFLUENCES for WEIGHT1:</div><pre>
 influence_WEIGHT1_OUTPUT = (
     influence_WEIGHT1_PRODUCT1
   * influence_PRODUCT1_SUM1
@@ -1105,10 +1120,10 @@ influence_WEIGHT1_OUTPUT = (
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
 )</pre>
-        </div>
+</div>
 
-        <div class="influence-panel">
-          <div class="influence-panel-label">CHAIN of INFLUENCES for BIAS1</div><pre>
+<div class="influence-panel">
+<div class="influence-panel-label">CHAIN of INFLUENCES for BIAS1</div><pre>
 influence_BIAS1_OUTPUT = (
     influence_BIAS1_SUM1
   * influence_SUM1_ACT1
@@ -1117,28 +1132,30 @@ influence_BIAS1_OUTPUT = (
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
 )</pre>
-        </div>
+</div>
 
-        <div class="influence-panel">
-          <div class="influence-panel-label">CHAIN of INFLUENCES for WEIGHT2</div><pre>
+<div class="influence-panel">
+<div class="influence-panel-label">CHAIN of INFLUENCES for WEIGHT2</div><pre>
 influence_WEIGHT2_OUTPUT = (
     influence_WEIGHT2_PRODUCT2
   * influence_PRODUCT2_SUM2
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
 )</pre>
-        </div>
+</div>
 
-        <div class="influence-panel">
-          <div class="influence-panel-label">CHAIN of INFLUENCES for BIAS2</div><pre>
+<div class="influence-panel">
+<div class="influence-panel-label">CHAIN of INFLUENCES for BIAS2</div><pre>
 influence_BIAS2_OUTPUT = (
     influence_BIAS2_SUM2
   * influence_SUM2_ACT2
   * influence_ACT2_OUTPUT
 )</pre>
-        </div>
+</div>
 
-        <div class="result-banner"><pre style="text-align: left;">
+
+<div class="result-banner">
+<pre style="text-align: left;">
 WEIGHT1 
  0.63   0.12   0.07
 -0.50   0.04  -1.12
@@ -1151,21 +1168,24 @@ WEIGHT2
 0.28  1.01
 
 BIAS2
--0.07</pre>
-        </div>
+-0.07
+</pre>
+</div>
+
 
         <p><strong>LESSON 1</strong> ends here.</p>
       </div>
     </div>
+
+ 
     </div>
-
-
-
-
-
 <div class="ellipsis-break">&bull; &bull; &bull;</div>
 <div class="ellipsis-break">&bull; &bull; &bull;</div>
 <div class="ellipsis-break">&bull; &bull; &bull;</div>
+
+
+
+
 
     <div class="card">
       <div class="card-header">
