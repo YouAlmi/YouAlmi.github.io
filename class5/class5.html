@@ -1514,7 +1514,7 @@ making coding much simpler and way more fun!</p>
 # ===================================
 
 EXAMPLES = 6
-EPOCHS = 60
+EPOCHS = 50
 PACE = 0.5
 
 LESSON = 0
@@ -1556,7 +1556,7 @@ BIAS2 = [
     [0.0]
 ]
 
-print(" ——— INITIAL PARAMETERS:\n")
+print(" ——— INITIAL PARAMETERS:")
 
 print("WEIGHT1:")
 for ROW in WEIGHT1:
@@ -1578,7 +1578,7 @@ for ROW in BIAS2:
     print([round(VAL, 4) for VAL in ROW])
 print()
 
-print(" ——— TRAINING:\n")
+print(" ——— TRAINING:")
 
 # ===================================
 # 3. FORWARD PASS
@@ -1734,7 +1734,7 @@ for EPOCH in range(EPOCHS):
 
     print(f'EPOCH {EPOCH + 1}:  average_LOSS: {average_LOSS:.4f}')
 
-print("\n ——— FINAL PARAMETERS:\n")
+print("\n ——— FINAL PARAMETERS:")
 
 print("WEIGHT1:")
 for ROW in WEIGHT1:
@@ -1754,7 +1754,6 @@ print()
 print("BIAS2:")
 for ROW in BIAS2:
     print([round(VAL, 4) for VAL in ROW])
-print()
 </textarea>
           </div>
           <div class="code-row">
