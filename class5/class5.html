@@ -77,9 +77,9 @@
           "<strong>Are you positive or negative?</strong>"</p>
 
         <ul class="prose-list">
-          <li><strong>SAVE (The Positives):</strong> If the <strong>SUM1</strong> is positive (like 0.5 or 3.0), <strong>RELU</strong> <strong>SAVES</strong> it. The <strong>SUM1</strong> passes through completely unchanged. So, 0.5 stays 0.5, and 3.0 stays 3.0.</li>
+          <li><strong>SAVE (Positives):</strong> If <strong>SUM1</strong> is positive (like 0.5 or 3.0), <strong>RELU</strong> <strong>SAVES</strong> it. <strong>SUM1</strong> passes through completely unchanged. So, 0.5 stays 0.5, and 3.0 stays 3.0.</li>
 
-          <li><strong>ZERO (The Negatives):</strong> If the <strong>SUM1</strong> is negative (like −0.5 or −3.0), <strong>RELU</strong> <strong>ZEROS</strong> it, turning the <strong>SUM1</strong> into <strong>0.0</strong>. Only the <strong>0.0</strong> passes through. So, −0.5 becomes 0.0, and −3.0 becomes 0.0.</li>
+          <li><strong>ZERO (Negatives):</strong> If <strong>SUM1</strong> is negative (like −0.5 or −3.0), <strong>RELU</strong> <strong>ZEROS</strong> it, turning <strong>SUM1</strong> into <strong>0.0</strong>. Only <strong>0.0</strong> passes through. So, −0.5 becomes 0.0, and −3.0 becomes 0.0.</li>
         </ul>
 
         <p>In other words, <strong>RELU</strong> takes in a <strong>SUM1</strong>
@@ -146,18 +146,18 @@ print(f"ACT1 = {ACT1}")
     <div class="card">
       <div class="card-body">
 
-        <p>When the <strong>ACT1</strong> is <strong>RELU</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM1</strong> on <strong>ACT1</strong> is incredibly simple:</p>
+        <p>When <strong>ACT1</strong> is <strong>RELU</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM1</strong> on <strong>ACT1</strong> is incredibly simple:</p>
         <ul class="prose-list">
-          <li><strong>When the SUM1 is positive:</strong> The <strong>ACT1 = SUM1</strong>. Therefore, <strong>influence_SUM1_ACT1</strong> is <strong>1.0</strong>.</li>
+          <li><strong>When SUM1 is positive:</strong> <strong>ACT1 = SUM1</strong>. Therefore, <strong>influence_SUM1_ACT1</strong> is <strong>1.0</strong>.</li>
 
-          <li><strong>When the SUM1 is negative:</strong> The <strong>ACT1 = 0.0</strong>. Therefore, <strong>influence_SUM1_ACT1</strong> is <strong>0.0</strong>.</li>
+          <li><strong>When SUM1 is negative:</strong> <strong>ACT1 = 0.0</strong>. Therefore, <strong>influence_SUM1_ACT1</strong> is <strong>0.0</strong>.</li>
         </ul>   
         
         <div class="diagram">
           <img src="relui.png"/>
         </div>
         <br/>
-        <p>Therefore, when the <strong>ACT1</strong> is <strong>RELU</strong>:</p>
+        <p>Therefore, when <strong>ACT1</strong> is <strong>RELU</strong>:</p>
         <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 1.0</strong> (when SUM1 > 0.0)</p>
         <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 0.0</strong> (when SUM1 < 0.0)</p>
         <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 0.0</strong> (when SUM1 = 0.0)</p>
@@ -180,7 +180,7 @@ print(f"ACT1 = {ACT1}")
         Its special ability is a game called "<strong>SQUEEZE IT BETWEEN ZERO AND ONE</strong>",
         which it plays with every <strong>SUM2</strong> that passes through it.</p>
 
-        <p>When a <strong>SUM2</strong> arrives, <strong>SIGI</strong> doesn't ask questions.
+        <p>When <strong>SUM2</strong> arrives, <strong>SIGI</strong> doesn't ask questions.
           Instead, it <strong>squeezes</strong> that <strong>SUM2</strong>  —  no matter how big or small  —  
           into a tiny living room <strong>between 0.0 and 1.0</strong>.</p>
 
@@ -280,7 +280,7 @@ print(f"ACT2 = {ACT2:.7f}")
     <div class="card">
       <div class="card-body">
 
-        <p>When the <strong>ACT2</strong> is <strong>SIGI</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM2</strong> on <strong>ACT2</strong> is also incredibly simple:</p>
+        <p>When <strong>ACT2</strong> is <strong>SIGI</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM2</strong> on <strong>ACT2</strong> is also incredibly simple:</p>
 
         <p style="text-align: center;"><strong>influence_SUM2_ACT2 = ACT2 * (1 - ACT2)</strong></p>
         <p>Very easy!</p>
@@ -289,11 +289,11 @@ print(f"ACT2 = {ACT2:.7f}")
           <img src="sigii.png"/>
         </div>
         <br/>
-        <p>Therefore, in the case of <strong>SIGI</strong> being the <strong>ACT2</strong>:</p>
+        <p>Therefore, when <strong>ACT2</strong> is <strong>SIGI</strong>:</p>
 
         <ul class="prose-list">
-          <li><strong>When the SUM2 is near 0.0:</strong> <strong>influence_SUM2_ACT2</strong> is at its <strong>highest</strong>  —  around <strong>0.25</strong>. That means a small change in the SUM2 makes a noticeable change in the ACT2.</li>
-          <li><strong>When the SUM is very positive or very negative:</strong> <strong>influence_SUM2_ACT2</strong> gets <strong>closer to 0.0</strong>. That means changing the SUM2 barely affects the ACT2  —  it's already squeezed to its limit!</li>
+          <li><strong>If SUM2 is near 0.0:</strong> <strong>influence_SUM2_ACT2</strong> is at its <strong>highest</strong>  —  around <strong>0.25</strong>. That means a small change in SUM2 makes a noticeable change in ACT2.</li>
+          <li><strong>If SUM is very positive or very negative:</strong> <strong>influence_SUM2_ACT2</strong> gets <strong>closer to 0.0</strong>. That means changing SUM2 barely affects ACT2  —  it's already squeezed to its limit!</li>
         </ul>
         
 
@@ -301,6 +301,7 @@ print(f"ACT2 = {ACT2:.7f}")
     </div>
 
 
+    
     <div class="section-label">📖 STORY</div>
 
     <div class="card">
