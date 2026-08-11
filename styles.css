@@ -61,12 +61,11 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   border-radius: 8px; 
   padding: 16px 20px; 
   margin: 14px 0; 
-  font-weight: 400;                /* normal weight so <strong> stands out */
+  font-weight: 400; 
   line-height: 1.85; 
   font-family: 'Courier New', 'Courier', monospace;
 }
 
-/* All content inside callout inherits monospace EXCEPT the title */
 .callout > *:not(.callout-title),
 .callout > *:not(.callout-title) * {
   font-family: inherit;
@@ -83,7 +82,6 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   letter-spacing: 0.08em; 
   text-transform: uppercase; 
   margin-bottom: 10px; 
-  /* inherits Nunito naturally from global * — no override needed */
 }
 
 .callout-neutral .callout-title { color: var(--gray); }
@@ -97,13 +95,12 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   border-radius: 8px; 
   padding: 20px 24px; 
   margin: 16px 0; 
-  font-weight: 400;                /* normal weight so <strong> stands out */
+  font-weight: 400; 
   line-height: 2; 
   border-left: 5px solid var(--green); 
   font-family: 'Courier New', 'Courier', monospace;
 }
 
-/* All content inside formula-block inherits monospace EXCEPT the label */
 .formula-block > *:not(.formula-block-label),
 .formula-block > *:not(.formula-block-label) * {
   font-family: inherit;
@@ -114,7 +111,6 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   font-weight: 900; 
   letter-spacing: 0.1em; 
   margin-bottom: 10px; 
-  /* inherits Nunito naturally from global * — no override needed */
 }
 
 .formula { color: var(--yellow); font-weight: 900;}
@@ -195,4 +191,72 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   position: absolute;
   bottom: calc(100% + 8px);
   left: 50%;
- 
+  transform: translateX(-50%);
+  background: #ffffff;
+  color: #111111;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  z-index: 10;
+}
+.copy_btn:hover::after {
+  opacity: 1;
+}
+.copy_btn--copied::after {
+  opacity: 1;
+}
+
+/* textarea-wrap — plain container */
+.textarea-wrap {
+  position: relative;
+}
+.textarea-wrap textarea {
+  display: block;
+  width: 100%;
+}
+
+/* ── TYPOGRAPHY & BLOCKS ── */
+.inner-heading { font-weight: 900; font-size: 19px; margin: 24px 0 10px; }
+.prose-list { margin: 10px 0 14px 24px; }
+.prose-list li { margin-bottom: 8px;  }
+.img-block { text-align: center; margin: 20px 0; }
+.img-block img { max-width: 100%; height: auto; border-radius: 8px; display: inline-block; }
+@media (min-width: 768px) { .img-block img { max-width: 150px; } }
+.neuron-emoji { font-size: 60px; text-align: center; margin: 10px 0 4px; line-height: 1.1; }
+.neuron-label { text-align: center; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+.pricing-block { background: #111111; color: #ffffff; border-radius: 10px; padding: 32px 28px; text-align: center; margin: 20px 0; }
+.pricing-title { font-weight: 900; font-size: 22px; color: var(--yellow); letter-spacing: 0.1em; line-height: 1.35; margin-bottom: 14px; }
+.pricing-sub { color: #cccccc; font-weight: 700; margin-bottom: 4px; }
+.pricing-price { font-weight: 900; color: var(--yellow); font-size: 20px; margin-top: 10px; }
+.family { 
+  color: #cccccc; 
+  font-weight: 700; 
+  margin-top: 10px; /* This separates it from the $29 total */
+  margin-bottom: 0px; 
+}
+.price-pill { display: inline-block; background: green; color: white; font-weight: 900; font-size: 17px; padding: 12px 28px; border-radius: 6px; border: 4px solid #93c47d; letter-spacing: 0.02em; }
+.divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
+.footer { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px 40px; gap: 16px; border-top: 1px solid var(--border); margin-top: 60px; }
+.footer-logo { width: 128px; height: auto; opacity: 0.8; }
+.footer-copyright { color: var(--gray); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* ── CLASS SPECIFIC UTILS ── */
+.influence-panel { background: var(--white); border-left: 4px solid var(--blue); border-radius: 6px; padding: 12px 16px; margin: 12px 0 16px; color: var(--black); font-weight: 700; line-height: 1.85; }
+.influence-panel-label { color: var(--blue); font-weight: 900; letter-spacing: 0.08em; margin-bottom: 6px; }
+.takeaway { background: var(--gray-lt); border: 2px solid var(--black); border-radius: 8px; padding: 14px 20px; margin: 14px 0; font-weight: 900; }
+.takeaway-label { color: var(--gray); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+.result-banner, .completion-banner { background: #111111; color: var(--yellow); font-weight: 900; text-align: center; padding: 14px 20px; border-radius: 8px; margin: 14px 0; }
+.success-callout { background: var(--green-lt); border: 2px solid var(--green); border-radius: 8px; padding: 14px 20px; margin: 12px 0; font-weight: 800; color: var(--green); }
+.error-chip { display: inline-block; background: var(--red-lt); color: var(--red); font-weight: 800; padding: 4px 12px; border-radius: 20px; margin: 4px 0; }
+.diagram img { max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto; border: 1.5px solid var(--border); }
+.step-heading { display: flex; align-items: center; gap: 12px; font-weight: 900; margin: 28px 0 12px; }
+.step-badge { background: var(--green); color: #ffffff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
+.teaser { background: #111111; color: #ffffff; border-radius: 10px; padding: 28px; text-align: center; margin: 36px 0 0; font-weight: 700; }
+.teaser-next { color: var(--yellow); font-weight: 900; font-size: 22px; margin: 8px 0; }
