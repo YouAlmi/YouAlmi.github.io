@@ -43,136 +43,28 @@
 
     <div class="card">
       <div class="card-body">
-        <p>🎉 <strong>Big moment!</strong> For the first time, we're building a <strong>multilayer model</strong>  —  with <strong>2 LAYERS</strong>!</p>
-        <p>Here's what our 2-layer model looks like. Cool, right? 😎</p>
+        <p>We're introducing an <strong>ACT</strong>  called <strong>SIGI</strong>!</p>
+        <p>Here's what our machine brain looks like:</p>
         <div class="diagram">
           <img src="multi.png" alt="multi" style="display: block; margin: 0 auto 20px;">
         </div>
 
-        <p>But wait  —  there's more! We're also introducing two <strong>ACTS</strong>: <strong>ACT1</strong> and <strong>ACT2</strong>.</p>
-        <p>What is an <strong>ACT</strong>?</p>
-        <p>Any <strong>ACT</strong> is simply a formula.</p>
-        <p>What does an <strong>ACT</strong> do?</p> 
-        <p>In a <strong>NEURON</strong>, an <strong>ACT</strong> takes in a <strong>SUM</strong> and transforms it into the final number  —  which becomes that <strong>NEURON'S</strong> official <strong>RESULT</strong>. Magic! ✨</p>
-        <p>So every <strong>ACT</strong> is simply a formula that behaves in an interesting way and has its own <strong>superpower</strong>.</p>
-        <p>Today, we meet two famous <strong>ACTS</strong> named <strong>RELU</strong> and <strong>SIGI</strong>.</p>
-        <p>Here, <strong>RELU</strong> acts as <strong>ACT1</strong> and <strong>SIGI</strong> acts as <strong>ACT2</strong>.</p> 
+        <p>What is the <strong>ACT</strong>?</p>
+        <p>This <strong>ACT</strong> is simply a formula.</p>
+        <p>What does the <strong>ACT</strong> do?</p> 
+        <p>In the <strong>NEURON</strong>, the <strong>ACT</strong> takes in <strong>SUM</strong> and transforms it into the final number  —  which becomes that <strong>NEURON'S</strong> official <strong>RESULT</strong>. Magic! ✨</p>
+        <p>Simply put, this <strong>ACT</strong>  —  called <strong>SIGI</strong> —  is simply a formula that behaves in an interesting way and has its own <strong>superpower</strong>.</p>
         <p>Let's dive in! 🚀</p>
       </div>
     </div>
 
-    <div class="section-label">ACT1 (RELU)</div>
-    <div class="card">
-      <div class="card-body">
-        <p>Let's begin with our first figure, <strong>RELU</strong>.</p>
-
-        <p><strong>RELU</strong>'s superpower is known as "<strong>Perfect Gate</strong>".</p>
-
-        <p>Imagine <strong>RELU</strong> is a magician.
-          Its unique ability is a game called "<strong>SAVE or ZERO</strong>",
-          which it plays with every <strong>SUM1</strong> that passes through it.</p>
-
-        <p>When a <strong>SUM1</strong> enters <strong>RELU</strong>,
-          the magician asks one simple question:
-          "<strong>Are you positive or negative?</strong>"</p>
-
-        <ul class="prose-list">
-          <li><strong>SAVE (Positives):</strong> If <strong>SUM1</strong> is positive (like 0.5 or 3.0), <strong>RELU</strong> <strong>SAVES</strong> it. <strong>SUM1</strong> passes through completely unchanged. So, 0.5 stays 0.5, and 3.0 stays 3.0.</li>
-
-          <li><strong>ZERO (Negatives):</strong> If <strong>SUM1</strong> is negative (like −0.5 or −3.0), <strong>RELU</strong> <strong>ZEROS</strong> it, turning <strong>SUM1</strong> into <strong>0.0</strong>. Only <strong>0.0</strong> passes through. So, −0.5 becomes 0.0, and −3.0 becomes 0.0.</li>
-        </ul>
-
-        <p>In other words, <strong>RELU</strong> takes in a <strong>SUM1</strong>
-        and sends out the maximum of that <strong>SUM1</strong> and <strong>0.0</strong>.</p>
-        <p>The <strong>RELU</strong> formula:</p>
-
-        <p style="text-align: center;"><strong>RELU = max(SUM1, 0.0)</strong></p>
-
-        <p>Here is how we can write this "<strong>SAVE or ZERO</strong>" game in Python code:</p>
-
-        <p><strong>🟢 GAME 1: SAVE</strong> ✨ The positive SUM1 is SAVED</p>
-
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input3" style="line-height: 1.2;">
-SUM1 = 0.5
-ACT1 = max(SUM1, 0.0)  # RELU
-
-print(f"ACT1 = {ACT1}")
-</textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(3)"><strong>RUN CODE</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input3', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window3">Ready for math!</div>
-        </div>
-
-        <p><strong>🔵 GAME 2: ZERO</strong> 🪄 The negative SUM1 is turned into ZERO</p>
-
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input4" style="line-height: 1.2;">
-SUM1 = -0.5
-ACT1 = max(SUM1, 0.0)  # RELU
-
-print(f"ACT1 = {ACT1}")
-</textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(4)"><strong>RUN CODE</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input4', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window4">Ready for math!</div>
-        </div>
-
-      
-        <div class="diagram">
-          <img src="relu.png"/>
-        </div>
-        <br/>
-        <p>So <strong>RELU</strong> equals <strong>SUM1</strong>  —  or becomes <strong>ZERO</strong>.</p>
-        
-      </div>
-    </div>
 
 
-    <div class="section-label">INFLUENCE (RELU)</div>
-
+    <div class="section-label">ACT (SIGI)</div>
     <div class="card">
       <div class="card-body">
 
-        <p>When <strong>ACT1</strong> is <strong>RELU</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM1</strong> on <strong>ACT1</strong> is incredibly simple:</p>
-        <ul class="prose-list">
-          <li><strong>When SUM1 is positive:</strong> <strong>ACT1 = SUM1</strong>. Therefore, <strong>influence_SUM1_ACT1</strong> is <strong>1.0</strong>.</li>
-
-          <li><strong>When SUM1 is negative:</strong> <strong>ACT1 = 0.0</strong>. Therefore, <strong>influence_SUM1_ACT1</strong> is <strong>0.0</strong>.</li>
-        </ul>   
-        
-        <div class="diagram">
-          <img src="relui.png"/>
-        </div>
-        <br/>
-        <p>Therefore, when <strong>ACT1</strong> is <strong>RELU</strong>:</p>
-        <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 1.0</strong> (if SUM1 > 0.0)</p>
-        <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 0.0</strong> (if SUM1 < 0.0)</p>
-        <p style="text-align: center;"><strong>influence_SUM1_ACT1 = 0.0</strong> (if SUM1 = 0.0)</p>
-
-        <p>Very easy!</p>
-
-      </div>
-    </div>
-
-
-    <div class="section-label">ACT2 (SIGI)</div>
-    <div class="card">
-      <div class="card-body">
-
-        <p>Let's look at our second figure, <strong>SIGI</strong>.</p>
+        <p>Let's look at our ACT —  called <strong>SIGI</strong> — in more detail.</p>
 
         <p><strong>SIGI</strong>'s superpower is called "<strong>Gentle Squeeze</strong>".</p>
 
