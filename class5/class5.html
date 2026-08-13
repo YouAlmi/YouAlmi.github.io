@@ -1368,15 +1368,15 @@ making coding much simpler and way more fun!</p>
 # ===================================
 
 EXAMPLES = 6
-EPOCHS = 50
+EPOCHS = 200
 PACE = 0.5
 
 LESSON = 0
 
 INPUTS = [
  # friend  dj  rain
-    [1.0, 1.0, 0.0],  # EXAMPLE 1
-    [1.0, 0.0, 0.0],  # EXAMPLE 2
+    [1.0, 0.0, 0.0],  # EXAMPLE 1
+    [1.0, 1.0, 0.0],  # EXAMPLE 2
     [0.0, 1.0, 0.0],  # EXAMPLE 3
     [1.0, 1.0, 1.0],  # EXAMPLE 4
     [0.0, 1.0, 1.0],  # EXAMPLE 5
@@ -1392,44 +1392,22 @@ TARGETS = [
     0   # STAY
 ]
 
-WEIGHT1 = [
-    [0.5400,  0.2179,  0.0504],
-    [0.5073, -0.3690, -0.1356]
+WEIGHT = [
+    -0.3975, -0.4930, -0.4557
 ]
 
-BIAS1 = [
-    [0.0],
-    [0.0]
-]
-
-WEIGHT2 = [
-    [-1.5228,  0.3817]
-]
-
-BIAS2 = [
-    [0.0]
+BIAS = [
+    0.0
 ]
 
 print(" ——— INITIAL PARAMETERS:")
 
-print("WEIGHT1:")
-for ROW in WEIGHT1:
-    print([round(VAL, 4) for VAL in ROW])
+print("WEIGHT:")
+print([round(VAL, 4) for VAL in WEIGHT])
 print()
 
-print("BIAS1:")
-for ROW in BIAS1:
-    print([round(VAL, 4) for VAL in ROW])
-print()
-
-print("WEIGHT2:")
-for ROW in WEIGHT2:
-    print([round(VAL, 4) for VAL in ROW])
-print()
-
-print("BIAS2:")
-for ROW in BIAS2:
-    print([round(VAL, 4) for VAL in ROW])
+print("BIAS:")
+print([round(VAL, 4) for VAL in BIAS])
 print()
 
 print(" ——— TRAINING:")
@@ -1447,42 +1425,25 @@ for EPOCH in range(EPOCHS):
         INPUT = INPUTS[EXAMPLE]
         TARGET = TARGETS[EXAMPLE]
 
-        # LAYER 1
-        PRODUCT1 = [
-            [INPUT[j] * WEIGHT1[i][j] for j in range(3)]
-            for i in range(2)
+        # SINGLE NEURON
+        PRODUCT = [
+            INPUT[j] * WEIGHT[j]
+            for j in range(3)
         ]
 
-        SUM1 = [
-            [sum(PRODUCT1[i]) + BIAS1[i][0]]
-            for i in range(2)
+        SUM = [
+            sum(PRODUCT) + BIAS[0]
         ]
 
-        ACT1_col = [
-            [max(0.0, SUM1[i][0])]
-            for i in range(2)
+        ACT = [
+            1.0 / (1.0 + 1/2.71828**(SUM[0]))
         ]
 
-        ACT1 = [[ACT1_col[0][0], ACT1_col[1][0]]]
+        OUTPUT = ACT
 
-        # LAYER 2
-        PRODUCT2 = [
-            [ACT1[0][j] * WEIGHT2[0][j] for j in range(2)]
-        ]
-
-        SUM2 = [
-            [sum(PRODUCT2[0]) + BIAS2[0][0]]
-        ]
-
-        ACT2 = [
-            [1.0 / (1.0 + 1/2.71828**(SUM2[0][0]))]
-        ]
-        OUTPUT = ACT2
-
-        ERROR = TARGET - OUTPUT[0][0]
+        ERROR = TARGET - OUTPUT[0]
 
         LOSS = abs(ERROR)
-
         LOSS_contributed = LOSS / EXAMPLES
         average_LOSS = average_LOSS + LOSS_contributed
 
@@ -1491,123 +1452,56 @@ for EPOCH in range(EPOCHS):
         # ===================================
 
         # INFLUENCES
-        influence_WEIGHT1_PRODUCT1 = INPUT
-        influence_PRODUCT1_SUM1 = 1.0
-        influence_BIAS1_SUM1 = 1.0
-        influence_SUM1_ACT1 = [
-            [1.0 if SUM1[i][0] > 0.0 else 0.0] for i in range(2)
+        influence_WEIGHT_PRODUCT = INPUT
+        influence_PRODUCT_SUM = 1.0
+        influence_BIAS_SUM = 1.0
+        influence_SUM_ACT = [
+            ACT[0] * (1.0 - ACT[0])
         ]
-
-        influence_ACT1_PRODUCT2 = WEIGHT2
-        influence_WEIGHT2_PRODUCT2 = ACT1
-        influence_PRODUCT2_SUM2 = 1.0
-        influence_BIAS2_SUM2 = 1.0
-        influence_SUM2_ACT2 = [
-            [ACT2[0][0] * (1.0 - ACT2[0][0])]
-        ]
-        influence_ACT2_OUTPUT = 1.0
+        influence_ACT_OUTPUT = 1.0
 
         # CHAIN OF INFLUENCES
-
-        influence_WEIGHT1_OUTPUT = [
-            [
-                influence_WEIGHT1_PRODUCT1[j]
-                * influence_PRODUCT1_SUM1
-                * influence_SUM1_ACT1[i][0]
-                * influence_ACT1_PRODUCT2[0][i]
-                * influence_PRODUCT2_SUM2
-                * influence_SUM2_ACT2[0][0]
-                * influence_ACT2_OUTPUT
-                for j in range(3)
-            ]
-            for i in range(2)
+        influence_WEIGHT_OUTPUT = [
+            influence_WEIGHT_PRODUCT[j]
+            * influence_PRODUCT_SUM
+            * influence_SUM_ACT[0]
+            * influence_ACT_OUTPUT
+            for j in range(3)
         ]
 
-        influence_BIAS1_OUTPUT = [
-            [
-                influence_BIAS1_SUM1
-                * influence_SUM1_ACT1[i][0]
-                * influence_ACT1_PRODUCT2[0][i]
-                * influence_PRODUCT2_SUM2
-                * influence_SUM2_ACT2[0][0]
-                * influence_ACT2_OUTPUT
-                for i in range(2)
-            ]
-        ]
-
-        influence_WEIGHT2_OUTPUT = [
-            [
-                influence_WEIGHT2_PRODUCT2[0][j]
-                * influence_PRODUCT2_SUM2
-                * influence_SUM2_ACT2[0][0]
-                * influence_ACT2_OUTPUT
-                for j in range(2)
-            ]
-        ]
-
-        influence_BIAS2_OUTPUT = [
-            [
-                influence_BIAS2_SUM2
-                * influence_SUM2_ACT2[0][0]
-                * influence_ACT2_OUTPUT
-            ]
+        influence_BIAS_OUTPUT = [
+            influence_BIAS_SUM
+            * influence_SUM_ACT[0]
+            * influence_ACT_OUTPUT
         ]
 
         # PARAMETER UPDATES
-        WEIGHT1_change = [
-            [ERROR * influence_WEIGHT1_OUTPUT[i][j] * PACE for j in range(3)]
-            for i in range(2)
+        WEIGHT_change = [
+            ERROR * influence_WEIGHT_OUTPUT[j] * PACE
+            for j in range(3)
         ]
-        BIAS1_change = [
-            [ERROR * influence_BIAS1_OUTPUT[0][i] * PACE]
-            for i in range(2)
-        ]
-
-        WEIGHT2_change = [
-            [ERROR * influence_WEIGHT2_OUTPUT[0][j] * PACE for j in range(2)]
-        ]
-        BIAS2_change = [
-            [ERROR * influence_BIAS2_OUTPUT[0][0] * PACE]
+        BIAS_change = [
+            ERROR * influence_BIAS_OUTPUT[0] * PACE
         ]
 
-        WEIGHT1 = [
-            [WEIGHT1[i][j] + WEIGHT1_change[i][j] for j in range(3)]
-            for i in range(2)
+        WEIGHT = [
+            WEIGHT[j] + WEIGHT_change[j]
+            for j in range(3)
         ]
-        BIAS1 = [
-            [BIAS1[i][0] + BIAS1_change[i][0]]
-            for i in range(2)
-        ]
-
-        WEIGHT2 = [
-            [WEIGHT2[0][j] + WEIGHT2_change[0][j] for j in range(2)]
-        ]
-        BIAS2 = [
-            [BIAS2[0][0] + BIAS2_change[0][0]]
+        BIAS = [
+            BIAS[0] + BIAS_change[0]
         ]
 
     print(f'EPOCH {EPOCH + 1}:  average_LOSS: {average_LOSS:.4f}')
 
 print("\n ——— FINAL PARAMETERS:")
 
-print("WEIGHT1:")
-for ROW in WEIGHT1:
-    print([round(VAL, 4) for VAL in ROW])
+print("WEIGHT:")
+print([round(VAL, 4) for VAL in WEIGHT])
 print()
 
-print("BIAS1:")
-for ROW in BIAS1:
-    print([round(VAL, 4) for VAL in ROW])
-print()
-
-print("WEIGHT2:")
-for ROW in WEIGHT2:
-    print([round(VAL, 4) for VAL in ROW])
-print()
-
-print("BIAS2:")
-for ROW in BIAS2:
-    print([round(VAL, 4) for VAL in ROW])
+print("BIAS:")
+print([round(VAL, 4) for VAL in BIAS])
 </textarea>
           </div>
           <div class="code-row">
@@ -1633,8 +1527,8 @@ for ROW in BIAS2:
 # ===================================
 
 TEST_INPUTS = [
-    [1.0, 1.0, 0.0],  # EXAMPLE 1
-    [1.0, 0.0, 0.0],  # EXAMPLE 2
+    [1.0, 0.0, 0.0],  # EXAMPLE 1
+    [1.0, 1.0, 0.0],  # EXAMPLE 2
     [0.0, 1.0, 0.0],  # EXAMPLE 3
     [1.0, 1.0, 1.0],  # EXAMPLE 4
     [0.0, 1.0, 1.0],  # EXAMPLE 5
@@ -1654,22 +1548,12 @@ TEST_TARGETS = [
     0   # STAY
 ]
 
-WEIGHT1 = [
-    [0.2362, 0.0137, -0.0468],
-    [1.4361, 1.4157, -1.8434]
+WEIGHT = [
+    3.0531, 3.0279, -4.4591
 ]
 
-BIAS1 = [
-    [-0.3038],
-    [0.3839]
-]
-
-WEIGHT2 = [
-    [-1.4281, 2.5129]
-]
-
-BIAS2 = [
-    [-1.4859]
+BIAS = [
+    -0.2506
 ]
 
 # ===================================
@@ -1685,38 +1569,21 @@ for EXAMPLE in range(NUM_EXAMPLES):
     INPUT = TEST_INPUTS[EXAMPLE]
     TARGET = TEST_TARGETS[EXAMPLE]
 
-    # LAYER 1
-    PRODUCT1 = [
-        [INPUT[j] * WEIGHT1[i][j] for j in range(3)]
-        for i in range(2)
+    # SINGLE NEURON
+    PRODUCT = [
+        INPUT[j] * WEIGHT[j]
+        for j in range(3)
     ]
 
-    SUM1 = [
-        [sum(PRODUCT1[i]) + BIAS1[i][0]]
-        for i in range(2)
+    SUM = [
+        sum(PRODUCT) + BIAS[0]
     ]
 
-    ACT1_col = [
-        [max(0.0, SUM1[i][0])]
-        for i in range(2)
+    ACT = [
+        1.0 / (1.0 + 1 / 2.71828 ** (SUM[0]))
     ]
 
-    ACT1 = [[ACT1_col[0][0], ACT1_col[1][0]]]
-
-    # LAYER 2
-    PRODUCT2 = [
-        [ACT1[0][j] * WEIGHT2[0][j] for j in range(2)]
-    ]
-
-    SUM2 = [
-        [sum(PRODUCT2[0]) + BIAS2[0][0]]
-    ]
-
-    ACT2 = [
-        [1.0 / (1.0 + 1 / 2.71828 ** (SUM2[0][0]))]
-    ]
-
-    OUTPUT = ACT2[0][0]
+    OUTPUT = ACT[0]
     PREDICTED_CLASS = "GO  " if OUTPUT >= 0.5 else "STAY"
     ACTUAL_CLASS = "GO" if TARGET == 1 else "STAY"
 
@@ -1798,14 +1665,7 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
     <div class="section-label">Note</div>
     <div class="card">
       <div class="card-body">
-        <p>As mentioned, the concept of <strong>INFLUENCE</strong> 
-          is the real secret weapon used by modern AI. 
-          It is truly a game changer.</p> 
-        <p>So modern machines can learn from their own errors, 
-          thanks to the <strong>PARAMETER CHANGE RULE</strong> and its variations. 
-          While the SIMPLIFIED CHANGE RULE was sufficient for this task, 
-          we are moving step by step toward the <strong>FUNDAMENTAL CHANGE RULE</strong> 
-           — with just one step remaining.</p>  
+        <p>Bla bla bla</p>  
       </div>
     </div>
 
