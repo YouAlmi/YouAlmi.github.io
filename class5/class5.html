@@ -1792,6 +1792,8 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
   </script>
 
 
+
+
     <!-- NOTE -->
     <div class="section-label">Note</div>
     <div class="card">
@@ -1810,10 +1812,8 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
 
     <!-- TEASER -->
     <div class="teaser">
-      <div class="teaser-next">Up Next: Lesson 3</div>
-      <p>Datasets often contain large numbers. To handle them,<br/>
-      we add <strong style="color:var(--yellow);">PACE</strong>
-      to the <strong style="color:var(--yellow);">PARAMETER CHANGE RULE</strong>.
+      <div class="teaser-next">Up Next: Lesson 6</div>
+      <p>RELU<br/>
       </p>
     </div>
 
@@ -1825,50 +1825,7 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
     </footer>
 
   </div>
-  <!-- /page -->
 
-
-  <script>
-
-    function copyCode(id, btn) {
-      const text = document.getElementById(id).value;
-      navigator.clipboard.writeText(text).then(() => {
-        btn.classList.add('copy_btn--copied');
-        btn.setAttribute('data-tooltip', 'Copied!');
-        setTimeout(() => {
-          btn.classList.remove('copy_btn--copied');
-          btn.setAttribute('data-tooltip', 'Copy code');
-        }, 1800);
-      });
-    }
-
-    function outf(text, outputId) {
-      var mypre = document.getElementById(outputId);
-      mypre.innerHTML = mypre.innerHTML + text;
-    }
-
-    function runPython(block) {
-      const codeId   = block === 1 ? "code-input1"    : "code-input2";
-      const outputId = block === 1 ? "output-window1" : "output-window2";
-
-      var code  = document.getElementById(codeId).value;
-      var mypre = document.getElementById(outputId);
-      mypre.innerHTML = '';
-
-      Sk.sysmodules = {};
-      Sk.pre = outputId;
-      Sk.configure({ output: (text) => outf(text, outputId) });
-
-      var myPromise = Sk.misceval.asyncToPromise(function () {
-        return Sk.importMainWithBody("<stdin>", false, code, true);
-      });
-
-      myPromise.then(
-        function (mod) { console.log('Success!'); },
-        function (err)  { mypre.innerHTML = err.toString(); }
-      );
-    }
-  </script>
 
 </body>
 </html>
