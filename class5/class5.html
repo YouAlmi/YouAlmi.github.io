@@ -65,17 +65,17 @@
     <div class="card">
       <div class="card-body">
 
-        <p>Let's look at our ACT —  called <strong>SIGI</strong> — in more detail.</p>
+       <p>Let’s take a closer look at our <strong>ACT</strong> — called <strong>SIGI</strong>.</p>
 
-        <p><strong>SIGI</strong>'s superpower is called "<strong>Gentle Squeeze</strong>".</p>
+        <p><strong>SIGI</strong> has a cool superpower called the <strong>“Gentle Squeeze.”</strong></p>
 
-        <p>Imagine <strong>SIGI</strong> as another magician.
-        Its special ability is a game called "<strong>SQUEEZE IT BETWEEN ZERO AND ONE</strong>",
-        which it plays with every <strong>SUM2</strong> that passes through it.</p>
+        <p>Imagine <strong>SIGI</strong> as a friendly magician. 🪄  
+        It plays a game called <strong>“Squeeze It Between Zero and One.”</strong></p>
 
-        <p>When <strong>SUM2</strong> arrives, <strong>SIGI</strong> doesn't ask questions.
-          Instead, it <strong>squeezes</strong> that <strong>SUM2</strong>  —  no matter how big or small  —  
-          into a tiny living room <strong>between 0.0 and 1.0</strong>.</p>
+        <p>Every time a <strong>SUM</strong> comes in, <strong>SIGI</strong> gently <strong>squeezes</strong> it — no matter how big or small — into a cozy space <strong>between 0.0 and 1.0</strong>.</p>
+
+        <p>So even huge numbers or tiny numbers get turned into something neat and small that fits perfectly in that space!</p>
+
 
        <ul class="prose-list">
         <li><strong>Large positive numbers</strong> (like 3.0 or 5.0) get squeezed <strong>very close to 1.0</strong> — but never quite reach it.</li>
@@ -83,25 +83,25 @@
         <li><strong>Zero (0.0)</strong> lands right in the middle — it becomes <strong>0.5</strong>.</li>
       </ul>
 
-        <p>In other words, <strong>SIGI</strong> takes in any <strong>SUM2</strong>
+        <p>In other words, <strong>SIGI</strong> takes in any <strong>SUM</strong>
         and sends out a number that is <strong>always between 0.0 and 1.0</strong>.</p>
         <p>The <strong>SIGI</strong> formula:</p>
 
-        <p style="text-align: center;"><strong>SIGI = 1 / (1 + 1/2.71828<sup>SUM2</sup>)</strong></p>
+        <p style="text-align: center;"><strong>SIGI = 1 / (1 + 1/2.71828<sup>SUM</sup>)</strong></p>
 
         <p><em>Don't worry about this fancy formula  —  just know it's a gentle squeeze!</em></p>
 
         <p>Here is how we can write this <strong>"ZERO TO ONE"</strong> game in Python code:</p>
 
-        <p><strong>🟢 GAME 1: Almost ONE</strong> ✨ A large positive SUM2 gets squeezed close to 1.0</p> 
+        <p><strong>🟢 GAME 1: Almost ONE</strong> ✨ A large positive SUM gets squeezed close to 1.0</p> 
 
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input5" style="line-height: 1.2;">
-SUM2 = 3.0
-ACT2 = 1 / (1 + 1/2.71828**SUM2)  # SIGI
+SUM = 3.0
+ACT = 1 / (1 + 1/2.71828**SUM)  # SIGI
 
-print(f"ACT2 = {ACT2:.7f}")
+print(f"ACT = {ACT:.7f}")
 </textarea>
           </div>
           <div class="code-row">
@@ -113,15 +113,15 @@ print(f"ACT2 = {ACT2:.7f}")
           <div id="output-window5">Ready for math!</div>
         </div>
 
-        <p><strong>🔵 GAME 2: Almost ZERO</strong> 🪄 A large negative SUM2 gets squeezed close to 0.0</p>
+        <p><strong>🔵 GAME 2: Almost ZERO</strong> 🪄 A large negative SUM gets squeezed close to 0.0</p>
 
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input6" style="line-height: 1.2;">
-SUM2 = -3.0
-ACT2 = 1 / (1 + 1/2.71828**SUM2)  # SIGI
+SUM = -3.0
+ACT = 1 / (1 + 1/2.71828**SUM)  # SIGI
 
-print(f"ACT2 = {ACT2:.7f}")
+print(f"ACT = {ACT:.7f}")
 </textarea>
           </div>
           <div class="code-row">
@@ -138,10 +138,10 @@ print(f"ACT2 = {ACT2:.7f}")
         <div class="pythoncode">
           <div class="textarea-wrap">
 <textarea id="code-input7" style="line-height: 1.2;">
-SUM2 = 0.0
-ACT2 = 1 / (1 + 1/2.71828**SUM2)  # SIGI
+SUM = 0.0
+ACT = 1 / (1 + 1/2.71828**SUM)  # SIGI
 
-print(f"ACT2 = {ACT2:.7f}")
+print(f"ACT = {ACT:.7f}")
 </textarea>
           </div>
           <div class="code-row">
@@ -173,20 +173,20 @@ print(f"ACT2 = {ACT2:.7f}")
     <div class="card">
       <div class="card-body">
 
-        <p>When <strong>ACT2</strong> is <strong>SIGI</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM2</strong> on <strong>ACT2</strong> is also incredibly simple:</p>
+        <p>When <strong>ACT</strong> is <strong>SIGI</strong>, calculating the <strong>INFLUENCE</strong> of <strong>SUM</strong> on <strong>ACT</strong> is also incredibly simple:</p>
 
-        <p style="text-align: center;"><strong>influence_SUM2_ACT2 = ACT2 * (1 - ACT2)</strong></p>
+        <p style="text-align: center;"><strong>influence_SUM_ACT = ACT * (1 - ACT)</strong></p>
         <p>Very easy!</p>
         <p>Some very clever mathematicians figured out this super simple formula above. 👍</p>
         <div class="diagram">
           <img src="sigii.png"/>
         </div>
         <br/>
-        <p>Therefore, when <strong>ACT2</strong> is <strong>SIGI</strong>:</p>
+        <p>Therefore, when <strong>ACT</strong> is <strong>SIGI</strong>:</p>
 
         <ul class="prose-list">
-          <li><strong>If SUM2 is near 0.0:</strong> <strong>influence_SUM2_ACT2</strong> is at its <strong>highest</strong>  —  around <strong>0.25</strong>. That means a small change in SUM2 makes a noticeable change in ACT2.</li>
-          <li><strong>If SUM is very positive or very negative:</strong> <strong>influence_SUM2_ACT2</strong> gets <strong>closer to 0.0</strong>. That means changing SUM2 barely affects ACT2  —  it's already squeezed to its limit!</li>
+          <li><strong>If SUM is near 0.0:</strong> <strong>influence_SUM_ACT</strong> is at its <strong>highest</strong>  —  around <strong>0.25</strong>. That means a small change in SUM makes a noticeable change in ACT.</li>
+          <li><strong>If SUM is very positive or very negative:</strong> <strong>influence_SUM_ACT</strong> gets <strong>closer to 0.0</strong>. That means changing SUM barely affects ACT  —  it's already squeezed to its limit!</li>
         </ul>
         
 
