@@ -930,10 +930,8 @@ WEIGHT2 = [
       
       <div class="card-body">
 
-        <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div>
-        </div>
-        <p>We multiply each <strong>INPUT</strong> by its <strong>WEIGHT</strong> to get the weighted <strong>INPUT</strong>.</p>
+  
+        
 
    
       <div class="card-body">
@@ -945,15 +943,22 @@ PACE   = 1.0</pre>
         </div>
 
         <p><strong>EXAMPLE 1</strong>:</p>
-        <p>Pay attention that INPUT = [INPUT1, INPUT2, INPUT3].</p>
         <div class="callout callout-neutral"><pre>
 INPUT  = [INPUT1, INPUT2, INPUT3]
 TARGET = 32.0</pre>
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div><pre>
-PRODUCT = INPUT * WEIGHT = 0.0 * 0.0 = 0.0
+          <div class="callout-title">Forward Pass</div>
+          <p>We multiply each <strong>INPUT</strong> by its <strong>WEIGHT</strong>.</p>
+          <pre>
+PRODUCT = INPUT * WEIGHT = (
+    [INPUT1, INPUT2, INPUT3] 
+  * [WEIGHT1, WEIGHT2, WEIGHT3]
+ ) = (
+
+ 
+ ) 0.0
 SUM = sum(PRODUCT) + BIAS = 0.0 + 0.0 = 0.0
 OUTPUT = SUM = 0.0</pre>
         </div>
