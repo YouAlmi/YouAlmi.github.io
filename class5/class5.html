@@ -937,6 +937,47 @@ WEIGHT2 = [
         <p>We multiply each <strong>INPUT</strong> by its <strong>WEIGHT</strong> to get the weighted <strong>INPUT</strong>.</p>
 
    
+      <div class="card-body">
+
+        <div class="callout callout-neutral"><pre>
+WEIGHT = [WEIGHT1, WEIGHT2, WEIGHT3]
+BIAS   = [0.0]
+PACE   = 1.0</pre>
+        </div>
+
+        <p><strong>EXAMPLE 1</strong>:</p>
+        <p>Pay attention that INPUT = [INPUT1, INPUT2, INPUT3].</p>
+        <div class="callout callout-neutral"><pre>
+INPUT  = [INPUT1, INPUT2, INPUT3]
+TARGET = 32.0</pre>
+        </div>
+
+        <div class="callout callout-success">
+          <div class="callout-title">Forward Pass</div><pre>
+PRODUCT = INPUT * WEIGHT = 0.0 * 0.0 = 0.0
+SUM = sum(PRODUCT) + BIAS = 0.0 + 0.0 = 0.0
+OUTPUT = SUM = 0.0</pre>
+        </div>
+
+        <div class="callout callout-error">
+          <div class="callout-title">Error</div><pre>
+ERROR = TARGET − OUTPUT = 32.0 − 0.0 = 32.0</pre>
+        </div>
+
+        <div class="diagram">
+          <img src="l1.png" alt="Neuron diagram — Lesson 1 before change" />
+        </div>
+
+ <div class="callout callout-error">
+          <div class="callout-title">LOSS</div><pre>
+LOSS = abs(ERROR) = abs(32.0) = 32.0</pre>
+        </div>
+
+        <div class="callout callout-error">
+          <div class="callout-title">total_LOSS</div><pre>
+LOSS_contribution = LOSS / EXAMPLES = 32.0 / 6 = 16.0
+total_LOSS = total_LOSS + LOSS_contribution = 0.0 + 16.0 = 16.0</pre>
+        </div>
         <div class="diagram">
           <img src="l1.png"/>
         </div>
@@ -984,9 +1025,9 @@ and reducing the <strong>ERROR</strong>.</p>
 <div class="success-callout">
 <div class="influence-panel-label">For Reference</div><pre>
 PRODUCT = INPUT * WEIGHT
-SUM     = PRODUCT + BIAS
+SUM     = sum(PRODUCT) + BIAS
 ACT     = max(SUM, 0.0) 
-OUTPUT   = ACT</pre>
+OUTPUT  = ACT</pre>
 
 </div>
 
