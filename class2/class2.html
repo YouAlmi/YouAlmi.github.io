@@ -32,6 +32,9 @@
 
   <div class="page">
 
+
+
+
 <!-- INTRODUCTION -->
     <div class="section-label">Introduction</div>
 
@@ -44,192 +47,209 @@
     </div>
 
 
-    <!-- INFLUENCE -->
-    <div class="section-label">INFLUENCE</div>
-
-    <div class="card">
-      <div class="card-body">
-
-        <p>First, consider <strong>INFLUENCE</strong>.</p>
-
-        <p>To understand this simple concept, let's look at three examples, each with a simple formula.</p>
-
-        <hr class="divider"/>
 
 
-        <!-- EXAMPLE 1 -->
-        <div class="step-heading">
-          <div class="step-badge">1</div>
-          <span>Example 1</span>
-        </div>
+<!-- INFLUENCE -->
+<div class="section-label">INFLUENCE</div>
 
-        <p>The simple formula:</p>
+<div class="card">
+  <div class="card-body">
 
-        <div class="formula-block"><pre>
-<span class="formula">RESULT = 3.0 * PARAMETER</span></pre>
-        </div>
+    <p>First, consider <strong>INFLUENCE</strong>.</p>
 
-        <p>If PARAMETER = <strong>5.0</strong>, then RESULT = 3.0 * 5.0 = <strong>15.0</strong>.</p>
-        <p>Now, if we change the <strong>PARAMETER</strong> by <strong>+0.1</strong>, the <strong>RESULT</strong> changes by <strong>+0.3</strong>:</p>
+    <p>To understand this simple concept, let's look at three examples, each with a simple formula.</p>
 
-        <div class="callout callout-neutral"><pre>
-PARAMETER = 5.0 + 0.1 = 5.1
+    <hr class="divider"/>
+
+
+    <!-- EXAMPLE 1 -->
+    <div class="step-heading">
+      <div class="step-badge">1</div>
+      <span>Example 1</span>
+    </div>
+
+    <p>The simple formula:</p>
+
+    <div class="formula-block"><pre>
+<span class="formula">RESULT = 3.0 * ELEMENT</span></pre>
+    </div>
+
+    <p>If ELEMENT = <strong>5.0</strong>, then RESULT = 3.0 * 5.0 = <strong>15.0</strong>.</p>
+
+    <p>Now, if we change the <strong>ELEMENT</strong> by <strong>+0.1</strong>, the <strong>RESULT</strong> changes by <strong>+0.3</strong>:</p>
+
+    <div class="callout callout-neutral"><pre>
+ELEMENT = 5.0 + 0.1 = 5.1
 RESULT = 3.0 * 5.1 = 15.3
 
-PARAMETER_change = 5.1 − 5.0 = 0.1
+ELEMENT_change = 5.1 − 5.0 = 0.1
 RESULT_change = 15.3 − 15.0 = 0.3
 
-MULTIPLIER = RESULT_change / PARAMETER_change = 0.3 / 0.1 = 3.0</pre>
-        </div>
+MULTIPLIER = RESULT_change / ELEMENT_change = 0.3 / 0.1 = 3.0</pre>
+    </div>
 
-        <div class="callout callout-success">
-          <p>👉 The <strong>RESULT</strong> changed <strong>3.0</strong> times as much as the <strong>PARAMETER</strong>.</p>
-          <p>So we say: The <strong>INFLUENCE</strong> of the <strong>PARAMETER</strong> on the <strong>RESULT</strong> is <strong>3.0</strong>:</p><pre>
-influence_PARAMETER_RESULT = 3.0</pre>
-        </div>
+    <div class="callout callout-success">
+      <p>👉 The <strong>RESULT</strong> changed <strong>3.0 times</strong> as much as the <strong>ELEMENT</strong>.</p>
 
-        <div class="takeaway">
-          <div class="takeaway-label">Takeaway</div>
-          The number (3.0) that multiplies the PARAMETER is the INFLUENCE of that PARAMETER on the RESULT.<br/><br/>
-          RESULT = <strong>3.0</strong> * PARAMETER<br/>
-          influence_PARAMETER_RESULT = <strong>3.0</strong>
-        </div>
+      <p>So we say: The <strong>INFLUENCE</strong> of the <strong>ELEMENT</strong> on the <strong>RESULT</strong> is <strong>3.0</strong>:</p><pre>
+influence_ELEMENT_RESULT = 3.0</pre>
+    </div>
 
-
-        <hr class="divider"/>
-
-
-        <!-- EXAMPLE 2 -->
-        <div class="step-heading">
-          <div class="step-badge">2</div>
-          <span>Example 2</span>
-        </div>
-
-        <p>The simple formula:</p>
-
-        <div class="formula-block"><pre>
-<span class="formula">RESULT = −3.0 * PARAMETER</span></pre>
-        </div>
-
-        <p>If <strong>PARAMETER</strong> = <strong>5.0</strong>, then <strong>RESULT</strong> = −3.0 * 5.0 = <strong>−15.0</strong>.</p>
-        <p>Now, if we change the <strong>PARAMETER</strong> by <strong>+0.1</strong>, the <strong>RESULT</strong> changes by <strong>−0.3</strong>:</p>
-
-        <div class="callout callout-neutral"><pre>
-PARAMETER = 5.0 + 0.1 = 5.1
-RESULT = −3.0 * 5.1 = −15.3
-
-PARAMETER_change = 5.1 − 5.0 = 0.1
-RESULT_change = −15.3 − (−15.0) = −0.3
-
-MULTIPLIER = RESULT_change / PARAMETER_change = −0.3 / 0.1 = −3.0</pre>
-        </div>
-
-        <div class="callout callout-success">
-          <p>👉 The <strong>RESULT</strong> changed <strong>3.0</strong> times as much as the <strong>PARAMETER</strong>, but in the <strong>opposite direction</strong>.</p>
-          <p>So we say: The <strong>INFLUENCE</strong> of the <strong>PARAMETER</strong> on the <strong>RESULT</strong> is <strong>−3.0</strong>.</p><pre>
-influence_PARAMETER_RESULT = -3.0</pre>
-        </div>
-
-        <div class="takeaway">
-          <div class="takeaway-label">Takeaway</div>
-          The number (-3.0) that multiplies the PARAMETER is the INFLUENCE of that PARAMETER on the RESULT.<br/><br/>
-          RESULT = <strong>−3.0</strong> * PARAMETER<br/>
-          influence_PARAMETER_RESULT = <strong>−3.0</strong>
-        </div>
-
-
-        <hr class="divider"/>
-
-        <!-- EXAMPLE 3 -->
-        <div class="step-heading">
-          <div class="step-badge">3</div>
-          <span>Example 3</span>
-        </div>
-
-        <p>The simple formula:</p>
-
-        <div class="formula-block"><pre>
-<span class="formula">RESULT = PARAMETER</span></pre>
-        </div>
-        <p>We can re-write it this way:</p>
-
-        <div class="formula-block"><pre>
-<span class="formula">RESULT = 1.0 * PARAMETER</span></pre>
-        </div>
-
-        <p>If PARAMETER = <strong>5.0</strong>, then RESULT = 1.0 * 5.0 = <strong>5.0</strong>.</p>
-        <p>Now, if we change the <strong>PARAMETER</strong> by <strong>+0.1</strong>, the <strong>RESULT</strong> also changes by <strong>+0.1</strong>:</p>
-
-        <div class="callout callout-neutral"><pre>
-PARAMETER = 5.0 + 0.1 = 5.1
-RESULT = 1.0 * 5.1 = 5.1
-
-PARAMETER_change = 5.1 − 5.0 = 0.1
-RESULT_change = 5.1 − 5.0 = 0.1
-
-MULTIPLIER = RESULT_change / PARAMETER_change = 0.1 / 0.1 = 1.0</pre>
-        </div>
-
-        <div class="callout callout-success">
-          <p>👉 The <strong>RESULT</strong> changed <strong>1.0</strong> time as much as the <strong>PARAMETER</strong>. In other words, the <strong>RESULT</strong> remains equal to <strong>PARAMETER</strong>.</p>
-          <p>So we say: The <strong>INFLUENCE</strong> of the <strong>PARAMETER</strong> on the <strong>RESULT</strong> is <strong>1.0</strong>:</p><pre>
-influence_PARAMETER_RESULT = 1.0</pre>
-        </div>
-
-        <div class="takeaway">
-          <div class="takeaway-label">Takeaway</div>
-          The number (1.0) that multiplies the PARAMETER is the INFLUENCE of that PARAMETER on the RESULT.<br/><br/>
-          RESULT = <strong>1.0</strong> * PARAMETER<br/>
-          influence_PARAMETER_RESULT = <strong>1.0</strong>
-        </div>
-
-
-        <hr class="divider"/>
-
-
-        <p>The universal takeaway for simple formulas:</p>
-
-        <div class="takeaway">
-          <div class="takeaway-label">Universal Takeaway</div>
-          The number that multiplies a PARAMETER is always the INFLUENCE of that PARAMETER on the RESULT.
-        </div>
-
-      </div>
+    <div class="takeaway">
+      <div class="takeaway-label">Takeaway</div>
+      The number (3.0) that multiplies the ELEMENT is the INFLUENCE of that ELEMENT on the RESULT.<br/><br/>
+      RESULT = <strong>3.0</strong> * ELEMENT<br/>
+      influence_ELEMENT_RESULT = <strong>3.0</strong>
     </div>
 
 
-    <!-- CHAIN of INFLUENCES -->
-    <div class="section-label">CHAIN of INFLUENCES</div>
+    <hr class="divider"/>
 
-    <div class="card">
-      <div class="card-body">
 
-        <p>Now, consider the <strong>CHAIN of INFLUENCES</strong>.</p>
-        <p>To understand this simple concept, let's look at two examples, each with simple formulas.</p>
+    <!-- EXAMPLE 2 -->
+    <div class="step-heading">
+      <div class="step-badge">2</div>
+      <span>Example 2</span>
+    </div>
 
-        <hr class="divider"/>
+    <p>The simple formula:</p>
 
-        <!-- EXAMPLE 1 -->
-        <div class="step-heading">
-          <div class="step-badge">1</div>
-          <span>Example 1</span>
-        </div>
+    <div class="formula-block"><pre>
+<span class="formula">RESULT = −3.0 * ELEMENT</span></pre>
+    </div>
 
-        <p>The simple formulas:</p>
-        <div class="formula-block"><pre>
+    <p>If <strong>ELEMENT</strong> = <strong>5.0</strong>, then <strong>RESULT</strong> = −3.0 * 5.0 = <strong>−15.0</strong>.</p>
+
+    <p>Now, if we change the <strong>ELEMENT</strong> by <strong>+0.1</strong>, the <strong>RESULT</strong> changes by <strong>−0.3</strong>:</p>
+
+    <div class="callout callout-neutral"><pre>
+ELEMENT = 5.0 + 0.1 = 5.1
+RESULT = −3.0 * 5.1 = −15.3
+
+ELEMENT_change = 5.1 − 5.0 = 0.1
+RESULT_change = −15.3 − (−15.0) = −0.3
+
+MULTIPLIER = RESULT_change / ELEMENT_change = −0.3 / 0.1 = −3.0</pre>
+    </div>
+
+    <div class="callout callout-success">
+      <p>👉 The <strong>RESULT</strong> changed <strong>3.0 times</strong> as much as the <strong>ELEMENT</strong>, but in the <strong>opposite direction</strong>.</p>
+
+      <p>So we say: The <strong>INFLUENCE</strong> of the <strong>ELEMENT</strong> on the <strong>RESULT</strong> is <strong>−3.0</strong>.</p><pre>
+influence_ELEMENT_RESULT = -3.0</pre>
+    </div>
+
+    <div class="takeaway">
+      <div class="takeaway-label">Takeaway</div>
+      The number (−3.0) that multiplies the ELEMENT is the INFLUENCE of that ELEMENT on the RESULT.<br/><br/>
+      RESULT = <strong>−3.0</strong> * ELEMENT<br/>
+      influence_ELEMENT_RESULT = <strong>−3.0</strong>
+    </div>
+
+
+    <hr class="divider"/>
+
+
+    <!-- EXAMPLE 3 -->
+    <div class="step-heading">
+      <div class="step-badge">3</div>
+      <span>Example 3</span>
+    </div>
+
+    <p>The simple formula:</p>
+
+    <div class="formula-block"><pre>
+<span class="formula">RESULT = ELEMENT</span></pre>
+    </div>
+
+    <p>We can re-write it this way:</p>
+
+    <div class="formula-block"><pre>
+<span class="formula">RESULT = 1.0 * ELEMENT</span></pre>
+    </div>
+
+    <p>If ELEMENT = <strong>5.0</strong>, then RESULT = 1.0 * 5.0 = <strong>5.0</strong>.</p>
+
+    <p>Now, if we change the <strong>ELEMENT</strong> by <strong>+0.1</strong>, the <strong>RESULT</strong> also changes by <strong>+0.1</strong>:</p>
+
+    <div class="callout callout-neutral"><pre>
+ELEMENT = 5.0 + 0.1 = 5.1
+RESULT = 1.0 * 5.1 = 5.1
+
+ELEMENT_change = 5.1 − 5.0 = 0.1
+RESULT_change = 5.1 − 5.0 = 0.1
+
+MULTIPLIER = RESULT_change / ELEMENT_change = 0.1 / 0.1 = 1.0</pre>
+    </div>
+
+    <div class="callout callout-success">
+      <p>👉 The <strong>RESULT</strong> changed by exactly the <strong>same amount</strong> as the <strong>ELEMENT</strong>. In other words, the <strong>RESULT</strong> remains equal to the <strong>ELEMENT</strong>.</p>
+
+      <p>So we say: The <strong>INFLUENCE</strong> of the <strong>ELEMENT</strong> on the <strong>RESULT</strong> is <strong>1.0</strong>:</p><pre>
+influence_ELEMENT_RESULT = 1.0</pre>
+    </div>
+
+    <div class="takeaway">
+      <div class="takeaway-label">Takeaway</div>
+      The number (1.0) that multiplies the ELEMENT is the INFLUENCE of that ELEMENT on the RESULT.<br/><br/>
+      RESULT = <strong>1.0</strong> * ELEMENT<br/>
+      influence_ELEMENT_RESULT = <strong>1.0</strong>
+    </div>
+
+
+    <hr class="divider"/>
+
+
+    <p>The universal takeaway for simple formulas:</p>
+
+    <div class="takeaway">
+      <div class="takeaway-label">Universal Takeaway</div>
+      For a simple formula, the number that multiplies an ELEMENT is the INFLUENCE of that ELEMENT on the RESULT.
+    </div>
+
+  </div>
+</div>
+
+
+<!-- CHAIN of INFLUENCES -->
+<div class="section-label">CHAIN of INFLUENCES</div>
+
+<div class="card">
+  <div class="card-body">
+
+    <p>Now, consider the <strong>CHAIN of INFLUENCES</strong>.</p>
+
+    <p>To understand this simple concept, let's look at two examples, each with simple formulas.</p>
+
+    <hr class="divider"/>
+
+
+    <!-- EXAMPLE 1 -->
+    <div class="step-heading">
+      <div class="step-badge">1</div>
+      <span>Example 1</span>
+    </div>
+
+    <p>The simple formulas:</p>
+
+    <div class="formula-block"><pre>
 <span class="formula">B = 0.8 * C</span>
 <span class="formula">A = 0.5 * B</span></pre>
-        </div>
+    </div>
 
-        <p>The INFLUENCE of C on B is <strong>0.8</strong>:<br/>
-influence_C_B = 0.8</p>
+    <p>The <strong>INFLUENCE</strong> of C on B is <strong>0.8</strong>:<br/>
+    influence_C_B = 0.8</p>
 
-        <p>The INFLUENCE of B on A is <strong>0.5</strong>:<br/>
-influence_B_A = 0.5</p>
-    
-        <p>But what is the INFLUENCE of C on A?</p>
-        <p>It is simply the product of the influences along the chain:</p>
-        <p><strong>CHAIN of INFLUENCES</strong>:</p><pre>
+    <p>The <strong>INFLUENCE</strong> of B on A is <strong>0.5</strong>:<br/>
+    influence_B_A = 0.5</p>
+
+    <p>But what is the <strong>INFLUENCE</strong> of C on A?</p>
+
+    <p>It is simply the product of the influences along the chain:</p>
+
+    <p><strong>CHAIN of INFLUENCES</strong>:</p>
+
+    <pre>
 influence_C_A = (
     influence_C_B
   * influence_B_A
@@ -237,40 +257,48 @@ influence_C_A = (
     0.8
   * 0.5
 ) = 0.4</pre>
-    
-        <div class="takeaway">
-          <div class="takeaway-label">Takeaway</div>
-          To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> (<strong>C</strong>) on the <strong>RESULT</strong> (<strong>A</strong>)  —  
-          implying when we tweak the initial <strong>ELEMENT</strong>  —  
-          we simplu multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
-        </div>
-        <hr class="divider"/>
 
-        <!-- EXAMPLE 2 -->
-        <div class="step-heading">
-          <div class="step-badge">2</div>
-          <span>Example 2</span>
-        </div>
+    <div class="takeaway">
+      <div class="takeaway-label">Takeaway</div>
+      To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> (<strong>C</strong>) on the <strong>RESULT</strong> (<strong>A</strong>), we simply multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
+      <br/><br/>
+      In other words, when we tweak the initial <strong>ELEMENT</strong>, the effect on the final <strong>RESULT</strong> is determined by multiplying all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
+    </div>
 
-        <p>The simple formulas:</p>
-        <div class="formula-block"><pre>
+
+    <hr class="divider"/>
+
+
+    <!-- EXAMPLE 2 -->
+    <div class="step-heading">
+      <div class="step-badge">2</div>
+      <span>Example 2</span>
+    </div>
+
+    <p>The simple formulas:</p>
+
+    <div class="formula-block"><pre>
 <span class="formula">C = -0.9 * D</span>
 <span class="formula">B = 0.8 * C</span>
 <span class="formula">A = 0.5 * B</span></pre>
-        </div>
+    </div>
 
-        <p>The INFLUENCE of D on C is <strong>-0.9</strong>:<br/>
-        influence_D_C = -0.9</p>
+    <p>The <strong>INFLUENCE</strong> of D on C is <strong>-0.9</strong>:<br/>
+    influence_D_C = -0.9</p>
 
-        <p>The INFLUENCE of C on B is <strong>0.8</strong>:<br/>
-        influence_C_B = 0.8</p>
+    <p>The <strong>INFLUENCE</strong> of C on B is <strong>0.8</strong>:<br/>
+    influence_C_B = 0.8</p>
 
-        <p>The INFLUENCE of B on A is <strong>0.5</strong>:<br/>
-        influence_B_A = 0.5</p>
-    
-        <p>But what is the INFLUENCE of D on A?</p>
-        <p>Again, it is the product of the influences along the chain:</p>
-        <p><strong>CHAIN of INFLUENCES</strong>:</p><pre>
+    <p>The <strong>INFLUENCE</strong> of B on A is <strong>0.5</strong>:<br/>
+    influence_B_A = 0.5</p>
+
+    <p>But what is the <strong>INFLUENCE</strong> of D on A?</p>
+
+    <p>Again, it is the product of the influences along the chain:</p>
+
+    <p><strong>CHAIN of INFLUENCES</strong>:</p>
+
+    <pre>
 influence_D_A = (
     influence_D_C
   * influence_C_B
@@ -281,22 +309,32 @@ influence_D_A = (
   * 0.5
 ) = -0.36</pre>
 
-        <div class="takeaway">
-          <div class="takeaway-label">Takeaway</div>
-          To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> (<strong>D</strong>) on the <strong>RESULT</strong> (<strong>A</strong>)  
-          —  implying when we tweak the initial <strong>ELEMENT</strong>  —  
-          we simply multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
-        </div>
-        <hr class="divider"/>
-
-        <!-- UNIVERSAL TAKEAWAY -->
-        <div class="takeaway">
-          <div class="takeaway-label">The Universal Takeaway</div>
-          To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> on the <strong>RESULT</strong>  —  implying when we tweak the initial <strong>ELEMENT</strong>  —  we multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
-        </div>
-
-      </div>
+    <div class="takeaway">
+      <div class="takeaway-label">Takeaway</div>
+      To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> (<strong>D</strong>) on the <strong>RESULT</strong> (<strong>A</strong>), we simply multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
+      <br/><br/>
+      In other words, when we tweak the initial <strong>ELEMENT</strong>, the effect on the final <strong>RESULT</strong> is determined by multiplying all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
     </div>
+
+
+    <hr class="divider"/>
+
+
+    <!-- UNIVERSAL TAKEAWAY -->
+    <div class="takeaway">
+      <div class="takeaway-label">The Universal Takeaway</div>
+      To find the <strong>INFLUENCE</strong> of the initial <strong>ELEMENT</strong> on the <strong>RESULT</strong>, we multiply all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
+      <br/><br/>
+      In other words, when we tweak the initial <strong>ELEMENT</strong>, the effect on the final <strong>RESULT</strong> is determined by multiplying all the <strong>INFLUENCES</strong> along the <strong>CHAIN</strong>.
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
 
 
     <!-- THE MIND -->
