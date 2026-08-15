@@ -354,14 +354,14 @@ influence_D_A = (
 
 
 
-    <!-- THE MIND -->
-    <div class="section-label">Mind</div>
+    <!-- THE BRAIN -->
+    <div class="section-label">Brain</div>
     <div class="card">
       <div class="card-body">
-        <p>We're going to build a machine mind that can multiply any number by <strong>5.0</strong>.</p>
-        <p>Let's call this mind the <strong>Multiplier-by-Five</strong>.</p>
+        <p>We're going to build a machine brain that can multiply any number by <strong>5.0</strong>.</p>
+        <p>Let's call this brain the <strong>Multiplier-by-Five</strong>.</p>
         <p>It will have a single <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
-        <p>The mind will be a simple formula like this:</p>
+        <p>The brain will be a simple formula like this:</p>
         <div class="callout callout-neutral"><pre>
 OUTPUT = INPUT * WEIGHT</pre>
         </div>
@@ -378,7 +378,7 @@ OUTPUT = INPUT * WEIGHT</pre>
         <div class="callout callout-neutral"><pre>
 WEIGHT = 0.00</pre>
         </div>
-        <p>At first, the mind will generate nonsense, since with any <strong>INPUT</strong> the <strong>OUTPUT</strong> is <strong>zero</strong>.</p>
+        <p>At first, the brain will generate nonsense, since with any <strong>INPUT</strong> the <strong>OUTPUT</strong> is <strong>zero</strong>.</p>
       </div>
     </div>
 
@@ -418,7 +418,7 @@ WEIGHT = 0.00</pre>
           <strong>EXAMPLE 2</strong> means when the <strong>INPUT</strong> is <strong>-1.00</strong>, the <strong>OUTPUT</strong> must be <strong>-5.00</strong>.
         </p>
         <p>
-          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the mind <strong>changes</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
+          During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the brain <strong>changes</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
         </p>
       </div>
     </div>
@@ -430,7 +430,7 @@ WEIGHT = 0.00</pre>
     <div class="card">
       <div class="card-body">
 
-        <p>The mind <strong>changes</strong> the <strong>PARAMETER</strong> using this <strong>CHANGE RULE</strong>:</p>
+        <p>The brain <strong>changes</strong> the <strong>PARAMETER</strong> using this <strong>CHANGE RULE</strong>:</p>
 
         <div class="formula-block">
           <div class="formula-block-label">SIMPLIFIED CHANGE RULE for PARAMETER</div><pre>
@@ -438,7 +438,7 @@ WEIGHT = 0.00</pre>
 <span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span></pre>
         </div>
 
-        <p>Because the mind has just one <strong>PARAMETER</strong>  —  <strong>WEIGHT</strong>  —  we obtain:</p>
+        <p>Because the brain has just one <strong>PARAMETER</strong>  —  <strong>WEIGHT</strong>  —  we obtain:</p>
 
         <div class="formula-block">
           <div class="formula-block-label">SIMPLIFIED CHANGE RULE for WEIGHT</div><pre>
@@ -553,7 +553,7 @@ WEIGHT = 1.80</pre>
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong>
-          <p>The mind has just improved itself.</p>
+          <p>The brain has just improved itself.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>0.60</strong>,
           the <strong>OUTPUT</strong> becomes <strong>1.08</strong> (0.60 * 1.80)  —  which is closer to the
           <strong>TARGET</strong> (<strong>3.00</strong>) than the previous <strong>OUTPUT</strong> (<strong>0.00</strong>) was.</p>
@@ -669,7 +669,7 @@ WEIGHT = 5.00</pre>
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong>
-          <p>The mind has just improved itself again.</p>
+          <p>The brain has just improved itself again.</p>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>−1.00</strong>,
           the <strong>OUTPUT</strong> becomes <strong>−5.00</strong> (−1.00 * 5.00)  —  which is closer to the
           <strong>TARGET</strong> (<strong>−5.00</strong>) than the previous <strong>OUTPUT</strong> (<strong>−1.80</strong>) was.</p>
@@ -700,7 +700,7 @@ WEIGHT = 5.00</pre>
     <div class="card">
       <div class="card-body">
 
-        <p>To <strong>test</strong> the mind, we give it a new <strong>EXAMPLE</strong> it has never seen before.</p>
+        <p>To <strong>test</strong> the brain, we give it a new <strong>EXAMPLE</strong> it has never seen before.</p>
 
         <div class="callout callout-neutral"><pre>
 WEIGHT = 5.00</pre>
@@ -728,10 +728,10 @@ ERROR = TARGET − OUTPUT = 50.00 − 50.00 = 0.00</pre>
         </div>
 
         <div class="callout callout-warning">
-          <p>Since <strong>ERROR = 0.00</strong>, this mind works perfectly!</p>
+          <p>Since <strong>ERROR = 0.00</strong>, this brain works perfectly!</p>
           <p>It has learned the rule: <strong>multiply any number by 5.0</strong>.</p>
           <p>The <strong>Multiplier-by-Five</strong> can now solve problems it has never encountered before.</p>
-          <p>The mind is now just this formula:</p>
+          <p>The brain is now just this formula:</p>
           <div class="callout callout-neutral"><pre>
 OUTPUT = INPUT * 5.00</pre>
           </div>
@@ -745,8 +745,8 @@ OUTPUT = INPUT * 5.00</pre>
     <div class="card">
       <div class="card-body">
 
-        <!-- TRAIN THE MIND -->
-        <h3>TRAIN THE MIND 🧠</h3>
+        <!-- TRAIN THE BRAIN -->
+        <h3>TRAIN THE BRAIN 🧠</h3>
         <p></p>
 
         <div class="pythoncode">
@@ -797,10 +797,10 @@ print(f"TRAINING complete: WEIGHT = {WEIGHT:.2f}")
 
 
         <p><br/></p>
-        <h3>TEST THE MIND 🧠</h3>
+        <h3>TEST THE BRAIN 🧠</h3>
         <p></p>
 
-        <!-- TEST THE MIND -->
+        <!-- TEST THE BRAIN -->
         <div class="pythoncode">
 
 
