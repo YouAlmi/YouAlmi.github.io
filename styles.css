@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 /* ── DESIGN TOKENS ── */
 :root {
@@ -65,7 +65,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   margin: 14px 0; 
   font-weight: 400; 
   line-height: 1.85; 
-  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-family: 'Roboto Mono', 'Courier New', 'Lucida Console', monospace;
 }
 
 .callout > *:not(.callout-title),
@@ -102,7 +102,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   font-weight: 400; 
   line-height: 2; 
   border-left: 5px solid var(--green); 
-  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-family: 'Roboto Mono', 'Courier New', 'Lucida Console', monospace;
 }
 
 .formula-block > *:not(.formula-block-label),
