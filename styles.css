@@ -19,7 +19,7 @@
 
   /* Tweak these to adjust weight inside callouts & formula blocks */
   --callout-fw-normal:   600;
-  --callout-fw-strong:   800;
+  --callout-fw-strong:   850;
   --callout-strong-shadow: 0.5px 0 0 currentColor;
 }
 
