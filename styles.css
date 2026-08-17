@@ -76,7 +76,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   text-shadow: 0.5px 0 0 currentColor;
 }
 
-.callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
+.callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--white); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
 .callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
 .callout-info    { background: var(--blue-lt);  border-left: 4px solid var(--blue); }
@@ -89,7 +89,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   margin-bottom: 10px; 
 }
 
-.callout-neutral .callout-title { color: var(--gray); }
+.callout-neutral .callout-title { color: var(--white); }
 .callout-success .callout-title { color: var(--green); }
 .callout-error .callout-title  { color: var(--red); }
 .callout-info .callout-title    { color: var(--blue); }
