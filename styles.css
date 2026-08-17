@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;900&display=swap');
-
 /* ── DESIGN TOKENS ── */
 :root {
   --black:      #111111;
@@ -63,17 +61,15 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   border-radius: 8px; 
   padding: 16px 20px; 
   margin: 14px 0; 
-  font-weight: 600; 
+  font-weight: 400; 
   line-height: 1.85; 
-  font-family: 'Source Code Pro', 'Courier New', monospace;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .callout > *:not(.callout-title),
 .callout > *:not(.callout-title) * {
   font-family: inherit;
 }
-
-.callout strong { font-weight: 900; }
 
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
@@ -99,18 +95,16 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   border-radius: 8px; 
   padding: 20px 24px; 
   margin: 16px 0; 
-  font-weight: 600; 
+  font-weight: 400; 
   line-height: 2; 
   border-left: 5px solid var(--green); 
-  font-family: 'Source Code Pro', 'Courier New', monospace;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .formula-block > *:not(.formula-block-label),
 .formula-block > *:not(.formula-block-label) * {
   font-family: inherit;
 }
-
-.formula-block strong { font-weight: 900; }
 
 .formula-block-label { 
   color: var(--green); 
