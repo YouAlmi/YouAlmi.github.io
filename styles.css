@@ -61,7 +61,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   border-radius: 8px; 
   padding: 16px 20px; 
   margin: 14px 0; 
-  font-weight: 400; 
+  font-weight: 700; 
   line-height: 1.85; 
   font-family: 'Courier New', 'Courier', monospace;
 }
@@ -71,7 +71,12 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   font-family: inherit;
 }
 
-.callout-neutral { font-weight: 400; background: var(--gray-lt); border-left: 4px solid var(--white); }
+.callout strong {
+  font-weight: 900;
+  text-shadow: 0.5px 0 0 currentColor;
+}
+
+.callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
 .callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
 .callout-info    { background: var(--blue-lt);  border-left: 4px solid var(--blue); }
@@ -84,7 +89,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   margin-bottom: 10px; 
 }
 
-.callout-neutral .callout-title { color: var(--white); }
+.callout-neutral .callout-title { color: var(--gray); }
 .callout-success .callout-title { color: var(--green); }
 .callout-error .callout-title  { color: var(--red); }
 .callout-info .callout-title    { color: var(--blue); }
@@ -95,7 +100,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   border-radius: 8px; 
   padding: 20px 24px; 
   margin: 16px 0; 
-  font-weight: 400; 
+  font-weight: 700; 
   line-height: 2; 
   border-left: 5px solid var(--green); 
   font-family: 'Courier New', 'Courier', monospace;
@@ -104,6 +109,11 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .formula-block > *:not(.formula-block-label),
 .formula-block > *:not(.formula-block-label) * {
   font-family: inherit;
+}
+
+.formula-block strong {
+  font-weight: 900;
+  text-shadow: 0.5px 0 0 currentColor;
 }
 
 .formula-block-label { 
@@ -248,7 +258,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .footer-copyright { color: var(--gray); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; }
 
 /* ── CLASS SPECIFIC UTILS ── */
-.influence-panel { background: var(--white); border-left: 4px solid var(--blue); border-radius: 6px; padding: 12px 16px; margin: 12px 0 16px; color: var(--black); font-weight: 700; line-height: 1.85; }
+.influence-panel { background: var(--blue-lt); border-left: 4px solid var(--blue); border-radius: 6px; padding: 12px 16px; margin: 12px 0 16px; color: var(--black); font-weight: 700; line-height: 1.85; }
 .influence-panel-label { color: var(--blue); font-weight: 900; letter-spacing: 0.08em; margin-bottom: 6px; }
 .takeaway { background: var(--gray-lt); border: 2px solid var(--black); border-radius: 8px; padding: 14px 20px; margin: 14px 0; font-weight: 900; }
 .takeaway-label { color: var(--gray); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
