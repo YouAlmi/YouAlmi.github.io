@@ -16,6 +16,11 @@
   --orange-lt:  #fff3eb;
   --red:        #c0392b;
   --red-lt:     #fdecea;
+
+  /* Tweak these to adjust weight inside callouts & formula blocks */
+  --callout-fw-normal:   600;
+  --callout-fw-strong:   800;
+  --callout-strong-shadow: 0.5px 0 0 currentColor;
 }
 
 @media (prefers-color-scheme: light) {
@@ -61,7 +66,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   border-radius: 8px; 
   padding: 16px 20px; 
   margin: 14px 0; 
-  font-weight: 700; 
+  font-weight: var(--callout-fw-normal); 
   line-height: 1.85; 
   font-family: 'Courier New', 'Courier', monospace;
 }
@@ -72,8 +77,8 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 }
 
 .callout strong {
-  font-weight: 900;
-  text-shadow: 0.5px 0 0 currentColor;
+  font-weight: var(--callout-fw-strong);
+  text-shadow: var(--callout-strong-shadow);
 }
 
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--white); }
@@ -100,7 +105,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   border-radius: 8px; 
   padding: 20px 24px; 
   margin: 16px 0; 
-  font-weight: 700; 
+  font-weight: var(--callout-fw-normal); 
   line-height: 2; 
   border-left: 5px solid var(--green); 
   font-family: 'Courier New', 'Courier', monospace;
@@ -112,8 +117,8 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 }
 
 .formula-block strong {
-  font-weight: 900;
-  text-shadow: 0.5px 0 0 currentColor;
+  font-weight: var(--callout-fw-strong);
+  text-shadow: var(--callout-strong-shadow);
 }
 
 .formula-block-label { 
