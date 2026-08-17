@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;900&display=swap');
 
 /* ── DESIGN TOKENS ── */
 :root {
@@ -63,9 +63,9 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   border-radius: 8px; 
   padding: 16px 20px; 
   margin: 14px 0; 
-  font-weight: 400; 
+  font-weight: 600; 
   line-height: 1.85; 
-  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
 }
 
 .callout > *:not(.callout-title),
@@ -73,7 +73,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   font-family: inherit;
 }
 
-.callout strong { font-weight: 700; }
+.callout strong { font-weight: 900; }
 
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
@@ -99,10 +99,10 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   border-radius: 8px; 
   padding: 20px 24px; 
   margin: 16px 0; 
-  font-weight: 400; 
+  font-weight: 600; 
   line-height: 2; 
   border-left: 5px solid var(--green); 
-  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
 }
 
 .formula-block > *:not(.formula-block-label),
@@ -110,7 +110,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   font-family: inherit;
 }
 
-.formula-block strong { font-weight: 700; }
+.formula-block strong { font-weight: 900; }
 
 .formula-block-label { 
   color: var(--green); 
@@ -119,7 +119,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   margin-bottom: 10px; 
 }
 
-.formula { color: var(--yellow); font-weight: 700;}
+.formula { color: var(--yellow); font-weight: 900;}
 
 /* ── TABLES ── */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
