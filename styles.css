@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
 /* ── DESIGN TOKENS ── */
 :root {
   --black:      #111111;
@@ -63,13 +65,15 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   margin: 14px 0; 
   font-weight: 400; 
   line-height: 1.85; 
-  font-family: 'Courier New', 'Courier', monospace;
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
 }
 
 .callout > *:not(.callout-title),
 .callout > *:not(.callout-title) * {
   font-family: inherit;
 }
+
+.callout strong { font-weight: 700; }
 
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
@@ -98,13 +102,15 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   font-weight: 400; 
   line-height: 2; 
   border-left: 5px solid var(--green); 
-  font-family: 'Courier New', 'Courier', monospace;
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
 }
 
 .formula-block > *:not(.formula-block-label),
 .formula-block > *:not(.formula-block-label) * {
   font-family: inherit;
 }
+
+.formula-block strong { font-weight: 700; }
 
 .formula-block-label { 
   color: var(--green); 
@@ -113,7 +119,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   margin-bottom: 10px; 
 }
 
-.formula { color: var(--yellow); font-weight: 900;}
+.formula { color: var(--yellow); font-weight: 700;}
 
 /* ── TABLES ── */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
