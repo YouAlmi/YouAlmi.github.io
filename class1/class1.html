@@ -4,7 +4,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 1. FIRST BRAIN</title>
+  <title>Lesson 2. INFLUENCE</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    /* ── class1.html-specific textarea heights ── */
+    /* ── class2.html-specific textarea heights ── */
     #code-input1  { height: 565px; }
     #code-input2  { height: 280px; }
   </style>
@@ -28,8 +28,8 @@
     <div class="header-title">
     <br/>
     HOW MACHINES LEARN AND THINK</div>
-    <div class="header-class">Lesson 1</div>
-    <div class="header-subtitle class-subtitle">Our Very First Machine Brain
+    <div class="header-class">Lesson 2</div>
+    <div class="header-subtitle class-subtitle">Introducing Influence
     <br/>
     </div>
    
@@ -41,8 +41,8 @@
     
     <div class="card">
       <div class="card-body">
-        <p>A <strong>NEURON</strong> needs at least one <strong>PARAMETER</strong> — namely, a <strong>WEIGHT</strong> — to do anything useful.</p>
-        <p>To learn from data, a brain also needs a <strong>PARAMETER CHANGE RULE</strong>.</p>
+        <p>In Lesson 1, our brain used the simplest change rule, but it fails when dealing with negative numbers or varying input scales.</p>
+        <p>To handle all types of data, a brain needs to consider the <strong>INFLUENCE</strong> that a parameter has on the output.</p>
       </div>
     </div>
 
@@ -51,7 +51,7 @@
     <div class="section-label">Brain</div>
     <div class="card">
       <div class="card-body">
-        <p>We're going to build a machine brain that can multiply any number by <strong>5.0</strong>.</p>
+        <p>We're going to build a machine brain that can handle negative inputs correctly.</p>
         <p>In this scenario, the <strong>INPUT</strong> represents the number being multiplied, and the <strong>OUTPUT</strong> represents the result of the multiplication.</p>
         <p>Let's call this brain the <strong>Multiplier-by-Five</strong>.</p>
         <p>It will have a single <strong>PARAMETER</strong>: <strong>WEIGHT</strong>.</p>
@@ -95,8 +95,8 @@ WEIGHT = 0.0
             <tbody>
               <tr>
                 <td>EXAMPLE1</td>
-                <td>0.6</td>
-                <td>3.0</td>
+                <td>-0.6</td>
+                <td>-3.0</td>
               </tr>
               <tr>
                 <td>EXAMPLE2</td>
@@ -109,12 +109,12 @@ WEIGHT = 0.0
 
         <p>The <strong>TARGET</strong> represents the correct <strong>OUTPUT</strong>.</p>
         <p>
-          <strong>EXAMPLE1</strong> means when the <strong>INPUT</strong> is <strong>0.6</strong>, the <strong>OUTPUT</strong> must be <strong>3.0</strong>.<br/>
+          <strong>EXAMPLE1</strong> means when the <strong>INPUT</strong> is <strong>-0.6</strong>, the <strong>OUTPUT</strong> must be <strong>-3.0</strong>.<br/>
           <strong>EXAMPLE2</strong> means when the <strong>INPUT</strong> is <strong>1.0</strong>, the <strong>OUTPUT</strong> must be <strong>5.0</strong>.
         </p>
         <p>So, our DATASET contains two EXAMPLES:</p>
 
-                <div class="callout callout-neutral">
+        <div class="callout callout-neutral">
 EXAMPLES = 2
         </div>
         <p>
@@ -128,20 +128,22 @@ EXAMPLES = 2
     <div class="section-label">Change Rule</div>
     <div class="card">
       <div class="card-body">
-        <p>The brain <strong>changes</strong> the <strong>PARAMETER</strong> using this <strong>CHANGE RULE</strong>:</p>
+        <p>The brain <strong>changes</strong> the <strong>PARAMETER</strong> using this <strong>CHANGE RULE WITH INFLUENCE</strong>:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">SIMPLEST CHANGE RULE for PARAMETER</div><pre>
-<span class="formula">PARAMETER_change = ERROR</span>
-<span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span></pre>
+          <div class="formula-block-label">CHANGE RULE WITH INFLUENCE for PARAMETER</div>
+          <span class="formula">PARAMETER_INFLUENCE = INPUT</span><br/>
+          <span class="formula">PARAMETER_change = ERROR * PARAMETER_INFLUENCE</span><br/>
+          <span class="formula">PARAMETER = PARAMETER + PARAMETER_change</span>
         </div>
 
         <p>Because the brain has just one <strong>PARAMETER</strong>  —  <strong>WEIGHT</strong>  —  we obtain:</p>
 
         <div class="formula-block">
-          <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div><pre>
-<span class="formula">WEIGHT_change = ERROR</span>
-<span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></pre>
+          <div class="formula-block-label">CHANGE RULE WITH INFLUENCE for WEIGHT</div>
+          <span class="formula">WEIGHT_INFLUENCE = INPUT</span><br/>
+          <span class="formula">WEIGHT_change = ERROR * WEIGHT_INFLUENCE</span><br/>
+          <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
         </div>
 
         <p>Don't worry  —  each step is simple. Just follow the calculations below.</p>
@@ -158,9 +160,6 @@ EXAMPLES = 2
       <div class="card-header"><strong style="color:#F0ABFC;">LESSON 1</strong></div>
       <div class="card-body">
 
-
-
-
         <div class="callout callout-neutral">
 WEIGHT = 0.0<br/>
 EXAMPLES = 2
@@ -168,20 +167,20 @@ EXAMPLES = 2
 
         <p><strong>EXAMPLE 1</strong>:</p>
         <div class="callout callout-neutral">
-INPUT  = 0.6<br/>
-TARGET = 3.0
+INPUT  = -0.6<br/>
+TARGET = -3.0
         </div>
 
         <div class="callout callout-success">
           <div class="callout-title">Forward Pass</div>
-<p>PRODUCT = INPUT * WEIGHT = 0.6 * 0.0 = 0.0</p>
-<p>OUTPUT = PRODUCT = 0.0</p>
+          <p>PRODUCT = INPUT * WEIGHT = -0.6 * 0.0 = 0.0</p>
+          <p>OUTPUT = PRODUCT = 0.0</p>
         </div>
 
         <div class="callout callout-error">
           <div class="callout-title">Error</div>
-<p>ERROR = TARGET − OUTPUT = 3.0 − 0.0 = 3.0</p>
-<p>The <strong>ERROR</strong> tells us how far the <strong>OUTPUT</strong> is from the <strong>TARGET</strong>.</p>
+          <p>ERROR = TARGET − OUTPUT = -3.0 − 0.0 = -3.0</p>
+          <p>The <strong>ERROR</strong> tells us how far the <strong>OUTPUT</strong> is from the <strong>TARGET</strong>.</p>
         </div>
 
         <div class="diagram">
@@ -190,41 +189,43 @@ TARGET = 3.0
 
         <div class="callout callout-info">
           <div class="callout-title">Backward Pass — Backpropagation</div>
-          <p>Now the brain changes the PARAMETER that caused the ERROR.</p>
+          <p>Now the brain changes the PARAMETER that caused the ERROR, taking INFLUENCE into account.</p>
           <p>Imagine the brain asking itself:</p>
-          <p>"How should I change my WEIGHT so the OUTPUT gets closer to the TARGET?"</p>
-          <p>The <strong>ERROR</strong> provides the answer:</p>
-          <p>"Your OUTPUT is <strong>3.0</strong> below the TARGET, so increase the WEIGHT by the exact same <strong>3.0</strong>."</p>
+          <p>"How much INFLUENCE did my WEIGHT have on the OUTPUT?"</p>
+          <p>The <strong>INFLUENCE</strong> is equal to the <strong>INPUT</strong> (<strong>-0.6</strong>).</p>
           <p><strong>And that's exactly what the CHANGE RULE tells us to do:</strong></p>
 
           <div class="formula-block">
-            <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div><pre>
-<span class="formula">WEIGHT_change = ERROR</span>
-<span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></pre>
+            <div class="formula-block-label">CHANGE RULE WITH INFLUENCE for WEIGHT</div>
+            <span class="formula">WEIGHT_INFLUENCE = INPUT</span><br/>
+            <span class="formula">WEIGHT_change = ERROR * WEIGHT_INFLUENCE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
           </div>
-WEIGHT = 0.0<br/>
-ERROR  = 3.0
 
-<p>WEIGHT_change = ERROR = 3.0</p>
+          WEIGHT = 0.0<br/>
+          ERROR  = -3.0<br/>
+          WEIGHT_INFLUENCE = -0.6
 
-<p>WEIGHT = WEIGHT + WEIGHT_change = 0.0 + 3.0 = 3.0</p>
+          <p>WEIGHT_change = ERROR * WEIGHT_INFLUENCE = -3.0 * -0.6 = 1.8</p>
 
-          So the <strong>WEIGHT</strong> becomes <strong>3.0</strong>.
+          <p>WEIGHT = WEIGHT + WEIGHT_change = 0.0 + 1.8 = 1.8</p>
+
+          <p>So the <strong>WEIGHT</strong> becomes <strong>1.8</strong>.</p>
         </div>
 
         <div class="result-banner">
-WEIGHT = 3.0
+WEIGHT = 1.8
         </div>
 
         <div class="callout callout-warning">
           <strong>What just happened?</strong>
-          <p>The brain has just improved itself.</p>
-          <p>Now, if it receives the same <strong>INPUT</strong> of <strong>0.6</strong>, 
-            the <strong>OUTPUT</strong> becomes <strong>1.8</strong> (0.6 * 3.0)  —  
-            which is closer to the <strong>TARGET</strong> (<strong>3.0</strong>) 
+          <p>The brain has just improved itself using INFLUENCE.</p>
+          <p>Now, if it receives the same <strong>INPUT</strong> of <strong>-0.6</strong>, 
+            the <strong>OUTPUT</strong> becomes <strong>-1.08</strong> (-0.6 * 1.8)  —  
+            which is closer to the <strong>TARGET</strong> (<strong>-3.0</strong>) 
             than the previous <strong>OUTPUT</strong> (<strong>0.0</strong>) was.</p>
           <p>The <strong>ERROR</strong> becomes smaller:</p>
-          <span class="error-chip">ERROR = 1.2</span>
+          <span class="error-chip">ERROR = -1.92</span>
         </div>
 
         <div class="diagram">
@@ -241,26 +242,26 @@ WEIGHT = 3.0
       <div class="card-header"><strong style="color:#F0ABFC;">LESSON 2</strong></div>
       <div class="card-body">
 
-        <div class="callout callout-neutral"><pre>
-WEIGHT = 3.0</pre>
+        <div class="callout callout-neutral">
+WEIGHT = 1.8
         </div>
 
         <p><strong>EXAMPLE 2</strong>:</p>
-        <div class="callout callout-neutral"><pre>
-INPUT  = 1.0
-TARGET = 5.0</pre>
+        <div class="callout callout-neutral">
+INPUT  = 1.0<br/>
+TARGET = 5.0
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div><pre>
-PRODUCT = INPUT * WEIGHT = 1.0 * 3.0 = 3.0
-OUTPUT = PRODUCT = 3.0</pre>
+          <div class="callout-title">Forward Pass</div>
+          <p>PRODUCT = INPUT * WEIGHT = 1.0 * 1.8 = 1.8</p>
+          <p>OUTPUT = PRODUCT = 1.8</p>
         </div>
 
         <div class="callout callout-error">
-          <div class="callout-title">Error</div><pre>
-ERROR = TARGET − OUTPUT = 5.0 − 3.0 = 2.0</pre>
-          The <strong>ERROR</strong> tells us how far the <strong>OUTPUT</strong> is from the <strong>TARGET</strong>.
+          <div class="callout-title">Error</div>
+          <p>ERROR = TARGET − OUTPUT = 5.0 − 1.8 = 3.2</p>
+          <p>The <strong>ERROR</strong> tells us how far the <strong>OUTPUT</strong> is from the <strong>TARGET</strong>.</p>
         </div>
 
         <div class="diagram">
@@ -272,27 +273,29 @@ ERROR = TARGET − OUTPUT = 5.0 − 3.0 = 2.0</pre>
           <p>Now the brain changes the PARAMETER that caused the ERROR.</p>
           <p>Imagine the brain asking itself:</p>
           <p>"How should I change my WEIGHT so the OUTPUT gets closer to the TARGET?"</p>
-          <p>The <strong>ERROR</strong> provides the answer:</p>
-          <p>"Your OUTPUT is <strong>2.0</strong> below the TARGET, so increase the WEIGHT by the exact same <strong>2.0</strong>."</p>
+          <p>The <strong>INFLUENCE</strong> is equal to the <strong>INPUT</strong> (<strong>1.0</strong>).</p>
           <p><strong>And that's exactly what the CHANGE RULE tells us to do:</strong></p>
 
           <div class="formula-block">
-            <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div><pre>
-<span class="formula">WEIGHT_change = ERROR</span>
-<span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></pre>
-          </div><pre>
-WEIGHT = 3.0
-ERROR  = 2.0
+            <div class="formula-block-label">CHANGE RULE WITH INFLUENCE for WEIGHT</div>
+            <span class="formula">WEIGHT_INFLUENCE = INPUT</span><br/>
+            <span class="formula">WEIGHT_change = ERROR * WEIGHT_INFLUENCE</span><br/>
+            <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span>
+          </div>
 
-WEIGHT_change = ERROR = 2.0
+          WEIGHT = 1.8<br/>
+          ERROR  = 3.2<br/>
+          WEIGHT_INFLUENCE = 1.0
 
-WEIGHT = WEIGHT + WEIGHT_change = 3.0 + 2.0 = 5.0</pre>
+          <p>WEIGHT_change = ERROR * WEIGHT_INFLUENCE = 3.2 * 1.0 = 3.2</p>
 
-          So the <strong>WEIGHT</strong> becomes <strong>5.0</strong>.
+          <p>WEIGHT = WEIGHT + WEIGHT_change = 1.8 + 3.2 = 5.0</p>
+
+          <p>So the <strong>WEIGHT</strong> becomes <strong>5.0</strong>.</p>
         </div>
 
-        <div class="result-banner"><pre>
-WEIGHT = 5.0</pre>
+        <div class="result-banner">
+WEIGHT = 5.0
         </div>
 
         <div class="callout callout-warning">
@@ -301,7 +304,7 @@ WEIGHT = 5.0</pre>
           <p>Now, if it receives the same <strong>INPUT</strong> of <strong>1.0</strong>, 
             the <strong>OUTPUT</strong> becomes <strong>5.0</strong> (1.0 * 5.0)  —  
             which is closer to the <strong>TARGET</strong> (<strong>5.0</strong>) 
-            than the previous <strong>OUTPUT</strong> (<strong>3.0</strong>) was.</p>
+            than the previous <strong>OUTPUT</strong> (<strong>1.8</strong>) was.</p>
         </div>
 
         <div class="success-callout">
@@ -330,26 +333,26 @@ WEIGHT = 5.0</pre>
 
         <p>To <strong>test</strong> the brain, we give it a new <strong>EXAMPLE</strong> it has never seen before.</p>
 
-        <div class="callout callout-neutral"><pre>
-WEIGHT = 5.0</pre>
+        <div class="callout callout-neutral">
+WEIGHT = 5.0
         </div>
 
         <p><strong>EXAMPLE</strong> for <strong>TESTING</strong>:</p>
 
-        <div class="callout callout-neutral"><pre>
-INPUT  = 10.0
-TARGET = 50.0</pre>
+        <div class="callout callout-neutral">
+INPUT  = -10.0<br/>
+TARGET = -50.0
         </div>
 
         <div class="callout callout-success">
-          <div class="callout-title">Forward Pass</div><pre>
-PRODUCT = INPUT * WEIGHT = 10.0 * 5.0 = 50.0
-OUTPUT = PRODUCT = 50.0</pre>
+          <div class="callout-title">Forward Pass</div>
+          <p>PRODUCT = INPUT * WEIGHT = -10.0 * 5.0 = -50.0</p>
+          <p>OUTPUT = PRODUCT = -50.0</p>
         </div>
 
         <div class="callout callout-error">
-          <div class="callout-title">Error</div><pre>
-ERROR = TARGET − OUTPUT = 50.0 − 50.0 = 0.0</pre>
+          <div class="callout-title">Error</div>
+          <p>ERROR = TARGET − OUTPUT = -50.0 − (-50.0) = 0.0</p>
         </div>
 
         <div class="diagram">
@@ -358,11 +361,12 @@ ERROR = TARGET − OUTPUT = 50.0 − 50.0 = 0.0</pre>
 
         <div class="callout callout-warning">
           <p>Since <strong>ERROR = 0.0</strong>, this brain works perfectly!</p>
-          <p>It has learned the rule: <strong>multiply any number by 5.0</strong>.</p>
+          <p>It has learned the rule: <strong>multiply any number by 5.0</strong>, even negative ones.</p>
           <p>The <strong>Multiplier-by-Five</strong> can now solve problems it has never encountered before.</p>
           <p>The brain is now just this formula:</p>
-          <div class="callout callout-neutral"><pre>
-OUTPUT = INPUT * 5.0</pre>
+          <div class="callout callout-neutral">
+OUTPUT = INPUT * 5.0
+          </div>
         </div>
 
       </div>
@@ -376,25 +380,24 @@ OUTPUT = INPUT * 5.0</pre>
       <div class="card-body">
 
         <!-- TRAIN THE BRAIN -->
-         <p>Just click <strong>RUN CODE</strong>.</p>
+        <p>Just click <strong>RUN CODE</strong>.</p>
         <h3>TRAIN THE BRAIN 🧠</h3>
         <p></p>  
 
         <div class="pythoncode">
-       
 
           <!-- textarea-wrap -->
           <div class="textarea-wrap">
 <textarea id="code-input1" style="line-height: 1.2;">
-WEIGHT = 0.0
-
 EXAMPLES = 2
 
-INPUTS  = [0.6,
-           1.0]
+WEIGHT = 0.0
 
-TARGETS = [3.0,
-           5.0]
+INPUTS  = [-0.6,
+            1.0]
+
+TARGETS = [-3.0,
+            5.0]
 
 for EXAMPLE in range(EXAMPLES):
 
@@ -406,8 +409,9 @@ for EXAMPLE in range(EXAMPLES):
 
     ERROR = TARGET - OUTPUT
 
-    # SIMPLEST CHANGE RULE for WEIGHT:
-    WEIGHT_change = ERROR
+    # CHANGE RULE WITH INFLUENCE for WEIGHT:
+    WEIGHT_INFLUENCE = INPUT
+    WEIGHT_change = ERROR * WEIGHT_INFLUENCE
     WEIGHT = WEIGHT + WEIGHT_change
 
 print(f"TRAINING complete: WEIGHT = {WEIGHT}")
@@ -432,14 +436,13 @@ print(f"TRAINING complete: WEIGHT = {WEIGHT}")
         <!-- TEST THE BRAIN -->
         <div class="pythoncode">
 
-
           <!-- textarea-wrap -->
           <div class="textarea-wrap">
 <textarea id="code-input2" style="line-height: 1.2;">
 WEIGHT = 5.0
 
-INPUT  = 10.0
-TARGET = 50.0
+INPUT  = -10.0
+TARGET = -50.0
 
 PRODUCT = INPUT * WEIGHT
 OUTPUT  = PRODUCT
@@ -472,40 +475,36 @@ print(f"Testing complete: ERROR = {ERROR}")
     <div class="section-label">Note</div>
     <div class="card">
       <div class="card-body">
-        <p>Our first intuition:</p>
+        <p>Our updated intuition:</p>
         <ul class="prose-list">
           <li>a machine brain has a <strong>PARAMETER</strong> (<strong>WEIGHT</strong>),</li>
           <li>it takes in an <strong>INPUT</strong> and makes a guess (<strong>OUTPUT</strong>),</li>
           <li>it checks the guess against the right answer (<strong>TARGET</strong>),</li>
           <li>it sees the difference (<strong>ERROR</strong>),</li>
-          <li>it improves itself using the <strong>PARAMETER CHANGE RULE</strong>.</li>
+          <li>it determines how much <strong>INFLUENCE</strong> the parameter had on the result,</li>
+          <li>it improves itself using the <strong>CHANGE RULE WITH INFLUENCE</strong>.</li>
         </ul>
 
         <p>The AI brain learns by changing its parameters. 
           Parameters are the numbers it can adjust to improve its answers.</p>
-        <p>Modern machines can learn from their own errors, 
-          thanks to the <strong>PARAMETER CHANGE RULE</strong> and its variations. 
-          While the SIMPLEST CHANGE RULE was sufficient for this task, 
-          we are moving step by step toward the <strong>FUNDAMENTAL CHANGE RULE</strong> 
-           — with just two steps remaining.</p> 
+        <p>By factoring in <strong>INFLUENCE</strong>, the brain can now handle both positive and negative inputs correctly. 
+          We are just one step away from the <strong>FUNDAMENTAL CHANGE RULE</strong>.</p> 
 
          <div class="success-callout" style="margin-top: 24px; border-left: 4px solid var(--green); padding: 16px; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
-          <p style="font-size: 20px; margin-bottom: 8px;"><strong>And look at that — you just built a working AI! 🏆</strong></p>
-          <p>But what happens if the <strong>INPUT</strong> is a negative number?</p>
-          <p>In <strong>Lesson 2</strong>, 
-            we unlock the real secret weapon used by modern AI — <strong>INFLUENCE</strong> — 
-            and continue our journey through the remaining 19 Lessons 
-            for just <strong>$190</strong>.</p>
+          <p style="font-size: 20px; margin-bottom: 8px;"><strong>Awesome job — you've mastered Influence! 🏆</strong></p>
+          <p>In <strong>Lesson 3</strong>, 
+            we will introduce the <strong>LEARNING RATE</strong> to complete the 
+            <strong>FUNDAMENTAL CHANGE RULE</strong> used by neural networks across the world.</p>
         </div>
       </div>
     </div>
 
 
     <div class="teaser">
-      <div class="teaser-next">Up Next: Lesson 2</div>
-      <p>Datasets often contain negative numbers. To handle them,<br/>
-        we add <strong style="color:var(--yellow);">INFLUENCE</strong>
-        to the <strong style="color:var(--yellow);">PARAMETER CHANGE RULE</strong>.
+      <div class="teaser-next">Up Next: Lesson 3</div>
+      <p>To prevent parameters from changing too drastically,<br/>
+        we add <strong style="color:var(--yellow);">LEARNING RATE</strong>
+        to finalize the <strong style="color:var(--yellow);">FUNDAMENTAL CHANGE RULE</strong>.
       </p>
     </div>
 
