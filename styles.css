@@ -1,4 +1,3 @@
-
 /* ── DESIGN TOKENS ── */
 :root {
   --black:      #111111;
@@ -30,8 +29,8 @@
     --green-lt:  #0e2718;
     --blue-lt:   #0b1e2e;
     --orange-lt: #2a1500;
-    --red:       #e06c6c;
     --red-lt:    #2a0a08;
+    --red:       #e06c6c;
   }
 }
 
@@ -46,12 +45,11 @@ em { font-style: italic; }
 header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text-align: center; }
 .header-eyebrow, .header-tag { font-size: 22px; color: var(--green); font-weight: 700; margin-bottom: 6px; }
 .header-title { font-size: 30px; font-weight: 900; line-height: 1.2; margin-bottom: 8px; color: var(--yellow); }
-.header-class { font-size: 28px; font-weight: 900; line-height: 1.2; margin-bottom: 8px; color: var(--green); }
 .header-subtitle { font-size: 22px; color: #aaaaaa; font-weight: 700; margin-bottom: 6px; }
-.header-audience { font-size: 22px; color: #ffffff; font-weight: 700; }
+.header-audience { font-size: 30px; color: #ffffff; font-weight: 700; }
 
 /* ── LAYOUT ── */
-.page { max-width: 760px; margin: 0 auto; padding: 0 10px; }
+.page { max-width: 760px; margin: 0 auto; padding: 0 20px; }
 .section-label { display: inline-block; background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 18px; border-radius: 4px; margin: 36px 0 18px; }
 .card { background: var(--white); border: 1.5px solid var(--border); border-radius: 10px; margin: 16px 0; overflow: hidden; }
 .card-header { background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.06em; padding: 11px 20px; }
@@ -61,18 +59,16 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .callout { border-radius: 8px; padding: 16px 20px; margin: 14px 0; font-weight: 700; line-height: 1.85; }
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
-.callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
 .callout-info    { background: var(--blue-lt);  border-left: 4px solid var(--blue); }
 .callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
 .callout-title { font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
 .callout-neutral .callout-title { color: var(--gray); }
 .callout-success .callout-title { color: var(--green); }
-.callout-error .callout-title  { color: var(--red); }
 .callout-info .callout-title    { color: var(--blue); }
 
 .formula-block { background: #111111; color: #ffffff; border-radius: 8px; padding: 20px 24px; margin: 16px 0; font-weight: 700; line-height: 2; border-left: 5px solid var(--green); }
-.formula-block-label { color: var(--green); font-weight: 900; letter-spacing: 0.1em; margin-bottom: 10px; }
-.formula { color: var(--yellow); font-weight: 900;}
+.formula-block-label { color: var(--green); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.formula { color: var(--yellow); }
 
 /* ── TABLES ── */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
@@ -83,17 +79,13 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .doc-table .col-header td { background: var(--gray-lt); font-weight: 900; text-transform: uppercase; font-size: 15px; }
 .doc-table .total-row td { background: #111111; color: var(--yellow); font-weight: 900; }
 .doc-table .sum-row td { background: var(--gray-lt); font-weight: 900; }
-
-.data-table {width: auto; margin-left: auto; border-collapse: collapse;}
+.data-table { width: 100%; border-collapse: collapse; }
 .data-table th { padding: 8px 14px; text-align: left; }
 .data-table td { padding: 8px 14px; border-bottom: 1px solid var(--border); font-weight: 700; }
-.data-table th:not(:first-child),
-.data-table td:not(:first-child) {text-align: center;}
-
 .mapping-table tr:first-child td { background: #111111; color: #ffffff; font-weight: 900; text-transform: uppercase; }
 
 /* ── CODE & INTERACTIVE ── */
-.pythoncode { background-color: #1e1e1e; color: #ffffff; padding: 5px; border-radius: 12px; font-family: 'Courier New', monospace; margin: 10px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.pythoncode { background-color: #1e1e1e; color: #ffffff; padding: 20px; border-radius: 12px; font-family: 'Courier New', monospace; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 .pythoncode h3 { margin-top: 0; color: #ffffff; }
 .pythoncode textarea { width: 100%; font-weight: bold; border: 1px solid #444; padding: 15px; font-size: 1rem; border-radius: 5px; outline: none; resize: vertical; background: #1e1e1e; color: #ffffff; font-family: 'Courier New', monospace; }
 .pythoncode div[id^="output-window"] { background-color: #000000; color: #ffffff; font-weight: bold; padding: 15px; margin-top: 10px; border-radius: 5px; white-space: pre-wrap; border-left: 4px solid #00ff00; font-size: 0.95rem; font-family: 'Courier New', monospace; }
@@ -103,7 +95,6 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 
 /* Shared base */
 .copy_btn {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,47 +135,30 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
   pointer-events: auto;
 }
 
-/* TOOLTIP on copy button */
-.copy_btn::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: #ffffff;
-  color: #111111;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  white-space: nowrap;
-  padding: 6px 12px;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.12s ease;
-  z-index: 10;
-}
-.copy_btn:hover::after {
-  opacity: 1;
-}
-.copy_btn--copied::after {
-  opacity: 1;
-}
-
-/* textarea-wrap — plain container */
+/* BUTTON 2 — follows the cursor inside the textarea-wrap */
 .textarea-wrap {
   position: relative;
+  cursor: pointer;
 }
 .textarea-wrap textarea {
   display: block;
   width: 100%;
+  cursor: text;
+}
+.copy_btn--cursor {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  opacity: 0;
+  pointer-events: none !important;
+  z-index: 3;
+  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
 }
 
 /* ── TYPOGRAPHY & BLOCKS ── */
 .inner-heading { font-weight: 900; font-size: 19px; margin: 24px 0 10px; }
 .prose-list { margin: 10px 0 14px 24px; }
-.prose-list li { margin-bottom: 8px;  }
+.prose-list li { margin-bottom: 8px; font-weight: 700; }
 .img-block { text-align: center; margin: 20px 0; }
 .img-block img { max-width: 100%; height: auto; border-radius: 8px; display: inline-block; }
 @media (min-width: 768px) { .img-block img { max-width: 150px; } }
@@ -194,12 +168,6 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .pricing-title { font-weight: 900; font-size: 22px; color: var(--yellow); letter-spacing: 0.1em; line-height: 1.35; margin-bottom: 14px; }
 .pricing-sub { color: #cccccc; font-weight: 700; margin-bottom: 4px; }
 .pricing-price { font-weight: 900; color: var(--yellow); font-size: 20px; margin-top: 10px; }
-.family { 
-  color: #cccccc; 
-  font-weight: 700; 
-  margin-top: 10px; /* This separates it from the $29 total */
-  margin-bottom: 0px; 
-}
 .price-pill { display: inline-block; background: green; color: white; font-weight: 900; font-size: 17px; padding: 12px 28px; border-radius: 6px; border: 4px solid #93c47d; letter-spacing: 0.02em; }
 .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
 .footer { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px 40px; gap: 16px; border-top: 1px solid var(--border); margin-top: 60px; }
