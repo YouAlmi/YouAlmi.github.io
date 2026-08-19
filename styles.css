@@ -94,7 +94,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   margin-bottom: 10px; 
 }
 
-.callout-neutral .callout-title { color: var(--white); }
+.callout-neutral .callout-title { color: var(--gray); }
 .callout-success .callout-title { color: var(--green); }
 .callout-error .callout-title  { color: var(--red); }
 .callout-info .callout-title    { color: var(--blue); }
