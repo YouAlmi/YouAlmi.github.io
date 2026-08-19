@@ -94,12 +94,12 @@ WEIGHT = 0.0
             </thead>
             <tbody>
               <tr>
-                <td>EXAMPLE 1</td>
+                <td>EXAMPLE1</td>
                 <td>0.6</td>
                 <td>3.0</td>
               </tr>
               <tr>
-                <td>EXAMPLE 2</td>
+                <td>EXAMPLE2</td>
                 <td>1.0</td>
                 <td>5.0</td>
               </tr>
@@ -109,9 +109,14 @@ WEIGHT = 0.0
 
         <p>The <strong>TARGET</strong> represents the correct <strong>OUTPUT</strong>.</p>
         <p>
-          <strong>EXAMPLE 1</strong> means when the <strong>INPUT</strong> is <strong>0.6</strong>, the <strong>OUTPUT</strong> must be <strong>3.0</strong>.<br/>
-          <strong>EXAMPLE 2</strong> means when the <strong>INPUT</strong> is <strong>1.0</strong>, the <strong>OUTPUT</strong> must be <strong>5.0</strong>.
+          <strong>EXAMPLE1</strong> means when the <strong>INPUT</strong> is <strong>0.6</strong>, the <strong>OUTPUT</strong> must be <strong>3.0</strong>.<br/>
+          <strong>EXAMPLE2</strong> means when the <strong>INPUT</strong> is <strong>1.0</strong>, the <strong>OUTPUT</strong> must be <strong>5.0</strong>.
         </p>
+        <p>So, our DATASET contains two EXAMPLES:</p>
+
+                <div class="callout callout-neutral">
+EXAMPLES = 2
+        </div>
         <p>
           During <strong>TRAINING</strong>, in each <strong>LESSON</strong>, the brain <strong>changes</strong> the <strong>PARAMETER</strong> so that the <strong>OUTPUT</strong> gets closer to the <strong>TARGET</strong>.
         </p>
@@ -153,13 +158,12 @@ WEIGHT = 0.0
       <div class="card-header"><strong style="color:#F0ABFC;">LESSON 1</strong></div>
       <div class="card-body">
 
-        <div class="callout callout-neutral">
-EXAMPLES = 2<br/>
-EPOCHS   = 1
-        </div>
+
+
 
         <div class="callout callout-neutral">
-WEIGHT = 0.0
+WEIGHT = 0.0<br/>
+EXAMPLES = 2
         </div>
 
         <p><strong>EXAMPLE 1</strong>:</p>
@@ -177,7 +181,7 @@ TARGET = 3.0
         <div class="callout callout-error">
           <div class="callout-title">Error</div>
 <p>ERROR = TARGET − OUTPUT = 3.0 − 0.0 = 3.0</p>
-          <p>The <strong>ERROR</strong> tells us how far the <strong>OUTPUT</strong> is from the <strong>TARGET</strong>.</p>
+<p>The <strong>ERROR</strong> tells us how far the <strong>OUTPUT</strong> is from the <strong>TARGET</strong>.</p>
         </div>
 
         <div class="diagram">
@@ -197,19 +201,19 @@ TARGET = 3.0
             <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div><pre>
 <span class="formula">WEIGHT_change = ERROR</span>
 <span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></pre>
-          </div><pre>
-WEIGHT = 0.0
+          </div>
+WEIGHT = 0.0<br/>
 ERROR  = 3.0
 
-WEIGHT_change = ERROR = 3.0
+<p>WEIGHT_change = ERROR = 3.0</p>
 
-WEIGHT = WEIGHT + WEIGHT_change = 0.0 + 3.0 = 3.0</pre>
+<p>WEIGHT = WEIGHT + WEIGHT_change = 0.0 + 3.0 = 3.0</p>
 
           So the <strong>WEIGHT</strong> becomes <strong>3.0</strong>.
         </div>
 
-        <div class="result-banner"><pre>
-WEIGHT = 3.0</pre>
+        <div class="result-banner">
+WEIGHT = 3.0
         </div>
 
         <div class="callout callout-warning">
@@ -236,11 +240,6 @@ WEIGHT = 3.0</pre>
     <div class="card">
       <div class="card-header"><strong style="color:#F0ABFC;">LESSON 2</strong></div>
       <div class="card-body">
-
-        <div class="callout callout-neutral"><pre>
-EXAMPLES = 2
-EPOCHS   = 1</pre>
-        </div>
 
         <div class="callout callout-neutral"><pre>
 WEIGHT = 3.0</pre>
