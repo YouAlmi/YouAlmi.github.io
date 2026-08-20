@@ -161,7 +161,7 @@ header { background: #111111; color: var(--yellow); padding: 40px 24px 0px; text
 .inner-heading { font-weight: 900; font-size: 19px; margin: 24px 0 10px; }
 .prose-list { margin: 10px 0 14px 24px; }
 .prose-list li { margin-bottom: 8px; font-weight: 700; }
-.img-block { text-align: center; margin: 20px 0; }
+.img-block { text-align: center; }
 .img-block img { max-width: 100%; height: auto; border-radius: 8px; display: inline-block; }
 @media (min-width: 768px) { .img-block img { max-width: 150px; } }
 .neuron-emoji { font-size: 60px; text-align: center; margin: 10px 0 4px; line-height: 1.1; }
