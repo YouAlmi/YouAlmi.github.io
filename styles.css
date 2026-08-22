@@ -194,11 +194,14 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 
 
 
+
+
 html, body {
   height: 100%;
   margin: 0;
 }
 
+/*
 .container {
   display: flex;
   justify-content: center;
@@ -206,6 +209,17 @@ html, body {
   min-height: 100vh;
   background-color: #f4f4f9;
 }
+*/
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Reduced from 100vh to a fixed padding/height */
+  padding: 20px 0; 
+  background-color: #f4f4f9;
+}
+*/
 
 .round-button {
   width: 100px;
