@@ -18,8 +18,8 @@
   --red-lt:       #fdecea;
 
   /* Modern Glass & Accent Tokens */
-  --card-bg:      rgba(22, 31, 48, 0.75);
-  --card-border:  rgba(255, 255, 255, 0.1);
+  --card-bg:      rgba(22, 31, 48, 0.95);
+  --card-border:  rgba(255, 255, 255, 0.15);
   --accent-cyan:  #38bdf8;
   --accent-emerald:#34d399;
   --text-main:    #f8fafc;
@@ -57,10 +57,7 @@ body {
   color: var(--black); 
   padding-bottom: 80px; 
 }
-p { 
-  margin-bottom: 12px; 
-  color: var(--black); 
-}
+p { margin-bottom: 12px; }
 strong { font-weight: 900; }
 em { font-style: italic; }
 
@@ -74,17 +71,17 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 /* ── LAYOUT ── */
 .page { max-width: 760px; margin: 0 auto; padding: 0 20px; }
 .section-label { display: inline-block; background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 18px; border-radius: 4px; margin: 36px 0 18px; }
-.card { background: var(--white); border: 1.5px solid var(--border); border-radius: 10px; margin: 16px 0; overflow: hidden; }
+.card { background: var(--white); border: 1.5px solid var(--border); border-radius: 10px; margin: 16px 0; overflow: hidden; color: var(--black); }
 .card-header { background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.06em; padding: 11px 20px; }
 .card-body { padding: 20px 20px; }
 
 /* ── CALLOUTS & FORMULAS ── */
 .callout { border-radius: 8px; padding: 16px 20px; margin: 14px 0; font-weight: 700; line-height: 1.85; }
-.callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
-.callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
-.callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
-.callout-info    { background: var(--blue-lt);  border-left: 4px solid var(--blue); }
-.callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; }
+.callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); color: var(--black); }
+.callout-success { background: var(--green-lt); border-left: 4px solid var(--green); color: var(--black); }
+.callout-error { background: var(--red-lt); border-left: 4px solid var(--red); color: var(--black); }
+.callout-info    { background: var(--blue-lt);  border-left: 4px solid var(--blue); color: var(--black); }
+.callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 8px; color: var(--black); }
 .callout-title { font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
 .callout-neutral .callout-title { color: var(--gray); }
 .callout-success .callout-title { color: var(--green); }
@@ -97,7 +94,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 
 /* ── TABLES ── */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
-.doc-table, .data-table, .mapping-table { border-collapse: collapse; margin: 0 auto; font-weight: 700; }
+.doc-table, .data-table, .mapping-table { border-collapse: collapse; margin: 0 auto; font-weight: 700; color: var(--black); }
 .doc-table td, .mapping-table td { border: 1px solid #aaaaaa; padding: 8px 14px; text-align: center; vertical-align: middle; }
 .doc-table .label-cell { border: none; text-align: left; color: var(--black); font-weight: 700; padding-left: 12px; white-space: nowrap; }
 .doc-table .table-title-row td, .data-table th { background: #111111; color: #ffffff; font-weight: 900; text-transform: uppercase; }
@@ -178,26 +175,30 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 
 /* ── TYPOGRAPHY & BLOCKS ── */
 .inner-heading { font-weight: 900; font-size: 19px; margin: 24px 0 10px; }
-.prose-list { margin: 10px 0 14px 24px; color: var(--black); }
+.prose-list { margin: 10px 0 14px 24px; }
 .prose-list li { margin-bottom: 8px; font-weight: 700; }
 
 .neuron-emoji { font-size: 60px; text-align: center; margin: 10px 0 4px; line-height: 1.1; }
-.neuron-label { text-align: center; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; color: var(--black); }
+.neuron-label { text-align: center; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
 
 .pricing-sub { color: #cccccc !important; font-weight: 700; margin-bottom: 4px; }
 .pricing-price { font-weight: 900; color: var(--yellow) !important; font-size: 20px; margin-top: 10px; }
 .price-pill { display: inline-block; background: green; color: white; font-weight: 900; font-size: 17px; padding: 12px 28px; border-radius: 6px; border: 4px solid #93c47d; letter-spacing: 0.02em; }
-.family { color: #cccccc !important; font-weight: 700; margin-top: 4px; }
-
 .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
 .footer { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px 40px; gap: 16px; border-top: 1px solid var(--border); margin-top: 60px; }
 .footer-logo { width: 128px; height: auto; opacity: 0.8; }
 .footer-copyright { color: var(--gray); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; }
 
+/* Standalone body text styles for outside cards */
+.family {
+  color: var(--black) !important;
+  font-weight: 700;
+}
+
 /* ── CLASS SPECIFIC UTILS ── */
 .influence-panel { background: var(--white); border-left: 4px solid var(--blue); border-radius: 6px; padding: 12px 16px; margin: 12px 0 16px; color: var(--black); font-weight: 700; line-height: 1.85; }
 .influence-panel-label { color: var(--blue); font-weight: 900; letter-spacing: 0.08em; margin-bottom: 6px; }
-.takeaway { background: var(--gray-lt); border: 2px solid var(--black); border-radius: 8px; padding: 14px 20px; margin: 14px 0; font-weight: 900; }
+.takeaway { background: var(--gray-lt); border: 2px solid var(--black); border-radius: 8px; padding: 14px 20px; margin: 14px 0; font-weight: 900; color: var(--black); }
 .takeaway-label { color: var(--gray); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
 .result-banner, .completion-banner { background: #111111; color: var(--yellow); font-weight: 900; text-align: center; padding: 14px 20px; border-radius: 8px; margin: 14px 0; }
 .success-callout { background: var(--green-lt); border: 2px solid var(--green); border-radius: 8px; padding: 14px 20px; margin: 12px 0; font-weight: 800; color: var(--green); }
@@ -218,7 +219,7 @@ html, body {
   justify-content: center;
   align-items: center;
   padding: 40px 0;
-  background-color: var(--bg);
+  background-color: transparent;
 }
 
 .round-button {
@@ -250,29 +251,27 @@ html, body {
 .round-button:hover { background-color: #0056b3; }
 .round-button:active { transform: scale(0.95); }
 
-/* ── SOTA PRICING CARD (CONSTANT THEME ENFORCEMENT) ── */
+/* ── SOTA PRICING CARD (IMMUTABLE IN ALL MODES) ── */
 .pricing-block {
   position: relative;
   width: 100%;
   max-width: 340px;
-  background: var(--card-bg) !important;
+  background: #161f30 !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--card-border) !important;
-  border-radius: 24px;
-  padding: 32px 24px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-              0 0 80px var(--glass-glow) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 24px !important;
+  padding: 32px 24px !important;
+  text-align: center !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 80px rgba(56, 189, 248, 0.15) !important;
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-              box-shadow 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  color: #ffffff !important;
 }
 
 .pricing-block:hover {
   transform: translateY(-6px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
-              0 0 100px rgba(56, 189, 248, 0.25) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 100px rgba(56, 189, 248, 0.25) !important;
 }
 
 .pricing-block::before {
@@ -286,48 +285,50 @@ html, body {
   pointer-events: none;
 }
 
+/* Internal components locked against dark mode overrides */
 .pricing-block .header-audience:first-child {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--text-main) !important;
-  background: rgba(255, 255, 255, 0.06) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  padding: 8px 16px;
-  border-radius: 100px;
-  margin-bottom: 20px;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  color: #f8fafc !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 8px 16px !important;
+  border-radius: 100px !important;
+  margin-bottom: 20px !important;
 }
 
 .pricing-block .header-eyebrow {
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent-cyan) !important;
-  margin-bottom: 8px;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: #38bdf8 !important;
+  margin-bottom: 8px !important;
 }
 
 .pricing-title {
-  font-size: 28px;
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
-  color: var(--yellow) !important;
-  background: linear-gradient(135deg, #ffffff 0%, var(--yellow) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 12px !important;
+  color: #ffd166 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #ffd166 100%);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 .pricing-block .header-subtitle {
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--text-muted) !important;
-  margin-bottom: 24px;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  color: #94a3b8 !important;
+  margin-bottom: 24px !important;
 }
 
 .pricing-block .header-audience:last-of-type {
@@ -335,14 +336,20 @@ html, body {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--accent-emerald) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #34d399 !important;
   background: rgba(52, 211, 153, 0.08) !important;
   border: 1px solid rgba(52, 211, 153, 0.2) !important;
-  padding: 10px 16px;
-  border-radius: 12px;
-  margin-top: 20px;
+  padding: 10px 16px !important;
+  border-radius: 12px !important;
+  margin-top: 20px !important;
+}
+
+.pricing-block .family {
+  color: #94a3b8 !important;
+  font-size: 14px !important;
+  margin-top: 8px !important;
 }
 
 .img-block {
