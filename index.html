@@ -156,7 +156,7 @@
 
     <div class="card">
       <div class="card-body">
-        <p>Nowadays, there are two kinds of brains: <strong>biological brains</strong> and <strong>non-biological brains</strong> — often called <strong>machine brains</strong>.</p>
+        <p>Nowadays, there are two kinds of brains: <strong>biological brains</strong> and <strong>non-biological brains</strong>  — often called <strong>machine brains</strong>.</p>
         <p>For example:</p>
         <ul class="prose-list">
           <li><strong>Biological brains</strong> are the brains of humans and animals.</li>
@@ -463,7 +463,7 @@
        
 
           <div class="textarea-wrap">
-<textarea id="code-input1" style="line-height: 1.2;" oninput="onCodeEdit(1)">
+<textarea id="code-input1" style="line-height: 1.2;">
 INPUT1 = 3.00
 INPUT2 = 5.00
 
@@ -481,7 +481,7 @@ print(f"OUTPUT = {OUTPUT}")
 </textarea>
           </div>
           <div class="code-row">
-            <button id="run-btn1" class="pulse" onclick="runPython(1)"><strong>RUN</strong></button>
+            <button onclick="runPython(1)"><strong>RUN</strong></button>
             <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" data-tooltip="Copy code">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
@@ -652,8 +652,6 @@ print(f"OUTPUT = {OUTPUT}")
 
   </div>
 </div>
-
-</main>
     
     <footer class="footer">
       <img src="wlogo.jpg" alt="Machine Intelligence School Logo" class="footer-logo" />
@@ -679,21 +677,9 @@ print(f"OUTPUT = {OUTPUT}")
       mypre.innerHTML = mypre.innerHTML + text;
     }
 
-    function onCodeEdit(block) {
-      const btn = document.getElementById('run-btn' + block);
-      if (btn) {
-        btn.classList.add('pulse');
-      }
-    }
-
     function runPython(block) {
-      const codeId   = "code-input" + block;
-      const outputId = "output-window" + block;
-      const runBtn   = document.getElementById("run-btn" + block);
-
-      if (runBtn) {
-        runBtn.classList.remove("pulse");
-      }
+      const codeId   = "code-input1";
+      const outputId = "output-window1";
 
       var code  = document.getElementById(codeId).value;
       var mypre = document.getElementById(outputId);
