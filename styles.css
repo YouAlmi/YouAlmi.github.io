@@ -124,10 +124,9 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   cursor: pointer; 
   transition: background 0.2s, transform 0.1s ease; 
 
-  /* Default pulsing animation */
+  /* Default pulsing state */
   animation: pulse-run 2s infinite;
 
-  /* Removes mobile tap box and focus outlines */
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
@@ -139,9 +138,10 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   transform: scale(0.97);
 }
 
-/* Class to stop animation after clicking RUN */
+/* Stops pulsing completely after click */
 .pythoncode button.is-ran {
   animation: none !important;
+  box-shadow: none !important;
 }
 
 @keyframes pulse-run {
@@ -251,7 +251,6 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   animation: pulse-pill 2s infinite;
   transition: background-color 0.2s ease, transform 0.1s ease;
 
-  /* Removes mobile tap box and focus outlines */
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
@@ -332,7 +331,6 @@ html, body {
   position: relative;
   animation: pulse 2s infinite;
 
-  /* Removes mobile tap box and focus outlines */
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
@@ -357,7 +355,6 @@ html, body {
 
 .round-button:hover { background-color: #0056b3; }
 .round-button:active { transform: scale(0.95); }
-
 
 /* ── SOTA PRICING CARD OVERRIDES ── */
 .pricing-block {
