@@ -263,7 +263,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 .footer-logo { 
   width: 128px; 
   height: auto; 
-  opacity: 0.6; 
+  opacity: 0.3; 
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(0, 0, 0, 0.2);
