@@ -183,7 +183,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 
 .pricing-sub { color: #cccccc; font-weight: 700; margin-bottom: 4px; }
 .pricing-price { font-weight: 900; color: var(--yellow); font-size: 20px; margin-top: 10px; }
-.price-pill { display: inline-block; background: green; color: white; font-weight: 900; font-size: 17px; padding: 12px 28px; border-radius: 6px; border: 4px solid #93c47d; letter-spacing: 0.02em; }
+.price-pill { display: inline-block; background: green; color: white; font-weight: 900; font-size: 17px; padding: 12px 28px; border-radius: 16px; border: 4px solid #93c47d; letter-spacing: 0.02em; }
 .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
 .footer { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px 40px; gap: 16px; border-top: 1px solid var(--border); margin-top: 60px; }
 .footer-logo { 
