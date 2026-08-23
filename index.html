@@ -658,6 +658,7 @@ print(f"OUTPUT = {OUTPUT}")
       <div class="footer-copyright">&copy; 2026 Machine Intelligence School</div>
     </footer>
 
+</main>
 
 <script>
     function copyCode(id, btn) {
@@ -678,6 +679,11 @@ print(f"OUTPUT = {OUTPUT}")
     }
 
     function runPython(block) {
+      const runBtn = document.querySelector(".pythoncode button:not(.copy_btn)");
+      if (runBtn) {
+        runBtn.classList.add("is-ran");
+      }
+
       const codeId   = "code-input1";
       const outputId = "output-window1";
 
@@ -698,6 +704,17 @@ print(f"OUTPUT = {OUTPUT}")
         function (err)  { mypre.innerHTML = err.toString(); }
       );
     }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var runBtn = document.querySelector(".pythoncode button:not(.copy_btn)");
+      var codeArea = document.getElementById("code-input1");
+
+      if (runBtn && codeArea) {
+        codeArea.addEventListener("input", function () {
+          runBtn.classList.remove("is-ran");
+        });
+      }
+    });
   </script>
 
 </body>
