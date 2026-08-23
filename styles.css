@@ -373,3 +373,10 @@ html, body {
   font-size: 17px !important;
   margin-top: 8px !important;
 }
+
+
+@media (min-width: 768px) {
+  .web-80-img {
+    width: 80% !important;
+  }
+}
