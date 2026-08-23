@@ -111,7 +111,29 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 .pythoncode h3 { margin-top: 0; color: #ffffff; }
 .pythoncode textarea { width: 100%; font-weight: bold; border: 1px solid #444; padding: 15px; font-size: 1rem; border-radius: 16px; outline: none; resize: vertical; background: #1e1e1e; color: #ffffff; font-family: 'Courier New', monospace; }
 .pythoncode div[id^="output-window"] { background-color: #000000; color: #ffffff; font-weight: bold; padding: 15px; margin-top: 10px; border-radius: 16px; white-space: pre-wrap; border-left: 4px solid #00ff00; font-size: 0.95rem; font-family: 'Courier New', monospace; }
-.pythoncode button { margin-top: 10px; background-color: #00ff00; color: #000000; border: none; padding: 10px 25px; font-weight: bold; border-radius: 16px; cursor: pointer; transition: background 0.2s; }
+
+/* RUN Button (Code Block) */
+.pythoncode button { 
+  margin-top: 10px; 
+  background-color: #00ff00; 
+  color: #000000; 
+  border: none; 
+  padding: 10px 25px; 
+  font-weight: bold; 
+  border-radius: 16px; 
+  cursor: pointer; 
+  transition: background 0.2s; 
+
+  /* Removes mobile tap box and focus outlines */
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.pythoncode button:focus,
+.pythoncode button:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
 
 /* ── COPY BUTTON ── */
 .copy_btn {
@@ -129,6 +151,14 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   cursor: pointer !important;
   transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
   flex-shrink: 0;
+
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+.copy_btn:focus,
+.copy_btn:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .copy_btn svg { width: 18px; height: 18px; pointer-events: none; }
 .copy_btn:hover {
@@ -184,7 +214,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 .pricing-sub { color: #cccccc; font-weight: 700; margin-bottom: 4px; }
 .pricing-price { font-weight: 900; color: var(--yellow); font-size: 20px; margin-top: 10px; }
 
-
+/* Price Pill Button */
 .price-pill { 
   display: inline-block; 
   background: green; 
@@ -199,14 +229,21 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   cursor: pointer;
   animation: pulse-pill 2s infinite;
   transition: background-color 0.2s ease, transform 0.1s ease;
+
+  /* Removes mobile tap box and focus outlines */
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.price-pill:focus,
+.price-pill:active { 
+  outline: none; 
+  -webkit-tap-highlight-color: transparent;
+  transform: scale(0.97); 
 }
 
 .price-pill:hover { 
   background-color: #006400; 
-}
-
-.price-pill:active { 
-  transform: scale(0.97); 
 }
 
 @keyframes pulse-pill {
@@ -220,7 +257,6 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
     box-shadow: 0 0 0 0 rgba(147, 196, 125, 0);
   }
 }
-
 
 .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
 .footer { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px 40px; gap: 16px; border-top: 1px solid var(--border); margin-top: 60px; }
@@ -261,6 +297,7 @@ html, body {
   background-color: var(--bg);
 }
 
+/* Round Button */
 .round-button {
   width: 100px;
   height: 100px;
