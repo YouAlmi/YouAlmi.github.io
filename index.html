@@ -35,7 +35,27 @@
 
     /* ── class1.html-specific textarea heights ── */
     #code-input1  { height: 340px; }
-  
+
+    /* ── COPY BUTTON PULSE OVERRIDES ── */
+    @keyframes pulse-copy {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+
+    .copy_btn {
+      animation: pulse-copy 2s infinite;
+    }
+
+    .copy_btn.is-copied {
+      animation: none !important;
+    }
   </style>
 
 </head>
@@ -662,6 +682,9 @@ print(f"OUTPUT = {OUTPUT}")
 
 <script>
     function copyCode(id, btn) {
+      // Stop pulsing animation on click
+      btn.classList.add('is-copied');
+
       const text = document.getElementById(id).value;
       navigator.clipboard.writeText(text).then(() => {
         btn.classList.add('copy_btn--copied');
@@ -707,15 +730,18 @@ print(f"OUTPUT = {OUTPUT}")
 
     document.addEventListener("DOMContentLoaded", function () {
       var runBtn = document.querySelector(".pythoncode button:not(.copy_btn)");
+      var copyBtn = document.querySelector(".copy_btn");
       var codeArea = document.getElementById("code-input1");
 
-      if (runBtn && codeArea) {
+      if (codeArea) {
+        // Whenever the code changes, restart pulsing for both buttons
         codeArea.addEventListener("input", function () {
-          runBtn.classList.remove("is-ran");
+          if (runBtn) runBtn.classList.remove("is-ran");
+          if (copyBtn) copyBtn.classList.remove("is-copied");
         });
       }
     });
-  </script>
+</script>
 
 </body>
 </html>
