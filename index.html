@@ -35,26 +35,6 @@
 
     /* ── class1.html-specific textarea heights ── */
     #code-input1  { height: 340px; }
-
-
-
-
-
-
-    /* Mobile stays 100% full width */
-.web-sized-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Desktop/Web caps the width */
-@media (min-width: 768px) {
-  .web-sized-img {
-    width: 350px !important; /* Adjust 350px to your preferred web size */
-  }
-}
   
   </style>
 
@@ -192,13 +172,15 @@
           and more like training or nurturing a living thing.</p>
 
         <div class="img-block">
-          <img src="wlogo.jpg" alt="wlogo"/>
+        <img src="wlogo.jpg"/>
+        </div>
+
+        <div class="img-block">
+        <img src="wlogo.jpg" style="width: min(100%, 80%);" />
         </div>
 
 
-<div class="img-block">
-  <img src="wlogo.jpg" alt="wlogo" class="web-sized-img" />
-</div>
+        
 
         <p>How is all this even possible?</p>
         <p>In this course, you&rsquo;ll discover the answer.</p>
