@@ -687,12 +687,10 @@ print(f"OUTPUT = {OUTPUT}")
 
       const text = document.getElementById(id).value;
       navigator.clipboard.writeText(text).then(() => {
-        btn.classList.add('copy_btn--copied', 'is-tooltip-visible');
+        btn.classList.add('copy_btn--copied');
         btn.setAttribute('data-tooltip', 'Copied!');
-        
-        // Hide notification and reset tooltip after 1.8 seconds
         setTimeout(() => {
-          btn.classList.remove('copy_btn--copied', 'is-tooltip-visible');
+          btn.classList.remove('copy_btn--copied');
           btn.setAttribute('data-tooltip', 'Copy code');
         }, 1800);
       });
