@@ -227,7 +227,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 .footer-logo { 
   width: 128px; 
   height: auto; 
-  opacity: 0.4; 
+  opacity: 0.6; 
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(0, 0, 0, 0.2);
@@ -273,6 +273,16 @@ html, body {
   cursor: pointer;
   position: relative;
   animation: pulse 2s infinite;
+
+  /* Removes mobile tap box and focus outlines */
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.round-button:focus,
+.round-button:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @keyframes pulse {
@@ -289,9 +299,6 @@ html, body {
 
 .round-button:hover { background-color: #0056b3; }
 .round-button:active { transform: scale(0.95); }
-
-
-
 
 
 /* ── SOTA PRICING CARD OVERRIDES ── */
@@ -411,7 +418,6 @@ html, body {
 .pricing-block:hover .img-block img {
   transform: scale(1.04);
 }
-
 
 .pricing-block .family {
   color: #94a3b8 !important;
