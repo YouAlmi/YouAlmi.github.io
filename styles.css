@@ -123,7 +123,11 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   border-radius: 16px; 
   cursor: pointer; 
   transition: background 0.2s, transform 0.1s ease; 
+
+  /* Default pulsing animation */
   animation: pulse-run 2s infinite;
+
+  /* Removes mobile tap box and focus outlines */
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
@@ -135,14 +139,21 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   transform: scale(0.97);
 }
 
+/* Class to stop animation after clicking RUN */
 .pythoncode button.is-ran {
   animation: none !important;
 }
 
 @keyframes pulse-run {
-  0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
-  70% { box-shadow: 0 0 0 16px rgba(0, 255, 0, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(0, 255, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+  }
 }
 
 /* ── COPY BUTTON ── */
@@ -162,21 +173,32 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   cursor: pointer !important;
   transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
   flex-shrink: 0;
+
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
-
 .copy_btn:focus,
 .copy_btn:active {
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
-
 .copy_btn svg { width: 18px; height: 18px; pointer-events: none; }
-.copy_btn:hover { background: #3a3a3a !important; color: #ffffff !important; }
-.copy_btn--copied { background: #1a3a1a !important; color: var(--green-lt-lt) !important; border-color: #2d8a4e !important; }
-.copy_btn::before { display: none !important; }
+.copy_btn:hover {
+  background: #3a3a3a !important;
+  color: #ffffff !important;
+}
+.copy_btn--copied {
+  background: #1a3a1a !important;
+  color: var(--green-lt-lt) !important;
+  border-color: #2d8a4e !important;
+}
 
+/* Hide any duplicate pseudo-element messages */
+.copy_btn::before {
+  display: none !important;
+}
+
+/* Single tooltip pop-up box */
 .copy_btn::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -195,7 +217,10 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   z-index: 10;
 }
 
-.copy_btn.is-tooltip-visible::after { opacity: 1 !important; }
+/* Show tooltip ONLY when active class is applied via JS */
+.copy_btn.is-tooltip-visible::after {
+  opacity: 1 !important;
+}
 
 .code-row {
   display: flex;
@@ -205,10 +230,20 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   margin: 8px 0;
 }
 .code-row > button:not(.copy_btn) { margin-top: 0; }
-.copy_btn--inline { opacity: 1; pointer-events: auto; }
+.copy_btn--inline {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-.textarea-wrap { position: relative; cursor: pointer; }
-.textarea-wrap textarea { display: block; width: 100%; cursor: text; }
+.textarea-wrap {
+  position: relative;
+  cursor: pointer;
+}
+.textarea-wrap textarea {
+  display: block;
+  width: 100%;
+  cursor: text;
+}
 .copy_btn--cursor {
   position: absolute;
   top: 10px;
@@ -230,6 +265,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 .pricing-sub { color: #cccccc; font-weight: 700; margin-bottom: 4px; }
 .pricing-price { font-weight: 900; color: var(--yellow); font-size: 20px; margin-top: 10px; }
 
+/* Price Pill Button */
 .price-pill { 
   display: inline-block; 
   background: green; 
@@ -244,18 +280,33 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   cursor: pointer;
   animation: pulse-pill 2s infinite;
   transition: background-color 0.2s ease, transform 0.1s ease;
+
+  /* Removes mobile tap box and focus outlines */
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
 
 .price-pill:focus,
-.price-pill:active { outline: none; -webkit-tap-highlight-color: transparent; transform: scale(0.97); }
-.price-pill:hover { background-color: #006400; }
+.price-pill:active { 
+  outline: none; 
+  -webkit-tap-highlight-color: transparent;
+  transform: scale(0.97); 
+}
+
+.price-pill:hover { 
+  background-color: #006400; 
+}
 
 @keyframes pulse-pill {
-  0% { box-shadow: 0 0 0 0 rgba(147, 196, 125, 0.7); }
-  70% { box-shadow: 0 0 0 16px rgba(147, 196, 125, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(147, 196, 125, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(147, 196, 125, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(147, 196, 125, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(147, 196, 125, 0);
+  }
 }
 
 .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
@@ -284,9 +335,20 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 .teaser { background: #111111; color: #ffffff; border-radius: 16px; padding: 28px; text-align: center; margin: 36px 0 0; font-weight: 700; }
 .teaser-next { color: var(--yellow); font-weight: 900; font-size: 22px; margin: 8px 0; }
 
-html, body { height: 100%; margin: 0; }
-.container { display: flex; justify-content: center; align-items: center; padding: 40px 0; background-color: transparent; }
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  background-color: transparent;
+}
+
+/* Round Button */
 .round-button {
   width: 100px;
   height: 100px;
@@ -299,22 +361,163 @@ html, body { height: 100%; margin: 0; }
   cursor: pointer;
   position: relative;
   animation: pulse 2s infinite;
+
+  /* Removes mobile tap box and focus outlines */
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
 
 .round-button:focus,
-.round-button:active { outline: none; -webkit-tap-highlight-color: transparent; }
+.round-button:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
-  70% { box-shadow: 0 0 0 20px rgba(0, 123, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(0, 123, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
 }
 
 .round-button:hover { background-color: #0056b3; }
 .round-button:active { transform: scale(0.95); }
 
+/* ── SOTA PRICING CARD OVERRIDES ── */
+.pricing-block {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+              0 0 80px var(--glass-glow);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease;
+}
+
+.pricing-block:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
+              0 0 100px rgba(56, 189, 248, 0.25);
+}
+
+.pricing-block::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.pricing-block .header-audience:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.pricing-block .header-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-cyan);
+  margin-bottom: 8px;
+}
+
+.pricing-title {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--yellow) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pricing-block .header-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.pricing-block .header-audience:last-of-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  padding: 10px 16px;
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.img-block {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin: 16px 0;
+  text-align: center;
+}
+
+.img-block img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.pricing-block:hover .img-block img {
+  transform: scale(1.04);
+}
+
+.pricing-block .family {
+  color: #94a3b8 !important;
+  font-size: 17px !important;
+  margin-top: 8px !important;
+}
+
+
+
+
+
+
+/* ── CENTER SCROLL FOCUS ── */
 .focus-line-target {
   background-color: var(--yellow) !important;
   color: var(--black) !important;
@@ -323,113 +526,4 @@ html, body { height: 100%; margin: 0; }
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   transition: background-color 0.1s ease;
-}
-
-/* ── ULTIMATE DESKTOP & MOBILE DARK MODE LOCK ── */
-html body .pricing-block,
-html body div.pricing-block {
-  color-scheme: dark !important;
-  position: relative !important;
-  width: 100% !important;
-  max-width: 340px !important;
-  background: #161f30 !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 16px !important;
-  padding: 32px 24px !important;
-  text-align: center !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-              0 0 80px rgba(56, 189, 248, 0.15) !important;
-  overflow: hidden !important;
-}
-
-/* Force light text color on all generic text inside pricing card on desktop */
-html body .pricing-block *,
-html body div.pricing-block * {
-  -webkit-text-fill-color: initial;
-}
-
-/* Top Badge */
-html body div.pricing-block .header-audience:first-child {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  line-height: 1.4 !important;
-  color: #f8fafc !important;
-  -webkit-text-fill-color: #f8fafc !important;
-  background: rgba(255, 255, 255, 0.06) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  padding: 8px 16px !important;
-  border-radius: 100px !important;
-  margin-bottom: 20px !important;
-}
-
-/* Eyebrow */
-html body div.pricing-block .header-eyebrow {
-  font-size: 12px !important;
-  font-weight: 800 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.12em !important;
-  color: #38bdf8 !important;
-  -webkit-text-fill-color: #38bdf8 !important;
-  margin-bottom: 8px !important;
-}
-
-/* Title Gradient */
-html body div.pricing-block .pricing-title {
-  font-size: 28px !important;
-  font-weight: 900 !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.02em !important;
-  margin-bottom: 12px !important;
-  background: #ffffff !important;
-  background: linear-gradient(135deg, #ffffff 0%, #ffd166 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-}
-
-/* Subtitle */
-html body div.pricing-block .header-subtitle {
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  line-height: 1.4 !important;
-  color: #94a3b8 !important;
-  -webkit-text-fill-color: #94a3b8 !important;
-  margin-bottom: 24px !important;
-}
-
-/* Bottom Badge */
-html body div.pricing-block .header-audience:last-of-type {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  color: #34d399 !important;
-  -webkit-text-fill-color: #34d399 !important;
-  background: rgba(52, 211, 153, 0.08) !important;
-  border: 1px solid rgba(52, 211, 153, 0.2) !important;
-  padding: 10px 16px !important;
-  border-radius: 16px !important;
-  margin-top: 20px !important;
-}
-
-/* Image Wrapper */
-html body div.pricing-block .img-block {
-  width: 100% !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  background: rgba(0, 0, 0, 0.2) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  margin: 16px 0 !important;
-}
-
-html body div.pricing-block .img-block img {
-  width: 80% !important;
-  height: auto !important;
-  margin: 0 auto !important;
-  display: block !important;
 }
