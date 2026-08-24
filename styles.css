@@ -428,7 +428,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.4;
   color: var(--text-main);
