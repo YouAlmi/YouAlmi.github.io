@@ -527,3 +527,51 @@ html, body {
   -webkit-box-decoration-break: clone;
   transition: background-color 0.1s ease;
 }
+
+
+
+
+/* ── LOCK PRICING BLOCK STYLES ACROSS MODES ── */
+.pricing-block,
+.pricing-block * {
+  /* Prevent browser-level forced dark/light adjustments */
+  color-scheme: only dark !important; 
+}
+
+.pricing-block {
+  background: rgba(22, 31, 48, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+              0 0 80px rgba(56, 189, 248, 0.15) !important;
+}
+
+.pricing-block .header-audience:first-child {
+  color: #f8fafc !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.pricing-block .header-eyebrow {
+  color: #38bdf8 !important;
+}
+
+.pricing-block .pricing-title {
+  background: linear-gradient(135deg, #ffffff 0%, #ffd166 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.pricing-block .header-subtitle {
+  color: #94a3b8 !important;
+}
+
+.pricing-block .header-audience:last-of-type {
+  color: #34d399 !important;
+  background: rgba(52, 211, 153, 0.08) !important;
+  border-color: rgba(52, 211, 153, 0.2) !important;
+}
+
+.pricing-block .img-block {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
