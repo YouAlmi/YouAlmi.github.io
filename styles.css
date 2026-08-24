@@ -29,17 +29,17 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --black:     #f0ede8;
-    --gray:      #aaaaaa;
-    --gray-lt:   #2a2a2a;
-    --border:    #3a3a3a;
-    --bg:        #1a1a1a;
-    --white:     #242424;
-    --green-lt:  #0e2718;
-    --blue-lt:   #0b1e2e;
-    --orange-lt: #2a1500;
-    --red-lt:    #2a0a08;
-    --red:       #e06c6c;
+    --black:     #111111;
+    --gray:      #555555;
+    --gray-lt:   #f2f2f2;
+    --border:    #dddddd;
+    --bg:        #ffffff;
+    --white:     #ffffff;
+    --green-lt:  #eaf7ee;
+    --blue-lt:   #e8f3fc;
+    --orange-lt: #fff3eb;
+    --red-lt:    #fdecea;
+    --red:       #c0392b;
   }
 }
 
@@ -345,7 +345,7 @@ html, body {
   justify-content: center;
   align-items: center;
   padding: 40px 0;
-  background-color: var(--bg);
+  background-color: transparent;
 }
 
 /* Round Button */
