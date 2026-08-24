@@ -511,3 +511,20 @@ html, body {
   font-size: 17px !important;
   margin-top: 8px !important;
 }
+
+
+
+
+
+
+
+/* ── CENTER SCROLL FOCUS ── */
+.focus-line-target {
+  background-color: var(--yellow) !important;
+  color: var(--black) !important;
+  border-radius: 4px;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background-color 0.1s ease;
+}

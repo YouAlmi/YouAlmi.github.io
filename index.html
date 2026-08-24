@@ -743,5 +743,97 @@ print(f"OUTPUT = {OUTPUT}")
     });
 </script>
 
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Selectable readable text containers while skipping interactive/code elements
+  const selector = "p, li, .callout p, .formula-block, .step-heading, .inner-heading";
+  const elements = document.querySelectorAll(selector);
+
+  // Exclude elements inside code blocks, diagrams, and price components
+  const validElements = Array.from(elements).filter(el => {
+    return !el.closest(".pythoncode, .pricing-block, .table-wrap, .img-block, .diagram, header, .footer");
+  });
+
+  // Wrap text nodes into word-level spans so we can pinpoint exact vertical positions
+  validElements.forEach(el => {
+    const childNodes = Array.from(el.childNodes);
+    childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== "") {
+        const words = node.nodeValue.split(/(\s+)/);
+        const fragment = document.createDocumentFragment();
+        words.forEach(word => {
+          if (word.trim() !== "") {
+            const span = document.createElement("span");
+            span.className = "focus-word";
+            span.textContent = word;
+            fragment.appendChild(span);
+          } else {
+            fragment.appendChild(document.createTextNode(word));
+          }
+        });
+        el.replaceChild(fragment, node);
+      }
+    });
+  });
+
+  let currentHighlightedWord = null;
+
+  function updateCenterFocus() {
+    const viewportCenter = window.innerHeight / 2;
+    const allWords = document.querySelectorAll(".focus-word");
+    let closestWord = null;
+    let minDistance = Infinity;
+
+    allWords.forEach(word => {
+      const rect = word.getBoundingClientRect();
+      // Calculate distance between the word's vertical center and the screen center
+      const wordCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(viewportCenter - wordCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestWord = word;
+      }
+    });
+
+    // Highlight only when near the viewport center (threshold: within 80px vertically)
+    if (closestWord && minDistance < 80) {
+      if (currentHighlightedWord !== closestWord) {
+        if (currentHighlightedWord) {
+          currentHighlightedWord.classList.remove("focus-line-target");
+        }
+        closestWord.classList.add("focus-line-target");
+        currentHighlightedWord = closestWord;
+      }
+    } else if (currentHighlightedWord) {
+      currentHighlightedWord.classList.remove("focus-line-target");
+      currentHighlightedWord = null;
+    }
+  }
+
+  // Optimize scroll handler using requestAnimationFrame
+  let ticking = false;
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateCenterFocus();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Initial check on load
+  updateCenterFocus();
+});
+</script>
+
+
+
 </body>
 </html>
