@@ -522,7 +522,7 @@ html, body {
   background-color: var(--yellow) !important;
   color: var(--black) !important;
   border-radius: 4px;
-  padding: 0 4px;
+  padding: 0 0;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   transition: background-color 0.1s ease;
