@@ -388,23 +388,24 @@ html, body {
 .round-button:hover { background-color: #0056b3; }
 .round-button:active { transform: scale(0.95); }
 
-/* ── SOTA PRICING CARD OVERRIDES ── */
+/* ── SOTA PRICING CARD OVERRIDES (FORCED DARK STYLING) ── */
 .pricing-block {
   position: relative;
   width: 100%;
   max-width: 340px;
-  background: var(--card-bg);
+  background: rgba(22, 31, 48, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--card-border);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 32px 24px;
   text-align: center;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-              0 0 80px var(--glass-glow);
+              0 0 80px rgba(56, 189, 248, 0.15);
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
               box-shadow 0.4s ease;
+  color: #f8fafc;
 }
 
 .pricing-block:hover {
@@ -431,7 +432,7 @@ html, body {
   font-size: 13px;
   font-weight: 700;
   line-height: 1.4;
-  color: var(--text-main);
+  color: #f8fafc;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 8px 16px;
@@ -444,7 +445,7 @@ html, body {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--accent-cyan);
+  color: #38bdf8;
   margin-bottom: 8px;
 }
 
@@ -454,18 +455,16 @@ html, body {
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 12px;
-  background-image: linear-gradient(135deg, #ffffff 0%, #ffd166 100%);
-  background-clip: text;
+  background: linear-gradient(135deg, #ffffff 0%, #ffd166 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .pricing-block .header-subtitle {
   font-size: 15px;
   font-weight: 600;
   line-height: 1.4;
-  color: var(--text-muted);
+  color: #94a3b8;
   margin-bottom: 24px;
 }
 
@@ -476,7 +475,7 @@ html, body {
   gap: 8px;
   font-size: 14px;
   font-weight: 700;
-  color: var(--accent-emerald);
+  color: #34d399;
   background: rgba(52, 211, 153, 0.08);
   border: 1px solid rgba(52, 211, 153, 0.2);
   padding: 10px 16px;
@@ -513,11 +512,6 @@ html, body {
   font-size: 17px !important;
   margin-top: 8px !important;
 }
-
-
-
-
-
 
 /* ── CENTER SCROLL FOCUS ── */
 .focus-line-target {
