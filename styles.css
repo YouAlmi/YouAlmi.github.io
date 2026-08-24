@@ -428,7 +428,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.4;
   color: var(--text-main);
@@ -460,7 +460,7 @@ html, body {
 }
 
 .pricing-block .header-subtitle {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 1.4;
   color: var(--text-muted);
