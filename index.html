@@ -756,7 +756,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Exclude elements inside code blocks, diagrams, and price components
   const validElements = Array.from(elements).filter(el => {
-    return !el.closest(".pythoncode, .pricing-block, .table-wrap, .img-block, .diagram, header, .footer");
+    return !el.closest(".pythoncode, .pricing-block, .table-wrap, .img-block, .diagram, .footer");
   });
 
   // Wrap text nodes into word-level spans so we can pinpoint exact vertical positions
