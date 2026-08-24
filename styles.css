@@ -421,7 +421,8 @@ html, body {
   pointer-events: none;
 }
 
-.pricing-block .header-audience:first-child {
+/* Specific inner element target overrides */
+.pricing-block > .header-audience:first-child {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -464,7 +465,7 @@ html, body {
   margin-bottom: 24px;
 }
 
-.pricing-block .header-audience:last-of-type {
+.pricing-block > .header-audience:last-of-type {
   display: flex;
   justify-content: center;
   align-items: center;
