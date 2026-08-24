@@ -326,8 +326,8 @@ html, body { height: 100%; margin: 0; }
 }
 
 /* ── ULTIMATE DESKTOP & MOBILE DARK MODE LOCK ── */
-.pricing-block,
-div.pricing-block {
+html body .pricing-block,
+html body div.pricing-block {
   color-scheme: dark !important;
   position: relative !important;
   width: 100% !important;
@@ -342,8 +342,14 @@ div.pricing-block {
   overflow: hidden !important;
 }
 
+/* Force light text color on all generic text inside pricing card on desktop */
+html body .pricing-block *,
+html body div.pricing-block * {
+  -webkit-text-fill-color: initial;
+}
+
 /* Top Badge */
-div.pricing-block .header-audience:first-child {
+html body div.pricing-block .header-audience:first-child {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -360,7 +366,7 @@ div.pricing-block .header-audience:first-child {
 }
 
 /* Eyebrow */
-div.pricing-block .header-eyebrow {
+html body div.pricing-block .header-eyebrow {
   font-size: 12px !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
@@ -371,12 +377,13 @@ div.pricing-block .header-eyebrow {
 }
 
 /* Title Gradient */
-div.pricing-block .pricing-title {
+html body div.pricing-block .pricing-title {
   font-size: 28px !important;
   font-weight: 900 !important;
   line-height: 1.15 !important;
   letter-spacing: -0.02em !important;
   margin-bottom: 12px !important;
+  background: #ffffff !important;
   background: linear-gradient(135deg, #ffffff 0%, #ffd166 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
@@ -385,7 +392,7 @@ div.pricing-block .pricing-title {
 }
 
 /* Subtitle */
-div.pricing-block .header-subtitle {
+html body div.pricing-block .header-subtitle {
   font-size: 15px !important;
   font-weight: 600 !important;
   line-height: 1.4 !important;
@@ -395,7 +402,7 @@ div.pricing-block .header-subtitle {
 }
 
 /* Bottom Badge */
-div.pricing-block .header-audience:last-of-type {
+html body div.pricing-block .header-audience:last-of-type {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -411,7 +418,7 @@ div.pricing-block .header-audience:last-of-type {
 }
 
 /* Image Wrapper */
-div.pricing-block .img-block {
+html body div.pricing-block .img-block {
   width: 100% !important;
   border-radius: 16px !important;
   overflow: hidden !important;
@@ -420,7 +427,7 @@ div.pricing-block .img-block {
   margin: 16px 0 !important;
 }
 
-div.pricing-block .img-block img {
+html body div.pricing-block .img-block img {
   width: 80% !important;
   height: auto !important;
   margin: 0 auto !important;
