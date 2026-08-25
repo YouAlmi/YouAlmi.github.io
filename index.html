@@ -33,12 +33,33 @@
       .header-title { font-size: 22px; }
     }
 
-   
+    /* ── class1.html-specific textarea heights ── */
+    #code-input1  { field-sizing: content; }
 
 
 
 
 
+    /* ── COPY BUTTON PULSE OVERRIDES ── */
+    @keyframes pulse-copy {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+
+    .copy_btn {
+      animation: pulse-copy 2s infinite;
+    }
+
+    .copy_btn.is-copied {
+      animation: none !important;
+    }
   </style>
 
 </head>
@@ -749,7 +770,7 @@ print(f"🔥 OUTPUT = {OUTPUT}")
 
 
 
- <!-- FOCUS -->
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   // Select readable text containers
