@@ -165,7 +165,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   width: 36px;
   height: 36px;
   padding: 0 !important;
-  margin: 0 !important;
+  margin: 10 20 !important;
   background: #2a2a2a !important;
   color: #aaaaaa !important;
   border: 1px solid #555 !important;
