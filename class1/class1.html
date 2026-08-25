@@ -14,9 +14,6 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    /* ── class1.html-specific textarea heights ── */
-    #code-input1  { height: 565px; }
-    #code-input2  { height: 280px; }
   </style>
 
 </head> 
@@ -375,15 +372,14 @@ OUTPUT = INPUT * 5.0
       <div class="card-body">
 
         <!-- TRAIN THE BRAIN -->
-         <p>Just click <strong>RUN CODE</strong>.</p>
+         <p>Just click <strong>RUN</strong>.</p>
         <h3>TRAIN THE BRAIN 🧠</h3>
         <p></p>  
 
-        <div class="pythoncode">
-       
 
-          <!-- textarea-wrap -->
-          <div class="textarea-wrap">
+  <!-- CODE BLOCK 1 -->
+  <div class="pythoncode">
+    <div class="textarea-wrap">
 <textarea id="code-input1" style="line-height: 1.2;">
 EXAMPLES = 2
 
@@ -411,29 +407,32 @@ for EXAMPLE in range(EXAMPLES):
 
 print(f"TRAINING complete: WEIGHT = {WEIGHT}")
 </textarea>
-          </div>
-          <!-- ROW: RUN CODE button + Button 3 (always visible) -->
-          <div class="code-row">
-            <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
+    </div>
+    <div class="code-row">
+      <button onclick="runPython(1, this)"><strong>RUN</strong></button>
+      <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" data-tooltip="Copy code">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+    <div id="output-window1">Ready for math!</div>
+  </div>
 
-          <div id="output-window1">Ready for math!</div>
-        </div>
+
+
+
+
+
+
 
 
         <p><br/></p>
         <h3>TEST THE BRAIN 🧠</h3>
         <p></p>
 
-        <!-- TEST THE BRAIN -->
-        <div class="pythoncode">
 
-
-          <!-- textarea-wrap -->
-          <div class="textarea-wrap">
+ <!-- CODE BLOCK 2 -->
+  <div class="pythoncode">
+    <div class="textarea-wrap">
 <textarea id="code-input2" style="line-height: 1.2;">
 WEIGHT = 5.0
 
@@ -447,17 +446,19 @@ ERROR = TARGET - OUTPUT
 
 print(f"Testing complete: ERROR = {ERROR}")
 </textarea>
-          </div>
-          <!-- ROW: RUN CODE button + Button 3 (always visible) -->
-          <div class="code-row">
-            <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
+    </div>
+    <div class="code-row">
+      <button onclick="runPython(2, this)"><strong>RUN</strong></button>
+      <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" data-tooltip="Copy code">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+    <div id="output-window2">Ready for math!</div>
+  </div>
 
-          <div id="output-window2">Ready for math!</div>
-        </div>
+
+
+
 
         <p>Here, we use standard <strong>Python</strong> code.</p>
         <p>If you have any questions about this code, remember that in today’s world, knowing how to find answers is a superpower. You can copy this code, paste it into an AI assistant like <a href="https://chatgpt.com" target="_blank">ChatGPT</a>, and ask, “Can you explain this code line by line?” This is one of the best ways to learn.</p>
@@ -520,10 +521,12 @@ print(f"Testing complete: ERROR = {ERROR}")
   </div>
   <!-- /page -->
 
-
-  <script>
-
+<!-- PULSING STOPPING AND STARTING -->
+<script>
     function copyCode(id, btn) {
+      // Stop pulsing animation on click
+      btn.classList.add('is-copied');
+
       const text = document.getElementById(id).value;
       navigator.clipboard.writeText(text).then(() => {
         btn.classList.add('copy_btn--copied');
@@ -540,9 +543,13 @@ print(f"Testing complete: ERROR = {ERROR}")
       mypre.innerHTML = mypre.innerHTML + text;
     }
 
-    function runPython(block) {
-      const codeId   = block === 1 ? "code-input1"    : "code-input2";
-      const outputId = block === 1 ? "output-window1" : "output-window2";
+    function runPython(index, btn) {
+      if (btn) {
+        btn.classList.add("is-ran");
+      }
+
+      const codeId   = "code-input" + index;
+      const outputId = "output-window" + index;
 
       var code  = document.getElementById(codeId).value;
       var mypre = document.getElementById(outputId);
@@ -561,7 +568,113 @@ print(f"Testing complete: ERROR = {ERROR}")
         function (err)  { mypre.innerHTML = err.toString(); }
       );
     }
-  </script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const codeBlocks = document.querySelectorAll(".pythoncode");
+
+      codeBlocks.forEach(function (block, idx) {
+        const index = idx + 1;
+        const runBtn = block.querySelector("button:not(.copy_btn)");
+        const copyBtn = block.querySelector(".copy_btn");
+        const codeArea = document.getElementById("code-input" + index);
+
+        if (codeArea) {
+          // Whenever the code changes in this textarea, restart pulsing for its buttons
+          codeArea.addEventListener("input", function () {
+            if (runBtn) runBtn.classList.remove("is-ran");
+            if (copyBtn) copyBtn.classList.remove("is-copied");
+          });
+        }
+      });
+    });
+</script>
+
+<!-- FOCUS -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Select readable text containers
+  const selector = "p, li, .callout p, .formula-block, .step-heading, .inner-heading";
+  const elements = document.querySelectorAll(selector);
+
+  // Exclude containers like code blocks, tables, images, and headers
+  const validElements = Array.from(elements).filter(el => {
+    return !el.closest(".pythoncode, .pricing-block, .table-wrap, .img-block, .diagram, header, .footer");
+  });
+
+  // Recursive function to wrap text nodes inside elements (including inside <strong>, <em>, etc.)
+  function wrapWordsInNode(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      if (node.nodeValue.trim() !== "") {
+        const words = node.nodeValue.split(/(\s+)/);
+        const fragment = document.createDocumentFragment();
+        words.forEach(word => {
+          if (word.trim() !== "") {
+            const span = document.createElement("span");
+            span.className = "focus-word";
+            span.textContent = word;
+            fragment.appendChild(span);
+          } else {
+            fragment.appendChild(document.createTextNode(word));
+          }
+        });
+        node.parentNode.replaceChild(fragment, node);
+      }
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      // Traverse child elements (like <strong>, <em>, <i>) without disrupting their tags
+      Array.from(node.childNodes).forEach(wrapWordsInNode);
+    }
+  }
+
+  validElements.forEach(el => wrapWordsInNode(el));
+
+  let currentHighlightedWord = null;
+
+  function updateCenterFocus() {
+    const viewportCenter = window.innerHeight / 2;
+    const allWords = document.querySelectorAll(".focus-word");
+    let closestWord = null;
+    let minDistance = Infinity;
+
+    allWords.forEach(word => {
+      const rect = word.getBoundingClientRect();
+      const wordCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(viewportCenter - wordCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestWord = word;
+      }
+    });
+
+    // Highlight the word closest to vertical center (threshold: 80px)
+    if (closestWord && minDistance < 80) {
+      if (currentHighlightedWord !== closestWord) {
+        if (currentHighlightedWord) {
+          currentHighlightedWord.classList.remove("focus-line-target");
+        }
+        closestWord.classList.add("focus-line-target");
+        currentHighlightedWord = closestWord;
+      }
+    } else if (currentHighlightedWord) {
+      currentHighlightedWord.classList.remove("focus-line-target");
+      currentHighlightedWord = null;
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateCenterFocus();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  updateCenterFocus();
+});
+</script>
 
 </body>
 </html>
