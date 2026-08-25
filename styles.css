@@ -71,7 +71,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 /* ── LAYOUT ── */
 .page { max-width: 760px; margin: 0 auto; padding: 0 0; }
 .section-label { display: inline-block; background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 18px; border-radius: 16px; margin: 36px 0 0px; }
-.card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; margin: 10 0; overflow: hidden; }
+.card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; margin: 10px 0; overflow: hidden; }
 .card-header { background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.06em; padding: 11px 20px; }
 .card-body { padding: 20px 20px; }
 
@@ -157,6 +157,18 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 }
 
 /* ── COPY BUTTON ── */
+@keyframes pulse-copy {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
 .copy_btn {
   position: relative;
   display: flex;
@@ -165,7 +177,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   width: 36px;
   height: 36px;
   padding: 0 !important;
-  margin: 10 20 !important;
+  margin: 10px 20px !important;
   background: #2a2a2a !important;
   color: #aaaaaa !important;
   border: 1px solid #555 !important;
@@ -173,10 +185,16 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
   cursor: pointer !important;
   transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
   flex-shrink: 0;
+  animation: pulse-copy 2s infinite;
 
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
+
+.copy_btn.is-copied {
+  animation: none !important;
+}
+
 .copy_btn:focus,
 .copy_btn:active {
   outline: none;
@@ -545,38 +563,11 @@ html, body {
   transition: background-color 0.1s ease;
 }
 
-
-
-
-/* ── code block heights ── */
-    #code-input1  {field-sizing: content;}
-    #code-input2  {field-sizing: content;}
-    #code-input3  {field-sizing: content;}
-    #code-input4  {field-sizing: content;}
-    #code-input5  {field-sizing: content;}
-    #code-input6  {field-sizing: content;}
-    #code-input7  {field-sizing: content;}
-
-
-
-
-    /* ── COPY BUTTON PULSE OVERRIDES ── */
-    @keyframes pulse-copy {
-      0% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-      }
-    }
-
-    .copy_btn {
-      animation: pulse-copy 2s infinite;
-    }
-
-    .copy_btn.is-copied {
-      animation: none !important;
-    }
+/* ── CODE BLOCK HEIGHTS ── */
+#code-input1  { field-sizing: content; }
+#code-input2  { field-sizing: content; }
+#code-input3  { field-sizing: content; }
+#code-input4  { field-sizing: content; }
+#code-input5  { field-sizing: content; }
+#code-input6  { field-sizing: content; }
+#code-input7  { field-sizing: content; }
