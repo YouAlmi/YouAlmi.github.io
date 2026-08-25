@@ -1656,8 +1656,11 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
 
 
 
-  <script>
+<script>
     function copyCode(id, btn) {
+      // Stop pulsing animation on click
+      btn.classList.add('is-copied');
+
       const text = document.getElementById(id).value;
       navigator.clipboard.writeText(text).then(() => {
         btn.classList.add('copy_btn--copied');
@@ -1675,8 +1678,13 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
     }
 
     function runPython(block) {
-      const codeId   = "code-input" + block;
-      const outputId = "output-window" + block;
+      const runBtn = document.querySelector(".pythoncode button:not(.copy_btn)");
+      if (runBtn) {
+        runBtn.classList.add("is-ran");
+      }
+
+      const codeId   = "code-input1";
+      const outputId = "output-window1";
 
       var code  = document.getElementById(codeId).value;
       var mypre = document.getElementById(outputId);
@@ -1691,11 +1699,25 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
       });
 
       myPromise.then(
-        function (mod) { console.log('Success Block ' + block + '!'); },
+        function (mod) { console.log('Success!'); },
         function (err)  { mypre.innerHTML = err.toString(); }
       );
     }
-  </script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var runBtn = document.querySelector(".pythoncode button:not(.copy_btn)");
+      var copyBtn = document.querySelector(".copy_btn");
+      var codeArea = document.getElementById("code-input1");
+
+      if (codeArea) {
+        // Whenever the code changes, restart pulsing for both buttons
+        codeArea.addEventListener("input", function () {
+          if (runBtn) runBtn.classList.remove("is-ran");
+          if (copyBtn) copyBtn.classList.remove("is-copied");
+        });
+      }
+    });
+</script>
 
 
 
