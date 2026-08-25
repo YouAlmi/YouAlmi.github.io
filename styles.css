@@ -73,7 +73,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 .section-label { display: inline-block; background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 18px; border-radius: 16px; margin: 36px 0 0px; }
 .card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; margin: 10 0; overflow: hidden; }
 .card-header { background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.06em; padding: 11px 20px; }
-.card-body { padding: 20px 2px; }
+.card-body { padding: 20px 20px; }
 
 /* ── CALLOUTS & FORMULAS ── */
 .callout { border-radius: 16px; padding: 16px 20px; margin: 14px 0; font-weight: 700; line-height: 1.85; }
@@ -107,7 +107,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 .mapping-table tr:first-child td { background: #111111; color: #ffffff; font-weight: 900; text-transform: uppercase; }
 
 /* ── CODE & INTERACTIVE ── */
-.pythoncode { background-color: #1e1e1e; color: #ffffff; padding: 20px; border-radius: 16px; font-family: 'Courier New', monospace; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.pythoncode { background-color: #1e1e1e; color: #ffffff; padding: 2px; border-radius: 16px; font-family: 'Courier New', monospace; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 .pythoncode h3 { margin-top: 0; color: #ffffff; }
 .pythoncode textarea { width: 100%; font-weight: bold; border: 1px solid #444; padding: 15px; font-size: 1rem; border-radius: 16px; outline: none; resize: vertical; background: #1e1e1e; color: #ffffff; font-family: 'Courier New', monospace; }
 .pythoncode div[id^="output-window"] { background-color: #000000; color: #ffffff; font-weight: bold; padding: 15px; margin-top: 10px; border-radius: 16px; white-space: pre-wrap; border-left: 4px solid #00ff00; font-size: 0.95rem; font-family: 'Courier New', monospace; }
