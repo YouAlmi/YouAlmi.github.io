@@ -547,8 +547,15 @@ html, body {
 
 
 
-/* ── class1.html-specific textarea heights ── */
-#code-input1  { field-sizing: content; }
+
+/* ── code block heights ── */
+    #code-input1  {field-sizing: content;}
+    #code-input2  {field-sizing: content;}
+    #code-input3  {field-sizing: content;}
+    #code-input4  {field-sizing: content;}
+    #code-input5  {field-sizing: content;}
+    #code-input6  {field-sizing: content;}
+    #code-input7  {field-sizing: content;}
 
 
 
