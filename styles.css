@@ -544,3 +544,8 @@ html, body {
   -webkit-box-decoration-break: clone;
   transition: background-color 0.1s ease;
 }
+
+
+
+/* ── class1.html-specific textarea heights ── */
+#code-input1  { field-sizing: content; }
