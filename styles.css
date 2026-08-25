@@ -76,7 +76,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 10px 0px; text-
 .card-body { padding: 20px 0px; }
 
 /* ── CALLOUTS & FORMULAS ── */
-.callout { border-radius: 16px; padding: 16px 20px; margin: 14px 0; font-weight: 700; line-height: 1.85; }
+.callout { border-radius: 16px; padding: 16px 15px; margin: 14px 0; font-weight: 700; line-height: 1.85; }
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
 .callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
