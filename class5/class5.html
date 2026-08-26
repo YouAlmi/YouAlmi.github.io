@@ -1797,19 +1797,14 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
     });
 </script>
 
+
 <!-- FOCUS -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Select readable text containers
-  const selector = "p, li, .callout p, .formula-block, .step-heading, .inner-heading";
-  const elements = document.querySelectorAll(selector);
+  // Target all elements within the body
+  const allElements = document.querySelectorAll("body *");
 
-  // Exclude containers like code blocks, tables, images, and headers
-  const validElements = Array.from(elements).filter(el => {
-    return !el.closest(".pythoncode, .pricing-block, .table-wrap, .img-block, .diagram, header, .footer");
-  });
-
-  // Recursive function to wrap text nodes inside elements (including inside <strong>, <em>, etc.)
+  // Recursive function to wrap every text node inside any element
   function wrapWordsInNode(node) {
     if (node.nodeType === Node.TEXT_NODE) {
       if (node.nodeValue.trim() !== "") {
@@ -1828,12 +1823,21 @@ document.addEventListener("DOMContentLoaded", function () {
         node.parentNode.replaceChild(fragment, node);
       }
     } else if (node.nodeType === Node.ELEMENT_NODE) {
-      // Traverse child elements (like <strong>, <em>, <i>) without disrupting their tags
-      Array.from(node.childNodes).forEach(wrapWordsInNode);
+      // Skip elements that shouldn't have text wrapped (like script or style tags)
+      const tagName = node.tagName.toLowerCase();
+      if (tagName !== "script" && tagName !== "style" && tagName !== "svg") {
+        Array.from(node.childNodes).forEach(wrapWordsInNode);
+      }
     }
   }
 
-  validElements.forEach(el => wrapWordsInNode(el));
+  // Process the entire page structure without exceptions
+  allElements.forEach(el => {
+    // Only wrap top-most containers to avoid redundant recursive loops
+    if (el.parentNode === document.body || el.parentNode.tagName === "MAIN") {
+      wrapWordsInNode(el);
+    }
+  });
 
   let currentHighlightedWord = null;
 
@@ -1854,8 +1858,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Highlight the word closest to vertical center (threshold: 80px)
-    if (closestWord && minDistance < 80) {
+    if (closestWord && minDistance < 100) {
       if (currentHighlightedWord !== closestWord) {
         if (currentHighlightedWord) {
           currentHighlightedWord.classList.remove("focus-line-target");
@@ -1882,7 +1885,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateCenterFocus();
 });
-</script>
+</script> 
 
 </body>
 </html>
