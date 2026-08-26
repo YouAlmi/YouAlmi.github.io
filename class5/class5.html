@@ -277,56 +277,47 @@ OUTPUT = INPUT1 * WEIGHT1 + INPUT2 * WEIGHT2 + INPUT3 * WEIGHT3 + BIAS
 
         <p>So for its <strong>DATASET</strong>, our <strong>machine brain</strong> receives these two <strong>EXAMPLES</strong>:</p>
 
-  <div class="table-wrap">
-  <table class="doc-table">
-    
-    <!-- ROW 1: HEADERS -->
-    <tr class="col-header">
-      <td></td>
-      <td><strong>INPUT1</strong></td>
-      <td><strong>INPUT2</strong></td>
-      <td><strong>INPUT3</strong></td>
-      <td><strong>TARGET</strong></td>
-    </tr>
-    
-    <!-- IMAGES -->
-    <tr>
-      <td></td>
-      <td>
-        <img src="friend.png" alt="friend">
-        <span>friend</span>
-      </td>
-      <td>
-        <img src="dj.png" alt="dj">
-        <span>dj</span>
-      </td>
-      <td>
-        <img src="rain.png" alt="rain">
-        <span>rain</span>
-      </td>
-      <td></td>
-    </tr>
-    
-    <!-- EXAMPLE 1 -->
-    <tr>
-      <td class="label-cell"><strong>EXAMPLE1</strong></td>
-      <td><strong>YES</strong></td>
-      <td><strong>NO</strong></td>
-      <td><strong>NO</strong></td>
-      <td><strong>GO</strong></td>
-    </tr>
+        <div class="table-wrap" style="width:100%;">
+          <table class="doc-table" style="width:70%; table-layout: fixed; border-collapse: collapse;">
+            
+            <!-- ROW 1: HEADERS -->
+            <tr class="col-header">
+              <td style="width: 26%;"></td>
+              <td style="width: 19%; text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>INPUT1</strong></div></td>
+              <td style="width: 19%; text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>INPUT2</strong></div></td>
+              <td style="width: 19%; text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>INPUT3</strong></div></td>
+              <td style="width: 19%; text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>TARGET</strong></div></td>
+            </tr>
+            
+            <!-- IMAGES -->
+            <tr>
+            <td></td>
+            <td style="text-align:center;"><img src="friend.png" alt="friend" style="display:block; width:100%; height:auto; margin:0 auto; border-radius:8px;">friend</td>
+            <td style="text-align:center;"><img src="dj.png" alt="dj" style="display:block; width:100%; height:auto; margin:0 auto; border-radius:8px;"><div>dj</div></td>
+            <td style="text-align:center;"><img src="rain.png" alt="rain" style="display:block; width:100%; height:auto; margin:0 auto; border-radius:8px;"><div>rain</div></td>
+            <td></td>
+            </tr>
+            
+            <!-- EXAMPLE1  -->
+            <tr>
+              <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>EXAMPLE1</strong></div></td>
+              <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>YES</strong></div></td>
+              <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>NO</strong></div></td>
+              <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>NO</strong></div></td>
+              <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>GO</strong></div></td>
+            </tr>
+            <!-- EXAMPLE2  -->
+            <tr>
+              <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>EXAMPLE2</strong></div></td>
+              <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>YES</strong></div></td>
+              <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>YES</strong></div></td>
+              <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>NO</strong></div></td>
+              <td style="text-align: center !important;"><div style="display: flex; justify-content: center; align-items: center; width: 100%;"><strong>GO</strong></div></td>
+            </tr>
 
-    <!-- EXAMPLE 2 -->
-    <tr>
-      <td class="label-cell"><strong>EXAMPLE2</strong></td>
-      <td><strong>YES</strong></td>
-      <td><strong>YES</strong></td>
-      <td><strong>NO</strong></td>
-      <td><strong>GO</strong></td>
-    </tr>
+          </table>
+        </div>
 
-  </table>
-</div>
         <hr class="divider"/>
 
         <!-- EXAMPLE 2 -->
