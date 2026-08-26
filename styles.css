@@ -407,7 +407,7 @@ html, body {
   }
 }
 
-.round-button:hover { background-color: #0056b3; }
+.round-button:hover {background: linear-gradient(135deg, #0056b3, #003875);}
 .round-button:active { transform: scale(0.95); }
 
 /* ── PRICING CARD ── */
