@@ -1801,10 +1801,16 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
 <!-- FOCUS -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Target all elements within the body
-  const allElements = document.querySelectorAll("body *");
+  // Target top-level readable container blocks across the entire page
+  const selector = "p, li, td, th, div, span, h1, h2, h3, h4, h5, h6, pre, code, blockquote, figcaption";
+  const elements = document.querySelectorAll(selector);
 
-  // Recursive function to wrap every text node inside any element
+  // Exclude ONLY buttons and pricing blocks
+  const validElements = Array.from(elements).filter(el => {
+    return !el.closest("button, .pricing-block, .round-button, .price-pill, .copy_btn");
+  });
+
+  // Recursive wrapper to process text nodes within all non-excluded elements
   function wrapWordsInNode(node) {
     if (node.nodeType === Node.TEXT_NODE) {
       if (node.nodeValue.trim() !== "") {
@@ -1823,21 +1829,21 @@ document.addEventListener("DOMContentLoaded", function () {
         node.parentNode.replaceChild(fragment, node);
       }
     } else if (node.nodeType === Node.ELEMENT_NODE) {
-      // Skip elements that shouldn't have text wrapped (like script or style tags)
-      const tagName = node.tagName.toLowerCase();
-      if (tagName !== "script" && tagName !== "style" && tagName !== "svg") {
+      // Do not recurse into buttons or pricing blocks if nested
+      if (!node.matches("button, .pricing-block, .round-button, .price-pill, .copy_btn") &&
+          !node.closest("button, .pricing-block")) {
         Array.from(node.childNodes).forEach(wrapWordsInNode);
       }
     }
   }
 
-  // Process the entire page structure without exceptions
-  allElements.forEach(el => {
-    // Only wrap top-most containers to avoid redundant recursive loops
-    if (el.parentNode === document.body || el.parentNode.tagName === "MAIN") {
-      wrapWordsInNode(el);
-    }
+  // Filter out parent containers whose children will be processed recursively
+  // to prevent duplicate node traversals
+  const rootContainers = validElements.filter(el => {
+    return !validElements.some(parent => parent !== el && parent.contains(el));
   });
+
+  rootContainers.forEach(el => wrapWordsInNode(el));
 
   let currentHighlightedWord = null;
 
