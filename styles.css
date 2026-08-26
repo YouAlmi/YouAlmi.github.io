@@ -292,7 +292,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
 /* Price Pill Button */
 .price-pill { 
   display: inline-block; 
-  background: green; 
+  background: linear-gradient(135deg, #28a745 0%, #006400 100%); 
   color: white; 
   font-weight: 900; 
   font-size: 17px; 
@@ -303,7 +303,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   position: relative;
   cursor: pointer;
   animation: pulse-pill 2s infinite;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: background 0.3s ease, transform 0.1s ease;
 
   -webkit-tap-highlight-color: transparent;
   outline: none;
@@ -319,16 +319,16 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   transform: scale(0.97); 
 }
 
-/* Apply hover only on devices with true hover capability */
+/* Apply hover gradient shift only on desktop/mouse devices */
 @media (hover: hover) {
   .price-pill:hover { 
-    background-color: #006400; 
+    background: linear-gradient(135deg, #218838 0%, #004d00 100%); 
   }
 }
 
-/* Reset state when focused via click */
+/* Reset back to default initial gradient when clicked */
 .price-pill:focus:not(:focus-visible) {
-  background-color: green;
+  background: linear-gradient(135deg, #28a745 0%, #006400 100%);
   transform: none;
 }
 
