@@ -1802,7 +1802,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const selector = "p, li, .callout p, .formula-block, .step-heading, .inner-heading";
   const elements = document.querySelectorAll(selector);
 
-
+  // Exclude containers like code blocks, tables, images, and headers
+  const validElements = Array.from(elements).filter(el => {
+    return !el.closest();
+  });
 
   // Recursive function to wrap text nodes inside elements (including inside <strong>, <em>, etc.)
   function wrapWordsInNode(node) {
