@@ -1,4 +1,3 @@
-
 /* ── DESIGN TOKENS ── */
 :root {
   --black:        #111111;
@@ -44,584 +43,604 @@
   }
 }
 
-/* ==========================================================================
-   1. CORE BASE & RESET
-   ========================================================================== */
-*, *::before, *::after {
-  box-sizing: border-box;
+/* ── RESET & BASE ── */
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  font-family: 'Nunito', sans-serif; 
+  font-size: 17px; 
+  line-height: 1.75; 
+}
+body { 
+  background: var(--bg); 
+  color: var(--black); 
+  padding-bottom: 80px; 
 }
 
-body {
-  margin: 0;
-  padding: 0 0 60px 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 15px;
-  line-height: 1.65;
-  color: #1a1a1a;
-  background-color: #ffffff;
-  -webkit-font-smoothing: antialiased;
+/* Default Mobile: 0px horizontal padding */
+p:not(.callout p) { 
+  margin-bottom: 12px; 
+  padding-left: 0px;
+  padding-right: 0px;
+}
+strong { font-weight: 900; }
+em { font-style: italic; }
+
+/* ── HEADER ── */
+header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-align: center; }
+.header-eyebrow, .header-tag { font-size: 17px; color: var(--green); font-weight: 700; }
+.header-title { font-size: 25px; font-weight: 900; line-height: 1.2; color: var(--yellow); }
+.header-subtitle { font-size: 17px; color: #aaaaaa; font-weight: 700; }
+.header-audience { font-size: 17px; color: #ffffff; font-weight: 700; }
+
+/* ── LAYOUT ── */
+.page { max-width: 760px; margin: 0 auto; padding: 0 0; }
+.section-label { display: inline-block; background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 0px; border-radius: 16px; margin: 36px 0 0px; }
+.card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; margin: 10px 0; overflow: hidden; }
+.card-header { background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.06em; padding: 11px 0px; }
+.card-body { padding: 20px 0px; }
+
+/* ── CALLOUTS & FORMULAS ── */
+.callout { border-radius: 16px; padding: 16px 0px; margin: 14px 0; font-weight: 700; line-height: 1.85; }
+.callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
+.callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
+.callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
+.callout-info    { background: var(--blue-lt);  border-left: 4px solid var(--blue); }
+.callout-warning { background: var(--orange-lt); border: 1px solid var(--orange); border-radius: 16px; }
+.callout-title { font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+.callout-neutral .callout-title { color: var(--gray); }
+.callout-success .callout-title { color: var(--green); }
+.callout-error .callout-title  { color: var(--red); }
+.callout-info .callout-title    { color: var(--blue); }
+
+.formula-block { background: #111111; color: #ffffff; border-radius: 16px; padding: 20px 0px; margin: 16px 0; font-weight: 700; line-height: 2; border-left: 5px solid var(--green); }
+.formula-block-label { color: var(--green); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.formula { color: var(--yellow); }
+
+/* ── TABLES ── */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
+.doc-table, .data-table, .mapping-table { border-collapse: collapse; margin: 0 auto; font-weight: 700; }
+.doc-table td, .mapping-table td { border: 1px solid #aaaaaa; padding: 8px 0px; text-align: center; vertical-align: middle; }
+.doc-table .label-cell { border: none; text-align: left; color: var(--black); font-weight: 700; padding-left: 0px; white-space: nowrap; }
+.doc-table .table-title-row td, .data-table th { background: #111111; color: #ffffff; font-weight: 900; text-transform: uppercase; }
+.doc-table .col-header td { background: var(--gray-lt); font-weight: 900; text-transform: uppercase; font-size: 15px; }
+.doc-table .total-row td { background: #111111; color: var(--yellow); font-weight: 900; }
+.doc-table .sum-row td { background: var(--gray-lt); font-weight: 900; }
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th { padding: 8px 0px; text-align: left; }
+.data-table td { padding: 8px 0px; border-bottom: 1px solid var(--border); font-weight: 700; }
+.mapping-table tr:first-child td { background: #111111; color: #ffffff; font-weight: 900; text-transform: uppercase; }
+
+/* ── CODE & INTERACTIVE ── */
+.pythoncode { background-color: #1e1e1e; color: #ffffff; padding: 2px; border-radius: 16px; font-family: 'Courier New', monospace; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.pythoncode h3 { margin-top: 0; color: #ffffff; }
+.pythoncode textarea { width: 100%; font-weight: bold; border: 1px solid #444; padding: 15px 0px; font-size: 1rem; border-radius: 16px; outline: none; resize: vertical; background: #1e1e1e; color: #ffffff; font-family: 'Courier New', monospace; }
+.pythoncode div[id^="output-window"] { background-color: #000000; color: #ffffff; font-weight: bold; padding: 15px 0px; margin: 0px; border-radius: 16px; white-space: pre-wrap; border-left: 4px solid #00ff00; font-size: 0.95rem; font-family: 'Courier New', monospace; }
+
+/* RUN Button (EXCEPTED: retains specific padding/margin) */
+.pythoncode button { 
+  margin: 10px 20px; 
+  background-color: #00ff00; 
+  color: #000000; 
+  border: none; 
+  padding: 10px 25px; 
+  font-weight: bold; 
+  border-radius: 16px; 
+  cursor: pointer; 
+  transition: background 0.2s, transform 0.1s ease; 
+
+  /* Default pulsing animation */
+  animation: pulse-run 2s infinite;
+
+  /* Removes mobile tap box and focus outlines */
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-.page {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
+.pythoncode button:focus,
+.pythoncode button:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  transform: scale(0.97);
 }
 
-/* ==========================================================================
-   2. HEADER & NAVIGATION
-   ========================================================================== */
-header {
-  padding: 0 16px;
-  margin-bottom: 24px;
+/* Class to stop animation after clicking RUN */
+.pythoncode button.is-ran {
+  animation: none !important;
 }
 
-.header-eyebrow, 
-.header-tag {
-  font-size: 15px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #666666;
-  margin-bottom: 6px;
+@keyframes pulse-run {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(0, 255, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+  }
 }
 
-.header-title {
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 1.3;
-  margin: 0 0 8px 0;
-  color: #000000;
+/* ── COPY BUTTON (EXCEPTED: retains specific padding/margin) ── */
+@keyframes pulse-copy {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
 }
 
-.header-subtitle {
-  font-size: 15px;
-  color: #4a4a4a;
-  margin-bottom: 12px;
-}
-
-.header-audience {
-  display: inline-block;
-  font-size: 15px;
-  background-color: #f0f0f0;
-  padding: 4px 10px;
-  border-radius: 4px;
-  color: #333333;
-}
-
-/* ==========================================================================
-   3. TYPOGRAPHY & GENERAL PROSE
-   ========================================================================== */
-p {
-  margin: 0 0 16px 0;
-}
-
-p:not(.callout p) {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.inner-heading {
-  font-size: 17px;
-  font-weight: 700;
-  margin: 20px 0 8px 0;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.step-heading {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 20px 0 10px 0;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.step-badge {
+.copy_btn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 14px;
-  font-size: 15px;
-  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  padding: 0 !important;
+  margin: 10px 20px !important;
+  background: #2a2a2a !important;
+  color: #aaaaaa !important;
+  border: 1px solid #555 !important;
+  border-radius: 16px !important;
+  cursor: pointer !important;
+  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
   flex-shrink: 0;
+  animation: pulse-copy 2s infinite;
+
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-.prose-list {
-  margin: 8px 0 12px 20px;
-  padding-left: 16px;
-  padding-right: 16px;
+.copy_btn.is-copied {
+  animation: none !important;
 }
 
-.prose-list li {
-  margin-bottom: 6px;
+.copy_btn:focus,
+.copy_btn:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.copy_btn svg { width: 18px; height: 18px; pointer-events: none; }
+.copy_btn:hover {
+  background: #3a3a3a !important;
+  color: #ffffff !important;
+}
+.copy_btn--copied {
+  background: #1a3a1a !important;
+  color: var(--green-lt-lt) !important;
+  border-color: #2d8a4e !important;
 }
 
-.section-label {
-  display: inline-block;
-  padding: 6px 14px;
-  margin: 24px 0 0 0;
-  font-size: 15px;
-  font-weight: 700;
-  background-color: #e9ecef;
+/* Hide any duplicate pseudo-element messages */
+.copy_btn::before {
+  display: none !important;
+}
+
+/* Single tooltip pop-up box */
+.copy_btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  padding: 4px 8px;
   border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
 }
 
-/* ==========================================================================
-   4. CARDS & LAYOUT BLOCKS
-   ========================================================================== */
-.card-header {
-  padding: 10px 16px;
-  font-weight: 700;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
+/* Show tooltip ONLY when active class is applied via JS */
+.copy_btn.is-tooltip-visible::after {
+  opacity: 1 !important;
 }
 
-.card-body {
-  padding: 16px;
+.code-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 8px 0;
+}
+.code-row > button:not(.copy_btn) { margin-top: 0; }
+.copy_btn--inline {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.teaser {
-  padding: 20px 16px;
-  margin: 24px 0 0 0;
-  background-color: #f8f9fa;
-  border-radius: 8px;
+.textarea-wrap {
+  position: relative;
+  cursor: pointer;
+}
+.textarea-wrap textarea {
+  display: block;
+  width: 100%;
+  cursor: text;
+}
+.copy_btn--cursor {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  opacity: 0;
+  pointer-events: none !important;
+  z-index: 3;
+  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
 }
 
-.teaser-next {
-  font-size: 19px;
-  font-weight: 700;
-  margin: 6px 0;
+/* ── TYPOGRAPHY & BLOCKS ── */
+.inner-heading { font-weight: 900; font-size: 19px; margin: 24px 0 10px; }
+.prose-list { margin: 10px 0 14px 24px; }
+.prose-list li { margin-bottom: 8px; font-weight: 700; }
+
+.neuron-emoji { font-size: 60px; text-align: center; margin: 10px 0 4px; line-height: 1.1; }
+.neuron-label { text-align: center; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+
+.pricing-sub { color: #cccccc; font-weight: 700; margin-bottom: 4px; }
+.pricing-price { font-weight: 900; color: var(--yellow); font-size: 20px; margin-top: 10px; }
+
+/* Price Pill Button */
+.price-pill { 
+  display: inline-block; 
+  background: green; 
+  color: white; 
+  font-weight: 900; 
+  font-size: 17px; 
+  padding: 12px 0px; 
+  border-radius: 16px; 
+  border: 4px solid #93c47d; 
+  letter-spacing: 0.02em;
+  position: relative;
+  cursor: pointer;
+  animation: pulse-pill 2s infinite;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.price-pill:focus,
+.price-pill:active { 
+  outline: none; 
+  -webkit-tap-highlight-color: transparent;
+  transform: scale(0.97); 
+}
+
+.price-pill:hover { 
+  background-color: #006400; 
+}
+
+@keyframes pulse-pill {
+  0% {
+    box-shadow: 0 0 0 0 rgba(147, 196, 125, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(147, 196, 125, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(147, 196, 125, 0);
+  }
+}
+
+.divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
+.footer { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 0px 40px; gap: 16px; border-top: 1px solid var(--border); margin-top: 60px; }
+.footer-logo { 
+  width: 128px; 
+  height: auto; 
+  opacity: 0.4; 
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
+}
+.footer-copyright { color: var(--gray); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* ── CLASS SPECIFIC UTILS ── */
+.influence-panel { background: var(--white); border-left: 4px solid var(--blue); border-radius: 16px; padding: 12px 0px; margin: 12px 0 16px; color: var(--black); font-weight: 700; line-height: 1.85; }
+.influence-panel-label { color: var(--blue); font-weight: 900; letter-spacing: 0.08em; margin-bottom: 6px; }
+.takeaway { background: var(--gray-lt); border: 2px solid var(--black); border-radius: 16px; padding: 14px 0px; margin: 14px 0; font-weight: 900; }
+.takeaway-label { color: var(--gray); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+.result-banner, .completion-banner { background: #111111; color: var(--yellow); font-weight: 900; text-align: center; padding: 14px 0px; border-radius: 16px; margin: 14px 0; }
+.success-callout { background: var(--green-lt); border: 2px solid var(--green); border-radius: 16px; padding: 14px 0px; margin: 12px 0; font-weight: 800; color: var(--green); }
+.error-chip { display: inline-block; background: var(--red-lt); color: var(--red); font-weight: 800; padding: 4px 0px; border-radius: 16px; margin: 0px 0; }
+.diagram img { max-width: 100%; border-radius: 16px; display: block; margin: 0 20; border: 1.5px solid var(--border); }
+.step-heading { display: flex; align-items: center; gap: 12px; font-weight: 900; margin: 28px 0 12px; }
+.step-badge { background: var(--green); color: #ffffff; width: 32px; height: 32px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
+.teaser { background: #111111; color: #ffffff; border-radius: 16px; padding: 28px 0px; text-align: center; margin: 36px 0 0; font-weight: 700; }
+.teaser-next { color: var(--yellow); font-weight: 900; font-size: 22px; margin: 8px 0; }
+
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
 .container {
-  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  background-color: transparent;
 }
 
-.divider {
-  border: 0;
-  height: 1px;
-  background: #e5e5e5;
-  margin: 20px 0;
-}
-
-.img-block {
-  margin: 12px 0;
-}
-
-.diagram img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 16px;
-}
-
-/* ==========================================================================
-   5. CALLOUTS & SPECIAL PANELS
-   ========================================================================== */
-.callout {
-  padding: 14px 16px;
-  margin: 12px 0;
-  line-height: 1.75;
-  background-color: #f4f6f8;
-  border-left: 4px solid #0066cc;
-  border-radius: 0 4px 4px 0;
-}
-
-.callout-title {
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.takeaway {
-  padding: 12px 16px;
-  margin: 12px 0;
-  background-color: #fff9e6;
-  border-left: 4px solid #ffcc00;
-}
-
-.takeaway-label {
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.influence-panel {
-  padding: 10px 16px;
-  margin: 10px 0 14px;
-  line-height: 1.75;
-  background-color: #f0f4f8;
-  border-radius: 6px;
-}
-
-.influence-panel-label {
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.formula-block {
-  padding: 16px;
-  margin: 14px 0;
-  line-height: 1.8;
-  background-color: #fafafa;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-}
-
-.formula-block-label {
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.result-banner, 
-.completion-banner {
-  padding: 12px 16px;
-  margin: 12px 0;
-  background-color: #e6f4ea;
-  border-radius: 6px;
-}
-
-.success-callout {
-  padding: 12px 16px;
-  margin: 10px 0;
-  background-color: #e6f4ea;
-  border-left: 4px solid #137333;
-}
-
-/* ==========================================================================
-   6. TABLES
-   ========================================================================== */
-.table-wrap {
-  margin: 12px 0;
-  padding: 0 16px;
-  overflow-x: auto;
-}
-
-.doc-table, 
-.mapping-table, 
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.doc-table td, 
-.mapping-table td, 
-.data-table th, 
-.data-table td {
-  padding: 6px 10px;
-  border: 1px solid #e0e0e0;
-}
-
-.doc-table .label-cell {
-  padding-left: 10px;
-  font-weight: 600;
-}
-
-.doc-table .col-header td {
-  font-size: 14px;
-  font-weight: 700;
-  background-color: #f5f5f5;
-}
-
-/* ==========================================================================
-   7. CODE & INTERACTIVE ELEMENTS
-   ========================================================================== */
-.pythoncode {
-  padding: 16px;
-  margin: 16px 0;
-  background-color: #1e1e1e;
-  color: #d4d4d4;
-  border-radius: 6px;
-}
-
-.pythoncode textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 0.9rem;
-  font-family: monospace;
-  background-color: #252526;
-  color: #dcdcdc;
-  border: 1px solid #3c3c3c;
-  border-radius: 4px;
-}
-
-.pythoncode div[id^="output-window"] {
-  padding: 10px;
-  font-size: 0.85rem;
-  font-family: monospace;
-  background-color: #111111;
-  color: #00ff00;
-  border-radius: 4px;
-  margin-top: 10px;
-}
-
-.neuron-emoji {
-  font-size: 48px;
-  margin: 8px 0 2px;
-  text-align: center;
-}
-
-.neuron-label {
-  margin-bottom: 10px;
-  font-size: 15px;
-  text-align: center;
-}
-
+/* Round Button */
 .round-button {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  font-size: 14px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
+  position: relative;
+  animation: pulse 2s infinite;
+
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-/* ==========================================================================
-   8. PRICING COMPONENTS
-   ========================================================================== */
-.pricing-price {
-  font-size: 18px;
-  font-weight: 700;
-  margin-top: 8px;
+.round-button:focus,
+.round-button:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.price-pill {
-  display: inline-block;
-  font-size: 15px;
-  padding: 10px 20px;
-  border: 3px solid #000000;
-  border-radius: 30px;
-  font-weight: 700;
-  background: #ffffff;
-  cursor: pointer;
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(0, 123, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
 }
 
+.round-button:hover { background-color: #0056b3; }
+.round-button:active { transform: scale(0.95); }
+
+/* ── PRICING CARD ── */
 .pricing-block {
-  max-width: 100%;
-  padding: 24px 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  transition: transform 0.2s ease;
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px 0px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+              0 0 80px var(--glass-glow);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease;
+}
+
+.pricing-block:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
+              0 0 100px rgba(56, 189, 248, 0.25);
+}
+
+.pricing-block::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%);
+  pointer-events: none;
 }
 
 .pricing-block .header-audience:first-child {
-  font-size: 12px;
-  padding: 6px 12px;
-  margin-bottom: 16px;
-}
-
-.pricing-block .header-eyebrow {
-  font-size: 11px;
-  margin-bottom: 6px;
-}
-
-.pricing-title, 
-.green-title, 
-.blue-title {
-  font-size: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
   font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.pricing-block .header-subtitle {
-  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 0px;
+  border-radius: 100px;
   margin-bottom: 20px;
 }
 
+.pricing-block .header-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-cyan);
+  margin-bottom: 8px;
+}
+
+.pricing-title {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--yellow) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.green-title {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blue-title {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pricing-block .header-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
 .pricing-block .header-audience:last-of-type {
-  font-size: 13px;
-  padding: 8px 14px;
-  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  padding: 10px 0px;
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.img-block {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin: 16px 0;
+  text-align: center;
+}
+
+.img-block img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.pricing-block:hover .img-block img {
+  transform: scale(1.04);
 }
 
 .pricing-block .family {
-  font-size: 15px !important;
-  margin-top: 6px !important;
+  color: #94a3b8 !important;
+  font-size: 17px !important;
+  margin-top: 8px !important;
 }
 
-/* ==========================================================================
-   9. FOOTER
-   ========================================================================== */
-.footer {
-  padding: 40px 16px 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-top: 40px;
-  border-top: 1px solid #e5e5e5;
+/* ── CENTER SCROLL FOCUS ── */
+.focus-line-target {
+  background-color: var(--yellow) !important;
+  color: var(--black) !important;
+  border-radius: 4px;
+  padding: 0 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background-color 0.1s ease;
 }
 
-.footer-logo {
-  width: 100px;
-  height: auto;
-}
+/* ── CODE BLOCK HEIGHTS ── */
+#code-input1  { field-sizing: content; }
+#code-input2  { field-sizing: content; }
+#code-input3  { field-sizing: content; }
+#code-input4  { field-sizing: content; }
+#code-input5  { field-sizing: content; }
+#code-input6  { field-sizing: content; }
+#code-input7  { field-sizing: content; }
 
-.footer-copyright {
-  font-size: 13px;
-  color: #777777;
-}
 
-
-/* ==========================================================================
-   10. DESKTOP STYLES (768px wide and above)
-   ========================================================================== */
+/* ── DESKTOP STYLES (768px wide and above) ── */
 @media (min-width: 768px) {
-  * { 
-    font-size: 17px; 
-    line-height: 1.75; 
-  }
-
-  body { 
-    padding-bottom: 80px; 
-  }
-
-  /* ── GLOBAL DESKTOP HORIZONTAL PADDING (20px) ── */
-  p:not(.callout p),
-  .inner-heading,
-  .step-heading,
-  .takeaway,
-  .influence-panel,
-  .formula-block,
-  .success-callout,
-  .result-banner,
-  .completion-banner,
-  .teaser,
-  .prose-list {
+  p:not(.callout p) {
     padding-left: 20px;
     padding-right: 20px;
   }
-
-  /* ── HEADER ── */
-  header { 
-    padding: 0 20px; 
+  header {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  .header-eyebrow, 
-  .header-tag { font-size: 17px; }
-  .header-title { font-size: 25px; }
-  .header-subtitle { font-size: 17px; }
-  .header-audience { font-size: 17px; }
-
-  /* ── LAYOUT & CARDS ── */
-  .page { 
-    max-width: 760px; 
-    padding: 0; 
+  .section-label {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  .section-label { 
-    padding: 7px 18px; 
-    margin: 36px 0 0; 
-    font-size: 17px;
+  .card-header {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  .card-header { padding: 11px 20px; }
-  .card-body { padding: 20px; }
-
-  /* ── CALLOUTS & FORMULAS ── */
-  .callout { padding: 16px 20px; margin: 14px 0; line-height: 1.85; }
-  .callout-title { margin-bottom: 10px; }
-
-  .formula-block { padding: 20px 24px; margin: 16px 0; line-height: 2; }
-  .formula-block-label { margin-bottom: 10px; }
-
-  /* ── TABLES ── */
-  .table-wrap { margin: 14px 0; padding: 0 20px; }
-  .doc-table td, .mapping-table td { padding: 8px 14px; }
-  .doc-table .label-cell { padding-left: 12px; }
-  .doc-table .col-header td { font-size: 15px; }
-  .data-table th, .data-table td { padding: 8px 14px; }
-
-  /* ── CODE & INTERACTIVE ── */
-  .pythoncode { padding: 20px; margin: 20px 0; }
-  .pythoncode textarea { padding: 15px; font-size: 1rem; }
-  .pythoncode div[id^="output-window"] { padding: 15px; font-size: 0.95rem; }
-
-  /* Note: .pythoncode button and .copy_btn margins remain completely unaffected */
-
-  /* ── TYPOGRAPHY & BLOCKS ── */
-  .inner-heading { font-size: 19px; margin: 24px 0 10px; }
-  .prose-list { margin: 10px 0 14px 24px; }
-  .prose-list li { margin-bottom: 8px; }
-
-  .neuron-emoji { font-size: 60px; margin: 10px 0 4px; }
-  .neuron-label { margin-bottom: 14px; font-size: 17px; }
-
-  .pricing-price { font-size: 20px; margin-top: 10px; }
-
-  /* Price Pill Button */
-  .price-pill { 
-    font-size: 17px; 
-    padding: 12px 28px; 
-    border-width: 4px; 
+  .card-body {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-
-  .divider { margin: 24px 0; }
-  .footer { padding: 60px 20px 40px; gap: 16px; margin-top: 60px; }
-  .footer-logo { width: 128px; }
-  .footer-copyright { font-size: 14px; }
-
-  /* ── CLASS SPECIFIC UTILS ── */
-  .influence-panel { padding: 12px 20px; margin: 12px 0 16px; line-height: 1.85; }
-  .influence-panel-label { margin-bottom: 6px; }
-  .takeaway { padding: 14px 20px; margin: 14px 0; }
-  .takeaway-label { margin-bottom: 8px; }
-  .result-banner, .completion-banner { padding: 14px 20px; margin: 14px 0; }
-  .success-callout { padding: 14px 20px; margin: 12px 0; }
-  .diagram img { margin: 0 20px; }
-  .step-heading { gap: 12px; margin: 28px 0 12px; }
-  .step-badge { width: 32px; height: 32px; border-radius: 16px; font-size: 17px; }
-  .teaser { padding: 28px 20px; margin: 36px 0 0; }
-  .teaser-next { font-size: 22px; margin: 8px 0; }
-
-  .container { padding: 40px 0; }
-
-  /* Round Button */
-  .round-button {
-    width: 100px;
-    height: 100px;
-    font-size: 16px;
+  .callout {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-
-  /* ── PRICING CARD ── */
+  .formula-block {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .doc-table td, .mapping-table td, .data-table th, .data-table td {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .doc-table .label-cell {
+    padding-left: 20px;
+  }
+  .pythoncode textarea, .pythoncode div[id^="output-window"] {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .price-pill {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .influence-panel, .takeaway, .result-banner, .completion-banner, .success-callout, .teaser {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .error-chip {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .pricing-block {
-    max-width: 340px;
-    padding: 32px 24px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-
-  .pricing-block:hover { transform: translateY(-6px); }
-
-  .pricing-block .header-audience:first-child {
-    font-size: 13px;
-    padding: 8px 16px;
-    margin-bottom: 20px;
-  }
-
-  .pricing-block .header-eyebrow {
-    font-size: 12px;
-    margin-bottom: 8px;
-  }
-
-  .pricing-title, .green-title, .blue-title {
-    font-size: 28px;
-    margin-bottom: 12px;
-  }
-
-  .pricing-block .header-subtitle {
-    font-size: 15px;
-    margin-bottom: 24px;
-  }
-
+  .pricing-block .header-audience:first-child,
   .pricing-block .header-audience:last-of-type {
-    font-size: 14px;
-    padding: 10px 16px;
-    margin-top: 20px;
-  }
-
-  .img-block { margin: 16px 0; }
-
-  .pricing-block .family {
-    font-size: 17px !important;
-    margin-top: 8px !important;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
