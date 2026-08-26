@@ -319,10 +319,14 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   transform: scale(0.97); 
 }
 
-.price-pill:hover { 
-  background-color: #006400; 
+/* Apply hover only on devices with true hover capability */
+@media (hover: hover) {
+  .price-pill:hover { 
+    background-color: #006400; 
+  }
 }
 
+/* Reset state when focused via click */
 .price-pill:focus:not(:focus-visible) {
   background-color: green;
   transform: none;
