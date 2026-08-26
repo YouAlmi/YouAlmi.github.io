@@ -1,3 +1,49 @@
+
+/* ── DESIGN TOKENS ── */
+:root {
+  --black:        #111111;
+  --gray:         #555555;
+  --gray-lt:      #f2f2f2;
+  --border:       #dddddd;
+  --bg:           #0b0f19;
+  --white:        #ffffff;
+  --yellow:       #ffd166;
+  --green:        #2d8a4e;
+  --green-lt-lt:  #00ff00;
+  --green-lt:     #eaf7ee;
+  --blue:         #1a6fab;
+  --blue-lt:      #e8f3fc;
+  --orange:       #e8610a;
+  --orange-lt:    #fff3eb;
+  --red:          #c0392b;
+  --red-lt:       #fdecea;
+
+  /* Modern Glass & Accent Tokens */
+  --card-bg:      rgba(22, 31, 48, 0.75);
+  --card-border:  rgba(255, 255, 255, 0.1);
+  --accent-cyan:  #38bdf8;
+  --accent-emerald:#34d399;
+  --text-main:    #f8fafc;
+  --text-muted:   #94a3b8;
+  --glass-glow:   rgba(56, 189, 248, 0.15);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --black:     #111111;
+    --gray:      #555555;
+    --gray-lt:   #f2f2f2;
+    --border:    #dddddd;
+    --bg:        #ffffff;
+    --white:     #ffffff;
+    --green-lt:  #eaf7ee;
+    --blue-lt:   #e8f3fc;
+    --orange-lt: #fff3eb;
+    --red-lt:    #fdecea;
+    --red:       #c0392b;
+  }
+}
+
 /* ==========================================================================
    1. CORE BASE & RESET
    ========================================================================== */
