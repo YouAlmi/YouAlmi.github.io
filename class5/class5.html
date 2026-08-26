@@ -1804,7 +1804,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Exclude containers like code blocks, tables, images, and headers
   const validElements = Array.from(elements).filter(el => {
-    return !el.closest();
+    return !el.closest(".pythoncode, .pricing-block, .table-wrap, .img-block, .diagram, header, .footer");
   });
 
   // Recursive function to wrap text nodes inside elements (including inside <strong>, <em>, etc.)
