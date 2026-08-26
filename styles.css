@@ -313,11 +313,19 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
 .price-pill:active { 
   outline: none; 
   -webkit-tap-highlight-color: transparent;
+}
+
+.price-pill:active {
   transform: scale(0.97); 
 }
 
 .price-pill:hover { 
   background-color: #006400; 
+}
+
+.price-pill:focus:not(:focus-visible) {
+  background-color: green;
+  transform: none;
 }
 
 @keyframes pulse-pill {
@@ -389,13 +397,8 @@ html, body {
   outline: none;
 }
 
-.round-button:focus:not(:focus-visible) {
-  background-color: #007bff;
-}
-
-.round-button:focus-visible {
-  outline: 2px solid #0056b3;
-}
+.round-button:focus:not(:focus-visible) {background-color: #007bff;}
+.round-button:focus-visible {outline: 2px solid #0056b3;}
 
 @keyframes pulse {
   0% {
