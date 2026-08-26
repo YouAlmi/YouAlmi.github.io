@@ -1797,20 +1797,19 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
     });
 </script>
 
-
 <!-- FOCUS -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Target top-level readable container blocks across the entire page
-  const selector = "p, li, td, th, div, span, h1, h2, h3, h4, h5, h6, pre, code, blockquote, figcaption";
+  // Select readable text containers
+  const selector = "p, li, .callout p, .formula-block, .step-heading, .inner-heading";
   const elements = document.querySelectorAll(selector);
 
-  // Exclude ONLY buttons and pricing blocks
+  // Exclude containers like code blocks, tables, images, and headers
   const validElements = Array.from(elements).filter(el => {
-    return !el.closest("button, .pricing-block, .round-button, .price-pill, .copy_btn");
+    return !el.closest(".pythoncode, .pricing-block, .table-wrap, .img-block, .diagram, header, .footer");
   });
 
-  // Recursive wrapper to process text nodes within all non-excluded elements
+  // Recursive function to wrap text nodes inside elements (including inside <strong>, <em>, etc.)
   function wrapWordsInNode(node) {
     if (node.nodeType === Node.TEXT_NODE) {
       if (node.nodeValue.trim() !== "") {
@@ -1829,21 +1828,12 @@ document.addEventListener("DOMContentLoaded", function () {
         node.parentNode.replaceChild(fragment, node);
       }
     } else if (node.nodeType === Node.ELEMENT_NODE) {
-      // Do not recurse into buttons or pricing blocks if nested
-      if (!node.matches("button, .pricing-block, .round-button, .price-pill, .copy_btn") &&
-          !node.closest("button, .pricing-block")) {
-        Array.from(node.childNodes).forEach(wrapWordsInNode);
-      }
+      // Traverse child elements (like <strong>, <em>, <i>) without disrupting their tags
+      Array.from(node.childNodes).forEach(wrapWordsInNode);
     }
   }
 
-  // Filter out parent containers whose children will be processed recursively
-  // to prevent duplicate node traversals
-  const rootContainers = validElements.filter(el => {
-    return !validElements.some(parent => parent !== el && parent.contains(el));
-  });
-
-  rootContainers.forEach(el => wrapWordsInNode(el));
+  validElements.forEach(el => wrapWordsInNode(el));
 
   let currentHighlightedWord = null;
 
@@ -1864,7 +1854,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    if (closestWord && minDistance < 100) {
+    // Highlight the word closest to vertical center (threshold: 80px)
+    if (closestWord && minDistance < 80) {
       if (currentHighlightedWord !== closestWord) {
         if (currentHighlightedWord) {
           currentHighlightedWord.classList.remove("focus-line-target");
@@ -1891,7 +1882,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateCenterFocus();
 });
-</script> 
+</script>
 
 </body>
 </html>
