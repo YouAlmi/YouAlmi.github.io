@@ -651,33 +651,3 @@ html, body {
 
 
 
-/* Enable smooth horizontal scrolling on mobile */
-.table-wrap {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Flexible table sizing */
-.doc-table {
-  width: 100%;
-  min-width: 480px; /* Prevents column squishing on mobile */
-  border-collapse: collapse;
-}
-
-.doc-table td {
-  text-align: center;
-  vertical-align: middle;
-}
-
-.doc-table img {
-  display: block;
-  max-width: 50px; /* Constrains image sizes */
-  height: auto;
-  margin: 0 auto 4px;
-  border-radius: 8px;
-}
-
-
-
-
