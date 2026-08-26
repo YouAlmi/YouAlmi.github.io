@@ -678,12 +678,6 @@ html, body {
   border-radius: 8px;
 }
 
-.doc-table .label-cell { 
-  border: 1px solid #aaaaaa; /* Restores the standard border */
-  text-align: center; 
-  color: var(--black); 
-  font-weight: 700; 
-  white-space: nowrap; 
-}
+
 
 
