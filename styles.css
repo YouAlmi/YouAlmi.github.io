@@ -404,27 +404,26 @@ html, body {
   outline: none;
 }
 
-.round-button:focus,
-.round-button:active {
+.round-button:focus {
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-.round-button:active {
-  transform: scale(0.95);
-}
-
-/* Apply hover gradient shift only on desktop/mouse devices */
+/* Hover effect */
 @media (hover: hover) {
   .round-button:hover { 
     background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
   }
 }
 
-/* Reset back to default initial gradient when clicked */
+/* Active click state — must come after hover & focus to take priority while pressing down */
+.round-button:active {
+  transform: scale(0.95) !important;
+}
+
+/* Reset background color when clicked, without blocking scale */
 .round-button:focus:not(:focus-visible) {
   background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-  transform: none;
 }
 
 .round-button:focus-visible {
