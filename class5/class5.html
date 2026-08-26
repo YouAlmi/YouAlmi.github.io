@@ -1799,12 +1799,12 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   // Select readable text containers
-  const selector = "p, li, .callout p, .formula-block, .step-heading, .inner-heading";
+  const selector = "p, li, .callout p, .formula-block, .step-heading, .inner-heading, textarea";
   const elements = document.querySelectorAll(selector);
 
   // Exclude containers like code blocks, tables, images, and headers
   const validElements = Array.from(elements).filter(el => {
-    return !el.closest(".pythoncode, .pricing-block, .table-wrap, .img-block, .diagram, header, .footer");
+    return !el.closest(".pricing-block, .table-wrap, .img-block, .diagram, header, .footer");
   });
 
   // Recursive function to wrap text nodes inside elements (including inside <strong>, <em>, etc.)
