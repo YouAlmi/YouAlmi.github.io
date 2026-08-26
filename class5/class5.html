@@ -87,68 +87,86 @@
         <p><strong>🟢 GAME 1: Almost ONE</strong> ✨<br/>
         A large positive <strong>SUM</strong> gets squeezed close to 1.0:</p> 
 
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input5" style="line-height: 1.2;">
-SUM = 5.0
+
+  <!-- CODE BLOCK 1 -->
+  <div class="pythoncode">
+    <div class="textarea-wrap">
+<textarea id="code-input1" style="line-height: 1.2;">
+INPUT1 = SUM = 5.0
 
 ACT = 1 / (1 + 1/2.71828**SUM)  # SIGI
 
 print(f"ACT = {ACT:.7f}")
 </textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(5)"><strong>RUN CODE</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input5', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window5">Ready for math!</div>
-        </div>
+    </div>
+    <div class="code-row">
+      <button onclick="runPython(1, this)"><strong>RUN</strong></button>
+      <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" data-tooltip="Copy code">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+    <div id="output-window1">Ready for math!</div>
+  </div>
+
+
+
 
         <p><strong>🔵 GAME 2: Almost ZERO</strong> 🪄<br/>
         A large negative <strong>SUM</strong> gets squeezed close to 0.0:</p>
 
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input6" style="line-height: 1.2;">
+
+
+
+
+  <!-- CODE BLOCK 2 -->
+  <div class="pythoncode">
+    <div class="textarea-wrap">
+<textarea id="code-input2" style="line-height: 1.2;">
 SUM = -5.0
 
 ACT = 1 / (1 + 1/2.71828**SUM)  # SIGI
 
 print(f"ACT = {ACT:.7f}")
 </textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(6)"><strong>RUN CODE</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input6', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window6">Ready for math!</div>
-        </div>
+    </div>
+    <div class="code-row">
+      <button onclick="runPython(2, this)"><strong>RUN</strong></button>
+      <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" data-tooltip="Copy code">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+    <div id="output-window2">Ready for math!</div>
+  </div>
+
+
+
 
         <p><strong>🟣 GAME 3: HALF</strong> 🎯<br/>
         A zero <strong>SUM</strong> (0.0) lands right in the middle: 0.5:</p>
 
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input7" style="line-height: 1.2;">
+
+
+  <!-- CODE BLOCK 3 -->
+  <div class="pythoncode">
+    <div class="textarea-wrap">
+<textarea id="code-input3" style="line-height: 1.2;">
 SUM = 0.0
 
 ACT = 1 / (1 + 1/2.71828**SUM)  # SIGI
 
 print(f"ACT = {ACT:.7f}")
 </textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(7)"><strong>RUN CODE</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input7', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window7">Ready for math!</div>
-        </div>
+    </div>
+    <div class="code-row">
+      <button onclick="runPython(3, this)"><strong>RUN</strong></button>
+      <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input3', this)" data-tooltip="Copy code">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+    <div id="output-window3">Ready for math!</div>
+  </div>
+
+
 
 
         <div class="diagram">
@@ -1403,9 +1421,13 @@ making coding much simpler and way more fun!</p>
 <p>The code below is provided here for you to immediately verify the results.</p>
         <h3>TRAIN THE BRAIN 🧠</h3>
  
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input1" style="line-height: 1.2;">
+
+
+
+  <!-- CODE BLOCK 4 -->
+  <div class="pythoncode">
+    <div class="textarea-wrap">
+<textarea id="code-input4" style="line-height: 1.2;">
 # ===================================
 # 1. SETUP DATA AND PARAMETERS
 # ===================================
@@ -1546,25 +1568,34 @@ print()
 print("BIAS:")
 print([round(VAL, 4) for VAL in BIAS])
 </textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(1)"><strong>RUN CODE</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input1', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window1">Ready for math!</div>
-        </div>
+    </div>
+    <div class="code-row">
+      <button onclick="runPython(4, this)"><strong>RUN</strong></button>
+      <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input4', this)" data-tooltip="Copy code">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+    <div id="output-window4">Ready for math!</div>
+  </div>
+
+
+
+
+
+
 
 
 
    <p><br/></p>
         <h3>TEST THE BRAIN 🧠</h3>
         <p></p>
-        <!-- TEST THE BRAIN -->
-        <div class="pythoncode">
-          <div class="textarea-wrap">
-<textarea id="code-input2" style="line-height: 1.2;">
+
+
+
+  <!-- CODE BLOCK 5 -->
+  <div class="pythoncode">
+    <div class="textarea-wrap">
+<textarea id="code-input5" style="line-height: 1.2;">
 # ===================================
 # SETUP TEST DATA AND PARAMETERS
 # ===================================
@@ -1638,17 +1669,19 @@ for EXAMPLE in range(NUM_EXAMPLES):
 ACCURACY = (CORRECT_PREDICTIONS / NUM_EXAMPLES) * 100
 print(f"\nACCURACY: {ACCURACY:.2f}%")
 </textarea>
-          </div>
-          <div class="code-row">
-            <button onclick="runPython(2)"><strong>RUN CODE</strong></button>
-            <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input2', this)" data-tooltip="Copy code">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-          <div id="output-window2">Ready for math!</div>
-        </div>
-      </div>
     </div>
+    <div class="code-row">
+      <button onclick="runPython(5, this)"><strong>RUN</strong></button>
+      <button class="copy_btn copy_btn--inline" onclick="copyCode('code-input5', this)" data-tooltip="Copy code">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+    <div id="output-window5">Ready for math!</div>
+  </div>
+
+
+
+
 
 
 
@@ -1691,6 +1724,10 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
 
 
 
+
+
+
+<!-- PULSING STOPPING AND STARTING -->
 <script>
     function copyCode(id, btn) {
       // Stop pulsing animation on click
@@ -1712,14 +1749,13 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
       mypre.innerHTML = mypre.innerHTML + text;
     }
 
-    function runPython(block) {
-      const runBtn = document.querySelector(".pythoncode button:not(.copy_btn)");
-      if (runBtn) {
-        runBtn.classList.add("is-ran");
+    function runPython(index, btn) {
+      if (btn) {
+        btn.classList.add("is-ran");
       }
 
-      const codeId   = "code-input1";
-      const outputId = "output-window1";
+      const codeId   = "code-input" + index;
+      const outputId = "output-window" + index;
 
       var code  = document.getElementById(codeId).value;
       var mypre = document.getElementById(outputId);
@@ -1740,18 +1776,110 @@ print(f"\nACCURACY: {ACCURACY:.2f}%")
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-      var runBtn = document.querySelector(".pythoncode button:not(.copy_btn)");
-      var copyBtn = document.querySelector(".copy_btn");
-      var codeArea = document.getElementById("code-input1");
+      const codeBlocks = document.querySelectorAll(".pythoncode");
 
-      if (codeArea) {
-        // Whenever the code changes, restart pulsing for both buttons
-        codeArea.addEventListener("input", function () {
-          if (runBtn) runBtn.classList.remove("is-ran");
-          if (copyBtn) copyBtn.classList.remove("is-copied");
+      codeBlocks.forEach(function (block, idx) {
+        const index = idx + 1;
+        const runBtn = block.querySelector("button:not(.copy_btn)");
+        const copyBtn = block.querySelector(".copy_btn");
+        const codeArea = document.getElementById("code-input" + index);
+
+        if (codeArea) {
+          // Whenever the code changes in this textarea, restart pulsing for its buttons
+          codeArea.addEventListener("input", function () {
+            if (runBtn) runBtn.classList.remove("is-ran");
+            if (copyBtn) copyBtn.classList.remove("is-copied");
+          });
+        }
+      });
+    });
+</script>
+
+<!-- FOCUS -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Select readable text containers
+  const selector = "p, li, .callout p, .formula-block, .step-heading, .inner-heading";
+  const elements = document.querySelectorAll(selector);
+
+  // Exclude containers like code blocks, tables, images, and headers
+  const validElements = Array.from(elements).filter(el => {
+    return !el.closest(".pythoncode, .pricing-block, .table-wrap, .img-block, .diagram, header, .footer");
+  });
+
+  // Recursive function to wrap text nodes inside elements (including inside <strong>, <em>, etc.)
+  function wrapWordsInNode(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      if (node.nodeValue.trim() !== "") {
+        const words = node.nodeValue.split(/(\s+)/);
+        const fragment = document.createDocumentFragment();
+        words.forEach(word => {
+          if (word.trim() !== "") {
+            const span = document.createElement("span");
+            span.className = "focus-word";
+            span.textContent = word;
+            fragment.appendChild(span);
+          } else {
+            fragment.appendChild(document.createTextNode(word));
+          }
         });
+        node.parentNode.replaceChild(fragment, node);
+      }
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      // Traverse child elements (like <strong>, <em>, <i>) without disrupting their tags
+      Array.from(node.childNodes).forEach(wrapWordsInNode);
+    }
+  }
+
+  validElements.forEach(el => wrapWordsInNode(el));
+
+  let currentHighlightedWord = null;
+
+  function updateCenterFocus() {
+    const viewportCenter = window.innerHeight / 2;
+    const allWords = document.querySelectorAll(".focus-word");
+    let closestWord = null;
+    let minDistance = Infinity;
+
+    allWords.forEach(word => {
+      const rect = word.getBoundingClientRect();
+      const wordCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(viewportCenter - wordCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestWord = word;
       }
     });
+
+    // Highlight the word closest to vertical center (threshold: 80px)
+    if (closestWord && minDistance < 80) {
+      if (currentHighlightedWord !== closestWord) {
+        if (currentHighlightedWord) {
+          currentHighlightedWord.classList.remove("focus-line-target");
+        }
+        closestWord.classList.add("focus-line-target");
+        currentHighlightedWord = closestWord;
+      }
+    } else if (currentHighlightedWord) {
+      currentHighlightedWord.classList.remove("focus-line-target");
+      currentHighlightedWord = null;
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateCenterFocus();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  updateCenterFocus();
+});
 </script>
 
 
