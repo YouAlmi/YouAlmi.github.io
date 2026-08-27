@@ -38,7 +38,7 @@
     <div class="card">
       <div class="card-body">
         <p>A <strong>NEURON</strong> needs at least one <strong>PARAMETER</strong>  —  namely, a <strong>WEIGHT</strong>  —  to do anything useful.</p>
-        <p>To learn from its own <strong>ERRORS</strong>, every brain also needs a <strong>PARAMETER CHANGE RULE</strong> —  to change each <strong>PARAMETER</strong> step by step.</p>
+        <p>To learn from its own <strong>ERRORS</strong>, every brain also needs a <strong>PARAMETER CHANGE RULE</strong>  —  to change each <strong>PARAMETER</strong> step by step.</p>
       </div>
     </div>
 
@@ -80,63 +80,63 @@
         <p>We have this training <strong>DATASET</strong> consisting of two <strong>EXAMPLES</strong>:</p>
 
         <div class="table-wrap">
-  <table class="doc-table">
-    
-    <!-- ROW 1: HEADERS -->
-    <tr class="col-header">
-      <td></td>
-      <td style="text-align: center !important;">
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-          <strong>INPUT</strong>
-        </div>
-      </td>
-      <td style="text-align: center !important;">
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-          <strong>TARGET</strong>
-        </div>
-      </td>
-    </tr>
-    
-    <!-- EXAMPLE1 -->
-    <tr>
-      <td style="text-align: center !important;">
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-          <strong>EXAMPLE1</strong>
-        </div>
-      </td>
-      <td style="text-align: center !important;">
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-          <strong>0.6</strong>
-        </div>
-      </td>
-      <td style="text-align: center !important;">
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-          <strong>3.0</strong>
-        </div>
-      </td>
-    </tr>
-    
-    <!-- EXAMPLE2 -->
-    <tr>
-      <td style="text-align: center !important;">
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-          <strong>EXAMPLE2</strong>
-        </div>
-      </td>
-      <td style="text-align: center !important;">
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-          <strong>1.0</strong>
-        </div>
-      </td>
-      <td style="text-align: center !important;">
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-          <strong>5.0</strong>
-        </div>
-      </td>
-    </tr>
+          <table class="doc-table">
+            
+            <!-- ROW 1: HEADERS -->
+            <tr class="col-header">
+              <td></td>
+              <td style="text-align: center !important;">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                  <strong>INPUT</strong>
+                </div>
+              </td>
+              <td style="text-align: center !important;">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                  <strong>TARGET</strong>
+                </div>
+              </td>
+            </tr>
+            
+            <!-- EXAMPLE1 -->
+            <tr>
+              <td style="text-align: center !important;">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                  <strong>EXAMPLE1</strong>
+                </div>
+              </td>
+              <td style="text-align: center !important;">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                  <strong>0.6</strong>
+                </div>
+              </td>
+              <td style="text-align: center !important;">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                  <strong>3.0</strong>
+                </div>
+              </td>
+            </tr>
+            
+            <!-- EXAMPLE2 -->
+            <tr>
+              <td style="text-align: center !important;">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                  <strong>EXAMPLE2</strong>
+                </div>
+              </td>
+              <td style="text-align: center !important;">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                  <strong>1.0</strong>
+                </div>
+              </td>
+              <td style="text-align: center !important;">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                  <strong>5.0</strong>
+                </div>
+              </td>
+            </tr>
 
-  </table>
-</div>
+          </table>
+        </div>
 
         <p>The <strong>TARGET</strong> represents the correct <strong>OUTPUT</strong>.</p>
         <p>
@@ -145,7 +145,7 @@
         </p>
         <p>So, our DATASET contains two EXAMPLES:</p>
 
-                <div class="callout callout-neutral">
+        <div class="callout callout-neutral">
 <p>EXAMPLES = 2</p>
         </div>
         <p>
@@ -175,12 +175,6 @@
           <p><span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></p>
         </div>
 
-        <div class="formula-block">
-            <div class="formula-block-label">SIMPLEST CHANGE RULE for WEIGHT</div>
-            <p><span class="formula">WEIGHT_change = ERROR</span></p>
-            <p><span class="formula">WEIGHT = WEIGHT + WEIGHT_change</span></p>
-          </div>
-
         <p>Don't worry  —  each step is simple. Just follow the calculations below.</p>
       </div>
     </div>
@@ -194,9 +188,6 @@
     <div class="card">
       <div class="card-header"><strong style="color:#F0ABFC;">LESSON 1</strong></div>
       <div class="card-body">
-
-
-
 
         <div class="callout callout-neutral">
 <p>WEIGHT = 0.0</p>
@@ -536,9 +527,6 @@ print(f"ERROR = {ERROR}")
         </div>
 
 
-
-
-
         <div style="text-align: center; margin-bottom: 28px;">
   <span class="price-pill" style="display: inline-block !important; padding: 10px 16px !important;">
     19 Lessons: <strong style="color: var(--yellow);">$190</strong><br/>Join
@@ -549,20 +537,18 @@ print(f"ERROR = {ERROR}")
 
 
     <div class="teaser">
-  <div class="teaser-next">Up Next: Lesson 2</div>
-  <p><strong style="color:var(--yellow);">DATASETS</strong> often contain negative numbers. To handle them,
-    we add <strong style="color:var(--yellow);">INFLUENCE</strong>
-    to our <strong style="color:var(--yellow);">PARAMETER CHANGE RULE</strong>.
-  </p>
-  </div>
+      <div class="teaser-next">Up Next: Lesson 2</div>
+      <p><strong style="color:var(--yellow);">DATASETS</strong> often contain negative numbers. To handle them,
+        we add <strong style="color:var(--yellow);">INFLUENCE</strong>
+        to our <strong style="color:var(--yellow);">PARAMETER CHANGE RULE</strong>.
+      </p>
+    </div>
 
 <!-- FOOTER -->
      <footer class="footer">
       <img src="../logo.png" class="footer-logo" />
       <div class="footer-copyright">&copy; 2026 Machine Intelligence School</div>
     </footer>
-
-
 
 
   </div>
