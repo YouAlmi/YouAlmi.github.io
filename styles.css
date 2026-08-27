@@ -393,6 +393,11 @@ html, body {
 /* ── ROUND BUTTON & SPHERE INDICATOR ── */
 
 :root {
+  /* Color Variables */
+  --color-blue: gray;
+  --color-green: #34d399;
+
+  /* Sizing Variables */
   --sphere-diameter: 10px;
   --second-diameter: 20px;
 }
@@ -401,7 +406,7 @@ html, body {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 2px solid #007bff;
+  border: 2px solid var(--border-color);
   background: transparent !important;
   color: white;
   font-size: 16px;
@@ -413,7 +418,9 @@ html, body {
   justify-content: center;
   transition: background 0.3s ease, transform 0.1s ease, border-color 0.3s ease;
 
-  --sphere-color: #007bff; /* Base color for OFF state */
+  /* Mode Variables (OFF State Default) */
+  --sphere-color: var(--color-blue);
+  --border-color: var(--color-blue);
   --pulse-color: rgba(0, 123, 255, 0.6);
 
   -webkit-tap-highlight-color: transparent;
@@ -473,13 +480,12 @@ html, body {
 
 /* ── ON STATE STYLES ── */
 .round-button.is-on {
-  --sphere-color: #34d399; /* Emerald Green */
+  --sphere-color: var(--color-green);
+  --border-color: var(--color-green);
   --pulse-color: rgba(52, 211, 153, 0.6);
-  border-color: #34d399;
 }
 
 /* ── REVISED PULSE ANIMATION ── */
-/* Calculates target scale factor dynamically: --second-diameter / --sphere-diameter (20px / 10px = 2) */
 @keyframes pulse-to-second-diameter {
   0% {
     transform: translate(-50%, -50%) scale(1);
