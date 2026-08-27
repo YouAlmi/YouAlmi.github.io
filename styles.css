@@ -390,9 +390,10 @@ html, body {
 
 
 /* ── ROUND BUTTON & SPHERE INDICATOR ── */
+/* ── ROUND BUTTON & SPHERE INDICATOR ── */
 
 :root {
-  --sphere-diameter: 20px;
+  --sphere-diameter: 10px;
 }
 
 .round-button {
@@ -400,7 +401,7 @@ html, body {
   height: 100px;
   border-radius: 50%;
   border: 2px solid #007bff;
-  background: transparent !important; /* Forces transparent background by default */
+  background: transparent !important;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -409,13 +410,29 @@ html, body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  animation: pulse 2s infinite;
   transition: background 0.3s ease, transform 0.1s ease, border-color 0.3s ease;
 
   --sphere-color: #007bff; /* Base color for OFF state */
+  --pulse-color: rgba(0, 123, 255, 0.6);
 
   -webkit-tap-highlight-color: transparent;
   outline: none;
+}
+
+/* Pulse Ring: Expands from sphere edge to button border */
+.round-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--sphere-diameter);
+  height: var(--sphere-diameter);
+  border-radius: 50%;
+  border: 2px solid var(--pulse-color);
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: none;
+  animation: pulse-inward-to-outward 2s infinite ease-out;
 }
 
 .round-button:focus,
@@ -444,43 +461,32 @@ html, body {
   transform: scale(0.95) !important;
 }
 
-/* Sphere Indicator (Controlled by --sphere-diameter) */
+/* Sphere Indicator */
 .sphere-indicator {
   width: var(--sphere-diameter);
   height: var(--sphere-diameter);
   pointer-events: none;
   transition: transform 0.2s ease;
+  z-index: 2;
 }
 
 /* ── ON STATE STYLES ── */
 .round-button.is-on {
   --sphere-color: #34d399; /* Emerald Green */
+  --pulse-color: rgba(52, 211, 153, 0.6);
   border-color: #34d399;
-  animation: pulse-green 2s infinite;
 }
 
-/* ── PULSE ANIMATIONS ── */
-@keyframes pulse {
+/* ── REVISED PULSE ANIMATION ── */
+/* Starts at scale 1 (sphere edge, 10px) and scales up to 10 (button border, 100px) */
+@keyframes pulse-inward-to-outward {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 20px rgba(0, 123, 255, 0);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
-  }
-}
-
-@keyframes pulse-green {
-  0% {
-    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 20px rgba(52, 211, 153, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 0;
   }
 }
 
@@ -509,6 +515,11 @@ html, body {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+
+
+
+
 
 
 
