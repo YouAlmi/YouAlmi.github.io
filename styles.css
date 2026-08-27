@@ -1,8 +1,8 @@
 /* ── DESIGN TOKENS ── */
 :root {
-  /* Line Spacing Variables */
-  --p-line-height:   1.3;   /* Smaller height for wrapped lines within the same <p> */
-  --p-margin-bottom: 16px;  /* Larger height spacing between separate <p> blocks */
+  /* Line & Block Spacing Variables */
+  --p-line-height:   1.3;   /* Tight line spacing within wrapped lines of a paragraph (~22px) */
+  --p-margin-bottom: 28px;  /* Distinct, larger spacing between separate <p> blocks */
 
   --black:        #111111;
   --gray:         #555555;
@@ -54,20 +54,26 @@
   padding: 0; 
   font-family: 'Nunito', sans-serif; 
   font-size: 17px; 
-  line-height: var(--p-line-height); 
 }
+
 body { 
   background: var(--bg); 
   color: var(--black); 
   padding-bottom: 80px; 
 }
 
-/* Default Mobile: 0px horizontal padding (Exclude callout & formula-block paragraphs from double padding) */
+/* Paragraph Typography & Spacing */
+p {
+  line-height: var(--p-line-height); /* Controls spacing between wrapped lines inside same paragraph */
+}
+
+/* Default Mobile Paragraph Margins */
 p:not(.callout p):not(.formula-block p) { 
-  margin-bottom: var(--p-margin-bottom); 
+  margin-bottom: var(--p-margin-bottom); /* Controls spacing between separate <p> blocks */
   padding-left: 0px;
   padding-right: 0px;
 }
+
 strong { font-weight: 900; }
 em { font-style: italic; }
 
@@ -123,7 +129,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
 .pythoncode textarea { width: 100%; font-weight: bold; border: 1px solid #444; padding: 15px 0px; font-size: 1rem; border-radius: 16px; outline: none; resize: vertical; background: #1e1e1e; color: #ffffff; font-family: 'Courier New', monospace; }
 .pythoncode div[id^="output-window"] { background-color: #000000; color: #ffffff; font-weight: bold; padding: 15px 0px; margin: 0px; border-radius: 16px; white-space: pre-wrap; border-left: 4px solid #00ff00; font-size: 0.95rem; font-family: 'Courier New', monospace; }
 
-/* RUN Button (EXCEPTED: retains specific padding/margin) */
+/* RUN Button */
 .pythoncode button { 
   margin: 10px 20px; 
   background-color: #00ff00; 
@@ -135,10 +141,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   cursor: pointer; 
   transition: background 0.2s, transform 0.1s ease; 
 
-  /* Default pulsing animation */
   animation: pulse-run 2s infinite;
-
-  /* Removes mobile tap box and focus outlines */
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
@@ -150,34 +153,21 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   transform: scale(0.97);
 }
 
-/* Class to stop animation after clicking RUN */
 .pythoncode button.is-ran {
   animation: none !important;
 }
 
 @keyframes pulse-run {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 16px rgba(0, 255, 0, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+  70% { box-shadow: 0 0 0 16px rgba(0, 255, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
 }
 
-/* ── COPY BUTTON (EXCEPTED: retains specific padding/margin) ── */
+/* ── COPY BUTTON ── */
 @keyframes pulse-copy {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70% { box-shadow: 0 0 0 16px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 .copy_btn {
@@ -222,12 +212,10 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   border-color: #2d8a4e !important;
 }
 
-/* Hide any duplicate pseudo-element messages */
 .copy_btn::before {
   display: none !important;
 }
 
-/* Single tooltip pop-up box */
 .copy_btn::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -246,7 +234,6 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   z-index: 10;
 }
 
-/* Show tooltip ONLY when active class is applied via JS */
 .copy_btn.is-tooltip-visible::after {
   opacity: 1 !important;
 }
@@ -324,29 +311,21 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   transform: scale(0.97); 
 }
 
-/* Apply hover gradient shift only on desktop/mouse devices */
 @media (hover: hover) {
   .price-pill:hover { 
     background: linear-gradient(135deg, #218838 0%, #004d00 100%); 
   }
 }
 
-/* Reset back to default initial gradient when clicked */
 .price-pill:focus:not(:focus-visible) {
   background: linear-gradient(135deg, #28a745 0%, #006400 100%);
   transform: none;
 }
 
 @keyframes pulse-pill {
-  0% {
-    box-shadow: 0 0 0 0 rgba(147, 196, 125, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 16px rgba(147, 196, 125, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(147, 196, 125, 0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(147, 196, 125, 0.7); }
+  70% { box-shadow: 0 0 0 16px rgba(147, 196, 125, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(147, 196, 125, 0); }
 }
 
 .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
@@ -412,19 +391,16 @@ html, body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Hover effect */
 @media (hover: hover) {
   .round-button:hover { 
     background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
   }
 }
 
-/* Active click state — must come after hover & focus to take priority while pressing down */
 .round-button:active {
   transform: scale(0.95) !important;
 }
 
-/* Reset background color when clicked, without blocking scale */
 .round-button:focus:not(:focus-visible) {
   background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
 }
@@ -434,15 +410,9 @@ html, body {
 }
 
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 20px rgba(0, 123, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(0, 123, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
 }
 
 /* ── PRICING CARD ── */
