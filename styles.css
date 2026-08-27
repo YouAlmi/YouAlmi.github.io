@@ -1,8 +1,8 @@
 /* ── DESIGN TOKENS ── */
 :root {
   /* Line & Block Spacing Variables */
-  --p-line-height:   1.5;  /* Original line height */
-  --p-margin-bottom: 10px;  /* Original paragraph margin */
+  --p-line-height:   1.4;   /* Controls ONLY distance between wrapped lines */
+  --p-margin-bottom: 12px;  /* Controls ONLY gap between separate paragraph blocks */
 
   --black:        #111111;
   --gray:         #555555;
@@ -63,7 +63,7 @@ body {
   padding-bottom: 80px; 
 }
 
-/* Default Mobile: 0px horizontal padding (Exclude callout & formula-block paragraphs from double padding) */
+/* Default Mobile: 0px horizontal padding */
 p:not(.callout p):not(.formula-block p) { 
   margin-bottom: var(--p-margin-bottom); 
   padding-left: 0px;
@@ -85,10 +85,10 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
 .section-label { display: inline-block; background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 0px; border-radius: 16px; margin: 36px 0 0px; }
 .card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; margin: 10px 0; overflow: hidden; }
 .card-header { background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.06em; padding: 11px 0px; }
-.card-body { padding: 20px 0px; }
+.card-body { padding: 20px 0px; display: flow-root; }
 
 /* ── CALLOUTS & FORMULAS ── */
-.callout { border-radius: 16px; padding: 16px 0px; margin: 14px 0; font-weight: 700; line-height: 1.85; }
+.callout { border-radius: 16px; padding: 16px 0px; margin: 14px 0; font-weight: 700; line-height: 1.85; display: flow-root; }
 .callout-neutral { background: var(--gray-lt); border-left: 4px solid var(--gray); }
 .callout-success { background: var(--green-lt); border-left: 4px solid var(--green); }
 .callout-error { background: var(--red-lt); border-left: 4px solid var(--red); }
