@@ -394,6 +394,7 @@ html, body {
 
 :root {
   --sphere-diameter: 10px;
+  --second-diameter: 20px;
 }
 
 .round-button {
@@ -419,7 +420,7 @@ html, body {
   outline: none;
 }
 
-/* Pulse Ring: Expands from sphere edge to button border */
+/* Pulse Ring: Starts at sphere edge and expands to --second-diameter */
 .round-button::before {
   content: '';
   position: absolute;
@@ -432,7 +433,7 @@ html, body {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
   pointer-events: none;
-  animation: pulse-inward-to-outward 2s infinite ease-out;
+  animation: pulse-to-second-diameter 2s infinite ease-out;
 }
 
 .round-button:focus,
@@ -478,14 +479,14 @@ html, body {
 }
 
 /* ── REVISED PULSE ANIMATION ── */
-/* Starts at scale 1 (sphere edge, 10px) and scales up to 10 (button border, 100px) */
-@keyframes pulse-inward-to-outward {
+/* Calculates target scale factor dynamically: --second-diameter / --sphere-diameter (20px / 10px = 2) */
+@keyframes pulse-to-second-diameter {
   0% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 0.8;
   }
   100% {
-    transform: translate(-50%, -50%) scale(10);
+    transform: translate(-50%, -50%) scale(calc(var(--second-diameter) / var(--sphere-diameter)));
     opacity: 0;
   }
 }
@@ -515,6 +516,9 @@ html, body {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+
+
 
 
 
