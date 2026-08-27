@@ -97,7 +97,7 @@
 <textarea id="code-input1" style="line-height: 1.2;">
 SUM = 5.0
 
-ACT = 1 / (1 + 1/2.71828**SUM)  # SQZE
+ACT = 1 / (1 + 1/2.71828**SUM) #SQZE
 
 print(f"ACT = {ACT:.7f}")
 </textarea>
@@ -127,7 +127,7 @@ print(f"ACT = {ACT:.7f}")
 <textarea id="code-input2" style="line-height: 1.2;">
 SUM = -5.0
 
-ACT = 1 / (1 + 1/2.71828**SUM)  # SQZE
+ACT = 1 / (1 + 1/2.71828**SUM) #SQZE
 
 print(f"ACT = {ACT:.7f}")
 </textarea>
@@ -155,7 +155,7 @@ print(f"ACT = {ACT:.7f}")
 <textarea id="code-input3" style="line-height: 1.2;">
 SUM = 0.0
 
-ACT = 1 / (1 + 1/2.71828**SUM)  # SQZE
+ACT = 1 / (1 + 1/2.71828**SUM) #SQZE
 
 print(f"ACT = {ACT:.7f}")
 </textarea>
@@ -1047,7 +1047,7 @@ and reducing the <strong>ERROR</strong>.</p>
 <div class="influence-panel-label">For Reference</div><pre>
 PRODUCT = INPUT * WEIGHT
 SUM     = sum(PRODUCT) + BIAS
-ACT     = max(SUM, 0.0) 
+ACT = 1 / (1 + 1/2.71828**SUM) #SQZE
 OUTPUT  = ACT</pre>
 
 </div>
@@ -1057,10 +1057,10 @@ OUTPUT  = ACT</pre>
 <div class="influence-panel">
             <div class="influence-panel-label">INFLUENCES</div><pre>
 influence_WEIGHT_PRODUCT = INPUT
-influence_PRODUCT_SUM    = 1.0
-influence_BIAS_SUM       = 1.0
-influence_SUM_ACT        = 1.0 if SUM > 0.0 else 0.0
-influence_ACT_OUTPUT     = 1.0</pre>
+influence_PRODUCT_SUM = 1.0
+influence_BIAS_SUM = 1.0
+influence_SUM_ACT = ACT * (1 - ACT)
+influence_ACT_OUTPUT = 1.0</pre>
 </div>
 
 <div class="influence-panel">
