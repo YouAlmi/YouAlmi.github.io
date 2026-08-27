@@ -1,8 +1,8 @@
 /* ── DESIGN TOKENS ── */
 :root {
   /* Line & Block Spacing Variables */
-  --p-line-height:   1.85;   /* Tight line spacing within wrapped lines of a paragraph (~22px) */
-  --p-margin-bottom: 16px;  /* Distinct, larger spacing between separate <p> blocks */
+  --p-line-height:   1.85;  /* Original line height */
+  --p-margin-bottom: 16px;  /* Original paragraph margin */
 
   --black:        #111111;
   --gray:         #555555;
@@ -54,6 +54,7 @@
   padding: 0; 
   font-family: 'Nunito', sans-serif; 
   font-size: 17px; 
+  line-height: var(--p-line-height); 
 }
 
 body { 
@@ -62,14 +63,9 @@ body {
   padding-bottom: 80px; 
 }
 
-/* Paragraph Typography & Spacing */
-p {
-  line-height: var(--p-line-height); /* Controls spacing between wrapped lines inside same paragraph */
-}
-
-/* Default Mobile Paragraph Margins */
+/* Default Mobile: 0px horizontal padding (Exclude callout & formula-block paragraphs from double padding) */
 p:not(.callout p):not(.formula-block p) { 
-  margin-bottom: var(--p-margin-bottom); /* Controls spacing between separate <p> blocks */
+  margin-bottom: var(--p-margin-bottom); 
   padding-left: 0px;
   padding-right: 0px;
 }
