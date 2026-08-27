@@ -390,23 +390,29 @@ html, body {
 
 
 /* ── ROUND BUTTON & SPHERE INDICATOR ── */
-/* ── ROUND BUTTON & SPHERE INDICATOR ── */
-
+/* ── DESIGN TOKENS (COLORS & SIZES) ── */
 :root {
-  /* Color Variables */
-  --color-blue: gray;
+  /* Color Palette */
+  --color-blue: #007bff;
   --color-green: #34d399;
 
   /* Sizing Variables */
   --sphere-diameter: 10px;
-  --second-diameter: 20px;
+  --second-diameter: 40px;
+
+  /* Explicit State Mappings */
+  --border-off-color: var(--color-blue);
+  --border-on-color:  var(--color-green);
+  --sphere-off-color: var(--color-blue);
+  --sphere-on-color:  var(--color-green);
 }
 
+/* ── ROUND BUTTON & SPHERE INDICATOR ── */
 .round-button {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--current-border-color);
   background: transparent !important;
   color: white;
   font-size: 16px;
@@ -418,16 +424,23 @@ html, body {
   justify-content: center;
   transition: background 0.3s ease, transform 0.1s ease, border-color 0.3s ease;
 
-  /* Mode Variables (OFF State Default) */
-  --sphere-color: var(--color-blue);
-  --border-color: var(--color-blue);
-  --pulse-color: rgba(0, 123, 255, 0.6);
+  /* Active dynamic color assignments (Default OFF State) */
+  --current-border-color: var(--border-off-color);
+  --sphere-color:         var(--sphere-off-color);
+  --pulse-color:          rgba(0, 123, 255, 0.6);
 
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
 
-/* Pulse Ring: Starts at sphere edge and expands to --second-diameter */
+/* ── ON STATE OVERRIDES ── */
+.round-button.is-on {
+  --current-border-color: var(--border-on-color);
+  --sphere-color:         var(--sphere-on-color);
+  --pulse-color:          rgba(52, 211, 153, 0.6);
+}
+
+/* Pulse Ring: Expands from sphere edge to --second-diameter */
 .round-button::before {
   content: '';
   position: absolute;
@@ -451,10 +464,10 @@ html, body {
 }
 
 .round-button:focus-visible {
-  outline: 2px solid #0056b3;
+  outline: 2px solid var(--current-border-color);
 }
 
-/* Semi-transparent background only on hover */
+/* Semi-transparent background fill only on hover */
 @media (hover: hover) {
   .round-button:hover { 
     background: rgba(0, 123, 255, 0.15) !important;
@@ -478,14 +491,7 @@ html, body {
   z-index: 2;
 }
 
-/* ── ON STATE STYLES ── */
-.round-button.is-on {
-  --sphere-color: var(--color-green);
-  --border-color: var(--color-green);
-  --pulse-color: rgba(52, 211, 153, 0.6);
-}
-
-/* ── REVISED PULSE ANIMATION ── */
+/* ── PULSE ANIMATION ── */
 @keyframes pulse-to-second-diameter {
   0% {
     transform: translate(-50%, -50%) scale(1);
