@@ -1,8 +1,8 @@
 /* ── DESIGN TOKENS ── */
 :root {
   /* Line & Block Spacing Variables */
-  --p-line-height:   1.3;   /* Tight line spacing within wrapped lines of a paragraph (~22px) */
-  --p-margin-bottom: 28px;  /* Distinct, larger spacing between separate <p> blocks */
+  --p-line-height:   1.85;   /* Tight line spacing within wrapped lines of a paragraph (~22px) */
+  --p-margin-bottom: 16px;  /* Distinct, larger spacing between separate <p> blocks */
 
   --black:        #111111;
   --gray:         #555555;
