@@ -169,12 +169,10 @@
 
 
 
-
 <div class="container">
-  <button class="round-button" id="aiTeacherBtn" aria-label="Toggle AI Teacher">
+  <button class="round-button" id="aiTeacherBtn" data-tooltip="" aria-label="Toggle AI Teacher">
     <svg class="sphere-indicator" viewBox="0 0 20 20" width="12" height="12">
       <defs>
-        <!-- Radial gradient to give a 3D semi-transparent sphere effect -->
         <radialGradient id="sphereGrad" cx="35%" cy="35%" r="65%">
           <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
           <stop offset="40%" stop-color="var(--sphere-color, #007bff)" stop-opacity="0.6" />
@@ -940,24 +938,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <!-- round-bitton -->
-  <script>
-    const btn = document.getElementById('aiTeacherBtn');
-    let isOn = false;
+<script>
+  const BUTTON_ELEMENT = document.getElementById('aiTeacherBtn');
+  let IS_TEACHER_ACTIVE = false;
+  let NOTIFICATION_TIMER = null;
 
-    btn.addEventListener('click', () => {
-      isOn = !isOn;
+  BUTTON_ELEMENT.addEventListener('click', () => {
+    IS_TEACHER_ACTIVE = !IS_TEACHER_ACTIVE;
 
-      if (isOn) {
-        btn.classList.add('is-on');
-        console.log("AI teacher ON");
-        alert("AI teacher ON"); // Replace or remove with your notification system
-      } else {
-        btn.classList.remove('is-on');
-        console.log("AI teacher OFF");
-        alert("AI teacher OFF"); // Replace or remove with your notification system
-      }
-    });
-  </script>
+    // Toggle button state
+    if (IS_TEACHER_ACTIVE) {
+      BUTTON_ELEMENT.classList.add('is-on');
+      BUTTON_ELEMENT.setAttribute('data-tooltip', 'AI teacher ON');
+    } else {
+      BUTTON_ELEMENT.classList.remove('is-on');
+      BUTTON_ELEMENT.setAttribute('data-tooltip', 'AI teacher OFF');
+    }
+
+    // Show tooltip
+    BUTTON_ELEMENT.classList.add('is-tooltip-visible');
+
+    // Clear any previous timer so quick repeated clicks don't glitch the animation
+    clearTimeout(NOTIFICATION_TIMER);
+
+    // Hide tooltip automatically after 1.5 seconds
+    NOTIFICATION_TIMER = setTimeout(() => {
+      BUTTON_ELEMENT.classList.remove('is-tooltip-visible');
+    }, 1500);
+  });
+</script>
 
 
 </body>
