@@ -387,10 +387,6 @@ html, body {
 
 
 
-
-
-
-
 /* ── DESIGN TOKENS (COLORS & SIZES) ── */
 :root {
   /* Color Palette */
@@ -404,12 +400,13 @@ html, body {
   /* Layout Containers */
   --content-max-width: 768px;
 
-  /* Explicit State Mappings */
+  /* Explicit State Mappings   */
   --border-off-color: var(--color-blue);
   --border-on-color:  var(--color-green);
   --sphere-off-color: var(--color-blue);
   --sphere-on-color:  var(--color-green);
- 
+  }
+
 
   /* Explicit State Mappings 
   --border-off-color: transparent !important;
@@ -417,9 +414,10 @@ html, body {
   --sphere-off-color: transparent !important;
   --sphere-on-color:  transparent !important;
 }
- */
+  */
 
- 
+  
+
 /* ── MAIN CONTENT CONTAINER (768px CENTERED) ── */
 .app-container {
   max-width: var(--content-max-width);
