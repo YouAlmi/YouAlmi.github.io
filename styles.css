@@ -94,28 +94,9 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
 .callout-error .callout-title  { color: var(--red); }
 .callout-info .callout-title    { color: var(--blue); }
 
-.formula-block { 
-  background: #111111; 
-  color: #ffffff; 
-  border-radius: 16px; 
-  padding: 20px 0px; 
-  margin: 16px 0; 
-  font-weight: 700; 
-  line-height: 2; 
-  border-left: 5px solid var(--green); 
-  text-align: center !important;
-}
-.formula-block-label { color: var(--green); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; text-align: center; }
-.formula { color: var(--yellow); text-align: center !important; }
-
-/* Math Engine Centering Overrides */
-.katex-display,
-.MathJax_Display,
-.mjx-chtml {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
+.formula-block { background: #111111; color: #ffffff; border-radius: 16px; padding: 20px 0px; margin: 16px 0; font-weight: 700; line-height: 2; border-left: 5px solid var(--green); }
+.formula-block-label { color: var(--green); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.formula { color: var(--yellow); }
 
 /* ── TABLES ── */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
@@ -363,6 +344,8 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   }
 }
 
+
+
 .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
 .footer { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 0px 40px; gap: 16px; border-top: 1px solid var(--border); margin-top: 60px; }
 .footer-logo { 
@@ -458,6 +441,8 @@ html, body {
     box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
   }
 }
+
+
 
 /* ── PRICING CARD ── */
 .pricing-block {
