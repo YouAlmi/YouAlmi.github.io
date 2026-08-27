@@ -25,6 +25,28 @@
   --text-main:    #f8fafc;
   --text-muted:   #94a3b8;
   --glass-glow:   rgba(56, 189, 248, 0.15);
+
+  /* Color Palette for Buttons & Controls */
+  --color-blue: #007bff;
+  --color-green: #34d399;
+
+  /* Sizing & Responsive Breakpoint Variables */
+  --content-max-width: 768px;
+  --sphere-diameter: 10px;
+  --second-diameter: 40px;
+
+  /* Explicit State Mappings */
+  --border-off-color: var(--color-blue);
+  --border-on-color:  var(--color-green);
+  --sphere-off-color: var(--color-blue);
+  --sphere-on-color:  var(--color-green);
+
+  /* Explicit State Mappings (Transparent Alternative) 
+  --border-off-color: transparent !important;
+  --border-on-color:  transparent !important;
+  --sphere-off-color: transparent !important;
+  --sphere-on-color:  transparent !important;
+  */
 }
 
 @media (prefers-color-scheme: light) {
@@ -75,7 +97,13 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
 .header-audience { font-size: 17px; color: #ffffff; font-weight: 700; }
 
 /* ── LAYOUT ── */
-.page { max-width: 760px; margin: 0 auto; padding: 0 0; }
+.page { max-width: var(--content-max-width); margin: 0 auto; padding: 0 0; }
+.app-container {
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
 .section-label { display: inline-block; background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 0px; border-radius: 16px; margin: 36px 0 0px; }
 .card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; margin: 10px 0; overflow: hidden; }
 .card-header { background: #111111; color: #ffffff; font-weight: 900; letter-spacing: 0.06em; padding: 11px 0px; }
@@ -384,48 +412,6 @@ html, body {
   background-color: transparent;
 }
 
-
-
-
-/* ── DESIGN TOKENS (COLORS & SIZES) ── */
-:root {
-  /* Color Palette */
-  --color-blue: #007bff;
-  --color-green: #34d399;
-
-  /* Sizing Variables */
-  --sphere-diameter: 10px;
-  --second-diameter: 40px;
-
-  /* Layout Containers */
-  --content-max-width: 768px;
-
-  /* Explicit State Mappings   */
-  --border-off-color: var(--color-blue);
-  --border-on-color:  var(--color-green);
-  --sphere-off-color: var(--color-blue);
-  --sphere-on-color:  var(--color-green);
-  }
-
-
-  /* Explicit State Mappings 
-  --border-off-color: transparent !important;
-  --border-on-color:  transparent !important;
-  --sphere-off-color: transparent !important;
-  --sphere-on-color:  transparent !important;
-}
-  */
-
-  
-
-/* ── MAIN CONTENT CONTAINER (768px CENTERED) ── */
-.app-container {
-  max-width: var(--content-max-width);
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-
 /* ── ROUND BUTTON & SPHERE INDICATOR ── */
 .round-button {
   width: 100px;
@@ -459,8 +445,8 @@ html, body {
   right: 20px;
 }
 
-/* ── DESKTOP POSITIONING (OVER 768px VIEWPORT) ── */
-/* Centers button between the right edge of the 768px container and the screen edge */
+/* ── DESKTOP POSITIONING (OVER ACTIVE ZONE VIEWPORT) ── */
+/* Centers button between the right edge of the content container and the screen edge */
 @media (min-width: 768px) {
   .round-button {
     right: calc((100vw - var(--content-max-width)) / 4);
@@ -563,16 +549,6 @@ html, body {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
-
-
-
-
-
-
-
-
-
-
 
 /* ── PRICING CARD ── */
 .pricing-block {
@@ -740,7 +716,7 @@ html, body {
 #code-input6  { field-sizing: content; }
 #code-input7  { field-sizing: content; }
 
-/* ── DESKTOP STYLES (768px wide and above) ── */
+/* ── DESKTOP STYLES (Driven by active zone variable) ── */
 @media (min-width: 768px) {
   p:not(.callout p):not(.formula-block p) {
     padding-left: 20px;
