@@ -386,51 +386,80 @@ html, body {
 
 
 
-/* Round Button */
+
+
+
+/* ── ROUND BUTTON & SPHERE INDICATOR ── */
+
+:root {
+  --sphere-diameter: 10px;
+}
+
 .round-button {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   border: 2px solid #007bff;
-  background: transparent;
+  background: transparent !important; /* Forces transparent background by default */
   color: white;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   animation: pulse 2s infinite;
-  transition: background 0.3s ease, transform 0.1s ease;
+  transition: background 0.3s ease, transform 0.1s ease, border-color 0.3s ease;
+
+  --sphere-color: #007bff; /* Base color for OFF state */
 
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
 
-.round-button:focus {
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Hover effect */
-@media (hover: hover) {
-  .round-button:hover { 
-    background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
-  }
-}
-
-/* Active click state — must come after hover & focus to take priority while pressing down */
-.round-button:active {
-  transform: scale(0.95) !important;
-}
-
-/* Reset background color when clicked, without blocking scale */
+.round-button:focus,
 .round-button:focus:not(:focus-visible) {
-  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  outline: none;
+  background: transparent !important;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .round-button:focus-visible {
   outline: 2px solid #0056b3;
 }
 
+/* Semi-transparent background only on hover */
+@media (hover: hover) {
+  .round-button:hover { 
+    background: rgba(0, 123, 255, 0.15) !important;
+  }
+  .round-button.is-on:hover {
+    background: rgba(52, 211, 153, 0.15) !important;
+  }
+}
+
+/* Active click state */
+.round-button:active {
+  transform: scale(0.95) !important;
+}
+
+/* Sphere Indicator (Controlled by --sphere-diameter) */
+.sphere-indicator {
+  width: var(--sphere-diameter);
+  height: var(--sphere-diameter);
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+/* ── ON STATE STYLES ── */
+.round-button.is-on {
+  --sphere-color: #34d399; /* Emerald Green */
+  border-color: #34d399;
+  animation: pulse-green 2s infinite;
+}
+
+/* ── PULSE ANIMATIONS ── */
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
@@ -441,40 +470,6 @@ html, body {
   100% {
     box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
   }
-}
-
-
-
-
-
-
-
-/* Center the sphere inside the round button */
-.round-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  /* CSS Variables for mode toggling */
-  --sphere-color: #007bff; /* Default OFF state color (Blue) */
-}
-
-/* Semi-transparent sphere indicator styling */
-.sphere-indicator {
-  width: 12px;
-  height: 12px;
-  pointer-events: none;
-  transition: transform 0.2s ease;
-}
-
-/* ON State Styles */
-.round-button.is-on {
-  --sphere-color: #34d399; /* Emerald Green */
-  border-color: #34d399;
-}
-
-/* Optional glow adjustment on click/toggle */
-.round-button.is-on {
-  animation: pulse-green 2s infinite;
 }
 
 @keyframes pulse-green {
@@ -489,44 +484,7 @@ html, body {
   }
 }
 
-
-
-
-
-
-
-
-/* ── AI TEACHER TOGGLE & TOOLTIP STYLES ── */
-
-/* Align content and set base button variable */
-.round-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  --sphere-color: #007bff;
-}
-
-.sphere-indicator {
-  width: 12px;
-  height: 12px;
-  pointer-events: none;
-}
-
-/* ON State Styles */
-.round-button.is-on {
-  --sphere-color: #34d399;
-  border-color: #34d399;
-  animation: pulse-green 2s infinite;
-}
-
-@keyframes pulse-green {
-  0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
-  70% { box-shadow: 0 0 0 20px rgba(52, 211, 153, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
-}
-
-/* Tooltip notification popup */
+/* ── TOOLTIP NOTIFICATION POPUP ── */
 .round-button::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -547,13 +505,10 @@ html, body {
   border: 1px solid var(--border);
 }
 
-/* Show tooltip when triggered by JS */
 .round-button.is-tooltip-visible::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
-
-
 
 
 
