@@ -400,11 +400,18 @@ html, body {
   --sphere-diameter: 10px;
   --second-diameter: 40px;
 
-  /* Explicit State Mappings */
+  /* Explicit State Mappings 
   --border-off-color: var(--color-blue);
   --border-on-color:  var(--color-green);
   --sphere-off-color: var(--color-blue);
   --sphere-on-color:  var(--color-green);
+}
+*/
+  /* Explicit State Mappings */
+  --border-off-color: transparent !important;
+  --border-on-color:  transparent !important;
+  --sphere-off-color: transparent !important;
+  --sphere-on-color:  transparent !important;
 }
 
 /* ── ROUND BUTTON & SPHERE INDICATOR ── */
