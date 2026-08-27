@@ -58,8 +58,8 @@ body {
   padding-bottom: 80px; 
 }
 
-/* Default Mobile: 0px horizontal padding */
-p:not(.callout p) { 
+/* Default Mobile: 0px horizontal padding (Exclude callout & formula-block paragraphs from double padding) */
+p:not(.callout p):not(.formula-block p) { 
   margin-bottom: 12px; 
   padding-left: 0px;
   padding-right: 0px;
@@ -96,6 +96,7 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
 
 .formula-block { background: #111111; color: #ffffff; border-radius: 16px; padding: 20px 0px; margin: 16px 0; font-weight: 700; line-height: 2; border-left: 5px solid var(--green); }
 .formula-block-label { color: var(--green); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.formula-block p { padding-left: 0 !important; padding-right: 0 !important; margin-bottom: 4px; }
 .formula { color: var(--yellow); }
 
 /* ── TABLES ── */
@@ -344,8 +345,6 @@ header { background: #111111; color: var(--yellow); padding: 0px 0px 0px; text-a
   }
 }
 
-
-
 .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
 .footer { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 0px 40px; gap: 16px; border-top: 1px solid var(--border); margin-top: 60px; }
 .footer-logo { 
@@ -441,8 +440,6 @@ html, body {
     box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
   }
 }
-
-
 
 /* ── PRICING CARD ── */
 .pricing-block {
@@ -610,10 +607,9 @@ html, body {
 #code-input6  { field-sizing: content; }
 #code-input7  { field-sizing: content; }
 
-
 /* ── DESKTOP STYLES (768px wide and above) ── */
 @media (min-width: 768px) {
-  p:not(.callout p) {
+  p:not(.callout p):not(.formula-block p) {
     padding-left: 20px;
     padding-right: 20px;
   }
