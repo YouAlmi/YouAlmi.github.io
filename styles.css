@@ -386,10 +386,6 @@ html, body {
 
 
 
-
-
-
-/* ── ROUND BUTTON & SPHERE INDICATOR ── */
 /* ── DESIGN TOKENS (COLORS & SIZES) ── */
 :root {
   /* Color Palette */
@@ -400,18 +396,29 @@ html, body {
   --sphere-diameter: 10px;
   --second-diameter: 40px;
 
+  /* Layout Containers */
+  --content-max-width: 768px;
+
   /* Explicit State Mappings 
   --border-off-color: var(--color-blue);
   --border-on-color:  var(--color-green);
   --sphere-off-color: var(--color-blue);
   --sphere-on-color:  var(--color-green);
-}
-*/
+  */
+
   /* Explicit State Mappings */
   --border-off-color: transparent !important;
   --border-on-color:  transparent !important;
   --sphere-off-color: transparent !important;
   --sphere-on-color:  transparent !important;
+}
+
+/* ── MAIN CONTENT CONTAINER (768px CENTERED) ── */
+.app-container {
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 /* ── ROUND BUTTON & SPHERE INDICATOR ── */
@@ -425,7 +432,6 @@ html, body {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -438,6 +444,23 @@ html, body {
 
   -webkit-tap-highlight-color: transparent;
   outline: none;
+
+  /* Fixed positioning during scroll */
+  position: fixed;
+  z-index: 1000;
+
+  /* Mobile Default: Bottom-right corner with edge spacing */
+  bottom: 20px;
+  right: 20px;
+}
+
+/* ── DESKTOP POSITIONING (OVER 768px VIEWPORT) ── */
+/* Centers button between the right edge of the 768px container and the screen edge */
+@media (min-width: 768px) {
+  .round-button {
+    right: calc((100vw - var(--content-max-width)) / 4);
+    bottom: 30px;
+  }
 }
 
 /* ── ON STATE OVERRIDES ── */
@@ -535,7 +558,6 @@ html, body {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
-
 
 
 
