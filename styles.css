@@ -1,7 +1,7 @@
 /* ── DESIGN TOKENS ── */
 :root {
   /* Line & Block Spacing Variables */
-  --p-line-height:   1.85;  /* Original line height */
+  --p-line-height:   11px;  /* Original line height */
   --p-margin-bottom: 11px;  /* Original paragraph margin */
 
   --black:        #111111;
