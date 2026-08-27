@@ -392,7 +392,7 @@ html, body {
 /* ── ROUND BUTTON & SPHERE INDICATOR ── */
 
 :root {
-  --sphere-diameter: 10px;
+  --sphere-diameter: 70px;
 }
 
 .round-button {
