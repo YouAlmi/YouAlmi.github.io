@@ -20,7 +20,7 @@
   /* Typography & Paragraph Spacing Variables */
   --base-font-size:   17px;
   --base-line-height: 1.75;
-  --p-line-height:    1.35;    /* Tighter spacing for wrapped lines within a paragraph */
+  --p-line-height:    1.00;    /* Tighter spacing for wrapped lines within a paragraph */
   --p-margin-bottom:  16px;    /* Larger gap between separate <p> tags */
 
   /* Modern Glass & Accent Tokens */
