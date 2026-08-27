@@ -1,30 +1,36 @@
 /* ── DESIGN TOKENS ── */
 :root {
-  --black:        #111111;
-  --gray:         #555555;
-  --gray-lt:      #f2f2f2;
-  --border:       #dddddd;
-  --bg:           #0b0f19;
-  --white:        #ffffff;
-  --yellow:       #ffd166;
-  --green:        #2d8a4e;
-  --green-lt-lt:  #00ff00;
-  --green-lt:     #eaf7ee;
-  --blue:         #1a6fab;
-  --blue-lt:      #e8f3fc;
-  --orange:       #e8610a;
-  --orange-lt:    #fff3eb;
-  --red:          #c0392b;
-  --red-lt:       #fdecea;
+  --black:            #111111;
+  --gray:             #555555;
+  --gray-lt:          #f2f2f2;
+  --border:           #dddddd;
+  --bg:               #0b0f19;
+  --white:            #ffffff;
+  --yellow:           #ffd166;
+  --green:            #2d8a4e;
+  --green-lt-lt:      #00ff00;
+  --green-lt:         #eaf7ee;
+  --blue:             #1a6fab;
+  --blue-lt:          #e8f3fc;
+  --orange:           #e8610a;
+  --orange-lt:        #fff3eb;
+  --red:              #c0392b;
+  --red-lt:           #fdecea;
+
+  /* Typography & Paragraph Spacing Variables */
+  --base-font-size:   17px;
+  --base-line-height: 1.75;
+  --p-line-height:    1.35;    /* Tighter spacing for wrapped lines within a paragraph */
+  --p-margin-bottom:  16px;    /* Larger gap between separate <p> tags */
 
   /* Modern Glass & Accent Tokens */
-  --card-bg:      rgba(22, 31, 48, 0.75);
-  --card-border:  rgba(255, 255, 255, 0.1);
-  --accent-cyan:  #38bdf8;
-  --accent-emerald:#34d399;
-  --text-main:    #f8fafc;
-  --text-muted:   #94a3b8;
-  --glass-glow:   rgba(56, 189, 248, 0.15);
+  --card-bg:          rgba(22, 31, 48, 0.75);
+  --card-border:      rgba(255, 255, 255, 0.1);
+  --accent-cyan:      #38bdf8;
+  --accent-emerald:   #34d399;
+  --text-main:        #f8fafc;
+  --text-muted:       #94a3b8;
+  --glass-glow:       rgba(56, 189, 248, 0.15);
 }
 
 @media (prefers-color-scheme: light) {
@@ -49,21 +55,27 @@
   margin: 0; 
   padding: 0; 
   font-family: 'Nunito', sans-serif; 
-  font-size: 17px; 
-  line-height: 1.75; 
+  font-size: var(--base-font-size); 
 }
+
 body { 
   background: var(--bg); 
   color: var(--black); 
   padding-bottom: 80px; 
+  line-height: var(--base-line-height);
 }
 
-/* Default Mobile: 0px horizontal padding (Exclude callout & formula-block paragraphs from double padding) */
+/* Default Mobile: 0px horizontal padding
+   - Line height handles wrapped lines inside the same paragraph.
+   - Margin bottom creates a larger space between distinct <p> tags.
+*/
 p:not(.callout p):not(.formula-block p) { 
-  margin-bottom: 12px; 
+  line-height: var(--p-line-height);
+  margin-bottom: var(--p-margin-bottom); 
   padding-left: 0px;
   padding-right: 0px;
 }
+
 strong { font-weight: 900; }
 em { font-style: italic; }
 
