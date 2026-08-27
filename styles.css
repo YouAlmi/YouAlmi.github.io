@@ -445,6 +445,55 @@ html, body {
 
 
 
+
+
+
+
+/* Center the sphere inside the round button */
+.round-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* CSS Variables for mode toggling */
+  --sphere-color: #007bff; /* Default OFF state color (Blue) */
+}
+
+/* Semi-transparent sphere indicator styling */
+.sphere-indicator {
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+/* ON State Styles */
+.round-button.is-on {
+  --sphere-color: #34d399; /* Emerald Green */
+  border-color: #34d399;
+}
+
+/* Optional glow adjustment on click/toggle */
+.round-button.is-on {
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(52, 211, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+
+
+
+
+
+
 /* ── PRICING CARD ── */
 .pricing-block {
   position: relative;
