@@ -153,44 +153,7 @@
 
 
 
-<div class="section-label">With The Best Intentions</div>
 
-
-<img src="ai-teacher.png" style="display:block; width:100%; height:auto; margin:0 auto; border-radius:8px;">
-
-<div class="card" style="margin-top:32px;">
-    <div class="card-body">
-      <p>Today, AI teachers — with their ultra-natural and empathetic voices — 
-        can seem even more human than humans themselves,
-        demonstrating genuine attention to every detail you care about.</p>
-        <p>What they still need, however, is the right material to teach with — and for now, only humans can create that material.</p>
-        <p>This course is an example.</p>
-
-        <p>Just tap the pulsing button to call your personal AI teacher!</p>
-    </div>
-  </div>
-
-
-
-
-
-<div class="container">
-  <button class="round-button" id="aiTeacherBtn" data-tooltip="" aria-label="Toggle AI Teacher">
-    <svg class="sphere-indicator" viewBox="0 0 20 20">
-      <defs>
-        <radialGradient id="sphereGrad" cx="35%" cy="35%" r="65%">
-          <!-- Highlight center -->
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
-          <!-- Main body semi-transparent fill -->
-          <stop offset="50%" stop-color="var(--sphere-color)" stop-opacity="0.6" />
-          <!-- Edge fading -->
-          <stop offset="100%" stop-color="var(--sphere-color)" stop-opacity="0.25" />
-        </radialGradient>
-      </defs>
-      <circle cx="10" cy="10" r="9" fill="url(#sphereGrad)" />
-    </svg>
-  </button>
-</div>
 
 
     <div class="section-label">Brains 🧠</div>
@@ -945,36 +908,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-<!-- round-bitton -->
-<script>
-  const BUTTON_ELEMENT = document.getElementById('aiTeacherBtn');
-  let IS_TEACHER_ACTIVE = false;
-  let NOTIFICATION_TIMER = null;
 
-  BUTTON_ELEMENT.addEventListener('click', () => {
-    IS_TEACHER_ACTIVE = !IS_TEACHER_ACTIVE;
-
-    // Toggle button state
-    if (IS_TEACHER_ACTIVE) {
-      BUTTON_ELEMENT.classList.add('is-on');
-      BUTTON_ELEMENT.setAttribute('data-tooltip', 'AI teacher ON');
-    } else {
-      BUTTON_ELEMENT.classList.remove('is-on');
-      BUTTON_ELEMENT.setAttribute('data-tooltip', 'AI teacher OFF');
-    }
-
-    // Show tooltip
-    BUTTON_ELEMENT.classList.add('is-tooltip-visible');
-
-    // Clear any previous timer so quick repeated clicks don't glitch the animation
-    clearTimeout(NOTIFICATION_TIMER);
-
-    // Hide tooltip automatically after 1.5 seconds
-    NOTIFICATION_TIMER = setTimeout(() => {
-      BUTTON_ELEMENT.classList.remove('is-tooltip-visible');
-    }, 1500);
-  });
-</script>
 
 
 </body>
